@@ -1,0 +1,47 @@
+.backround{
+	background-color: #fff;
+	margin: 1.5rem;
+	padding: 2rem;
+	border-radius: .3rem;
+}
+
+.styleforicon{
+	cursor: pointer;
+	color: #5e72e4;
+	text-align: center;
+}
+
+.dusbin{
+	cursor: pointer;
+	color: red;
+	margin-left: 1rem;
+}
+
+.btnstyle{
+	margin-left: 2.5rem;
+}
+
+.catstyles1{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+}
+
+.catstyles11{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+@media screen and (max-width: 800px) {
+	.tablestyles{
+		overflow-y: auto;
+		width: 100;
+	}
+
+	.tbstl{
+		min-width: 40rem;
+	}
+}

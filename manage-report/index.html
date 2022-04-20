@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <title>Meritbothi | Manage-Report's</title>
+    <style>
+            .head{
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+            }
+    .accpt{
+            margin-left: 2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            }
+    
+            h3{
+                font-size: 16px;
+                margin-top: 7px;
+                margin-left: 20px;
+
+            }
+           .tb{
+            margin-top: 1rem;
+            padding: 1rem;
+            display: none;
+
+
+           }
+           .st{
+            margin-left: 10px; 
+            cursor: pointer;
+           }
+           .se{
+            margin-left: 20px;
+            width: 10rem; 
+            max-height: 2.3rem;
+            cursor: pointer;
+           }
+
+           .backround{
+            background-color: #fff;
+            margin: 1.5rem;
+            border-radius: .5rem;
+        }
+        .backround1{
+            background-color: #fff;
+            margin-top: 1.5rem;
+            margin-right: 1.5rem;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: .3rem;
+        }
+
+    @media only screen and (max-width: 785px){
+        h3{
+            margin-left: 1px;
+            font-size: 14px;
+        }
+        .Report{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 2rem;
+            
+            }
+        .st{
+            margin-left: 1px;
+            
+           }
+           .head{
+
+                flex-direction: column;
+            }
+           .se{
+            margin-left: 1px;
+            width: 100%;
+        }
+}
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishor</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../manage-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link " href="../manage-institute" ><i class="fas fa-university"></i>Institute's</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link " href="../manage-courses"><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-category" ><i class="fas fa-sort-amount-down"></i>Category</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-payments" ><i class="fas fa-credit-card"></i>Payments</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../manage-report" ><i class="fas fa-flag"></i>Report Generation</a>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link " href="../manage-complaints" ><i class="fas fa-question-circle"></i>Complaints</a>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-addadmins" ><i class="fas fa-plus-square"></i>Add Admins</a>
+                                
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+          <div class="dashboard-ecommerce">
+            
+            <div class="backround1">
+                
+                <div class="head">
+                
+                <h3>Start</h3> 
+               <label> <input type="date" class="form-control st "></label>
+                <h3>End</h3>
+               <label><input type="date" class="form-control st" ></label>
+               <label><select class="form-control se" id="need" onchange="needchanges()">
+                                <option value="1">Select</option>
+                                <option value="2">Institute</option>
+                                <option value="3">Faculty</option>
+                                <option value="4">Course</option>
+                                
+                    </select></label>
+                    
+                </div>
+            </div>
+
+            <div class="backround">
+                <div class="table-responsive tb" id="demo" >
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="border-0">
+                            <th scope="col">No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Date & Time</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Abrham Linkhan</td>
+                            <td>aabbccdd@gmail.com</td>
+                            <td>14-01-2021 & 13:02:33</td>
+                            <td><button class="btn btn-sm btn-primary accpt">
+                              View</button>
+                            </tr>
+
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Abrham Linkhan</td>
+                            <td>aabbccdd@gmail.com</td>
+                            <td>14-01-2021 & 13:02:33</td>
+                            <td><button class="btn btn-sm btn-primary accpt">
+                              View</button>
+                            </tr>
+
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Abrham Linkhan</td>
+                            <td>aabbccdd@gmail.com</td>
+                            <td>14-01-2021 & 13:02:33</td>
+                            <td><button class="btn btn-sm btn-primary accpt">
+                              View</button>
+                            </tr>
+                                          
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+          </div> <!-- D-ECOM-DIV -->
+        </div> <!-- D-WRAP-DIV -->
+        
+
+        <script>
+            
+            needchanges = () => {
+                document.getElementById('need').value=="2"
+                {
+                    document.getElementById('demo').style.display="block";
+                }
+            } 
+
+        </script>
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

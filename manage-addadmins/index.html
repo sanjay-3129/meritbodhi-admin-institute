@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="manage-admin.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://meritbodhi.co.in/admin/js/connect.js"></script>
+    <script src="https://meritbodhi.co.in/admin/js/admin-setup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <title>Meritbothi | Manage-Admin's</title>
+    <!-- cdns for custom multi select -->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishor</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/admin.png" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../manage-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-institute" ><i class="fas fa-university"></i>Institute's</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link " href="../manage-courses"><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-category" ><i class="fas fa-sort-amount-down"></i>Category</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-payments" ><i class="fas fa-credit-card"></i>Payments</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../manage-report" ><i class="fas fa-flag"></i>Report Generation</a>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link " href="../manage-complaints" ><i class="fas fa-question-circle"></i>Complaints</a>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../manage-addadmins" ><i class="fas fa-plus-square"></i>Add Admins</a>
+                                
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+          <div class="dashboard-ecommerce">
+            <div class="backround">
+
+                <h3>Add Admin's with role:</h3>
+                <button class="btn btn-sm btn-primary btnstyle" onclick="newadmin()">Add new</button>
+                <div class="tablestyles">
+                    <table class="table table-bordered tbstl">
+                      <thead>
+                        <tr>
+                          <th scope="col">No.</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Role</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="adminsList">
+                        <!-- <tr>
+                          <th scope="row">1</th>
+                          <td>Alan@mama.com</td>
+                          <td>Institute</td>
+                          <td><i class="fas fa-pen styleforicon" onclick="editcontent()"></i> <i class="fas fa-trash dusbin"></i></td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+          </div> <!-- DASH ECOM DIV -->
+      </div> 
+
+
+
+      <!-- MODAL'S -->
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop1" id="modalnew" style="display:none;">
+          Launch static backdrop modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Admin's</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="addNewAdmin">
+              <div class="modal-body">
+                <div class="catstyles">
+                <div class="catstyles11">
+                    <div style="margin-bottom: .5rem;">Email :</div>
+                    <input type="text" class="form-control" name="email" placeholder="username or email">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Password :</div>
+                    <input type="text" class="form-control" name="password" placeholder="password">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Confirm Password :</div>
+                    <input type="text" class="form-control" name="cpassword" placeholder="re-type password">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Role :</div>
+                    <select id="roles" name="roles" class="form-control">
+                        <option value="default">---Select---</option>
+                        <option value="Institute">Institute</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Courses">Courses</option>
+                    </select>
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Enter your Password :</div>
+                    <input type="text" class="form-control" name="adminPassword" placeholder="Your password">
+                </div>
+            </div>
+              </div>
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" onclick="addAdmin()" data-dismiss="modal">Add</button> &nbsp; &nbsp;
+                <button type="button" class="btn btn-sm btn-primary" style="background-color: red;" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop2" id="modalnew1" style="display:none;">
+          Launch static backdrop modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Admin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="catstyles">
+                <div class="catstyles11">
+                    <div style="margin-bottom: .5rem;">Username :</div>
+                    <input type="text" class="form-control" name="maincat" value="Alan">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Password :</div>
+                    <input type="text" class="form-control" name="maincat" value="3#4$edtq%">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Confirm Password :</div>
+                    <input type="text" class="form-control" name="maincat" value="3#4$edtq%">
+                </div>
+                <div class="catstyles1">
+                    <div style="margin-bottom: .5rem;">Role :</div>
+                    <select id="roles" class="form-control">
+                        <option value="1">Select</option>
+                        <option value="2">Institute</option>
+                        <option value="3">Faculty</option>
+                        <option value="4">Courses</option>
+                    </select>
+                </div>
+            </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary">Modify</button> &nbsp; &nbsp;
+                <button type="button" class="btn btn-sm btn-primary" style="background-color: red;" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- END MODAL'S -->
+
+      <!-- DEFAULT CONTENT -->
+
+      <div id="snackbar"></div>
+    <!-- temprory loading -->
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:50px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+      <!-- DEFAULT CONTENT -->
+
+    <script type="text/javascript">
+        document.getElementById('iName').innerHTML=sessionStorage.getItem('name');
+
+        var uid='';
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                uid=user.uid;
+            }else{
+                location.replace('../admin-login');
+            }
+        })
+
+        onload = async () => {
+            loaderTriggerAndEnder(true);
+            var i=0;
+            const allAdmins = await data.collection('admin').get();
+
+            $('#adminsList').html('');
+
+            allAdmins.docs.forEach((doccc)=>{
+                var doc=doccc.data();
+                console.log(uid);
+                console.log(doc.id);
+                if(doc.id!=uid){
+                    i++;
+                    $('#adminsList').append(`<tr>
+                          <th scope="row">`+i+`</th>
+                          <td>`+doc.email+`</td>
+                          <td>`+doc.role+`</td>
+                          <td><i class="fas fa-trash dusbin" data-id="`+doc.id+`" onclick="deleteAdmin(this)"></i></td>
+                        </tr>`);
+                }
+                if(allAdmins.docs.length==i+1){
+                    loaderTriggerAndEnder(false);
+                }
+            })
+        }
+
+        deleteAdmin = (id) => {
+            
+        } 
+        
+        newadmin = () => {
+            document.getElementById('modalnew').click();
+        }
+
+        editcontent = () => {
+            document.getElementById('modalnew1').click();
+        }
+
+        addAdmin = async () => {
+            var form = document.getElementById('addNewAdmin');
+            loaderTriggerAndEnder(true);
+
+            if(form.password.value==form.cpassword.value){
+                const authcrea = await auth.createUserWithEmailAndPassword(form.email.value,form.password.value);
+
+                data.collection('admin').doc(authcrea.user.uid).set({
+                    id: authcrea.user.uid,
+                    role: form.roles.value,
+                    email: form.email.value
+                }).then(()=>{
+                    auth.signInWithEmailAndPassword(sessionStorage.getItem('emailOfAdmin'),form.adminPassword.value).then(()=>{   onload();
+                    });
+                });
+            }else{
+                showToast(`Passwords didn't matched !!!`);
+            }
+        }
+    </script>
+    
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

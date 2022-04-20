@@ -1,0 +1,181 @@
+.cbtn{
+  margin-left: 1.2rem;
+  margin-top: 10px;
+}
+.cobtn{
+  margin-left: 2.5rem;
+  margin-top: 10px;
+}
+.coabtn{
+  margin-left: 2.1rem;
+  margin-top: 10px;
+}
+.coobtn{
+  margin-left: 2.1rem;
+  margin-top: 10px;
+}
+.comp1{
+  margin-left: 2.5rem;
+  margin-top: 1.5rem;
+
+}
+.sr{
+  margin-left: 54rem;
+}
+.nav-tabs{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+}
+.tab-content{
+  background-color: #fff;
+  margin-left: 0.6rem;
+  margin-right: 0.5rem;
+
+}
+.f1name{
+  
+  margin-right: 4rem;
+}
+.fname{
+  margin-top: 2.4rem;
+  margin-right: 4rem;
+}
+.facform1{
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+}
+.user-details{
+  display: flex;
+  justify-content: space-between;
+}
+#cd1{
+  margin-left: 12.3rem;
+  
+}
+#addnew{
+  margin-left: 1rem;
+  margin-top: 10px;
+}
+.neadd{
+  margin-top: 20px;
+  margin-left: 16rem;
+}
+.qualif{
+  margin-right: 22.7rem;
+}
+.quali{
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5rem;
+  margin-left: 12.3rem;
+}
+
+.adne{
+  margin-left: 2rem;margin-top: 1rem;
+}
+
+.mini-wrapper2{
+  margin-right: 22rem;
+}
+.table2{
+  width: 60%;
+}
+@media only screen and (max-width: 785px){
+.form-control{
+  width: 100%;
+}
+.table2{
+  width: 100%;
+}
+
+.nav-tabs{
+    margin-left: 1px;
+
+}
+.tab-content{
+  margin-left: 1px;
+
+}
+.user-details{
+  flex-direction: column;
+}
+.sr{
+  margin-left: 10rem;
+  margin-top: 2rem;
+}
+}
+@media only screen and (max-width: 1172px){
+#cd1{
+  margin-left: 1px;
+}
+
+.qualif{
+  margin-top: 10px;
+  margin-right: 1px;
+}
+.quali{
+  flex-direction: column;
+  margin-top: 1px;
+  margin-left: 1px;
+}
+img {
+
+  
+  width: 100px;
+  height: 100px;
+  
+}
+.contai{
+  margin-left: 6rem;
+  margin-bottom: 1rem;
+}
+
+
+.nav-tabs{
+    margin-left: 1px;
+
+}
+.f1name{
+  
+  margin-right: 1px;
+}
+.fname{
+  margin-top: 1px;
+  margin-right: 1px;
+}
+.tab-content{
+  margin-left: 1px;
+
+}
+.user-details{
+  flex-direction: column;
+}
+.sr{
+  margin-left: 10rem;
+  margin-top: 2rem;
+}
+.quali{
+  margin-top: 1px;
+  margin-left: 1px;
+}
+.desp{
+  margin-top: 1px;
+  margin-left: 1px;
+}
+.cbtn{
+  margin-left: 1px;
+  margin-top: 1px;
+}
+.
+.coabtn{
+  margin-left: 1px;
+  margin-top: 1px;
+}
+.coobtn{
+  margin-left: 1px;
+  margin-top: 1px;
+}
+}
+

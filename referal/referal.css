@@ -1,0 +1,59 @@
+.card1
+{
+	background-color: #fff;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.share-btn{
+    border: 0 solid;
+}
+
+.contentall{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.calls{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.callss{
+    display: flex;
+    margin-top: 1rem;
+    margin-right: -2.5rem;
+}
+
+.h3referal{
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
+.inputtypetext{
+    width: 40%;
+    margin-top: -.1rem;
+
+}
+
+.respon{
+    max-height: 310px;
+    overflow-y: auto;
+}
+
+
+/*MOBILE RESPONSIVE*/
+
+@media screen and (max-width: 800px){
+    .respon{
+        overflow-x:auto;
+    }
+    .callss
+    {
+        margin-right: 1rem;
+    }
+    .contentall{
+        flex-direction: column;
+    }
+}

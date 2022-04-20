@@ -1,0 +1,240 @@
+.SortCoursesSel{
+    margin-left: 1rem;
+}
+.SortCoursesSel select{
+    
+    width: 100px;
+}
+.overall-form{
+    display: flex;
+    justify-content: center;
+    
+}
+.overall-form .formcrs{
+    background-color: white;
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    margin:2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.formcrs .coverimg{
+    width: 100%;
+    height: 200px;
+}
+.formcrs .thumbimg{
+    position: absolute;
+    margin-left: 9rem;
+    margin-top: -75px;
+    width: 200px;
+    height: 200px;
+    border-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+}
+.topRightTn{
+    margin-left: 20rem;
+    text-align: center;
+}
+.cboxcs{
+    width: 150px;
+    padding: 0.5rem;
+}
+#btnAddFac{
+      margin-left: 1rem;
+}
+.topRightTn input{
+    padding: 0.5rem;
+    min-width: 200px;
+    width: 80%;
+    height: 50px;
+    outline:none;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.mainconsd input{
+    padding: 0.5rem;
+    min-width: 200px;
+    width:65%;
+    height: 50px;
+    outline:none;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+}
+select,.over-text{
+    padding: 0.5rem;
+    height: 50px;
+    outline:none;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+select{
+     width: 35%;
+}
+
+#mulselpb{
+    display: flex;
+    justify-content: center;
+}
+.lvcont{
+    position: absolute;
+    margin-top: 0.5rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius:10px;
+    width: 290px;
+}
+.mycard{
+    background-color: #fff;
+}
+.catcH{
+    padding: 0.5rem 0rem 0.5rem 0.5rem;
+    border-radius: 10px;
+    background-color: white;
+    color: grey;
+    cursor: not-allowed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.catcHs{
+    padding: 0.5rem 0rem 0.5rem 0.5rem;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(155, 155, 155);
+    cursor: not-allowed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.catsMS{
+    padding: 0.5rem;
+    width: 300px;
+    height: 50px;
+    outline:none;
+    border: none;
+     background-color: white;
+    }
+.over-text{
+     height: 200px;
+         width: 70%;
+    }
+.formcrs .addcover{
+        display: flex;
+        justify-content: center;
+        
+    }
+.formcrs .thumbimg img{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+.formcrs .coverimg img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     }
+.textthumb{
+        text-align: center; margin-top: 5rem; cursor: pointer;
+    }
+.listView{
+        margin-top: 5px;
+        outline: none;
+        border:none;
+        width: 100%;
+        height: 100px;
+        overflow-x: hidden;
+        background: #fff;
+    }
+.ulfun{
+    width: 100%;
+}
+.ulfun li{
+    margin-left: -1.5rem;
+    text-align: left;
+    
+}
+.ulfun li:hover{
+    background-color: blue;
+    color: white;
+}
+.mul-select select{
+ width: 100%;
+}
+.mul-select button{
+    background-color: #fff !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    padding: 0.5rem !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important; 
+}
+.coverofteachers{
+    position: absolute;
+    width: 275px;
+    margin-right: 7.60rem;
+    margin-left: -1.1rem;
+    margin-top: 0.2rem;
+    background-color:white;
+    text-align: left;
+    height: 2rem;
+
+}
+.coverofteachers:hover{
+    border-right: 2px solid black;
+}
+.coverofteachers p{
+    margin-top: 0.25rem;
+    text-align: left;
+    
+}
+
+@media only screen and (max-width: 940px){
+	.topRightTn{
+		margin-top: 1rem;
+        margin-left: 0rem;
+	}
+    .formcrs .thumbimg{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-left: 0rem;
+        margin-top: 0px;
+    }
+    .formcrs .thumbcen{
+        display: flex;
+        justify-content: center;
+    }
+    #mulselpb{
+        display: block;
+        min-width: none;
+    }
+    #btnAddFac{
+        margin-left: 0rem;
+        margin-top: 1rem;
+  }
+    .coverofteachers{
+       display: none;
+    }
+    .overall-form .formcrs{
+
+    width: 90%;
+     }
+     .mul-select button{
+           width: 80% !important;
+     }
+     .over-text{
+        width: 80%;
+     }
+
+}
+@media only screen and (max-width: 450px){
+     .overall-form .formcrs{
+          width: 95%;
+     }   
+}

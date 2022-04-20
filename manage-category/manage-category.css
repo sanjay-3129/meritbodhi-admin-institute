@@ -1,0 +1,178 @@
+.backround{
+	background-color: #fff;
+	margin: 1.5rem;
+	padding: 2rem;
+	border-radius: .2rem;
+}
+
+.searchboxclass{
+	display: flex;
+	width: 23%;
+	float: right;
+	margin-top: -2.5rem;
+}
+
+.searchicon{
+	cursor: pointer;
+	border: none;
+	background-color: #b1b1b1;
+}
+
+.addnew{
+	margin-left: 2.8rem;
+}
+
+.catstyles1{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.catstyles3{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.catstyles33{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.catstyles4{
+	width: 100%;
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.catstyles44{
+	width: 100%;
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.catstyles2{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+}
+
+.iconstyle{
+	margin-top: .5rem;
+	cursor: pointer;
+	margin-left: -2rem;
+	font-size: 1rem;
+}
+
+
+.subcat{
+	margin-left: 6rem; 
+	margin-bottom: .5rem;
+}
+
+.subcat1{
+	margin-left: 6rem; 
+	margin-bottom: .5rem;
+}
+
+@media screen and (max-width: 800px){
+	.searchboxclass{
+		flex-direction: row;
+		float: none;
+		margin-top: 1rem;
+		width: 100%
+	}
+
+	.formobile{
+		overflow: auto;
+	}
+
+	.needchanges{
+		min-width: 50rem;
+	}
+
+	.needchanges1{
+		min-width: 40rem;
+	}
+
+	.addnew{
+		margin-top: 1rem;
+	}
+
+	.subcat{
+		margin-left: 4rem; 
+		margin-bottom: .5rem;
+	}
+
+	.subcat1{
+		margin-left: 4rem; 
+		margin-bottom: .5rem;
+	}
+}
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+
+	top: 0;
+	left: 0;
+	background-color:white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	margin-top: 30px;
+	font-size: 20px;
+	
+  }
+  
+  .sidebar a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 19px;
+	color: #007bff;
+	display: block;
+	transition: 0.3s;
+	margin-left: 26px;
+  }
+  
+  .sidebar a:hover {
+	color: black;
+  }
+  
+  .sidebar .closebtn  {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  .openbtn  {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: #007bff;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  #main1 {
+	transition: margin-left .5s;
+	padding: 16px;
+  }
+  .closebtn:hover {
+	  background-color: whitesmoke;
+  }
+  .closebtn {
+	  margin-top: 24px;
+	  
+  }

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+:root{
+	--theme-color:linear-gradient(135deg, rgb(52,82,255)10%, rgb(255,16,83)100%);
+    --tc-opacity:rgba(42, 92, 40,0.74);
+}
+*{
+	padding: 0;
+	margin:0;
+
+	box-sizing: border-box;
+	list-style-type: none;
+	font-family: sans-serif; 
+	text-decoration: none;
+
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 15px;
+}
+td{
+  padding: 18px;
+}
+
+
+td:first-child{
+	border-right: 0.5px solid  rgba(0,0,0,0.2);
+    border-bottom: 0.5px solid rgba(0,0,0,0.2) ;
+	text-align: center;
+}
+	
+td:last-child{
+    border-bottom: 0.5px solid rgba(0,0,0,0.2) ;
+	text-align: center;
+}
+table {
+	position:  relative;
+  margin: 40px auto 0px auto;
+  font-family: sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+.sidebar{
+	width: 245px;
+	height: 100%;
+	position: fixed;
+	top :0;
+	left: 0;
+	background: var(--theme-color);
+	transition: width 300ms;
+}
+#nav-toggle:checked + .sidebar {
+	width: 70px;
+
+}
+
+
+#nav-toggle:checked + .sidebar .logo-icon{
+	padding-left: 2rem;
+}
+#nav-toggle:checked + .sidebar .menu  {
+	padding-left: 1rem;
+}
+#nav-toggle:checked + .sidebar .logo-icon h2 span:last-child,
+#nav-toggle:checked + .sidebar li a span:last-child{
+display: none;
+} 
+#nav-toggle:checked + .sidebar li,
+#nav-toggle:checked + .sidebar .menu a.active,
+#nav-toggle:checked + .sidebar .logo-icon{
+padding-right: 1rem;
+}
+
+.logo-icon{
+	height: 90px;
+	padding: 1rem 0rem 1rem 1rem;
+	color: #fff;
+}
+#nav-toggle:checked ~ .top-bar{
+	margin-left: 70px;
+}
+.top-bar{
+	transition: margin-left 300ms;
+	margin-left: 245px;
+}
+.menu li{
+width: 100%;
+margin-bottom: 2rem;
+margin-left: 1rem;
+padding-right: 1rem;
+}
+.menu a{
+	color: #fff;
+	display: block;
+	font-size: 1.1rem;
+}
+.hide-cb{
+	position: absolute;
+	margin-top: -10rem;
+}
+.menu a.active{
+	padding: 0.75rem;
+	background: #fff;
+	border-radius: 10px 0px 0px 3px;
+	color: var(--theme-color);
+}
+header{
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+}
+.logo-icon span{
+	display: inline-block;
+	padding-right: 1rem;
+}
+#signout:checked + .signout{
+	display: inline-block;
+}
+.signout{
+	display: none;
+	cursor: pointer;
+	padding: 1rem 2rem 1rem 2rem;
+	position: absolute;
+	right: 0;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.3);    
+	margin-top: 3.50rem;
+}
+.signout a{
+	color: #000;
+}
+.signout input[type=submit]{
+outline: 0;
+cursor: pointer;
+display: relative;
+border: 0px;
+background-color: #fff;
+}
+.user-wrapper{
+	display: flex;
+	align-items: center;
+}
+.user-wrapper img{
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+.user-wrapper small{
+	display: inline-block;
+	color: #919191
+}
+.selectBox{
+	 border: 1px solid #ccc;
+  border-radius: 4px;
+padding: 8px 12px;
+color: #000;
+background: #fff;
+}
+.selectBox:hover,
+.selectBox:focus{
+outline: none;
+background: #fff;
+color: #000;
+}
+@media (max-width: 1000px){
+.sidebar{
+	width: 70px;
+}	
+.sidebar .logo-icon{
+	padding-left: 2rem;
+}
+.sidebar .menu  {
+	padding-left: 1rem;
+}
+.sidebar .logo-icon h2 span:last-child,
+.sidebar li a span:last-child{
+display: none;
+}
+.sidebar li,
+.sidebar .menu a.active,
+.sidebar .logo-icon{
+padding-right: 1rem;
+}
+.top-bar{
+	margin-left: 70px;
+} 
+}
+.form {
+
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 2rem auto 0px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 15px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input ,textarea{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+textarea{
+height: 200px;
+background: #fff;
+border:1px solid #ccc;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}

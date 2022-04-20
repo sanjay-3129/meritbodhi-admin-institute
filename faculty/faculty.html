@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="fac.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://meritbodhi.co.in/js/connect.js"></script>
+    <title>Meritbothi | Faculty Institute</title>
+    <!-- cdns for custom multi select -->
+    <style>
+           
+#upload{
+    margin-top: 1.5rem;
+    margin-left: 4.5rem;
+}
+
+img {
+
+  opacity: 1;
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link " href="../profile" ><i class="fas fa-user"></i>Profile</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link " href=""><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="../faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="../notification" ><i class="fas fa-fw fa-bell"></i>Notifications</a>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../archive" ><i class="fas fa-archive"></i>Archieve</a>
+                            
+                            <li class="nav-item ">
+                                <a class="nav-link " href="../reviews" ><i class="fas fa-star"></i>Reviews</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../payments" ><i class="fas fa-credit-card"></i>Payments</a>   
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../referal" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../settings" ><i class="fas fa-cog"></i>Settings</a>
+                                 </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        
+
+
+<!-- maincontent -->
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                
+                 <div class="rt">
+                <p style="font-size: 25px; font-weight: bold; margin-left: 1rem;">Faculty List</p>
+                <ul class="nav nav-tabs" >
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Existing Faculty</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu1">Draft Faculties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Faculty Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu3">Requested List</a>
+                </li>
+               </ul>
+   <!-- Tab panes -->
+   <div class="tab-content">
+
+<!-- home -->
+    <div class="tab-pane container active" id="home">
+     <br><br>
+     <button type="button" onclick="Adding()" id="but1" class="btn btn-sm btn-primary" style="margin-left: 3.1rem;">Add New</button>
+     
+     <!-- form -->
+
+     <div class="addnew-form" id="facnewform" style="display:none;">
+                    
+                    
+      <form  method="POST">
+        <div class="mini-wrapper1">
+            
+                            
+                               <!--  <button type="button" class="btn btn-sm btn-primary"onclick="imguppp()" style="margin-top:1.5rem;margin-left: 35rem; width: 20%;">Upload</button>
+                                <input id="facultyImg" type="file" name="facultyImg" accept=".jpg,.jpeg,.png" style="display:none;"> -->
+                            
+
+                        </div>
+                
+                <br>
+                <div class="user-details">
+
+                <div class="contai">
+
+                <img src="spider.jpeg" alt="Avatar" class="imag">
+                <div>
+                <div><button class="btn btn-sm btn-primary" id="upload" onclick="imguppp()"><i class="fas fa-upload "></i>Upload</button>
+                <input id="facultyImg" type="file" name="facultyImg" accept=".jpg,.jpeg,.png" style="display:none;">
+                </div>
+                </div>
+                </div>
+                 
+                   <div class="form-group focused f1name">
+                    <h3>Enter Faculty Details</h3>
+                      <label class="form-control-label" for="input-email">Enter Faculty Name</label>
+                      <input type="text" id="input-fname" class="form-control form-control-alternative" name="Facname" placeholder="Faculty Name" >
+                      </div>
+                     
+                   <div class="form-group focused fname">
+                      <label class="form-control-label" for="input-email">Enter Mobile No</label>
+                      <input type="text" id="input-numb" class="form-control form-control-alternative" name="usernme" placeholder="Mobile Number" >
+                     </div>
+                     
+                     
+                   <div class="form-group focused fname">
+                      <label class="form-control-label" for="input-email">Enter Mail address</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="mailadd" placeholder="mailid@gmail.com" >
+                     
+                    </div>
+                    </div>
+                    <div class="quali">
+                      <div class="">
+                      <label class="form-control-label" for="input-email">Enter the description about faculty</label>
+                      <textarea id="input-descrip" class="form-control form-control-alternative" name="facdescrip" placeholder="Enter the description" ></textarea>
+                      </div>  
+
+                      
+                      <div class="qualif" id="FacExYoQl">
+                                    <label >Qualification</label>
+                                    <input type="text"  class="form-control form-control-alternative" name="yearexp" placeholder="Qualification " >  
+                    </div>
+                    
+                    </div>
+                        
+                      <br>  
+                    <div class="card" id="cd1" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table id="table1" class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                         <th scope="col">Enter Designation</th>
+                                                        <th scope="col" >Years of Experience</th>
+                                                        <th scope="col">Action &nbsp;&nbsp;&nbsp;<i class="fas fa-plus" onclick="ob_adRows.addRow()"/ style="cursor:pointer;"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                    <td><input type="text" name="tm1[]"class="form-control form-control-alternative"/></td>
+                    <td><input type="text"class="form-control form-control-alternative" name="nm2[]"/></td>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" onclick="ob_adRows.delRow(this)"/style="cursor:pointer;"></td>
+                    
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                   
+   
+
+                    <div class="mini-wrapper3 style2 sr">
+                            <button type="button" class="btn btn-sm btn-primary" onclick="draftfactalert()";>Save</button>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-sm btn-primary"style="background-color: #dc3545;">Cancel</button>
+                            
+                        </div>
+
+
+<script>
+
+    function adRowsTable(id){
+    var table = document.getElementById(id);
+    var me = this;
+    if(document.getElementById(id)){
+        var row1 = table.rows[1].outerHTML;
+
+    //adds index-id in cols with class .tbl_id
+        function setIds(){
+        var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id');
+        for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+        }
+
+    //add row after clicked row; receives clicked button in row
+        me.addRow = function(btn){
+        btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1): table.insertAdjacentHTML('beforeend',row1);
+        setIds();
+        }
+
+    //delete clicked row; receives clicked button in row
+        me.delRow = function(btn){
+        btn.parentNode.parentNode.outerHTML ='';
+        setIds();
+    }
+  }
+}
+
+//create object of adRowsTable(), pass the table id
+var ob_adRows = new adRowsTable('table1');
+</script>
+                     
+                     
+</form>
+</div>
+<br><br>
+     <!--table-->
+     
+     <div class="tab1">
+    <!--tab1content-->
+
+<div class="table1"style="width: 100%; " id="pager">
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Profile</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Username</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Default Password</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg" style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 1</td>
+                                                        <td>User_1 </td>
+                                                        <td>Qualification_1</td>
+                                                        <td>@Pass123</td>
+                                                        <td> <button class="btn btn-sm btn-primary cbtn">Ok</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg" style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 2</td>
+                                                        <td>User_2 </td>
+                                                        <td>Qualification_2</td>
+                                                        <td>Pass@123</td>
+                                                        <td> <button class="btn btn-sm btn-primary cbtn">Ok</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg"style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 3</td>
+                                                        <td>User_3 </td>
+                                                        <td>Qualification_3</td>
+                                                        <td>Pass123@</td>
+                                                        <td> <button class="btn btn-sm btn-primary cbtn">Ok</button></td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+        
+<script>
+    function Addfac(a){
+        a.style.display="none";
+        document.getElementById('facnewform').style.display="block";
+        document.getElementById('factable').style.display="none";
+    }
+    function myalert(){
+        document.getElementById('alertMsgTrig').click();
+    }
+</script>
+<script type="text/javascript">
+    
+     document.querySelector('.addnew-exp2').addEventListener('click',function(){
+        var temp3 = document.createElement('input');
+        temp3.setAttribute('name','FacExDest1[]');
+        temp3.setAttribute('type','text');
+        var temp4 = document.createElement('input');
+        temp4.setAttribute('name','FacExYoEx1[]');
+        temp4.setAttribute('type','text');
+        document.getElementById('FacExDest1').appendChild(temp3);
+        document.getElementById('FacExYoEx1').appendChild(temp4);
+    });
+    function submitFac(){
+        document.getElementById('facCreate').click();
+    }
+    function imguppp(){
+        document.getElementById('facultyImg').click();
+    }
+    function imguppp1(){
+        document.getElementById('facultyImg1').click();
+    }
+    document.getElementById('facultyImg').addEventListener("change", function(){
+       if(event.target.files.length==0){
+            return;
+        }
+        var iurl=URL.createObjectURL(event.target.files[0]);
+        document.getElementById('proprev').setAttribute("src",iurl); 
+    });
+    function draftfactalert(){
+        if(confirm("Do you want to save ? ")){
+            document.getElementById('facCreate11').click();
+        }
+    }
+
+    
+
+   
+</script>
+ <script type="text/javascript">
+    function Adding(){
+        document.getElementById('but1').style.display="none";
+        document.getElementById('pager').style.display="none";
+        document.getElementById('facnewform').style.display="block";
+    }
+</script>
+ </div>
+</div>
+
+<!-- home -->
+
+
+
+<!-- menu1 -->
+<div class="tab-pane container" id="menu1">
+<br>
+<div class="table2">
+    <br>
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        
+                                                        <td>Name 1</td>
+                                                        
+                                                        <td>Qualification_1</td>
+                                                        <td> <button class="btn btn-sm btn-primary cobtn">Complete</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        
+                                                        <td>Name 2</td>
+                                                        
+                                                        <td>Qualification_2</td>
+                                                        <td> <button class="btn btn-sm btn-primary cobtn">Complete</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                         <td>3</td>
+                                                        
+                                                        <td>Name 3</td>
+                                                        
+                                                        <td>Qualification_2</td>
+                                                        <td> <button class="btn btn-sm btn-primary cobtn">Complete</button></td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+</div>
+
+         
+
+
+<!-- menu1 -->
+
+<!-- menu2 -->
+    <div class="tab-pane container" id="menu2">
+     <br><br>
+     <!--menu2cont -->
+     <div  >
+             <form class="d-flex">
+             <div style="width:=30%"><input type="text" placeholder="Search.." class="form-control"  id="searchfaccccc"></div>
+             &nbsp;&nbsp;&nbsp;
+             <div style="margin-top: 5px;"><i class="fa fa-search newsearch" style="cursor: pointer;"></i></div>
+             </form>
+         </div>
+         <br><br>
+         <div class="table1"style="width: 100%; ">
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Profile</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Username</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Description</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg" style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 1</td>
+                                                        <td>User_1 </td>
+                                                        <td>Qualification_1</td>
+                                                        <td>Description1</td>
+                                                        <td> <button class="btn btn-sm btn-primary coobtn">Request</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg" style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 2</td>
+                                                        <td>User_2 </td>
+                                                        <td>Qualification_2</td>
+                                                        <td>Description2</td>
+                                                        <td> <button class="btn btn-sm btn-primary coobtn">Request</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>
+                                                            <div class="m-r-10"><img src="spider.jpeg"style="border-radius: 50%;width: 70px;height: 70px;"></div>
+                                                        </td>
+                                                        <td>Name 3</td>
+                                                        <td>User_3 </td>
+                                                        <td>Qualification_3</td>
+                                                        <td>Description3</td>
+                                                        <td> <button class="btn btn-sm btn-primary coobtn">Request</button></td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+        
+
+
+
+ </div>
+
+
+
+<!-- menu2 --END -->
+
+<!-- menu 3 -->
+<div class="tab-pane container" id="menu3">
+<br>
+<div class="table2">
+    <br>
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        
+                                                        <td>Name 1</td>
+                                                        
+                                                        <td>Qualification_1</td>
+                                                        <td> <button class="btn btn-sm btn-primary coabtn">Accept</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        
+                                                        <td>Name 2</td>
+                                                        
+                                                        <td>Qualification_2</td>
+                                                        <td> <button class="btn btn-sm btn-primary coabtn">Accept</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                         <td>3</td>
+                                                        
+                                                        <td>Name 3</td>
+                                                        
+                                                        <td>Qualification_2</td>
+                                                        <td> <button class="btn btn-sm btn-primary coabtn">Accept</button></td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+
+</div>
+<!-- menu-3 -->
+    </div>
+
+   </div>
+            </div>
+
+
+            </div>
+                
+           
+
+
+
+
+<!-- maincontent -->
+
+
+        
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

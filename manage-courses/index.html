@@ -1,0 +1,1659 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="manage-courses.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <script src="../js/admin-setup.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+    <title>Meritbothi | Manage-Course's</title>
+    <!-- cdns for custom multi select -->
+
+    <style type="text/css">
+
+    .backround33{
+        background-color: #fff;
+        margin: 1.5rem;
+        padding: 2rem;
+        border-radius: .2rem;
+        display: none;
+    }
+
+    .nbackround33{
+        background-color: #fff;
+        margin: 1.5rem;
+        padding: 2rem;
+        border-radius: .2rem;
+        display: none;
+    }
+
+    .acrebtn{
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .nacrebtn{
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .needcrt1{
+        margin-left: 1rem;
+        margin-top: .2rem;
+    }
+
+    .nneedcrt1{
+        margin-left: 1rem;
+        margin-top: .2rem;
+    }
+
+    .sectionstyle{
+        margin-top: 2rem;
+    }
+
+    .nsectionstyle{
+        margin-top: 2rem;
+    }
+
+    .h3style{
+        margin-left: 1rem;
+    }
+
+    .nh3style{
+        margin-left: 1rem;
+    }
+
+    .course_contents .panel{
+        padding:0;
+        cursor: pointer;
+    }
+
+    .ncourse_contents .npanel{
+        padding:0;
+        cursor: pointer;
+    }
+
+    .course_contents .panel .panel-title {
+        padding: 10px 20px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight:100;
+        color: #0A0A0A;
+        background-color: #EDEFF7;
+        width: 100%;
+        height: 50px;
+        line-height: 1.7;
+        border-radius: 5px;
+        text-align:left;
+        text-decoration: none;
+        border:none;
+    }
+
+    .ncourse_contents .npanel .npanel-title {
+        padding: 10px 20px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight:100;
+        color: #0A0A0A;
+        background-color: #EDEFF7;
+        width: 100%;
+        height: 50px;
+        line-height: 1.7;
+        border-radius: 5px;
+        text-align:left;
+        text-decoration: none;
+        border:none;
+    }
+
+    .course_contents .panel button.panel-title:focus {
+        outline:0
+    }
+
+    .ncourse_contents .npanel button.npanel-title:focus {
+        outline:0
+    }
+
+    .course_contents .panel .collapsible:after {
+        content:"\f107";
+        float: right;
+        margin-top:5px;
+        font-size: 10px;
+        font-weight: 900;
+    }
+
+    .ncourse_contents .npanel .ncollapsible:after {
+        content:"\f107";
+        float: right;
+        margin-top:5px;
+        font-size: 10px;
+        font-weight: 900;
+    }
+
+    .course_contents .panel .active:after {
+        content:"\f106";
+    }
+    .course_contents .panel .panel-body {
+        display:none;
+    }
+    .course_contents .panel .panel-body .vedio-details{
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 25px;
+    }
+
+    .ncourse_contents .npanel .active:after {
+        content:"\f106";
+    }
+    .ncourse_contents .npanel .npanel-body {
+        display:none;
+    }
+    .ncourse_contents .npanel .npanel-body .nvedio-details{
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 25px;
+    }
+
+    .course_contents .panel .panel-body .vedio-details img.logo{
+        width:18px;
+        height:20px;
+        margin-top:-3px;
+        margin-right:5px;
+    }
+    .course_contents .panel .panel-body .vedio-details span{
+        font-size:16px;
+        color:#4F4F4F;
+        transition: all 0.3s ease;  
+    }
+    .course_contents .panel .panel-body .vedio-details span.flt_rt{
+        float:right
+    }
+    .course_contents .panel .panel-body .vedio-details .flt_rt span.vedio-length{
+        margin-left:50px
+    }
+    .course_contents .panel .panel-body .vedio-details:hover, .course_contents .panel .panel-body .vedio-details:hover span{
+        color: #2441e7;
+        transition: all 0.3s ease;
+    }
+
+    .ncourse_contents .npanel .npanel-body .nvedio-details img.nlogo{
+        width:18px;
+        height:20px;
+        margin-top:-3px;
+        margin-right:5px;
+    }
+    .ncourse_contents .npanel .npanel-body .nvedio-details span{
+        font-size:16px;
+        color:#4F4F4F;
+        transition: all 0.3s ease;  
+    }
+    .ncourse_contents .npanel .npanel-body .nvedio-details span.nflt_rt{
+        float:right
+    }
+    .ncourse_contents .npanel .npanel-body .nvedio-details .nflt_rt span.nvedio-length{
+        margin-left:50px
+    }
+    .ncourse_contents .npanel .npanel-body .nvedio-details:hover, .ncourse_contents .npanel .npanel-body .nvedio-details:hover span{
+        color: #2441e7;
+        transition: all 0.3s ease;
+    }
+
+
+    /*CLIST CSS*/
+
+    .nbackround{
+        background-color: #fff;
+        margin: 1.5rem;
+        padding: 2rem;
+        border-radius: .2rem;
+    }
+
+    .nsearchboxclass{
+        display: flex;
+        width: 23%;
+        float: right;
+        margin-top: -2.5rem;
+    }
+
+    .nsearchicon{
+        cursor: pointer;
+        border: none;
+        background-color: #b1b1b1;
+    }
+
+    .nmodifybtn{
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+
+    .nstyles{
+        width: 10%;
+    }
+
+    .narrowstyle{
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .nneedflex{
+        display: flex;
+        justify-content: center;
+    }
+
+    .nimgstyles{
+        max-width: 100%; 
+        min-height: 90%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .npolaroid {
+      width: 45%;
+      background-color: white;
+      margin-bottom: 25px;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .npolaroid1 {
+      width: 45%;
+      background-color: white;
+      margin-bottom: 25px;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .ncontainer {
+      text-align: center;
+      padding: 10px 20px;
+    }
+
+    .ncontentclass{
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ntitle{
+        max-width: 25%;
+    }
+
+    .nconcept{
+        max-width: 46%;
+    }
+
+    .nfaculty{
+        max-width: 20%;
+    }
+
+    .ndescription{
+        margin-left: .8rem;
+        margin-top: 2rem;
+    }
+
+    .ncontentclass1{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .nlang{
+        display: flex;
+        width: 30%;
+        margin-left: 1rem;
+    }
+
+    .nintrovideo{
+        display: flex;
+        margin-left: 6rem;
+        width: 40%;
+    }
+
+    .nmode{
+        display: flex;
+        width: 30%;
+    }
+
+    .nneedcrt{
+        margin-left: .4rem;
+        margin-top: .2rem;
+    }
+
+
+    .nneedcrt2{
+        margin-left: .4rem;
+        margin-top: .2rem;
+    }
+
+    .ncontentclass2{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ncna{
+        width: 30%;
+        margin-left: 1rem;
+    }
+
+    .ncc{
+        width: 30%;
+        margin-left: 5.5rem;
+    }
+
+    .ncsc{
+        width: 30%;
+        margin-left: 4rem;
+    }
+
+
+    /*CLIST CSS*/
+
+    @media screen and (max-width: 800px){
+    .searchboxclass{
+        flex-direction: row;
+        float: none;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .formobile{
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .needflex{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .polaroid{
+        width: 100%;
+    }
+
+    .polaroid1{
+        width: 100%;
+    }
+
+    .contentclass{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .title{
+        max-width: 100%;
+    }
+
+    .concept{
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .faculty{
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .description{
+        margin-left: 0;
+    }
+
+    .contentclass1{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .lang{
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .needcrt{
+        width: 100%;
+    }
+
+    .introvideo{
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .mode{
+        flex-direction: row;
+        margin-left: 0;
+        width: 100;
+        margin-top: 1rem;
+    }
+
+    .contentclass2{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .cna{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .cc{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .csc{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .h3style{
+        margin-left: 0;
+    }
+
+    .nsearchboxclass{
+        flex-direction: row;
+        float: none;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .nformobile{
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .nneedflex{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .npolaroid{
+        width: 100%;
+    }
+
+    .npolaroid1{
+        width: 100%;
+    }
+
+    .ncontentclass{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .ntitle{
+        max-width: 100%;
+    }
+
+    .nconcept{
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nfaculty{
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .ndescription{
+        margin-left: 0;
+    }
+
+    .ncontentclass1{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .nlang{
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nneedcrt{
+        width: 100%;
+    }
+
+    .nintrovideo{
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .nmode{
+        flex-direction: row;
+        margin-left: 0;
+        width: 100;
+        margin-top: 1rem;
+    }
+
+    .ncontentclass2{
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .ncna{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .ncc{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .ncsc{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nh3style{
+        margin-left: 0;
+    }
+
+    .acrebtn{
+        margin-left: 4rem;
+    }
+
+    .nacrebtn{
+        margin-left: 4rem;
+    }
+
+    .flt_rt{
+        display: none;
+    }
+
+    .nflt_rt{
+        display: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishor</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/admin.png" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <ul class="navbar-nav flex-column">
+                                      <li class="nav-item ">
+                                          <a class="nav-link active" href="../manage-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                              
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-institute" ><i class="fas fa-university"></i>Institute's</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                          
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-courses"><i class="fas fa-book"></i>Courses</a>
+                                          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-category" ><i class="fas fa-sort-amount-down"></i>Category</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-payments" ><i class="fas fa-credit-card"></i>Payments</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-report" ><i class="fas fa-flag"></i>Report Generation</a>
+                                      
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-complaints" ><i class="fas fa-question-circle"></i>Complaints</a>
+                                      
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-addadmins" ><i class="fas fa-plus-square"></i>Add Admins</a>
+                                          
+                                    
+                                      <li class="nav-item hi-sh-lg">
+                                          <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                           </li>
+                                          </ul>
+          </div>
+          
+          <div id="main1">
+            <button class="openbtn" onclick="openNav()">☰ </button>  
+            
+          </div>
+       
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+          <div class="dashboard-ecommerce">
+
+            <div class="backround" id="completetable1">
+                <h3>Search Institute name for finding the Courses</h3>
+                <div class="searchboxclass">
+
+                    <input type="text" class="form-control" name="searchbox" placeholder="Institute Name...">
+                    <button class="fas fa-search searchicon" type="submit"></button>
+                </div>
+            </div>
+                <div class="backround" id="completetable">
+
+                    <!-- <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                  <li class="nav-item hovrclr" role="presentation">
+                    <a class="nav-link active hovrclr" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><p class="hovrclr">Requested Course</p></a>
+                  </li>
+                  <li class="nav-item hovrclr" role="presentation">
+                    <a class="nav-link hovrclr" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><p class="hovrclr">Course List</p></a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <div class="formobile">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th scope="col">No.</th>
+                              <th scope="col">Course Title</th>
+                              <th scope="col">Faculty</th>
+                              <th scope="col">Mode</th>
+                              <th scope="col">Sections</th>
+                              <th scope="col" class="styles">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="reqCoursesList">
+                            
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="formobile">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th scope="col">No.</th>
+                              <th scope="col">Course Title</th>
+                              <th scope="col">Faculty</th>
+                              <th scope="col">Mode</th>
+                              <th scope="col" class="styles">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="existingCourseSetterTbody">
+                           
+                          </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                <div class="container">
+                    <!-- <h2>Dynamic Tabs</h2> -->
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" class="Request" href="#home">Requested List</a></li>
+                      <li><a data-toggle="tab" class="Request" href="#menu1">Institute List</a></li>
+                      
+                    </ul>
+                  
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                        <div id="reqtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidth">No.</th>
+                                  <th scope="col" class="nawidth">Name</th>
+                                  <th scope="col" class="ewidth">Faculty Count</th>
+                                  <!-- <th scope="col" class="dtwidth">Date & Time</th> -->
+                                  <th scope="col" class="awidth">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody id="reqtableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+                      </div>
+                      <div id="menu1" class="tab-pane fade">
+                          
+                        <div id="informationtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidthn">No.</th>
+                                  <th scope="col" class="nawidthn">Name</th>
+                                  <th scope="col" class="ewidthn">Faculty Count</th>
+                                  <th scope="col" class="dtwidthn">Type</th>
+                                  <!-- <th scope="col" class="dtwidthn">Date & Time</th> -->
+                                  <th scope="col" class="awidthn">Actionss</th>
+                                </tr>
+                              </thead>
+                              <tbody id="infoTableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+                        
+                      </div>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+            <div class="backround33" id="detailsofcourse"> <!-- VIEW -->
+                    
+                <i class="fas fa-arrow-left arrowstyle" onclick="backbtn()"></i>
+                <h3 style="text-align:center;">Course Details</h3>
+                <div class="needflex">
+                    <div class="polaroid">
+                      <img src="book.jfif" alt="Cover image" id="coverCPV" class="imgstyles">
+                      <div class="container">
+                      <h4>Course Thumbnail image</h4>
+                      </div>
+                    </div>
+
+                    <div class="polaroid1">
+                      <img src="inst.jpg" alt="Thumnail" id="thumbnailCPV" class="imgstyles">
+                      <div class="container">
+                      <h4>Course Cover Image</h4>
+                      </div>
+                    </div>
+                </div>
+                <!-- <hr style="width: 97%;"> -->
+                <div class="contentclass">
+                    <div class="title">
+                        <h3>Title:</h3>
+                        <p id="titleCPV">Mobile Application Mobile Application</p>
+                    </div>
+                    
+                    <div class="concept">
+                        <h3>Concept:</h3>
+                        <p id="conceptsCPV">Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course... </p>
+                    </div>
+
+                    <div class="faculty">
+                        <h3>Faculties:</h3>
+                        <p id="facultiesCPV">Alan, Joker, Black Alan, Joker, Black Alan, Joker, Black </p>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="description">
+                    <div>
+                        <h3>Description:</h3>
+                        <p id="descriptionCPV">Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course... Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course...</p>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="contentclass1">
+                    <div class="lang">
+                        <h3>Languages:</h3>
+                        <div class="needcrt"><p id="languageCPV">Tamil & English</p></div>
+                    </div>
+
+                    <div class="introvideo">
+                        <h3>Intro Video:</h3>
+                        <div class="needcrt1"><p><i class="fas fa-play" id="introvideoCPV" onclick="intro(this)" style="cursor: pointer; font-size: 1.3rem;"></i></p></div>
+                    </div>
+
+                    <div class="mode">
+                        <h3>Mode:</h3>
+                        <div class="needcrt2"><p id="modeCPV">Online</p></div>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="contentclass2">
+                    
+                    <div class="cna">
+                        <h3>Course Nationality:</h3>
+                        <p id="nationalityCPV">International</p>
+                    </div>
+
+                    <div class="cc">
+                        <h3>Course Category:</h3>
+                        <p id="categoryCPV">TNSPC</p>
+                    </div>
+
+                    <div class="csc">
+                        <h3>Course Sub-Category:</h3>
+                        <p id="subCategoryCPV"> Group - 1 </p>
+                    </div>
+
+                </div>
+
+                <div class="sectionstyle"> <!-- SECTION START -->
+
+                    <h3 class="h3style">Sections: </h3>
+                    <div class="course_contents" id="sectionsAppend">
+            
+                    <!------------Panel---------------------------->
+                    <div class="panel">
+                        <button type="button" class="fas panel-title collapsible" aria-hidden="true">Getting Started</button>
+                        <!------------Panel Body------------------->
+                        <div class="panel-body" style="display: none;">
+                            <div class="vedio-details">
+                                <img class="logo" src="book.jfif">
+                                <span class="vedio-title">1. Introduction to the Course</span>
+                                <span class="flt_rt"><i class="fas fa-play" onclick="intro()"></i>
+                                <span class="vedio-length">02:53</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------Panel---------------------------->
+                    <div class="panel">
+                        <button type="button" class="fas panel-title collapsible" aria-hidden="true">Brief</button>
+                        <!------------Panel Body------------------->
+                        <div class="panel-body" style="display: none;">
+                            <div class="vedio-details">
+                                <img class="logo" src="book.jfif">
+                                <span class="vedio-title">2. Your first design challenge </span>
+                                <span class="flt_rt"><i class="fas fa-play"></i><span class="vedio-length">12:53</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------Panel---------------------------->
+                    <div class="panel">
+                        <button type="button" class="fas panel-title collapsible" aria-hidden="true">The Conclusion</button>
+                        <!------------Panel Body------------------->
+                        <div class="panel-body">
+                            <div class="vedio-details">
+                                <img class="logo" src="book.jfif">
+                                <span class="vedio-title">3. Title of the vedio given from institution side</span>
+                                <span class="flt_rt"><i class="fas fa-play"></i><span class="vedio-length">02:53</span>
+                                </span>
+                            </div>
+                        </div> 
+                        <!------------/ Panel Body /-------------------->
+                    </div>
+                    <!------------/ Panel /--------------------------->
+                    <script>
+                    var coll = document.getElementsByClassName("collapsible");
+                        var i;
+                        
+                        for (i = 0; i < coll.length; i++) {
+                          coll[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                              content.style.display = "none";
+                            } else {
+                              content.style.display = "block";
+                            }
+                            if (content.style.maxHeight){
+                              content.style.maxHeight = null;
+                            } else {
+                              content.style.maxHeight = content.scrollHeight + "px";
+                            }
+                          });
+                        }
+                    </script>
+                </div>
+            </div> <!-- SECTION END -->
+
+            <div class="formobile" style="margin-top: 1rem;"> <!-- MATERIAL START'S -->
+                
+                <h3 class="h3style">Materials: </h3>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">File</th>
+                      <th scope="col">Material</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="materialsAppendBody">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div> <!-- MATERIAL END'S -->
+
+            <div class="acrebtn" id="AcceptRejectContainer" style="display:none">
+                <button class="btn btn-sm btn-primary" onclick="acceptCourse()" id="acceptBtnOfCourse">Accept</button>
+                <button id="rejectBtnOfCourse" class="btn btn-sm btn-primary" style="background-color:red" data-toggle="modal" data-target="#R-messageModal">Reject</button>
+            </div>
+              <div class="nacrebtn" id="BlockContainer" style="display:none">
+                <button class="btn btn-sm btn-primary" style="background-color:red" id="blockBtnOfCourse" onclick="blockCourse()">Block</button>
+            </div>
+
+            </div> <!-- END VIEW -->
+
+
+            <!-- HERE START COURSE LIST DETAILS : -->
+            <!-- HERE START COURSE LIST DETAILS : -->
+            <!-- HERE START COURSE LIST DETAILS : -->
+            <!-- HERE START COURSE LIST DETAILS : -->
+            <!-- HERE START COURSE LIST DETAILS : -->
+
+
+            <div class="nbackround33" id="ndetailsofcourse"> <!-- VIEW -->
+                    
+                <i class="fas fa-arrow-left narrowstyle" onclick="nbackbtn()"></i>
+                <h3 style="text-align:center;">Course Details</h3>
+                <div class="nneedflex">
+                    <div class="npolaroid">
+                      <img src="book.jfif" id="nthumbnailCPV" alt="Cover image" class="nimgstyles">
+                      <div class="ncontainer">
+                      <h4>Course Thumbnail image</h4>
+                      </div>
+                    </div>
+
+                    <div class="npolaroid1">
+                      <img src="inst.jpg" id="ncoverCPV" alt="Thumnail" class="nimgstyles">
+                      <div class="ncontainer">
+                      <h4>Course Cover Image</h4>
+                      </div>
+                    </div>
+                </div>
+                <!-- <hr style="width: 97%;"> -->
+                <div class="ncontentclass">
+                    <div class="ntitle">
+                        <h3>Title:</h3>
+                        <p id="ntitleCPV">Mobile Application Mobile Application</p>
+                    </div>
+                    
+                    <div class="nconcept">
+                        <h3>Concept:</h3>
+                        <p id="nconceptsCPV">Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course... </p>
+                    </div>
+
+                    <div class="nfaculty">
+                        <h3>Faculties:</h3>
+                        <p id="nfacultiesCPV">Alan, Joker, Black Alan, Joker, Black Alan, Joker, Black </p>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="ndescription">
+                    <div>
+                        <h3>Description:</h3>
+                        <p id="ndescriptionCPV">Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course... Mobile Application is the best course for everyone. Then, easy to learn this course... 
+                        Mobile Application is the best course for everyone. Then, easy to learn this course...</p>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="ncontentclass1">
+                    <div class="nlang">
+                        <h3>Languages:</h3>
+                        <div class="nneedcrt"><p id="nlanguageCPV">Tamil & English</p></div>
+                    </div>
+
+                    <div class="nintrovideo">
+                        <h3>Intro Video:</h3>
+                        <div class="nneedcrt1"><p><i class="fas fa-play" id="nintrovideoCPV" onclick="nintro(this)" style="cursor: pointer; font-size: 1.3rem;"></i></p></div>
+                    </div>
+
+                    <div class="nmode">
+                        <h3>Mode:</h3>
+                        <div class="nneedcrt2"><p id="nmodeCPV">Online</p></div>
+                    </div>
+                </div>
+
+                <!-- <hr style="width: 97%;"> -->
+
+                <div class="ncontentclass2">
+                    
+                    <div class="ncna">
+                        <h3>Course Nationality:</h3>
+                        <p id="nnationalityCPV">International</p>
+                    </div>
+
+                    <div class="ncc">
+                        <h3>Course Category:</h3>
+                        <p id="ncategoryCPV">TNSPC</p>
+                    </div>
+
+                    <div class="ncsc">
+                        <h3>Course Sub-Category:</h3>
+                        <p id="nsubCategoryCPV"> Group - 1 </p>
+                    </div>
+
+                </div>
+
+                <div class="nsectionstyle"> <!-- SECTION START -->
+
+                    <h3 class="nh3style">Sections: </h3>
+                    <div class="ncourse_contents">
+            
+                    <!------------Panel---------------------------->
+                    <div class="npanel">
+                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">Getting Started</button>
+                        <!------------Panel Body------------------->
+                        <div class="npanel-body" style="display: none;">
+                            <div class="nvedio-details">
+                                <img class="nlogo" src="book.jfif">
+                                <span class="nvedio-title">1. Introduction to the Course</span>
+                                <span class="nflt_rt"><i class="fas fa-play" onclick="nintro()"></i>
+                                <span class="nvedio-length">02:53</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------Panel---------------------------->
+                    <div class="npanel">
+                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">Brief</button>
+                        <!------------Panel Body------------------->
+                        <div class="npanel-body" style="display: none;">
+                            <div class="nvedio-details">
+                                <img class="nlogo" src="book.jfif">
+                                <span class="nvedio-title">2. Your first design challenge </span>
+                                <span class="nflt_rt"><i class="fas fa-play"></i><span class="nvedio-length">12:53</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------Panel---------------------------->
+                    <div class="npanel">
+                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">The Conclusion</button>
+                        <!------------Panel Body------------------->
+                        <div class="npanel-body">
+                            <div class="nvedio-details">
+                                <img class="nlogo" src="book.jfif">
+                                <span class="nvedio-title">5. Title of the vedio given from institution side</span>
+                                <span class="nflt_rt"><i class="fas fa-play"></i><span class="nvedio-length">02:53</span>
+                                </span>
+                            </div>
+                        </div> 
+                        <!------------/ Panel Body /-------------------->
+                    </div>
+                    <!------------/ Panel /--------------------------->
+                    <script>
+                    var coll1 = document.getElementsByClassName("ncollapsible");
+                        var i;
+                        
+                        for (i = 0; i < coll1.length; i++) {
+                          coll1[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                              content.style.display = "none";
+                            } else {
+                              content.style.display = "block";
+                            }
+                            if (content.style.maxHeight){
+                              content.style.maxHeight = null;
+                            } else {
+                              content.style.maxHeight = content.scrollHeight + "px";
+                            }
+                          });
+                        }
+                    </script>
+                </div>
+            </div> <!-- SECTION END -->
+
+            <div class="nformobile" style="margin-top: 1rem;"> <!-- MATERIAL START'S -->
+                
+                <h3 class="nh3style">Materials: </h3>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">File</th>
+                      <th scope="col">Material</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Web Development</td>
+                      <td>Intro.mp4</td>
+                      <td>Introduction.pdf</td>
+                      <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div> <!-- MATERIAL END'S -->
+
+          
+
+            </div> <!-- END VIEW -->
+
+            
+            
+          </div> <!-- DASHBOARD-WRAPPER -->
+      </div> <!-- DASHBOARD-ECOMMERCE -->
+
+
+      <!-- MODAL -->
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style="display:none;" id="invideo">
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <video id="vidPrevShowerV" autoplay loop style="width: 100%;"></video>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Ok</button> &nbsp; &nbsp;
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- MODAL END -->
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop22" style="display:none;" id="ninvideo">
+          Launch static backdrop modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop22" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary">Ok</button> &nbsp; &nbsp;
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      <div id="snackbar"></div>
+    <!-- temprory loading -->
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" 
+    style="display: none;">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:50px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--REJECT MESSAGE HOLDER-->
+    <div class="modal" id="R-messageModal" tabindex="-1" role="dialog" aria-labelledby="R-messageModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="R-messageModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <p>Enter your complaintsabout this course...</p>
+            <textarea style="width:100% ; height:6rem" id="rejectTAmsg"></textarea><br>
+            <button  class="btn btn-sm btn-primary" style="background-color:red ; margin-left:200px; margin-top: 20px;" onclick="rejectCourse()">Confirm Reject</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('iName').innerHTML=sessionStorage.getItem('name');
+
+        var uid='';
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                uid=user.uid;
+                existingCourseSetter();
+                fuccccc();
+            }else{
+                location.replace('../admin-login/');
+            }
+        })
+        var allCrsData=[];
+        var indexing = 0;
+        var exisCrs = [];
+        existingCourseSetter = async()=>{
+            loaderTriggerAndEnder(true);
+            var i =1;
+            
+
+            const subCategories = await data.collection('subCategories').get();
+            subCategories.forEach((cats)=>{
+                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
+                     courses.forEach((course)=>{
+                        if (course.data().status=="Verified") {
+                            
+                    $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
+                              <th scope="row">`+i+`</th>
+                              <td>`+course.data().courseName+`</td>
+                              <td>`+course.data().faculties.length+`</td>
+                              <td>`+course.data().types+`</td>
+                             
+                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+cats.id+`?***?`+course.id+`" onclick="nviewmore(this)">View</button></td>
+                            </tr>`);
+                    allCrsData[indexing]=course.data();
+                    i++;
+                    indexing++;
+                        }
+                })     
+                 })
+               
+            })
+
+            
+            
+        }
+        fuccccc = async () => {
+            loaderTriggerAndEnder(true);
+            var i=1;
+            $('#reqCoursesList').html('');
+            const adminData = await data.collection('admin').doc(uid).get();
+            exisCrs = adminData.data().newCourses;
+            adminData.data().newCourses.forEach((doccc)=>{
+                var splitted=doccc.split('?***?');
+                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((kjhgffgh)=>{
+                    $('#reqCoursesList').append(`<tr indexing = "`+indexing+`">
+                              <th scope="row">`+i+`</th>
+                              <td>`+kjhgffgh.data().courseName+`</td>
+                              <td>`+kjhgffgh.data().faculties.length+`</td>
+                              <td>`+kjhgffgh.data().types+`</td>
+                              <td>${kjhgffgh.data().sections.length} - sections</td>
+                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+doccc+`" onclick="viewmore(this)">View</button></td>
+                            </tr>`);
+                       allCrsData[indexing]=kjhgffgh.data();
+                    i++;
+                    indexing++;
+                });
+            })
+
+            setTimeout(()=>{
+                loaderTriggerAndEnder(false);
+            }, 2000);
+        }
+        
+        intro = (videoURL) => {
+            var w = "https://secure--storage.s3.ap-south-1.amazonaws.com/"+videoURL.getAttribute('video-url')+'?dummy='+String(Math.floor(Math.random() * 100000));
+            document.getElementById('vidPrevShowerV').setAttribute('src',w)
+            document.getElementById('invideo').click();
+        }
+
+        viewmore = (a) =>{
+            var index = a.getAttribute('indexing');
+            document.getElementById('rejectBtnOfCourse').setAttribute('data-id',a.getAttribute('data-id'));
+            document.getElementById('acceptBtnOfCourse').setAttribute('data-id',a.getAttribute('data-id'));
+            document.getElementById('detailsofcourse').style.display="block";
+            document.getElementById('completetable1').style.display="none";
+            document.getElementById('completetable').style.display="none";
+
+            showDetailedDataOfCourse(index,'A');
+        }
+
+        backbtn = () => {
+            document.getElementById('detailsofcourse').style.display="none";
+            document.getElementById('completetable1').style.display="block";
+            document.getElementById('completetable').style.display="block";   
+        }
+        showDetailedDataOfCourse = (index,ab)=>{
+            loaderTriggerAndEnder(true);
+            console.log(ab);
+            if (ab == 'A') {
+                document.getElementById('AcceptRejectContainer').style.display="block";
+                document.getElementById('BlockContainer').style.display="none";
+            }
+            else if (ab == 'B') {
+                 document.getElementById('AcceptRejectContainer').style.display="none";
+                document.getElementById('BlockContainer').style.display="block";
+            }
+            else{
+                showToast('something Went Wrong');
+            }
+            var datas = allCrsData[index];
+            document.getElementById('coverCPV').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+datas.coverImg);
+            document.getElementById('thumbnailCPV').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+datas.thumbnail);
+            document.getElementById('titleCPV').innerHTML=datas.courseName;
+            document.getElementById('facultiesCPV').innerHTML=datas.courseName;
+            document.getElementById('conceptsCPV').innerHTML=datas.concept;
+            document.getElementById('languageCPV').innerHTML=datas.lang;
+            document.getElementById('descriptionCPV').innerHTML=datas.description;
+            document.getElementById('introvideoCPV').setAttribute('video-url',datas.introVideo);
+            document.getElementById('categoryCPV').innerHTML=datas.category;
+            document.getElementById('subCategoryCPV').innerHTML=datas.subcategory;
+            document.getElementById('modeCPV').innerHTML=datas.types;
+            document.getElementById('nationalityCPV').innerHTML=datas.region;
+
+            getSections(datas.sections);
+
+            loaderTriggerAndEnder(false);
+        }
+        nintro = () => {
+            document.getElementById('ninvideo').click();
+        }
+
+        nviewmore = (a) =>{
+            
+            var index = a.getAttribute('indexing');
+            document.getElementById('blockBtnOfCourse').setAttribute('data-id',a.getAttribute('data-id'));
+            document.getElementById('detailsofcourse').style.display="block";
+            document.getElementById('completetable1').style.display="none";
+            document.getElementById('completetable').style.display="none";
+            showDetailedDataOfCourse(index,'B');
+        }
+
+        nbackbtn = () => {
+            document.getElementById('ndetailsofcourse').style.display="none";
+            document.getElementById('completetable1').style.display="block";
+            document.getElementById('completetable').style.display="block";   
+        }
+
+        function getSections(array){
+            var i=0;
+            loaderTriggerAndEnder(true);
+            $('#sectionsAppend').html('');
+            $('#materialsAppendBody').html('');
+            array.forEach((secId)=>{
+                data.collection('sections').doc(secId).get().then((gfgf)=>{
+                    data.collection('sections').doc(secId).collection('topics').orderBy('topicName', 'desc').get().then((snapshot)=>{
+                        var fff=0;
+
+                        snapshot.docs.forEach((doc)=>{
+                            if (fff==0) {
+                                var appendString=`<div class="panel"><button type="button" class="fas panel-title collapsible" aria-hidden="true" onclick="showHidePanelBody(this)" >`+gfgf.data().sectionName.split(': ')[1]+`</button>
+                                    <div class="panel-body" style="display: none;">
+                                    <div id="`+secId+`"></div>
+                                   </div></div>`;
+                                    $('#sectionsAppend').append(appendString);
+                                    fff=1;
+                                }
+                                if(fff==1){
+                                    var appendString=`
+                                    <div class="vedio-details">
+                                    <i class="fas fa-book"> </i>
+                                    <span class="vedio-title">`+doc.data().topicName+`</span>
+                                    <span class="flt_rt"><i class="fas fa-play" onclick="intro(this)" video-url="`+doc.data().video+`" style="cursor: pointer;"></i></span>
+                                    <span class="vedio-length" >`+doc.data().videoLength+`</span>
+                                    </div>
+                                    `;
+
+                                    doc.data().materials.forEach((material)=>{
+                                        i++;
+                                        $('#materialsAppendBody').append(`<tr>
+                                          <th scope="row">${i}</th>
+                                          <td>${gfgf.data().sectionName.split(': ')[1]}</td>
+                                          <td>${doc.data().topicName}</td>
+                                          <td>${material.fileName}</td>
+                                          <td><a href="https://secure--storage.s3.ap-south-1.amazonaws.com/${material.materialURL}"><i class="fas fa-download" style="cursor: pointer;"></i></a></td>
+                                        </tr>`);
+                                    })
+
+                                   $('#'+secId).after(appendString);
+                                }
+                        })
+                    })
+                })
+                
+            })
+
+            setTimeout(()=>{
+                loaderTriggerAndEnder(false);
+            }, 2000);
+        }
+
+        function showHidePanelBody(h) {
+            if (h.className=="fas panel-title collapsible") {
+                h.setAttribute('class','fas panel-title collapsible active');
+                h.nextElementSibling.style.display="block";
+
+            }
+            else{
+                h.setAttribute('class','fas panel-title collapsible');                
+                h.nextElementSibling.style.display="none";
+            }
+        }
+        function rejectCourse() {
+            var msg = document.getElementById('rejectTAmsg').value;
+            var id = document.getElementById('rejectBtnOfCourse').getAttribute('data-id');
+            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
+                rejectMessage:msg,
+                status:'Rejected'
+            })
+
+        }
+        function acceptCourse(){
+            var newCrs = [];
+            var id = document.getElementById('acceptBtnOfCourse').getAttribute('data-id');
+            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
+                status:'Verified'
+            }).then(()=>{
+                
+                exisCrs.forEach((course)=>{
+                    if (id!=course) {
+                        newCrs.push(course);
+                    }
+                })
+                data.collection('admin').doc(uid).update({
+                    newCourses:newCrs
+                }).then(()=>{
+                    location.replace('');  
+                })
+
+            })
+        }
+        function blockCourse() {
+            var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
+            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
+                rejectMessage:msg,
+                status:'Blocked'
+            })
+
+        }
+    </script>
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

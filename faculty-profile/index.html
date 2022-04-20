@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+        <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <title>Meritbothi | Profile Faculty</title>
+    <style>
+    .spinner-3 {
+      margin-top: 10rem;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      background:conic-gradient(#0000 10%,#5e72e4);
+      --webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+      animation:s3 1s infinite linear;
+    }
+@keyframes s3 {to{transform: rotate(1turn)}}
+
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+</head>
+
+<body onload="onLoadSetter()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span id="notificationCount">0</span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group" id="notificationList">
+                                            <div id="notifyloader">
+                                            <div class="d-flex justify-content-center" text-align='center'>
+                                                <img src="../assets/images/loader.gif" alt="loading..." style="width: 3.5rem; height: 3rem;">
+                                                
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    
+                                    <div class="list-footer" id="notifyloaderfoot" style="display:none"> <a href="#">View all notifications</a></div>
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">MeritBodhi</a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link active" href="" ><i class="fas fa-user"></i>Profile</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-courses"><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-requests"><i class="fas fa-envelope"></i>Requests</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-notification" ><i class="fas fa-fw fa-bell"></i>Notifications</a>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-archive" ><i class="fas fa-archive"></i>Archieve</a>
+                            
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-reviews" ><i class="fas fa-star"></i>Reviews</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-payments" ><i class="fas fa-credit-card"></i>Payments</a>   
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-referal" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-settings" ><i class="fas fa-cog"></i>Settings</a>
+                                 </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+           
+                <div class="main-content" >
+                    <div  class="d-flex justify-content-center">
+                        <div id="loader-cub" class="spinner-3"></div>
+                    </div>
+                    <br><br><br>
+                    <form id="profileForm" name="profnew" style="display: none;" method="post"> 
+                        
+                    <div class="container-fluid mt--7">
+                      <div class="row d-flex" >
+                        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                          <div class="card card-profile shadow">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-3 order-lg-2">
+                                <div class="card-profile-image" style="position: relative;">
+                                  
+  
+                                    <img src="jokr.png" id="profileImage" style=" width: 170px; height: 170px; border-radius: 50%; object-fit: cover;">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                              
+                            </div>
+                            <div class="card-body pt-0 pt-md-4"  style="background-color: white;">
+                             <br><br><br><br>
+                              <div class="text-center">
+                                <br>
+
+                                <div class="editbut">
+                                  <button id="imgcbtn" type="button" onclick="imageSet()" class="btn btn-sm btn-primary" style="margin-left: 4rem; display: none;">Edit</button>
+                                  <input type="file" name="usr_profile" style="display:none;" accept=".jpeg,.png,.jpg,.gif">
+                                </div><br>
+                                
+                                <hr class="my-3">
+                                <label class="form-control-label" for="about-is-ins">Description</label>
+                                <div class="pl-lg-4">
+                                  <div class="form-group focused">
+                                    <textarea rows="4" id="about-is-ins" class="form-control form-control-alternative" placeholder="A few words about you ..." name="about_us_data" readonly></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-8 order-xl-1">
+                          <div class="card bg-secondary shadow" style="margin-left: 5px;">
+                            <div class="card-header bg-white border-0">
+                              <div class="row align-items-center">
+                                <div class="col-8">
+                                  <h3 class="mb-0">My Profile</h3>
+                                </div>
+                                <div class="col-4 text-right">
+                                 <button type="button" onclick="removeReadOnly(this)" class="btn btn-sm btn-primary" style="margin-top: 1rem;" read-only="true">Edit</button>
+                                </div>
+                              </div>
+                
+                            </div>
+                
+                            <div class="card-body" style="background-color: white;"> 
+                              
+                                <h4 class="heading-small text-muted mb-4">User information</h4>
+                                <div class="pl-lg-4">
+                                  <div class="row ">
+                                    <div class="col-lg-4">
+                                      <div class="form-group focused">
+                                        <label class="form-control-label" for="input-email">Email Address</label>
+                                        <input type="email" id="input-email" class="form-control form-control-alternative" name="usr_email" placeholder="Email Id" readonly>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                      <div class="form-group">
+                                        <label class="form-control-label" for="input-inst">Faculty Name</label>
+                                        <input type="text" id="input-inst" class="form-control form-control-alternative" name="usr_iname" placeholder="Faculty Name" readonly>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                      <div class="form-group focused">
+                                        <label class="form-control-label" for="input-mobile" >Mobile Number</label>
+                                        <input type="text" id="input-mobile" class="form-control form-control-alternative" placeholder="Mobile Number" name="ph_no" readonly>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                                
+                                <div class="pl-lg-4">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group focused">
+                                        <label class="form-control-label" for="input-address">Designation</label>
+                                        <input id="input-designation" class="form-control form-control-alternative" placeholder="Designation" name="desig" type="text" readonly>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group focused">
+                                        <label class="form-control-label" for="input-address">Experience</label>
+                                        <input id="input-experience" class="form-control form-control-alternative" placeholder="Experience" name="experi" type="text" readonly>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group focused">
+                                        <label class="form-control-label" for="input-address">Qualification</label>
+                                        <input id="input-qualifi" class="form-control form-control-alternative" placeholder="Qualification" name="qualify" type="text" readonly>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+
+
+
+                                                  <hr class="my-4">
+                
+                                  <div class="col-4 sr d-flex" style="margin-left: auto; margin-right: auto; ">
+                                    <button type="button" class="btn btn-sm btn-primary" id="submitbtn" style="
+                                    display: none;border-radius: 7px;">Submit</button>
+                                    &nbsp; &nbsp;
+                                    <button type="reset" id="resetbtn" class="btn btn-sm btn-primary" style="
+                                    display: none;
+                                    border-radius: 7px; background-color: #dc3545;">Reset</button>
+                                  
+                                </div> 
+                                </div>
+                                               
+                              
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+            </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <div id="snackbar"></div>
+    <!-- temprory loading -->
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:50px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script>
+        var nameApro="";
+        var form = document.getElementById('profileForm');
+        var nameAproA=[];
+        var facultyDetails=[];
+
+        function onLoadSetter(){
+            localforage.getItem('fullAuthF').then((e)=>{
+                console.log(e);
+                nameApro=e;
+                nameAproA=nameApro.split('-*de*-');
+                document.getElementById('iName').innerHTML=nameAproA[0];
+                document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
+            });
+            
+            
+        }
+       
+       
+
+        function newProfile(uid){
+            localforage.getItem('facultyDetails').then((f)=>{
+                facultyDetails=f;
+                console.log(facultyDetails.email);
+                let user = firebase.auth().currentUser;
+
+                if(facultyDetails==null){
+                    data.collection('faculty').doc(uid).get().then((snapshot)=>{
+                        dataSetter(snapshot.data());
+                        localforage.setItem('facultyDetails', snapshot.data());
+                        
+                        localforage.getItem('facultyDetails').then((g)=>{
+                            facultyDetails=g;
+                            console.log(g);
+                        });
+                    })
+                }else{
+                    dataSetter(facultyDetails);
+                }
+            });
+            
+        }
+
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                newProfile(user.uid);
+            }else{
+                location.replace('../login/');
+            }
+        })
+        function imageSet() {
+            form.usr_profile.click();
+        }
+        form.usr_profile.addEventListener('change',function(){
+            if(event.target.files.length==0){
+              return;
+            }      
+            var iurl=URL.createObjectURL(event.target.files[0]);
+            $('#profileImage').attr("src", iurl);
+        });
+        function dataSetter(a) {
+             form.usr_iname.value=a.name;
+            $('#profileImage').attr('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/'+a.profileImage);
+             form.usr_email.value=a.email;
+             form.ph_no.value=a.mobileNo;
+             form.desig.value=a.designation;
+             form.experi.value=a.experiance;
+             form.about_us_data.value=a.description;
+             form.qualify.value=a.qualification;
+             showProfile();
+         }
+        function showProfile(){
+            document.getElementById('loader-cub').style.display="none";
+            document.getElementById('notifyloader').style.display="none";
+            document.getElementById('notifyloaderfoot').style.display="block";
+            form.style.display="block";
+        }
+        function removeReadOnly(b){
+            if (b.getAttribute('read-only')=='true') {
+                showToast('Edit mode enabled !!!');
+                b.setAttribute('read-only','false');
+                b.setAttribute('style','margin-top:1rem; background-color:#dc3545');
+                b.textContent='cancel';
+                form.usr_iname.removeAttribute('readonly');
+                form.ph_no.removeAttribute('readonly');
+                form.about_us_data.removeAttribute('readonly');
+                form.experi.removeAttribute('readonly');
+                form.desig.removeAttribute('readonly');
+                form.qualify.removeAttribute('readonly');
+                document.getElementById('submitbtn').style.display="block";
+                document.getElementById('resetbtn').style.display="block";
+                document.getElementById('imgcbtn').style.display="inline-block";
+           }
+           else{
+                showToast('Edit mode disabled !!!');
+                b.setAttribute('read-only','true');
+                b.setAttribute('style','margin-top:1rem;');
+                b.textContent='edit';
+                form.usr_iname.setAttribute('readonly',true);
+                form.ph_no.setAttribute('readonly',true);
+                form.about_us_data.setAttribute('readonly',true);
+                form.experi.setAttribute('readonly',true);
+                form.desig.setAttribute('readonly',true);
+                form.qualify.setAttribute('readonly',true);
+                document.getElementById('submitbtn').style.display="none";
+                document.getElementById('resetbtn').style.display="none";
+                document.getElementById('imgcbtn').style.display="none";
+           }
+        }
+        function loaderTriggerAndEnder(d) {
+            if (d) {
+                document.getElementById('loaderTrigger').click();
+            }
+            else{
+                document.getElementById('closeLoader').click();
+            }
+        }
+
+        $('#submitbtn').on('click', ()=>{
+            loaderTriggerAndEnder(true);
+            let user=firebase.auth().currentUser;
+            if (form.usr_profile.value=='') {
+                user.updateProfile({
+                    displayName: form.usr_iname.value
+                })
+                .then((a)=>{
+                    localforage.setItem('fullAuthF',form.usr_iname.value+'-*de*-'+nameAproA[1]);
+                    
+                    data.collection('faculty').doc(user.uid).update({
+                        qualification:form.qualify.value,
+                        description: form.about_us_data.value,
+                        name: form.usr_iname.value,
+                        mobileNo: form.ph_no.value,
+                        designation: form.desig.value.split(','),
+                        experiance: form.experi.value.split(',')
+
+                    }).then(()=>{
+                       showToast('Profile Updated !!!');
+                       facultyDetails['mobileNo']=form.ph_no.value;
+                       facultyDetails['description']=form.about_us_data.value;
+                       facultyDetails['designation']=form.desig.value.split(',');
+                       facultyDetails['experiance']=form.experi.value.split(',');
+                       facultyDetails['name']=form.usr_iname.value;
+                       facultyDetails['qualification']=form.qualify.value;
+                       localforage.setItem('facultyDetails', facultyDetails).then(()=>{
+                        setTimeout(()=>{location.replace('index.html');}, 3000);
+                        loaderTriggerAndEnder(false); 
+                       });
+                       
+
+                    })
+                    .catch((e)=>{
+                        loaderTriggerAndEnder(false);
+                        showToast(e.message);
+                    });
+                });
+            }else{
+                let user=firebase.auth().currentUser;
+                let fd=new FormData(document.querySelector('#profileForm'));
+                fd.append('name', user.uid+'-Profile.jpg');
+                $.ajax({
+                    url: 'matUp.php',
+                    type: 'post',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    error:function(){
+                        alert("Upload Failed, Try Again !!!");
+                    },
+                    success: function(vall) {
+                        user.updateProfile({
+                            displayName: form.usr_iname.value,
+                            photoURL: vall.substring(52)
+                        })
+                        .then((a)=>{
+
+                            localforage.setItem('fullAuthF',form.usr_iname.value+'-*de*-'+vall.substring(52)+'?dummy='+String(Math.floor(Math.random() * 100000)));
+                            data.collection('faculty').doc(user.uid).update({
+                                qualification:form.qualify.value,
+                                description: form.about_us_data.value,
+                                name: form.usr_iname.value,
+                                mobileNo: form.ph_no.value,
+                                designation: form.desig.value.split(','),
+                                experiance: form.experi.value.split(','),
+                                profileImage: vall.substring(52)
+                            }).then(()=>{
+                               loaderTriggerAndEnder(false);
+                               showToast('Profile Updated !!!');
+                               facultyDetails['mobileNo']=form.ph_no.value;
+                               facultyDetails['description']=form.about_us_data.value;
+                               facultyDetails['designation']=form.desig.value.split(',');
+                               facultyDetails['experiance']=form.experi.value.split(',');
+                               facultyDetails['name']=form.usr_iname.value;
+                               facultyDetails['qualification']=form.qualify.value;
+                               facultyDetails['profileImage']=vall.substring(52)+'?dummy='+String(Math.floor(Math.random() * 100000));
+                               localforage.setItem('facultyDetails', facultyDetails).then(()=>{
+                                    setTimeout(()=>{location.replace('');}, 3000); 
+                               });
+                               
+                            })
+                            .catch((e)=>{
+                                showToast(e.message);
+                            });
+                        });
+                    }
+                });
+            }
+        });
+        
+        function showToast(msg) {
+          var x = document.getElementById("snackbar");
+          x.innerHTML=msg;
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+        function logout(){
+            auth.signOut().then(()=>{
+                localforage.clear().then(()=>{
+                    location.replace('../login/');
+                });
+                
+            });
+
+        }
+        
+    </script>
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

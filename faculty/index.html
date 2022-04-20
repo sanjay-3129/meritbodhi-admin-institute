@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="fac.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <title>Meritbothi | Faculty Institute</title>
+    <!-- cdns for custom multi select -->
+
+<style>
+        .spinner-3 {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,#5e72e4);
+  --webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
+@keyframes s3 {to{transform: rotate(1turn)}}
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+
+               
+#upload{
+    margin-top: 1.5rem;
+    margin-left: 4.5rem;
+}
+
+img {
+
+  opacity: 1;
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+
+
+
+    </style>
+
+</head>
+
+<body onload="onLoadSetter()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link " href="../profile" ><i class="fas fa-user"></i>Profile</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link " href="../courses"><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item ">
+                                <a class="nav-link active" href=""><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="../notification" ><i class="fas fa-fw fa-bell"></i>Notifications</a>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../archive" ><i class="fas fa-archive"></i>Archieve</a>
+                            
+                            <li class="nav-item ">
+                                <a class="nav-link " href="../reviews" ><i class="fas fa-star"></i>Reviews</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../payments" ><i class="fas fa-credit-card"></i>Payments</a>   
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../referal" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../settings" ><i class="fas fa-cog"></i>Settings</a>
+                                 </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        
+
+
+<!-- maincontent -->
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                
+                 <div class="rt">
+                <p style="font-size: 25px; font-weight: bold; margin-left: 1rem;">Faculty List</p>
+                <ul class="nav nav-tabs" >
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Existing Faculty</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Faculty Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu3">Requested List</a>
+                </li>
+               </ul>
+   <!-- Tab panes -->
+   <div class="tab-content">
+
+<!-- home -->
+    <div class="tab-pane container active" id="home">
+     <br><br>
+     <button type="button" onclick="Adding()" id="but1" class="btn btn-sm btn-primary" style="margin-left: 3.1rem;">Add New</button>
+     
+     <!-- form -->
+
+     <div class="addnew-form" id="facnewform" style="display:none;">
+                    
+                    
+      <form  method="POST" id="facultyRegForm">
+        <div class="mini-wrapper1">
+            
+                            
+                               <!--  <button type="button" class="btn btn-sm btn-primary"onclick="imguppp()" style="margin-top:1.5rem;margin-left: 35rem; width: 20%;">Upload</button>
+                                <input id="facultyImg" type="file" name="facultyImg" accept=".jpg,.jpeg,.png" style="display:none;"> -->
+                            
+
+                        </div>
+                
+                <br>
+                <div class="user-details">
+
+                <div class="contai">
+
+                <img src="book.jpeg" alt="Avatar" id="imgProfilePreview" class="imag">
+                <div>
+                <div><button type="button" class="btn btn-sm btn-primary" id="upload" onclick="imguppp()"><i class="fas fa-upload "></i>Upload</button>
+                <input id="facultyImg" type="file" name="facultyImg" accept=".jpg,.jpeg,.png" style="display:none;">
+                </div>
+                </div>
+                </div>
+                 
+                   <div class="form-group focused f1name">
+                    <h3>Enter Faculty Details</h3>
+                      <label class="form-control-label" for="input-email">Enter Faculty Name</label>
+                      <input type="text" id="input-fname" class="form-control form-control-alternative" name="Facname" placeholder="Faculty Name" >
+                      </div>
+                     
+                   <div class="form-group focused fname">
+                      <label class="form-control-label" for="input-email">Enter Mobile No</label>
+                      <input type="text" id="input-numb" class="form-control form-control-alternative" name="Facmobile" placeholder="Mobile Number" >
+                     </div>
+                     
+                     
+                   <div class="form-group focused fname">
+                      <label class="form-control-label" for="input-email">Enter Mail address</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="Facmail" placeholder="mailid@gmail.com" >
+                     
+                    </div>
+                    </div>
+                    <div class="quali">
+                      <div class="">
+                      <label class="form-control-label" for="input-email">Enter the description about faculty</label>
+                      <textarea id="input-descrip" class="form-control form-control-alternative" name="Facdescription" placeholder="Enter the description" ></textarea>
+                      </div>  
+
+                      
+                      <div class="qualif" id="FacExYoQl">
+                                    <label >Qualification</label>
+                                    <input type="text"  class="form-control form-control-alternative" name="Facqualification" placeholder="Qualification " >  
+                    </div>
+                    
+                    </div>
+                        
+                      <br>  
+                    <div class="card" id="cd1" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table id="table1" class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                         <th scope="col">Enter Designation</th>
+                                                        <th scope="col" >Years of Experience</th>
+                                                        <th scope="col">Action &nbsp;&nbsp;&nbsp;<i class="fas fa-plus" onclick="ob_adRows.addRow()"/ style="cursor:pointer;"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                    <td><input type="text" name="tm1[]"class="form-control form-control-alternative FacDesignation"/></td>
+                    <td><input type="text"class="form-control form-control-alternative FacExeriance" name="nm2[]"/></td>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" onclick="ob_adRows.delRow(this)"/style="cursor:pointer;"></td>
+                    
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                   
+   
+
+                    <div class="mini-wrapper3 style2 sr">
+                            <button type="button" class="btn btn-sm btn-primary" onclick="verifyier()";>Save</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-primary"style="background-color: #dc3545;">Cancel</button>
+                            
+                        </div>
+
+
+<script>
+
+    function adRowsTable(id){
+    var table = document.getElementById(id);
+    var me = this;
+    if(document.getElementById(id)){
+        var row1 = table.rows[1].outerHTML;
+
+    //adds index-id in cols with class .tbl_id
+        function setIds(){
+        var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id');
+        for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+        }
+
+    //add row after clicked row; receives clicked button in row
+        me.addRow = function(btn){
+        btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1): table.insertAdjacentHTML('beforeend',row1);
+        setIds();
+        }
+
+    //delete clicked row; receives clicked button in row
+        me.delRow = function(btn){
+        btn.parentNode.parentNode.outerHTML ='';
+        setIds();
+    }
+  }
+}
+
+//create object of adRowsTable(), pass the table id
+var ob_adRows = new adRowsTable('table1');
+</script>
+                     
+<input type="text" name="uploadName" style="display: none;">
+</form>
+</div>
+<br><br>
+     <!--table-->
+     
+     <div class="tab1">
+    <!--tab1content-->
+
+<div class="table1"style="width: 100%; " id="pager">
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Profile</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Username</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Default Password</th>
+                                                          <th scope="col" style="text-align:center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="facListContainer">
+                                                    
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+        
+ </div>
+</div>
+
+<!-- home -->
+
+
+
+<!-- menu1 -->
+
+<!-- menu2 -->
+    <div class="tab-pane container" id="menu2">
+     <br><br>
+     <!--menu2cont -->
+     <div  >
+             <form class="d-flex">
+             <div style="width:30%"><input type="text" placeholder="Search.." class="form-control"  id="searchfaccccc"></div>
+             &nbsp;&nbsp;&nbsp;
+             <div style="margin-top: 5px;"><button type="button"  class="btn btn-sm btn-primary" style="margin-left:0.8rem; margin-top:0.45rem;" onclick="searchForFaculty()"><i class="fa fa-search newsearch" style="cursor: pointer;" ></i></button></div>
+             </form>
+         </div>
+         <br><br>
+         <div class="table1"style="width: 100%; ">
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Profile</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Username</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Description</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="searchfacContainer">
+                                                    
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+        
+
+
+
+ </div>
+
+
+
+<!-- menu2 --END -->
+
+<!-- menu 3 -->
+<div class="tab-pane container" id="menu3">
+<br>
+<div class="table2">
+    <br>
+                                <div class="card" >
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th scope="col">No.</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Qualification</th>
+                                                          <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="requestFacultyStatus">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+
+</div>
+<!-- menu-3 -->
+    </div>
+
+   </div>
+            </div>
+
+
+            </div>
+                
+           
+
+
+
+<div id="snackbar"></div>
+   <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </button>
+    <button type="button" id="passTrigger" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">
+    </button>
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:40px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+<!-- maincontent -->
+<button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+</button>
+
+<!-- Modal -->
+<div class="modal" id="passwordModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="passrModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+    <div class="modal-content">
+      <div class="modal-header" >
+            <h5 class="modal-title" id="passModalTitle">Verify by entering your password</h5>
+            <button type="button" class="close" id="closeVerifier" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      <div class="modal-body flex justify-content-center">
+      <form id="verifierForm">
+          <input type="password" placeholder="password" name="repass" id="repass">
+         <div class="flex justify-content-center"> <button type="submit">Verify</button></div>
+      </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+        
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    <script type="text/javascript">
+        var alldata=[];
+        var verPass='';
+        var allFac = [];
+        var idOfFac="";
+         auth.onAuthStateChanged((user)=>{
+            if(user){
+              
+            }else{
+                location.replace('../../login/');
+            }
+        })
+        function onLoadSetter(){
+           
+                     localforage.getItem('fullAuth').then((e)=>{
+                        console.log(e);
+                        nameApro=e;
+                        nameAproA=nameApro.split('-*de*-');
+                        document.getElementById('iName').innerHTML=nameAproA[0];
+                        document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
+                        localforage.getItem('instituteDetails').then((f)=>{
+                            allFac=f.facultyIds;
+                            alldata=f;
+                            updateTableOfFaculties(allFac,f.courseIds);
+                            updateRequestedFaculties();
+                        })
+                })
+        }
+         function loaderTriggerAndEnder(d) {
+            if (d) {
+                document.getElementById('loaderTrigger').click();
+            }
+            else{
+                document.getElementById('closeLoader').click();
+            }
+        }
+        function showToast(msg) {
+          var x = document.getElementById("snackbar");
+          x.innerHTML=msg;
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+        function logout(){
+            auth.signOut().then(()=>{
+                localforage.clear();
+                location.replace('../login/');
+            });
+
+        }
+    function Addfac(a){
+        a.style.display="none";
+        document.getElementById('facnewform').style.display="block";
+        document.getElementById('factable').style.display="none";
+    }
+    function myalert(){
+        document.getElementById('alertMsgTrig').click();
+    }
+
+    var formF = document.getElementById('facultyRegForm');
+    function submitFac(){
+        document.getElementById('facCreate').click();
+    }
+    function imguppp(){
+        document.getElementById('facultyImg').click();
+    }
+    function imguppp1(){
+        document.getElementById('facultyImg1').click();
+    }
+    document.getElementById('facultyImg').addEventListener("change", function(){
+       if(event.target.files.length==0){
+            return;
+        }
+        var iurl=URL.createObjectURL(event.target.files[0]);
+        document.getElementById('imgProfilePreview').setAttribute("src",iurl); 
+    });
+  
+
+    function getValuesByClassName(className,returnType) {
+            var k = document.querySelectorAll('.'+className);
+            var deli = '';
+            var values ='';
+            var j = 0;
+            for (var i = 0; i < k.length; i++) {
+                if (j>0) {
+                    deli = ','
+                }
+                if (k[i].value!='' || k[i].value!= null) {
+                    values+=deli+k[i].value;
+                    j++;
+                }
+                
+            }
+           // alert(values);
+            if (returnType=='array') {
+                return values.split(',');
+            }
+            else{
+                return values;
+
+            }
+        }
+  function refCodeGenerater(val2){
+    var alnuVal = ["1","2","3","4","5","6","7","8","9","0","N","M","L","K","R","Q","P","O","V","U","T","S","Z","Y","X","W"];
+    var alnu =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    
+    var up2 = val2.toUpperCase();
+    var final="";
+    for(let i in up2){
+      for(let j in alnu){
+          if (up2[i]==alnu[j]) {
+            final+=alnuVal[j];
+         }
+      }
+      
+    }
+    
+    return final;
+  }
+  
+    function makepass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+           }
+           return result;
+    }
+    function Adding(){
+        document.getElementById('but1').style.display="none";
+        document.getElementById('pager').style.display="none";
+        document.getElementById('facnewform').style.display="block";
+        
+    }
+    function updateTableOfFaculties(facids,crsids) {
+        for (var i = 0; i < facids.length; i++){
+            console.log(facids.length);
+            console.log(facids[i]);
+            var ind = 1;
+            data.collection('faculty').doc(facids[i]).get().then((a)=>{
+                var b = a.data();
+                
+               if (b.courseIds.length>0) {
+                var instance = false;
+                for (var j = 0; j < b.courseIds.length; j++) {
+                   
+                    
+                    for (var k = 0; k < crsids.length; k++) {
+                        console.log(b.courseIds[j]);
+                        console.log(crsids[k]);
+                        
+                        if (b.courseIds[j]==crsids[k]) {
+                            instance=true;
+                        }
+                        console.log(instance);
+                        
+                    }
+                    
+                }
+                if (instance) {
+                        
+                             var row1 = '<tr><td>'+ind+'</td> <td> <div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/'+b.profileImage+'" style="border-radius: 50%;width: 70px;height: 70px;"></div> </td><td>'+b.name+'</td> <td>'+b.email+'</td> <td>'+b.qualification+'</td><td>'+b.defaultPassword+'</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button></td> </tr>';
+                            $('#facListContainer').append(row1);   
+                            console.log(ind);
+                            ind++;
+                            console.log(ind);
+                            
+                        
+                    }
+                    else{
+                             var row2 = ` <tr><td>`+ind+`</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/`+b.profileImage+`" style="border-radius: 50%;width: 70px;height: 70px;"></div></td> <td>`+b.name+`</td> <td>`+b.email+`</td><td>`+b.qualification+`</td><td>`+b.defaultPassword+`</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="`+b.id+`" onclick="removeFacultyFromInsttute(this)">Remove</button></td></tr>`
+                            $('#facListContainer').append(row2);   
+                            ind++;
+                            console.log('1ele');
+                        }
+            }
+            else{
+                var row2 = ` <tr><td>`+ind+`</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/`+b.profileImage+`" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>`+b.name+`</td><td>`+b.email+`</td><td>`+b.qualification+`</td><td>`+b.defaultPassword+`</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="`+b.id+`" onclick="removeFacultyFromInsttute(this)">Remove</button></td> </tr>`
+                            $('#facListContainer').append(row2);   
+                            ind++;
+                            console.log('2ele');
+                        
+            }
+            
+            })
+        }
+    }
+    function verifyier(){
+        console.log('working');
+        document.getElementById('passTrigger').click();  
+    }
+    var verForm = document.getElementById('verifierForm');
+    verForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        var uname=alldata.email;
+        let pass=verForm.repass.value;
+        verPass = pass;
+        auth.signInWithEmailAndPassword(uname,pass).then((a)=>{
+        if (a) {
+           document.getElementById('closeVerifier').click();
+           verForm.reset();
+           draftfactalert();
+        }
+        else{
+            showToast('something went wrong !!');
+          }
+    }).catch(error =>{
+        showToast(error);
+    })
+    })
+    function draftfactalert(){
+        const user=firebase.auth().currentUser;
+        if(confirm("Do you want to save ? ")){
+            loaderTriggerAndEnder(true);
+            var disignation = getValuesByClassName('FacDesignation','array');
+            console.log(disignation);
+            var Experiancee = getValuesByClassName('FacExeriance','array');
+            console.log(Experiancee);
+            var dpass = makepass(7);
+            var refCode = refCodeGenerater(formF.Facmail.value);
+            console.log(refCode);
+            const authcrea = auth.createUserWithEmailAndPassword(formF.Facmail.value,dpass);
+              authcrea.catch(function(e){
+                showToast(e.message);
+              }).then(function(b){
+                  var exiFac=[];
+                formF.uploadName.value=b.user.uid+'-Profile.jpg';
+                var fd = new FormData(document.querySelector('#facultyRegForm'));
+                idOfFac=b.user.uid;
+                $.ajax({
+                        url: 'proUp.php',
+                        type: 'post',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        error:function(){
+                            alert("Upload Failed, Try Again !!!");
+                        },
+                        success:function(val){
+                            console.log(val);
+                            data.collection('faculty').doc(b.user.uid).set({
+                              'email': formF.Facmail.value,
+                              'status': 'Not Verified',
+                              'mobileNo':formF.Facmobile.value,
+                              'refBy':'',
+                              'referalCode':refCode,
+                              'courseIds':[],
+                              'notification':[],
+                              'instituteIds':[user.uid],
+                              'defaultPassword': dpass,
+                              'description':formF.Facdescription.value,
+                              'name':formF.Facname.value,
+                              'id':b.user.uid,
+                              'qualification':formF.Facqualification.value,
+                              'designation': disignation,
+                              'experiance' : Experiancee,
+                              'profileImage': formF.uploadName.value,
+                              'requests':[],
+                              'requestedAt':parseInt(new Date().getTime())
+                            }).then(()=>{
+                                allFac.push(idOfFac);
+                                alldata.facultyIds=allFac;
+                                alldata.noOfFaculties++;
+                                console.log(allFac);
+                                data.collection('institute').doc(alldata.id).update({
+                                    noOfFaculties:allFac.length,
+                                    facultyIds:allFac
+                                }).then(()=>{
+                                    data.collection('admin').doc(sadid).get().then((adminData)=>{
+                                        exiFac = adminData.data().newFaculties;
+                                        exiFac.push(idOfFac);
+                                    }).then(()=>{
+                                        data.collection('admin').doc(sadid).update({
+                                            newFaculties:exiFac
+                                        }).then(()=>{
+                                            formF.reset();
+                                            document.getElementById('but1').style.display="block";
+                                            document.getElementById('pager').style.display="block";
+                                            document.getElementById('facnewform').style.display="none";
+                                            
+                                            localforage.setItem('instituteDetails',alldata).then(()=>{
+                                                auth.signInWithEmailAndPassword(alldata.email,verPass).then((a)=>{
+                                                    if (a) {
+                                                        loaderTriggerAndEnder(false);
+                                                    }
+                                                    
+                                                })
+                                                
+                                            })
+                                        })
+                                    })
+                                }).catch(()=>{
+                                    localforage.getItem('instituteDetails').then((a)=>{
+                                        a=alldata;
+                                    })
+                                })
+                            })
+                        }
+                    })
+              })
+    }
+}
+    function removeFacultyFromInsttute(v) {
+        loaderTriggerAndEnder(true);
+        var f =v.getAttribute('fac-id');
+        var exf = alldata.facultyIds;
+        var out = removeElementOfArray(exf,f)
+        alldata.facultyIds=out;
+        var inss=[];
+        
+        data.collection('institute').doc(alldata.id).update({
+            facultyIds:out
+        }).then(()=>{
+            data.collection('faculty').doc(f).get().then((w)=>{
+
+                var x = w.data();
+                inss=x.instituteIds;
+            }).then(()=>{
+                var newins = removeElementOfArray(inss,alldata.id);
+
+                data.collection('faculty').doc(f).update({
+                instituteIds:newins
+                }).then(()=>{
+                    showToast('Faculty Removed From Institute');
+                    localforage.setItem('instituteDetails',alldata).then(()=>{
+                        loaderTriggerAndEnder(false);    
+                    })
+                    
+                })    
+            })
+            
+        }).catch((e)=>{
+            localforage.getItem('instituteDetails').then((a)=>{
+                alldata=a;
+            })
+        })
+    }
+    function removeElementOfArray(array,element) {
+        var index = array.indexOf(element);
+        if (index > -1) {
+                  array.splice(index, 1);
+                }
+        return array;        
+    }
+    function requestThisFaculty(z){
+        var fac = z.getAttribute('fac-id');
+        var reqs=[];
+
+        alldata.requests.push(fac);
+        localforage.setItem('instituteDetails', alldata).then(()=>{
+            data.collection('institute').doc(alldata.id).update({
+                requests: alldata.requests
+            }).then(()=>{
+                data.collection('faculty').doc(fac).get().then((querySnapshot)=>{
+                    var temp=querySnapshot.data().requests;
+                    temp.push({
+                        name: alldata.instituteName,
+                        email: alldata.email,
+                        profileImage: alldata.logoUrl,
+                        id: alldata.id
+                    });
+
+                    data.collection('faculty').doc(fac).update({
+                        requests: temp
+                    }).then(()=>{
+                        showToast('Requested for collab !!!');
+                    })
+                })
+            })
+        });
+    }
+    var anotherFacId='';
+    function updateRequestedFaculties() {
+        var ind=1;
+        var ind2=0;
+         if (alldata.requests!=undefined) {
+        for (var i = 0; i < alldata.requests.length; i++) {
+            data.collection("faculty").doc(alldata.requests[i]).get().then((b)=>{
+                var row4=`<tr>
+                                                        <td>`+ind+`</td>
+                                                        
+                                                        <td>`+b.data().name+`</td>
+                                                        
+                                                        <td>`+b.data().qualification+`</td>
+                                                        <td> Pending...</td>
+                                                    </tr>`;
+                $('#requestFacultyStatus').append(row4);
+                    ind++;    
+            })
+            ind2++;
+        }
+    }
+       
+    }
+    
+</script>
+<script>
+    function searchForFaculty(){
+        loaderTriggerAndEnder(true);
+        document.getElementById('searchfacContainer').innerHTML="";
+        var searchVariable = document.getElementById('searchfaccccc').value;
+        var ind=1;
+        var hu = 0;
+        data.collection("faculty").where("name", "==", searchVariable).get().then((querySnapshot) => {querySnapshot.forEach((doc) => {
+            var goOrNot = true;
+            var notOrGo = true;
+            
+            console.log();
+            for (var i = 0; i < allFac.length; i++) {
+
+                if (allFac[i]==doc.id) {
+                    goOrNot = false;
+                    console.log(allFac[i])
+                }
+            }
+            // for (var i = 0; i < anotherFacId.length; i++) {
+            //     if (anotherFacId[i]==doc.id) {
+            //         notOrGo = false;
+            //     }
+            // }
+            if (goOrNot && notOrGo) {
+                console.log('hi');
+            console.log(doc.id);var row3='<tr><td>1</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/'+doc.data().profileImage+'" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>'+doc.data().name+'</td><td>'+doc.data().email+'</td><td>'+doc.data().qualification+'</td><td>'+doc.data().description.substring(0,16)+'...</td><td> <button class="btn btn-sm btn-primary coobtn" onclick="requestThisFaculty(this)" fac-id="'+doc.id+'">Give Request</button></td></tr>';
+            $('#searchfacContainer').append(row3);
+            ind++;
+            hu=1;
+        }
+    })})
+
+        data.collection("faculty").where("qualification", "==", searchVariable).get().then((querySnapshot) => {querySnapshot.forEach((doc) => {
+            var goOrNot = true;
+            var notOrGo = true;
+            
+            console.log();
+            for (var i = 0; i < allFac.length; i++) {
+
+                if (allFac[i]==doc.id) {
+                    goOrNot = false;
+                    console.log(allFac[i])
+                }
+            }
+            for (var i = 0; i < anotherFacId.length; i++) {
+                if (anotherFacId[i]==doc.id) {
+                    notOrGo = false;
+                }
+            }
+            if (goOrNot && notOrGo) {
+            console.log(doc.id);var row3='<tr><td>1</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/'+doc.data().profileImage+'" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>'+doc.data().name+'</td><td>'+doc.data().email+'</td><td>'+doc.data().qualification+'</td><td>'+doc.data().description.substring(0,16)+'...</td><td> <button class="btn btn-sm btn-primary coobtn" onclick="requestThisFaculty(this)" fac-id="'+doc.id+'">Give Request</button></td></tr>';
+            $('#searchfacContainer').append(row3);
+            ind++;
+            hu=1;
+        }
+    })}).then(()=>{
+            if (hu==0) {
+                $('#searchfacContainer').append('<tr ><td colspan="7" style="text-align:center">No Results Found</td></tr>');
+            }
+               loaderTriggerAndEnder(false);
+        })
+            
+    }
+    
+</script>
+</body>
+
+</html>

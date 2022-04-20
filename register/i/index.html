@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Merit Bodhi | Institute Registration</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="facultyreg.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="facreg1.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../../assets/libs/css/style.css">
+   <style>
+      #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+    </style>
+   </head>
+<body>
+    <div id="snackbar"></div>
+
+  <div class="container">
+    <div class="title">MeritBodhi</div>
+    <div class="content">
+      <form id="regform" method="POST">
+        
+        <div class="user-details">
+                  
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="iname">Institute Name</label>
+                      <input type="text" id="iname" class="form-control form-control-alternative" name="i_name" placeholder="Institute Name" required >
+                      </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="email">Email</label>
+                      <input type="text" id="email" class="form-control form-control-alternative" name="emailid" placeholder="Email Id" required>
+                     </div>
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="ph">Phone Number</label>
+                      <input type="text" id="ph" class="form-control form-control-alternative" name="p_no" placeholder="Phone Number" required >
+                     </div>  
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="door">Address</label>
+                      <input type="text" id="door" class="form-control form-control-alternative" name="add" placeholder="Door / Street / Area" required>
+                     </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="city">City</label>
+                      <input type="text" id="city" class="form-control form-control-alternative" name="city" placeholder="City Name" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="district">District</label>
+                      <input type="text" id="district" class="form-control form-control-alternative" name="district" placeholder="District Name" required>
+                     </div>
+                    
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="state">State</label>
+                      <input type="text" id="state" class="form-control form-control-alternative" name="state" placeholder="State Name" required>
+                     </div>
+                  
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="country">Country</label>
+                      <input type="text" id="country" class="form-control form-control-alternative" name="country" placeholder="Country Name" required>
+                     </div>
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="pin">Pin Code</label>
+                      <input type="text" id="pin" class="form-control form-control-alternative" name="pin" placeholder="Pin Code" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="pass">Password</label>
+                      <input type="password" id="pass" class="form-control form-control-alternative" name="pas" placeholder="Password" required>
+                     </div>
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="cpass">Confrim Password</label>
+                      <input type="password" id="cpass" class="form-control form-control-alternative" name="c_pas" placeholder="Confrim Password" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="refcode">Referal Code<small>(optional)</small></label>
+                      <input type="text" id="refcode" class="form-control form-control-alternative" name="ref_code" placeholder="Referal Code" required>
+                     </div>
+                     </div>
+                     <div class="input-box" style="display: block;" id="refcodmsg">
+                      <!-- <span class="details" style="display:block;">Message</span> -->
+                      <p id="msggg"></p>
+                    </div> 
+                    <div class="col-4 text-right"style="margin-left: 16rem;">
+                     
+                            <input type="button" id="regbtn" style="margin-top: 1rem;" class="btn btn-primary" name="submit" value="SUBMIT" />
+
+                            <script>
+                              const username = document.getElementById('uname');
+                              var dff=document.getElementById('msggg');
+                              var ee=document.getElementById('refcode');
+                              /*var usernames = <?php// echo json_encode($iuns); ?>;
+                              var refs = <?php// echo json_encode($refcs); ?>;
+                              var ins = <?php// echo json_encode($refns); ?>;*/
+                              function showrefMsg(){
+                                var ind,fl=0;
+                                var msgb = document.getElementById('refcodmsg').style.display="block";
+                                for(var i =0;i<refs.length;i++){
+                                  if (ee.value==refs[i]) {
+                                    ind = i;
+                                    fl=1;
+                                  }
+                                  if(ee.value==""){
+                                    fl=2;
+                                  }
+                                }
+                                if (fl==0) {
+                                  dff.innerHTML="Entered referal code is wrong !!!";
+                                  dff.setAttribute('style','margin-top:1rem;color:red;');
+                                  document.getElementById('blagg1').value="1";
+                                }
+                                if (fl==1) {
+                                  dff.innerHTML="Referred Institute Name : "+ins[ind]; 
+                                  dff.setAttribute('style','margin-top:1rem;color:green;');
+                                  document.getElementById('blagg1').value="0";
+                                }
+                                if(fl==2){
+                                  var msgb = document.getElementById('refcodmsg').style.display="none";
+                                  document.getElementById('blagg1').value="0";
+                                }
+                              }
+
+                          </script>
+        </div>
+</form>
+</div>
+</div>
+<!-------------------------loading overlay--------------------------------------------------->
+  <div id="loaderForLogin" class="overlay" style="display:none">
+    <div class="overlay__inner">
+        <div class="overlay__content"><span class="spinner"></span></div>
+    </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+  <script src="../../js/connect.js"></script>
+ 
+  <script>
+  //--------------------------------------JAVA SCRIPT------------------------------------------------//
+  const form=document.getElementById('regform');
+  var sadidi = 'KrnczbCIGXa0qyLf4rCfmFabc793';
+  // Initialize Firebase
+
+  
+
+  //------------------------------on submit getting form data-------------------------------------//
+  document.getElementById('regbtn').addEventListener('click',function(){
+    const iname=form.i_name.value;  //institute name
+    const email=form.email.value;   //email
+    const passw=form.pas.value;     //password
+    const cpass=form.c_pas.value;   //confirm password
+    const mobil=form.p_no.value;    //mobile
+    const addre=form.add.value;     //adress
+    const acity=form.city.value;    //city
+    const count=form.country.value; //country
+    const state=form.state.value;   //state
+    const distr=form.district.value;//district
+    const pinco=form.pin.value;     //pincode
+    const refer=form.ref_code.value;//referal code
+    var allow = false;
+
+    if (iname !== null && iname !== '' && email !== null && email !== '' && passw !== null && passw !== '' && cpass !== null && cpass !== '' && mobil !== null && mobil !== '' && addre !== null && addre !== '' && acity !== null && acity !== '' && count !== null && count !== '' && state !== null && state !== '' && distr !== null && distr !== '' && pinco !== null && pinco !== ''  ) {
+      //checking is there any null available in form
+      allow=true;
+    }
+
+    if (passw==cpass && allow==true){
+     //----------------------------------authantication setting----------------------------------------//
+      document.getElementById('loaderForLogin').style.display="block";
+      const authcrea = auth.createUserWithEmailAndPassword(email,cpass);
+      authcrea.catch(function(e){
+        showToast(e.message);
+      })
+      .then(function(b){
+         b.user.updateProfile({
+           displayName: iname,
+           photoURL: 'group.png'
+        })
+        .then(function(c){
+          //----------------------------------writing data int firestore--------------------------------------//
+              
+            var refCodeF = refCodeGenerater(email);
+            data.collection('institute').doc(b.user.uid).set({
+              'address': {
+                'adrs': addre,
+                'city': acity,
+                'district': distr,
+                'state': state,
+                'pincode': pinco,
+                'country': count
+              },
+              'email': email,
+              'isVerified': false,
+              'blocked':false,
+              'phone':mobil,
+              'refBy':'',
+              'refCode':refCodeF,
+              'aboutUs':'',
+              'ownerInfo':'',
+              'coursesHandled':[],
+              'noOfCourses':0,
+              'noOfFaculties':0,
+              'noOfStudents':0,
+              'id':b.user.uid,
+              'ratings':'3',
+              'instituteName':iname,
+              'courseIds':[],
+              'referedInstitutes':[],
+              'facultyIds':[],
+              'logoUrl':'group.png',
+              'requests':[],
+              'rejected':false,
+              'registeredAt':parseInt(new Date().getTime())
+
+
+
+            })
+            .then(function(){
+              //---------------------------------erasing data from form--------------------------------------------------------//
+              var bgbg = b.user.uid;
+              var newIns = [];
+              var refbyins = '';
+              if (refer!="" || refer!=null) {
+                data.collection("institute").where("refCode", "==", refer).get().then((querySnapshot) => {
+                                                            querySnapshot.forEach((doc) => {
+                                                                refbyins=doc.id;
+                                                                var allreferins = doc.data().referedInstitutes;
+                                                                allreferins.push(b.user.uid);
+                                                                data.collection("institute").doc(doc.id).update({
+                                                                          'referedInstitutes':allreferins
+                                                                      });
+                                                                });
+                                                      }).then(()=>{
+                                                      data.collection("institute").doc(bgbg).update({
+                                                        refBy:refbyins
+
+                                                      }).then(()=>{
+                                                        data.collection('admin').doc(sadid).get().then((adVal)=>{
+                                                          newIns = adVal.data().newInstitutes;
+                                                        }).then(()=>{
+                                                              newIns.push(bgbg);
+                                                              data.collection('admin').doc(sadid).update({
+                                                                newInstitutes:newIns
+                                                              }).then(()=>{
+                                                                  form.i_name.value='';  //institute name
+                                                                  form.email.value='';   //email
+                                                                  form.pas.value='';     //password
+                                                                  form.c_pas.value='';   //confirm password
+                                                                  form.p_no.value='';    //mobile
+                                                                  form.add.value='';     //adress
+                                                                  form.city.value='';    //city
+                                                                  form.country.value=''; //country
+                                                                  form.state.value='';   //state
+                                                                  form.district.value='';//district
+                                                                  form.pin.value='';     //pincode
+                                                                  form.ref_code.value='';//referal code
+                                                                  
+
+                                                                  //-------------------------------------redirecting to login-------------------------------------------------------//
+                                                                  
+                                                                  window.location.replace("../../login/");
+                                                              })
+                                                        })
+
+                                                        
+                                                      }).catch((error) => {
+                                            showToast(error.message);
+                                            console.log(error.message);
+                                        });
+                                 }).catch((error) => {
+                                            showToast('Please provide a correct Referal code');
+                                        });
+              }
+             
+            }).catch(function(err) {
+                showToast(err);
+            });
+        });
+
+
+      });
+
+    }else if (allow==false) {
+      showToast('Please fill all the fields');
+    }
+    else{
+      showToast('Password and Confirm Password must be same')
+    }
+
+  });
+  function showToast(msg) {
+          var x = document.getElementById("snackbar");
+          x.innerHTML=msg;
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        }
+  function refCodeGenerater(val2){
+    var alnuVal = ["1","2","3","4","5","6","7","8","9","0","N","M","L","K","R","Q","P","O","V","U","T","S","Z","Y","X","W"];
+    var alnu =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    
+    var up2 = val2.toUpperCase();
+    var final="";
+    for(let i in up2){
+      for(let j in alnu){
+          if (up2[i]==alnu[j]) {
+            final+=alnuVal[j];
+         }
+      }      
+    }
+    
+    return final;
+  }
+        </script>
+</body>
+</html>

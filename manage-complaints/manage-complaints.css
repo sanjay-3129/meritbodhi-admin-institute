@@ -1,0 +1,90 @@
+.backround{
+	margin: 1.3rem;
+	padding: 1rem;
+	background-color: #fff;
+	border-radius: .4rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.flexclass{
+	display: flex;
+	justify-content: space-between;
+}
+
+small{
+	color: #000;
+}
+
+.iconstyle{
+	font-size: 1rem;
+	cursor: pointer;
+	color: red;
+}
+
+.smlcls{
+	margin-top: -1.3rem;
+	margin-left: 1.8rem;
+}
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+
+	top: 0;
+	left: 0;
+	background-color:white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	margin-top: 30px;
+	font-size: 20px;
+	
+  }
+  
+  .sidebar a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 19px;
+	color: #007bff;
+	display: block;
+	transition: 0.3s;
+	margin-left: 26px;
+  }
+  
+  .sidebar a:hover {
+	color: black;
+  }
+  
+  .sidebar .closebtn  {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  .openbtn  {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: #007bff;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  #main1 {
+	transition: margin-left .5s;
+	padding: 16px;
+  }
+  .closebtn:hover {
+	  background-color: whitesmoke;
+  }
+  .closebtn {
+	  margin-top: 24px;
+	  
+  }

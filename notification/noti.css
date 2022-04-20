@@ -1,0 +1,52 @@
+.candsync{
+    margin-left: 50rem;
+}
+.cont{
+    margin-left: 1rem;
+}
+.straightops{
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+
+@media screen and (max-width: 1067px){
+
+
+
+}
+@media screen and (max-width: 1277px){
+
+.candsync{
+    margin-left: 5rem;
+}
+
+   
+
+
+
+}
+@media screen and (max-width: 433px){
+
+
+.straightops{
+    flex-direction: row;
+    
+}
+}
+@media screen and (max-width: 431px){
+
+
+}
+@media screen and (max-width: 797px){
+
+}
+  
+.buttw{
+    flex-direction: column;
+}
+
+
+
+}

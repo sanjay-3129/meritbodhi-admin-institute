@@ -1,0 +1,209 @@
+.backround{
+	background-color: #fff;
+	margin: 1.5rem;
+	padding: 2rem;
+	border-radius: .2rem;
+}
+
+.searchboxclass{
+	display: flex;
+	width: 23%;
+	float: right;
+	margin-top: -2.5rem;
+}
+
+.searchicon{
+	cursor: pointer;
+	border: none;
+	background-color: #b1b1b1;
+}
+
+.modifybtn{
+	margin-left: 2rem;
+	margin-top: 1rem;
+}
+
+.styles{
+	width: 10%;
+}
+
+.arrowstyle{
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.needflex{
+	display: flex;
+	justify-content: center;
+}
+
+.imgstyles{
+	max-width: 100%; 
+	min-height: 90%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+.polaroid {
+  width: 45%;
+  background-color: white;
+  margin-bottom: 25px;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.polaroid1 {
+  width: 45%;
+  background-color: white;
+  margin-bottom: 25px;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.contentclass{
+	margin-top: 3rem;
+	display: flex;
+	justify-content: space-around;
+}
+
+.title{
+	max-width: 25%;
+}
+
+.concept{
+	max-width: 46%;
+}
+
+.faculty{
+	max-width: 20%;
+}
+
+.description{
+	margin-left: .8rem;
+	margin-top: 2rem;
+}
+
+.contentclass1{
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-around;
+}
+
+.lang{
+	display: flex;
+	width: 30%;
+	margin-left: 1rem;
+}
+
+.introvideo{
+	display: flex;
+	margin-left: 6rem;
+	width: 40%;
+}
+
+.mode{
+	display: flex;
+	width: 30%;
+}
+
+
+.needcrt{
+	margin-left: .4rem;
+	margin-top: .2rem;
+}
+
+
+.needcrt2{
+	margin-left: .4rem;
+	margin-top: .2rem;
+}
+
+.contentclass2{
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-around;
+}
+
+.cna{
+	width: 30%;
+	margin-left: 1rem;
+}
+
+.cc{
+	width: 30%;
+	margin-left: 5.5rem;
+}
+
+.csc{
+	width: 30%;
+	margin-left: 4rem;
+}
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+
+	top: 0;
+	left: 0;
+	background-color:white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	margin-top: 30px;
+	font-size: 20px;
+	
+  }
+  
+  .sidebar a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 19px;
+	color: #007bff;
+	display: block;
+	transition: 0.3s;
+	margin-left: 26px;
+  }
+  
+  .sidebar a:hover {
+	color: black;
+  }
+  
+  .sidebar .closebtn  {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  .openbtn  {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: #007bff;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  #main1 {
+	transition: margin-left .5s;
+	padding: 16px;
+  }
+  .closebtn:hover {
+	  background-color: whitesmoke;
+  }
+  .closebtn {
+	  margin-top: 24px;
+	  
+  }
+/*MOBILE RESPONSIVE*/

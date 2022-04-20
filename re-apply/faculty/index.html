@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title></title>
+    
+    <link rel="stylesheet" href="facultyreg.css">
+    <link rel="stylesheet" type="text/css" href="facreg1.css">
+    <link rel="stylesheet" href="../../assets/libs/css/style.css">
+     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../../js/connect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+
+	.card{
+		margin: 15rem 23rem 15rem 23rem;
+        border-radius: 2px;
+        background-color: #fff;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+		
+	}
+	.cont{
+        align-content: center;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+       
+        
+    }
+    .conte{
+        display: flex;
+        margin-left: 11rem;
+
+    }
+    
+    @media only screen and (max-width : 720px){
+
+      .card{
+    margin-top: 13rem; 
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 1px;
+           }
+  
+    .conte{
+        margin-top: 1rem;
+        margin-left: 6rem;
+
+    }
+
+    }
+   
+</style>
+</head>
+<body>
+
+<div class="container" id="conta">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form  id="facReapplyForm" method="POST">
+        
+        <div class="user-details">
+                  
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Faculty Name</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="Facname" placeholder="Faculty Name" >
+                      </div>
+                     
+                
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Mobile Number</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="mobnum" placeholder="Mobile Number" >
+                     </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Email Address</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Mail ID" >
+                     </div>
+                     
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Qualification</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="quali" placeholder="Qualification" >
+                     </div>
+                  
+                     
+                     
+                     </div>
+                     <div class="input-box" style="display: block;" id="refcodmsg">
+                      <!-- <span class="details" style="display:block;">Message</span> -->
+                      <p id="msggg"></p>
+                    </div> 
+                    <div class="col-4 text-right"style="margin-left: 19rem; margin-top: 2rem;">
+                    <button type="button" class="btn btn-sm btn-primary" onclick="reapplyAction()" >Reapply</button>
+                    </div>
+</form>
+</div>
+</div>
+ <div class="card" id="cardu">
+<div class="cont">
+    
+    
+    <label class="form-control-label" style="font-size: 22px;">Your Faculty is Rejected </label>   
+    <div class="conte">
+    <button class="btn btn-sm btn-success" onclick="reapply()">Reapply</button>
+    <button class="btn btn-sm btn-danger" style="margin-left: 1rem;">Cancel</button>
+    </div> 
+    </div>
+    
+    
+        
+ 
+</div>   
+
+<script>
+    var allData=[];
+    var form = document.getElementById('facReapplyForm');
+     onload = ()=>{
+            localforage.getItem('facultyDetails').then((s)=>{
+                allData = s;
+                form.Facname.value=s.name;
+                form.emailadd.value=s.email;
+                form.mobnum.value=s.mobileNo;
+                form.quali.value=s.qualification;
+            })
+     }
+     function reapplyAction() {
+          data.collection('faculty').doc(allData.id).update({
+            status:"Not Verified",
+            name:form.Facname.value,
+            email:form.emailadd.value,
+            mobileNo:form.mobnum.value,
+            qualification:form.quali.value
+          }).then(()=>{
+            auth.signOut().then(()=>{
+                localforage.clear().then(()=>{
+                    location.replace('../../login/');
+                });
+                
+            });
+          })
+     }
+     function deleteFaculty() {
+        if (confirm("Are you really want to Quit?")){
+             data.collection('faculty').doc(allData.id).delete().then(()=>{
+             auth.signOut().then(()=>{
+                localforage.clear().then(()=>{
+                    location.replace('../../login/');
+                });
+                
+            });
+        })
+        
+        }
+    }
+    document.getElementById('conta').style.display="none";
+    function reapply(){
+    document.getElementById('cardu').style.display="none";
+    document.getElementById('conta').style.display="block";
+    }
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

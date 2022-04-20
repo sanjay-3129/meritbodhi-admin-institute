@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+	<link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+
+	<style>
+  #loader {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+}
+
+#box {
+  width: 50px;
+  height: 50px;
+  background: #6997DB;
+  animation: animate .5s linear infinite;
+  position: absolute;
+ margin-top: -5rem;
+  border-radius: 3px;
+}
+@keyframes animate {
+  17% { border-bottom-right-radius: 3px; }
+  25% { transform: translateY(9px) rotate(22.5deg); }
+  50% {
+    transform: translateY(18px) scale(1,.9) rotate(45deg) ;
+    border-bottom-right-radius: 40px;
+  }
+  75% { transform: translateY(9px) rotate(67.5deg); }
+  100% { transform: translateY(0) rotate(90deg); }
+} 
+#shadow { 
+  width: 50px;
+  height: 5px;
+  background: #000;
+  opacity: 0.1;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow .5s linear infinite;
+}
+@keyframes shadow {
+  50% {
+    transform: scale(1.2,1);
+  }
+}
+h3{
+
+	margin-top: 1rem;
+	margin-left: -4rem;
+}
+h2{
+	margin-top: 2rem;
+	margin-left: -8rem;
+}
+
+body {
+  overflow: hidden;
+}
+@media only screen and (max-width: 360px) {
+
+ 
+
+
+
+}
+	</style>
+</head>
+<body>
+<div id="loader">
+  <div id="shadow"></div>
+  <div id="box">
+  	
+  </div>
+  <h2>Your request has been sent </h2>
+  <h3>please wait for approval ...</h3>
+</div>
+
+</body>
+</html>

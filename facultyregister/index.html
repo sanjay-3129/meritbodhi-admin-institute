@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Registration</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="facultyreg.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="facreg1.css">
+
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        
+        <div class="user-details">
+                  
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Faculty Name</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="Facname" placeholder="Faculty Name" >
+                      </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">User Name</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="usernme" placeholder="Faculty Name" >
+                     </div>
+                     
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Mobile Number</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="mobnum" placeholder="Faculty Name" >
+                     </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Email Address</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Description</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                    
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Qualification</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                  
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Password</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Confrim Password</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Referal Code<small>(optional)</small></label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="emailadd" placeholder="Faculty Name" >
+                     </div>
+                     </div>
+                     <div class="input-box" style="display: block;" id="refcodmsg">
+                      <!-- <span class="details" style="display:block;">Message</span> -->
+                      <p id="msggg"></p>
+                    </div> 
+                    <div class="col-4 text-right"style="margin-left: 16rem;">
+                    <button type="button" class="btn btn btn-primary" >Submit</button>
+                    </div>
+</form>
+</div>
+</div>
+</body>
+</html>

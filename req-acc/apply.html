@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title></title>
+    
+    <link rel="stylesheet" href="facultyreg.css">
+    <link rel="stylesheet" type="text/css" href="facreg1.css">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+
+	.card{
+		margin: 15rem 23rem 15rem 23rem;
+        border-radius: 2px;
+        background-color: #fff;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+		
+	}
+	.cont{
+        align-content: center;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+       
+        
+    }
+    .conte{
+        display: flex;
+        margin-left: 11rem;
+
+    }
+    
+    @media only screen and (max-width : 720px){
+
+      .card{
+    margin-top: 13rem; 
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 1px;
+           }
+  
+    .conte{
+        margin-top: 1rem;
+        margin-left: 6rem;
+
+    }
+
+    }
+   
+</style>
+</head>
+<body>
+
+<div>
+ 
+<div id="snackbar"></div>
+  <div class="container" id="conta" >
+    <div class="title">MeritBodhi</div>
+    <div class="content">
+      <form id="regform" method="POST">
+        
+        <div class="user-details">
+                  
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="iname">Institute Name</label>
+                      <input type="text" id="iname" class="form-control form-control-alternative" name="i_name" placeholder="Institute Name" required >
+                      </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="email">Email</label>
+                      <input type="text" id="email" class="form-control form-control-alternative" name="emailid" placeholder="Email Id" required>
+                     </div>
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="ph">Phone Number</label>
+                      <input type="text" id="ph" class="form-control form-control-alternative" name="p_no" placeholder="Phone Number" required >
+                     </div>  
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="door">Address</label>
+                      <input type="text" id="door" class="form-control form-control-alternative" name="add" placeholder="Door / Street / Area" required>
+                     </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="city">City</label>
+                      <input type="text" id="city" class="form-control form-control-alternative" name="city" placeholder="City Name" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="district">District</label>
+                      <input type="text" id="district" class="form-control form-control-alternative" name="district" placeholder="District Name" required>
+                     </div>
+                    
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="state">State</label>
+                      <input type="text" id="state" class="form-control form-control-alternative" name="state" placeholder="State Name" required>
+                     </div>
+                  
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="country">Country</label>
+                      <input type="text" id="country" class="form-control form-control-alternative" name="country" placeholder="Country Name" required>
+                     </div>
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="pin">Pin Code</label>
+                      <input type="text" id="pin" class="form-control form-control-alternative" name="pin" placeholder="Pin Code" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="pass">Password</label>
+                      <input type="password" id="pass" class="form-control form-control-alternative" name="pas" placeholder="Password" required>
+                     </div>
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="cpass">Confrim Password</label>
+                      <input type="password" id="cpass" class="form-control form-control-alternative" name="c_pas" placeholder="Confrim Password" required>
+                     </div>
+                     
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="refcode">Referal Code<small>(optional)</small></label>
+                      <input type="text" id="refcode" class="form-control form-control-alternative" name="ref_code" placeholder="Referal Code" required>
+                     </div>
+                     
+                     </div>
+                     <div class="input-box" style="display: block;" id="refcodmsg">
+                      <!-- <span class="details" style="display:block;">Message</span> -->
+                      <p id="msggg"></p>
+                    </div> 
+                    <div class="col-4 text-right"style="margin-left: 15rem;margin-top: 1rem;">
+                     <button class="btn btn-sm btn-primary">Submit</button>
+                            
+                           
+        </div>
+</form>
+</div>
+</div>   
+</div>
+ <div class="card" id="cardu">
+<div class="cont">
+    
+    
+    <label class="form-control-label" style="font-size: 22px;">Your Institute is Rejected </label>   
+    <div class="conte">
+    <button class="btn btn-sm btn-success" onclick="reapply()">Reapply</button>
+    <button class="btn btn-sm btn-danger" style="margin-left: 1rem;">Cancel</button>
+    </div> 
+    </div>
+    
+    
+        
+ 
+</div>   
+
+<script>
+    document.getElementById('conta').style.display="none";
+    function reapply() {
+    document.getElementById('cardu').style.display="none";
+    document.getElementById('conta').style.display="block";
+    }
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

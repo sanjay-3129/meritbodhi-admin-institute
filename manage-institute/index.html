@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <script type="text/javascript">
+           
+
+        
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="manage-institute.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <script src="../js/admin-setup.js"></script>
+    <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+    
+   
+    <title>Meritbothi | Manage-Institute's</title>
+    <!-- cdns for custom multi select -->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishor</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/admin.png" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <ul class="navbar-nav flex-column">
+                                      <li class="nav-item ">
+                                          <a class="nav-link active" href="../manage-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                              
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-institute" ><i class="fas fa-university"></i>Institute's</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                          
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-courses"><i class="fas fa-book"></i>Courses</a>
+                                          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-category" ><i class="fas fa-sort-amount-down"></i>Category</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-payments" ><i class="fas fa-credit-card"></i>Payments</a>
+          
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-report" ><i class="fas fa-flag"></i>Report Generation</a>
+                                      
+                                      <li class="nav-item">
+                                          <a class="nav-link " href="../manage-complaints" ><i class="fas fa-question-circle"></i>Complaints</a>
+                                      
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="../manage-addadmins" ><i class="fas fa-plus-square"></i>Add Admins</a>
+                                          
+                                    
+                                      <li class="nav-item hi-sh-lg">
+                                          <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                           </li>
+                                          </ul>
+          </div>
+          
+          <div id="main">
+            <button class="openbtn" onclick="openNav()">☰ </button>  
+            
+          </div>
+         
+        
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+          <div class="dashboard-ecommerce">
+            
+            <!-- TABS -->
+             <div class="divtag" id="firstdivtag"> <!-- STARTING DIV -->
+
+                <!-- <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                  <li class="nav-item hovrclr" role="presentation">
+                    <a class="nav-link active hovrclr" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><p class="hovrclr">Requested List</p></a>
+                  </li>
+                  <li class="nav-item hovrclr" role="presentation">
+                    <a class="nav-link hovrclr" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><p class="hovrclr">Institute List</p></a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        
+                        <div id="reqtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidth">No.</th>
+                                  <th scope="col" class="nawidth">Name</th>
+                                  <th scope="col" class="ewidth">Email</th>
+                                  <th scope="col" class="dtwidth">Date & Time</th>
+                                  <th scope="col" class="awidth">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody id="reqtableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    
+                        <div id="informationtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidthn">No.</th>
+                                  <th scope="col" class="nawidthn">Name</th>
+                                  <th scope="col" class="ewidthn">Email</th>
+                                  <th scope="col" class="dtwidthn">Blocked</th>
+                                  <th scope="col" class="dtwidthn">Date & Time</th>
+                                  <th scope="col" class="awidthn">Actionss</th>
+                                </tr>
+                              </thead>
+                              <tbody id="infoTableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>-->
+     
+                <div class="container">
+                    <!-- <h2>Dynamic Tabs</h2> -->
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" class="Request" href="#home">Requested List</a></li>
+                      <li><a data-toggle="tab" class="Request" href="#menu1">Institute List</a></li>
+                      
+                    </ul>
+                  
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                        <div id="reqtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidth">No.</th>
+                                  <th scope="col" class="nawidth">Name</th>
+                                  <th scope="col" class="ewidth">Email</th>
+                                  <th scope="col" class="dtwidth">Date & Time</th>
+                                  <th scope="col" class="awidth">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody id="reqtableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+                      </div>
+                      <div id="menu1" class="tab-pane fade">
+                          
+                        <div id="informationtable">
+                            
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="nwidthn">No.</th>
+                                  <th scope="col" class="nawidthn">Name</th>
+                                  <th scope="col" class="ewidthn">Email</th>
+                                  <th scope="col" class="dtwidthn">Blocked</th>
+                                  <th scope="col" class="dtwidthn">Date & Time</th>
+                                  <th scope="col" class="awidthn">Actionss</th>
+                                </tr>
+                              </thead>
+                              <tbody id="infoTableBody">
+                              </tbody>
+                            </table>
+
+                        </div>
+                        
+                      </div>
+                     
+                    </div>
+                  </div>
+                  
+                
+            </div>
+
+            
+            <!-- END TABS WITH TABLE -->
+
+            <div class="divtag1" id="requestlist"> <!-- INFORMATION DIV START -->
+                
+                <i class="fas fa-arrow-left" style="cursor: pointer;font-size: 1.3rem;" onclick="gooback()"></i>
+                <div class="instinformation">
+                    <h3>Institute Information</h3>
+                </div>
+                <div class="flexclass">
+                    <div>
+                        <img src="inst.jpg" class="imagestyle" id="reqtableImage">
+                    </div>
+                    <div class="formflexclass"> <!-- NAME AND EMAIL -->
+                        <div class="instname">
+                            <h3>Institute Name :</h3>
+                            <p class="instname" id="reqtableInsname">Indian Institute of Technology</p>
+                        </div>
+                        <div class="institueemail">
+                            <h3>Email Address :</h3>
+                            <p class="forfont" id="reqtableEmail">iitopuniversity@yahoo.co.in</p>
+                        </div>
+                    </div> <!-- NAME AND EMAIL -->
+                </div>
+
+                <div class="formflexclass1"> 
+                    <div class="instname1">
+                        <h3>Phone Number :</h3>
+                        <p class="instname" id="reqtablePhno">9988665544</p>
+                    </div>
+                    <div class="institueemail1">
+                        <h3>Address :</h3>
+                        <p class="forfont" id="reqtableAddr">21, Gandhi Road, AnnaNagar, Chennai - 600032. </p>
+                    </div>
+                </div>
+                <div>
+                    
+                    <div class="twobtns">
+                        
+                        <button class=" btn btn-sm btn-primary" id="acceptButton" onclick="acceptInstitute(this)">Accept</button>
+                        <button class="btn btn-sm btn-primary rgbtn" id="rejectButton" style="background-color: red;" onclick="rejectInstitute(this)">Reject</button>
+
+                    </div>
+
+                </div>
+              
+            </div> <!-- INFORMATION DIV END -->
+
+
+            <!-- ANOTHER INFO STARTS HERE -->
+
+            <div class="divtagnew" id="informationlist"> <!-- ANOTHER INFORMATION DIV START -->
+                <i class="fas fa-arrow-left" style="cursor: pointer; font-size: 1.3rem;" onclick="gobackk()"></i>
+                <div class="instinformationnew"><h3>Institute Information</h3></div>
+                <div class="flexclassnew">
+                    <div>
+                        <img src="inst.jpg" class="imagestylenew" id="infoTableImage">
+                    </div>
+                    <div class="formflexclassnew"> <!-- NAME AND EMAIL -->
+                        <div class="instnamenew">
+                            <h3>Institute Name :</h3>
+                            <p class="instnamenew" id="infoTableInsname">Indian Institute of Technology</p>
+                        </div>
+                        <div class="institueemailnew">
+                            <h3>Email Address :</h3>
+                            <p class="forfontnew" id="infoTableEmail">iitopuniversity@yahoo.co.in</p>
+                        </div>
+                    </div> <!-- NAME AND EMAIL -->
+                </div>
+
+                <div class="formflexclass1new"> 
+                    <div class="instname1new">
+                        <h3>Phone Number :</h3>
+                        <p class="instnamenew" id="infoTablePhno">9988665544</p>
+                    </div>
+                    <div class="institueemail1new">
+                        <h3>Address :</h3>
+                        <p class="forfontnew" id="infoTableAddr">21, Gandhi Road, AnnaNagar, Chennai - 600032. </p>
+                    </div>
+                </div>
+
+                <div class="styleforaboutnew">
+                    
+                    <div class="aboutinstnew">
+                        <h3>About</h3>
+                        <p class="forfontnew" id="infoTableAboutUs">
+                        Building an online presence does not end when you create a website. Excellent content, for example, is one of the pillars of successful branding. With online platforms, where there’s an abundance of information and so many options, the significance of high-quality materials is even greater. Producing superb content for your blog and website puts you at a clear advantage within your field. Building an online presence does not end when you create a website. Excellent content, for example, is one of the pillars of successful branding. With online platforms, where there’s an abundance of information and so many options, the significance of high-quality materials is even greater. Producing superb content for your blog and website puts you at a clear advantage within your field.
+                        </p>
+                    </div>
+                </div>  
+
+                <div>
+                    
+                    <div class="twobtnsnew">
+                        
+                        <button class="btn btn-sm btn-primary rgbtnnew" style="background-color: red;" id="blockButton" onclick="blockInstitute(this)">Block</button>
+
+                    </div>
+
+                </div>
+              
+            </div> <!-- INFORMATION DIV END -->
+
+
+          </div> <!-- D-ECOM-DIV -->
+        </div> <!-- D-WRAP-DIV -->
+    <div id="snackbar"></div>
+    <!-- temprory loading -->
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:50px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+        var i=0,j=0;
+        var reqTablearray=[],infoTablearray=[];
+
+        var uid='';
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                uid=user.uid;
+                funcccc();
+            }else{
+                location.replace('../admin-login/');
+            }
+        })
+
+        funcccc = () =>{
+            loaderTriggerAndEnder(true);
+            reqTablearray=[];
+            infoTablearray=[];
+            i=0;
+            j=0;
+
+            $('#reqtableBody').html('');
+            $('#infoTableBody').html('');
+
+            data.collection('admin').doc(uid).get().then((dataata)=>{
+                var newInstitutes=dataata.data().newInstitutes;
+                newInstitutes.forEach((docc)=>{
+                    i++;
+                    data.collection('institute').doc(docc).get().then((sdfghjkl)=>{
+                        var reqString=`<tr>
+                                      <th scope="row">`+i+`</th>
+                                      <td class="nawidth">`+sdfghjkl.data().instituteName+`</td>
+                                      <td>`+sdfghjkl.data().email+`</td>
+                                      <td>`+new Date(sdfghjkl.data().registeredAt)+`</td>
+                                      <td><button class="btn btn-sm btn-primary infobtn" onclick="informations(`+i+`)">
+                                        <i class="fas fa-info-circle"></i> Info</button></td>
+                                    </tr>`;
+                        $('#reqtableBody').append(reqString);
+                        reqTablearray.push({
+                            image: sdfghjkl.data().logoUrl,
+                            name: sdfghjkl.data().instituteName,
+                            email: sdfghjkl.data().email,
+                            mno: sdfghjkl.data().phone,
+                            address: sdfghjkl.data().address,
+                            id: sdfghjkl.data().id,
+                            blockStatus : sdfghjkl.data().blocked
+                        });
+                    })
+                })
+            })
+
+            data.collection('institute').limit(10).get().then((snackbar)=>{
+                var flag=0;
+                snackbar.docs.forEach((doc)=>{
+                    flag++;
+                    var docu=doc.data();
+                    if(docu.isVerified==true){
+                        j++;
+                        if(docu.blocked==true){
+                            var reqString=`<tr>
+                                      <th scope="row">`+j+`</th>
+                                      <td class="nawidth">`+docu.instituteName+`</td>
+                                      <td>`+docu.email+`</td>
+                                      <td>Yes</td>
+                                      <td>`+new Date(docu.registeredAt)+`</td>
+                                      <td><button class="btn btn-sm btn-primary infobtn" onclick="informations1(`+j+`)">
+                                        <i class="fas fa-info-circle"></i> Info</button></td>
+                                    </tr>`;
+                            $('#infoTableBody').append(reqString);
+                        }else{
+                            var reqString=`<tr>
+                                      <th scope="row">`+j+`</th>
+                                      <td class="nawidth">`+docu.instituteName+`</td>
+                                      <td>`+docu.email+`</td>
+                                      <td>No</td>
+                                      <td>`+new Date(docu.registeredAt)+`</td>
+                                      <td><button class="btn btn-sm btn-primary infobtn" onclick="informations1(`+j+`)">
+                                        <i class="fas fa-info-circle"></i> Info</button></td>
+                                    </tr>`;
+                            $('#infoTableBody').append(reqString);
+                        }
+                        infoTablearray.push({
+                            image: docu.logoUrl,
+                            name: docu.instituteName,
+                            email: docu.email,
+                            mno: docu.phone,
+                            address: docu.address,
+                            aboutUs: docu.aboutUs,
+                            id: docu.id,
+                            blockStatus : docu.blocked
+                        });
+                    }
+                    
+                })
+                loaderTriggerAndEnder(false);
+            })
+        }
+        
+        informations = (i) =>
+        {
+            var url=reqTablearray[i-1].image;
+            document.getElementById('reqtableImage').src='https://secure--storage.s3.ap-south-1.amazonaws.com/'+url;
+            document.getElementById('reqtableInsname').innerHTML=reqTablearray[i-1].name;
+            document.getElementById('reqtableEmail').innerHTML=reqTablearray[i-1].email;
+            document.getElementById('reqtablePhno').innerHTML=reqTablearray[i-1].mno;
+            var address=reqTablearray[i-1].address.adrs+', '+reqTablearray[i-1].address.district+', '+reqTablearray[i-1].address.state+', '+reqTablearray[i-1].address.country+', '+reqTablearray[i-1].address.pincode;
+            document.getElementById('reqtableAddr').innerHTML=address;
+            document.getElementById('acceptButton').setAttribute('data-id', reqTablearray[i-1].id);
+            document.getElementById('rejectButton').setAttribute('data-id', reqTablearray[i-1].id);
+            document.getElementById('firstdivtag').style.display="none"
+            document.getElementById('reqtable').style.display="none";
+            document.getElementById('requestlist').style.display="block";
+
+        }
+
+        informations1 = (i) =>
+        {
+            var url=infoTablearray[i-1].image;
+            document.getElementById('infoTableImage').src='https://secure--storage.s3.ap-south-1.amazonaws.com/'+url;
+            document.getElementById('infoTableInsname').innerHTML=infoTablearray[i-1].name;
+            document.getElementById('infoTableEmail').innerHTML=infoTablearray[i-1].email;
+            document.getElementById('infoTablePhno').innerHTML=infoTablearray[i-1].mno;
+            var address=infoTablearray[i-1].address.adrs+', '+infoTablearray[i-1].address.district+', '+infoTablearray[i-1].address.state+', '+infoTablearray[i-1].address.country+', '+infoTablearray[i-1].address.pincode;
+            document.getElementById('infoTableAddr').innerHTML=address;
+            document.getElementById('infoTableAboutUs').innerHTML=infoTablearray[i-1].aboutUs;
+            console.log(infoTablearray[i-1].blockStatus);
+            if (infoTablearray[i-1].blockStatus== true) {
+                document.getElementById('blockButton').innerHTML="unblock";
+                document.getElementById('blockButton').setAttribute('actionType','false');
+            }
+            else{
+                document.getElementById('blockButton').innerHTML="block";
+                document.getElementById('blockButton').setAttribute('actionType','true');
+            }
+            document.getElementById('blockButton').setAttribute('data-id', infoTablearray[i-1].id);
+            document.getElementById('firstdivtag').style.display="none";
+            document.getElementById('informationtable').style.display="none";
+            document.getElementById('informationlist').style.display="block";
+        }
+
+        gooback = () =>
+        {
+            document.getElementById('firstdivtag').style.display="block"
+            document.getElementById('reqtable').style.display="block";
+            document.getElementById('requestlist').style.display="none";
+        }
+
+        gobackk = () =>
+        {
+            document.getElementById('firstdivtag').style.display="block";
+            document.getElementById('informationtable').style.display="block";
+            document.getElementById('informationlist').style.display="none";
+        }
+        onLoadSetter=()=>{
+            updateRequestList();
+            updateInstituteList();
+        }
+        updateRequestList = () =>{
+                 let table = document.getElementById('informationlist');
+        }
+        updateInstituteList=()=>{
+                let table = document.getElementById('informationlist');
+        }
+
+        document.getElementById('iName').innerHTML=sessionStorage.getItem('name');
+
+          
+
+        acceptInstitute = (id) =>{
+            loaderTriggerAndEnder(true);
+            var iid=id.getAttribute('data-id');
+            data.collection('institute').doc(iid).update({
+                isVerified: true
+            }).then(()=>{
+                data.collection('admin').doc(uid).get().then((jhgfd)=>{
+                    var temp=jhgfd.data().newInstitutes;
+                    var tempArray=[];
+
+                    temp.forEach((uytfhj)=>{
+                        if(uytfhj!=iid){
+                            tempArray.push(uytfhj);
+                        }
+                    })
+
+                    data.collection('admin').doc(uid).update({
+                        newInstitutes: tempArray
+                    }).then(()=>{
+                        funcccc();
+                        gooback();
+                        loaderTriggerAndEnder(false);
+                    })
+                })
+            })
+        } 
+        rejectInstitute = (id) =>{
+            if(confirm("Do you want to reject this institute ?")){
+                loaderTriggerAndEnder(true);
+                var iid=id.getAttribute('data-id');
+                data.collection('institute').doc(iid).update({
+                    rejected: true
+                })
+                .then(()=>{
+                    data.collection('admin').doc(uid).get().then((jhgfd)=>{
+                    var temp=jhgfd.data().newInstitutes;
+                    var tempArray=[];
+
+                    temp.forEach((uytfhj)=>{
+                        if(uytfhj!=iid){
+                            tempArray.push(uytfhj);
+                        }
+                    })
+
+                    data.collection('admin').doc(uid).update({
+                        newInstitutes: tempArray
+                    }).then(()=>{
+                        funcccc();
+                        gooback();
+                        loaderTriggerAndEnder(false);
+                    })
+                })
+                })
+            }
+        }  
+        blockInstitute = (id) =>{
+            var type = id.getAttribute('actionType');
+            console.log(type);
+            if (type=='true') {
+                if(confirm("Do you want to block this institute ?")){
+                    loaderTriggerAndEnder(true);
+                    data.collection('institute').doc(id.getAttribute('data-id')).update({
+                        blocked: true
+                    }).then(()=>{
+                        funcccc();
+                        gobackk();
+                        loaderTriggerAndEnder(false);
+                    })
+                }
+            }
+            if(type=='false'){
+                 if(confirm("Do you want to unblock this institute ?")){
+                    loaderTriggerAndEnder(true);
+                    data.collection('institute').doc(id.getAttribute('data-id')).update({
+                        blocked: false
+                    }).then(()=>{
+                        funcccc();
+                        gobackk();
+                        loaderTriggerAndEnder(false);
+                    })
+                }   
+            }
+        }
+    </script>
+    
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

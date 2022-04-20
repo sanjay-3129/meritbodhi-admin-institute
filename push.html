@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Firebase Web Push Notification Example</h2>
+
+<p id="token"></p>
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-messaging.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAfwW9eS7_rOdiS7kjavZVhJk-Cb95rnik",
+        authDomain: "meritbodhi-courses.firebaseapp.com",
+        projectId: "meritbodhi-courses",
+        storageBucket: "meritbodhi-courses.appspot.com",
+        messagingSenderId: "352967957649",
+        appId: "1:352967957649:web:4ed3558194774b41af7330",
+        measurementId: "G-7DTG94NNBW"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const messaging=firebase.messaging();
+
+    function IntitalizeFireBaseMessaging() {
+        messaging
+            .requestPermission()
+            .then(function () {
+                console.log("Notification Permission");
+                return messaging.getToken({
+                    vapidKey: 'BH5buEPRqxCIx7HXP71H2tCAbmeJqAmduv8H6yeElMU8MvFnfYBLonm3Sr4FdlYVeDA3Txp2WezrubZ4pyY48EM'
+                });
+            })
+            .then(function (token) {
+                console.log("Token : "+token);
+                document.getElementById("token").innerHTML=token;
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            });
+    }
+
+    messaging.onMessage(function (payload) {
+        console.log(payload);
+        const notificationOption={
+            body:payload.notification.body,
+            icon:payload.notification.icon
+        };
+
+        if(Notification.permission==="granted"){
+            var notification=new Notification(payload.notification.title,notificationOption);
+
+            notification.onclick=function (ev) {
+                ev.preventDefault();
+                window.open(payload.notification.click_action,'_blank');
+                notification.close();
+            }
+        }
+
+    });
+    messaging.onTokenRefresh(function () {
+        messaging.getToken({
+            vapidKey: 'BH5buEPRqxCIx7HXP71H2tCAbmeJqAmduv8H6yeElMU8MvFnfYBLonm3Sr4FdlYVeDA3Txp2WezrubZ4pyY48EM'
+        })
+            .then(function (newtoken) {
+                console.log("New Token : "+ newtoken);
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            })
+    })
+    IntitalizeFireBaseMessaging();
+</script>
+</body>
+</html>

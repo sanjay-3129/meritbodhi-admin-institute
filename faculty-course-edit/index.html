@@ -1,0 +1,2343 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="course-edit.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://meritbodhi.co.in/js/connect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <link rel="stylesheet" href="mulsel.css">
+    <script src="mulsel.js"></script> 
+    <title> MERITBODHI | Course-Edit</title>
+
+    <style type="text/css">
+
+        .uploadfilesection{
+            margin-left: 14.5rem; 
+            margin-top:20px;
+        }
+          .course_contents .panel{
+            padding:0;
+            width: 45rem;
+}
+.course_contents .panel .panel-title {
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight:100;
+    color: #0A0A0A;
+    background-color: #E2E2EB;
+    width: 100%;
+    font-family: Circular Std Medium;
+    height: 50px;
+    line-height: 1.7;
+    border-radius: 5px;
+    text-align:left;
+    text-decoration: none;
+    border:none;
+    cursor: pointer;
+}
+
+.sectvideo{
+    width: 10%;
+}
+  
+.sectvideo1{
+    width: 10%; 
+    margin-left:1rem;
+}
+
+.mincol{
+    width: 50%;
+}
+
+.maxcol{
+    width: 50%;
+}
+
+.forminmax{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mulchoices{
+    width: 13%;
+}
+.what{
+    display: flex;
+    padding: 5px;
+}
+.lft{
+    max-width: 20%;
+}
+.ryt{
+    max-width: 21%;
+    margin-left: 3rem;
+
+}
+ 
+
+@media only screen and (max-width:1138px)
+{
+    .course_contents .panel .panel-title{
+        width: 90%;
+
+    }
+
+.what{
+    flex-direction: column;
+    padding: 1px;
+}
+.lft{
+    max-width: 80%;
+}
+.ryt{
+    max-width: 80%;
+    margin-left: 0px
+
+}
+    .vedio-title{
+        width: 30%;
+        font-size: 10rem;
+    }
+    .vedio-details{
+        width: 100%;
+    }
+    .course_contents .panel{
+        width: 20rem;
+        
+    }
+    .uploadfilesection{
+        margin-left: 9.5rem;
+    }
+
+    .destest{
+        width: 20rem;
+    }
+    .fortest{
+        
+        overflow-x: auto;
+    }
+    .addnewbtn{
+        margin-top: 1rem;
+    }
+    .typeclass{
+        width: 6.5rem;
+    }
+    .typeclass1{
+        width: 5.5rem;
+        flex-direction: column;
+    }
+    .c1in{
+        width: 15rem;
+    }
+    .c2in{
+        width: 15rem;
+        margin-left: 1rem;
+    }
+    
+}
+.course_contents .panel button.panel-title:focus {
+  outline:0
+}
+
+.course_contents .panel .active:after {
+  content:"\f106";
+}
+.course_contents .panel .panel-body {
+  display:none;
+}
+.course_contents .panel .panel-body .vedio-details{
+    border-bottom: 1px solid #eeeeee;
+    padding: 20px 25px;
+}
+.course_contents .panel .panel-body .vedio-details img.logo{
+  width:18px;
+  height:20px;
+  margin-top:-3px;
+  margin-right:5px;
+}
+.course_contents .panel .panel-body .vedio-details span{
+  font-size:16px;
+  color:#3d405c;
+  transition: all 0.3s ease;  
+}
+.course_contents .panel .panel-body .vedio-details span.flt_rt{
+  float:right
+}
+.course_contents .panel .panel-body .vedio-details .flt_rt span.vedio-length{
+  margin-left:50px
+}
+.course_contents .panel .panel-body .vedio-details:hover, .course_contents .panel .panel-body .vedio-details:hover span{
+    color: #3d405c;
+  transition: all 0.3s ease;
+}
+.image1 {
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+  }
+
+/*.course-edit .course-contents .row ul.course-content-overview {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0;
+    padding-left: 20px;
+    border-left: 1px solid #3452ff;
+}
+.course-edit .course-contents .row ul.course-content-overview li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #3452FF;
+    padding: 0;
+    position: relative;
+}
+.course-edit .course-contents .row ul.course-content-overview li::before {
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: -20px;
+    width: 15px;
+    height: 2px;
+    background-color: #3452FF;
+}
+.course-edit .course-contents .row ul.course-content-overview li p {
+    font-size: 14px;
+    color:  #6c757d;
+}
+*/
+.spinner-3 {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,#5e72e4);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
+@keyframes s3 {to{transform: rotate(1turn)}}
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+
+</style>
+
+</head>
+
+<body onload="onLoadSetter()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">MeritBodhi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span >5</span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishor</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="smallProfileImage" src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">MeritBodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                           <li class="nav-item ">
+                                <a class="nav-link" href="../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link " href="../profile" ><i class="fas fa-user"></i>Profile</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../courses"><i class="fas fa-book"></i>Courses</a>
+                                
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../notification" ><i class="fas fa-fw fa-bell"></i>Notifications</a>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../archive" ><i class="fas fa-archive"></i>Archieve</a>
+                            
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../reviews" ><i class="fas fa-star"></i>Reviews</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../payments" ><i class="fas fa-credit-card"></i>Payments</a>   
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../referal" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="../settings" ><i class="fas fa-cog"></i>Settings</a>
+                                 </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                 </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <h3 class="headerh3">Web Development</h3>
+                <div class="card1">
+
+                    <div style="display: flex; justify-content: space-between; ">
+                        <h4>Course Details</h4>
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v" style="cursor: pointer;"></i>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" >
+                                
+                                <li id="liediit" class="edit-items"><a href="#" class="form-control form-control-alternative" style="border: none;box-shadow: none;" onclick="edbtn()">Edit Details <i class="fas fa-pen" style="margin-left: 6.5rem;"></i></a></li>
+                                    <li class="edit-items"><a href="#" class=" form-control form-control-alternative" style="border: none;box-shadow: none;">Add to Archive<i class="fas fa-archive"style="margin-left: 5.4rem;"></i></a></li>
+                                    <li class="edit-items"><a href="#" class="form-control form-control-alternative" style="border: none;box-shadow: none;">Delete Course<i class="far fa-trash-alt"style="margin-left: 5.8rem;"></i></a></li>
+                            </div>
+                        </li>
+                        
+                    </div>
+
+                    <div class="cont">
+                        <img src="joker.jpg" alt="Avatar" class="image1" id="avatars" style="width:100%;">
+                        <div class="middle">
+                          <div class="text" id="txtid" style="display:none;">
+                            <i class="fas fa-plus-square" style="cursor: pointer;" onclick="cvrimage()"></i>
+                          </div>
+                          <input type="file" name="fupl" style="display:none;" id="coverimage">
+                        </div>
+                    </div>
+
+                    
+                    <h3 class="coursei">Course&nbsp;&nbsp;Information</h3>
+                    <div class ="cardfirst">
+                        <div class="thumb">
+                        <img src="joker.jpg" class="thmimg">
+                        <br>
+                        <button type="button" id="editbuttons" class="btn btn-sm btn-primary" style="margin-left: 4.5rem;
+                        visibility: hidden; margin-top: 1rem;" onclick="coverimageeditbutton()">Edit</button>
+                        <input type="file" name="cvrimgedit" id="cvrimgedit" style="display:none;">
+                        </div>
+
+                        <script type="text/javascript">
+                            function coverimageeditbutton(){
+                                document.getElementById('cvrimgedit').click();
+                            }
+                        </script>
+                        
+                            <!-- form start -->
+
+                        
+                        <div>
+                            <div class="title">
+                                <div class="tit-tit"><h3>Title</h3>
+                                    <input type="text" id="tititi" value="Mobile Application" placeholder="Course Name" class="form-control needlongs" disabled></div>
+                                <div  style="margin-top:10px; width:100%"><h3 style="margin-top: .5rem;">Concept</h3> 
+                                    <input type="text" id="concee" value="You learn basics of how to create mobile application and how to publish on PLAY STORE!!!" class="form-control needlong" placeholder="Main Concepts" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="facu">
+                            <div>
+                            <h3>Faculties Handling this course</h3>
+                            <input type="text" id="exFacuShower" disabled class="form-control">
+                            <div class="multiselect" style="display:none" id="newFacContainer">
+                                  <div class="selectBox" onclick="showCheckboxes(this)">
+                                    <select name="faculty" id="faculty" name="newFacu" class="form-control">
+                                      <option id="defaultCategorylang">Select Faculty</option>
+                                    </select>
+                                    <div class="overSelect" id="overSelect"></div>
+                                  </div>
+                                <div id="checkboxesFac" class="labelsContOfmulsel">
+                                       <label>
+                                        <input type='checkbox' name='faculties' value='Ravi' onclick='checkOptions(this)'>Ravi</input>
+                                       </label>
+                                       <label>
+                                        <input type='checkbox' name='faculties' value='Rai' onclick='checkOptions(this)'>Rai</input>
+                                       </label>
+                                       <label>
+                                        <input type='checkbox' name='faculties' value='Rvi' onclick='checkOptions(this)'>Rvi</input>
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                              
+                              <div class="langu">
+                              <h3>Language</h3>
+                              <select id="newLang" name="newLang" class="form-control selecteneed" style="width:18rem" disabled >
+                                  <option>tamil</option>
+                                  <option>Eng</option>
+                              </select>
+                       
+                        </div>
+                        </div>
+
+                        <div class="descri">
+                            <h3>Description</h3>
+                            <div class="form-group focused">
+                                <textarea rows="4" id="dis" class="form-control form-control-alternative" placeholder="A few words about you ..." disabled></textarea>
+                            </div>
+
+                        <div>
+                            <h3 style="margin-top: 25px;">Video Overview &nbsp; <i id="vidPre"  class="fas fa-play" onclick="videopop()" style="cursor: pointer;"></i><i id="vidUpl" class="fas fa-upload" onclick="newVideoClick()" style="cursor: pointer; display:none"></i></h3>
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" 
+                                style="display: none;" id="videoplay">
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Video Preview</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+
+                                        </div>
+                                        <div class="modal-body">
+                                        ...
+                                        </div>
+                                        
+                                    </div>    
+                                </div>
+
+                                </div>
+
+                                <script>
+                                    function videopop(){
+                                        document.getElementById('videoplay').click();
+                                    }
+                                </script>
+
+                        </div>
+
+                        <div class="cousr">
+
+                            <div>
+                                <h3>Course Nationality</h3>
+
+                            <select class="form-control cours" disabled id="cn">
+                                <option value="0">Select</option>
+                                <option value="1">Audi</option>
+                                <option value="2">BMW</option>
+                                <option value="3">Citroen</option>
+                                <option value="4">Ford</option>
+                                <option value="5">Honda</option>
+                              </select>
+                            </div>
+
+                            <div class="coursecat">
+                                <h3>Course Category</h3>
+
+                            <select class="form-control cours" disabled id="cc">
+                                <option value="0">Select</option>
+                                <option value="1">Audi</option>
+                                <option value="2">BMW</option>
+                                <option value="3">Citroen</option>
+                                <option value="4">Ford</option>
+                                <option value="5">Honda</option>
+                              </select>
+                            </div>
+
+                            <div class="coursecat">
+                                <h3>Course Subcategory</h3>
+
+                            <select class="form-control cours3" disabled id="cs">
+                                <option value="0">Select</option>
+                                <option value="1">Audi</option>
+                                <option value="2">BMW</option>
+                                <option value="3">Citroen</option>
+                                <option value="4">Ford</option>
+                                <option value="5">Honda</option>
+                              </select>
+                            </div>
+
+                        </div>
+                        <hr>
+                        
+                        <div style="text-align: right; margin-bottom: -10px; margin-top: 10px; visibility: hidden;" id="footer-crsDetails-edit">
+                            <button type="button" class="btn btn-sm btn-primary" >Save Changes</button> 
+                            <button type="button" class="btn btn-sm btn-primary" style="background-color: #dc3545;" onclick="cnbtn()">Cancel</button>
+                        </div>
+                        
+                            <!-- form end -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <script type="text/javascript">
+                            function cvrimage(){
+                                document.getElementById('coverimage').click();
+                            }
+                            
+                            function edbtn(){
+                                document.getElementById('avatars').setAttribute('class','image');
+                                document.getElementById('txtid').style.display="block";
+                                document.getElementById('editbuttons').style.visibility="visible";
+                                document.getElementById('tititi').removeAttribute("disabled");
+                                document.getElementById('concee').removeAttribute("disabled");
+                                document.getElementById('dis').removeAttribute("disabled");
+                                document.getElementById('cn').removeAttribute("disabled");
+                                document.getElementById('cc').removeAttribute("disabled");
+                                document.getElementById('cs').removeAttribute("disabled");
+                                document.getElementById('exFacuShower').style.display='none';
+                                document.getElementById('newFacContainer').style.display='block';
+                                document.getElementById('newLang').removeAttribute('disabled');
+                                document.getElementById('footer-crsDetails-edit').style.visibility='visible';
+                                document.getElementById('vidPre').style.display='none';
+                                document.getElementById('vidUpl').style.display='block';
+                            }
+                            function cnbtn(){
+                                document.getElementById('avatars').setAttribute('class','image1');
+                                document.getElementById('txtid').style.display="none";
+                                document.getElementById('editbuttons').style.visibility="hidden";
+                                document.getElementById('tititi').setAttribute("disabled",true);
+                                document.getElementById('concee').setAttribute("disabled",true);
+                                document.getElementById('dis').setAttribute("disabled",true);
+                                document.getElementById('cn').setAttribute("disabled",true);
+                                document.getElementById('cc').setAttribute("disabled",true);
+                                document.getElementById('cs').setAttribute("disabled",true);
+                                document.getElementById('exFacuShower').style.display='block';
+                                document.getElementById('newFacContainer').style.display='none';
+                                document.getElementById('newLang').setAttribute('disabled',true);
+                                document.getElementById('footer-crsDetails-edit').style.visibility='hidden';
+                                document.getElementById('vidPre').style.display='block';
+                                document.getElementById('vidUpl').style.display='none';
+                            }
+                        </script>
+
+                <!-- End of 1st OFF -->
+
+                <div class="card1">
+                <h4>What You Will Learn</h4> 
+
+                <div class="content">
+      <form >
+        
+        
+                  
+                   <div class="what">
+                      
+                      <input type="text"  class="form-control form-control-alternative lft" maxlength="25" pattern=".{25,}"  placeholder="1. ______________" required >
+                      <input type="text"  class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="2. ______________" required >
+                       <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="3. ______________" required > 
+                       <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}"  placeholder="4. ______________" required >
+                      </div>
+                     
+                   <div class="what">
+                      <input type="text" class="form-control form-control-alternative lft" maxlength="25" pattern=".{25,}"  placeholder="5. ______________" required>
+                      <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="6. ______________" required >
+                       <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="7. ______________" required >
+                        <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="8. ______________" required >
+                     </div>
+                     
+                   <div class="what">
+                      <input type="text" class="form-control form-control-alternative lft" maxlength="25" pattern=".{25,}" placeholder="9. ______________" required >
+                      <input type="text"class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="10. ______________" required >
+                       
+                     </div>
+                     
+                              
+                   
+                    
+                     
+                     
+</form>
+</div>   
+
+
+</div>
+
+                <!-- End of 2nd offf -->
+
+                <div class="card1">
+                 <h4>Requirements</h4> 
+
+                <div class="content">
+      <form >
+        
+        
+                  
+                   <div class="what" >
+                      
+                      <input type="text"  class="form-control form-control-alternative lft" maxlength="25" pattern=".{25,}" placeholder="1. ______________" required  >
+                      <input type="text"  class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="2. ______________" required >
+                       <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}"  placeholder="3. ______________" required > 
+                       <input type="text" class="form-control form-control-alternative ryt" maxlength="25" pattern=".{25,}" placeholder="4. ______________" required >
+                      </div>
+                     
+                   <div class="what">
+                      <input type="text" class="form-control form-control-alternative lft" maxlength="25" pattern=".{25,}" placeholder="5. ______________" required>
+                      
+                     </div>
+                     
+                  
+                     
+                     
+</form>
+</div>      
+
+
+                </div>
+               
+                <div class="card1" >
+                    <h3 class="eachtext">Each course consists of videos grouped into various sections</h3>
+                    <div class="overandsection">
+
+                        <div>
+                            
+                            <h4>Overview</h4>
+
+                            <div class="sectionstyle">
+                              <ul class="directory-list">
+                                <li>Number of Sections
+                                  <ul>
+                                    <li>3 sections
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>Number of Videos
+                                  <ul>
+                                    <li>4 Videos
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>Number of Materials
+                                  <ul>
+                                    <li>4 Materials
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>Overall Course Duration
+                                  <ul>
+                                    <li>Eg. 2 Hours 45 Minutes 
+                                    </li>
+                                  </ul>
+                                </li>
+
+                              </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="coureseditsection">
+                            <div class="addsecbtn"><button class="btn btn-sm btn-primary">Add Section</button></div>
+                            <div class="course_contents">
+                            
+                            <div class="panel" >
+                                <button type="button" class="fas panel-title collapsible" aria-hidden="true">
+                                Getting Started</button>
+                                <!------------Panel Body------------------->
+                                <div class="panel-body" style="display: none;">
+                                    <button class="btn btn-sm btn-grey" 
+                                    style="background-color:none; color:#5e72e4; border-radius: 5px; margin-left: .8rem;" onclick="addnwbtn()"><i class="fas fa-plus"></i> Add Section</button>
+                                    <div class="vedio-details">
+                                        <div class="addsecbtninside"></div>
+                                        <div><i class="fas fa-book"> </i> 
+                                        <span class="vedio-title"> 1. Introduction to the Course </span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------Panel---------------------------->
+                            <div class="panel">
+                                <button type="button" class="fas panel-title collapsible" aria-hidden="true">Brief</button>
+                                <!------------Panel Body------------------->
+                                <div class="panel-body" style="display: none;">
+                                    <div class="vedio-details">
+                                        <div class="addsecbtninside">
+                                            <button class="btn btn-sm btn-grey" style="background-color:none; 
+                                            color:#5e72e4; border-radius: 5px; margin-left: -.3rem;" onclick="addnwbtn()"><i class="fas fa-plus"></i> 
+                                            Add Section</button>
+                                        </div>
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">2. Your first design challenge </span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                    <div class="vedio-details">
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">3. How to solve the previous exercise </span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                    <div class="vedio-details">
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">4. Find out why smart objects are amazing </span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------Panel---------------------------->
+                            <div class="panel">
+                                <button type="button" class="fas panel-title collapsible" aria-hidden="true">The Conclusion</button>
+                                <!------------Panel Body------------------->
+                                <div class="panel-body">
+                                    <div class="vedio-details">
+                                        <div class="addsecbtninside">
+                                            <button class="btn btn-sm btn-grey" style="background-color:none; 
+                                            color:#5e72e4; border-radius: 5px; margin-left: -.3rem;" onclick="addnwbtn()"><i class="fas fa-plus"></i> 
+                                            Add Section</button>
+                                        </div>
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">5. Title of the vedio given from institution side</span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                    <div class="vedio-details">
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">6. Title of the vedio given from institution side</span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                    <div class="vedio-details">
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">7. Title of the vedio given from institution side</span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                    <div class="vedio-details">
+                                        <i class="fas fa-book"> </i>
+                                        <span class="vedio-title">8. Title of the vedio given from institution side</span>
+                                        <span class="flt_rt"><i class="fas fa-play" style="cursor: pointer;"></i>
+                                            <span class="vedio-length"><i class="fas fa-pen" style="cursor: pointer;"></i></span>
+                                            <span class="vedio-length"><i class="fas fa-trash" style="cursor: pointer;"></i></span>
+                                    </div>
+                                </div> 
+                                <!------------/ Panel Body /-------------------->
+                            </div>
+                        </div>
+                    </div>
+                            <!------------/ Panel /--------------------------->
+
+<!-- ADD NEW POPUP -->
+
+
+                            <script>
+                            var coll = document.getElementsByClassName("collapsible");
+                                var i;
+                                
+                                for (i = 0; i < coll.length; i++) {
+                                  coll[i].addEventListener("click", function() {
+                                    this.classList.toggle("active");
+                                    var content = this.nextElementSibling;
+                                    if (content.style.display === "block") {
+                                      content.style.display = "none";
+                                    } else {
+                                      content.style.display = "block";
+                                    }
+                                    if (content.style.maxHeight){
+                                      content.style.maxHeight = null;
+                                    } else {
+                                      content.style.maxHeight = content.scrollHeight + "px";
+                                    }
+                                  });
+                                }
+                            </script>
+
+                            <script type="text/javascript">
+                                function addnwbtn(){
+                                    document.getElementById('addnewsection').click();
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+
+                    <div class="card1" style="padding: 2rem;"> <!-- 3RD DIV TAG START -->
+
+                        <h3>Overview</h3> 
+                        <div class="d-flex" >
+                            <select class="form-control sectvideo typeclass">
+                                <option value="0">Section</option>
+                                <option value="1">Section-1</option>
+                                <option value="2">Section-2</option>
+                                <option value="3">Section-3</option>
+                            </select>
+
+                            <select class="form-control sectvideo1 typeclass">
+                                <option value="0">Video</option>
+                                <option value="1">English</option>
+                                <option value="2">NEET Intro</option>
+                                <option value="3">JEE Intro</option>
+                            </select>
+                            <h6 style="font-size:15px; margin-left: 3rem; display: none;"> NOTE: Only 10 Question are allowed, In This 10 Ques, How many questions do you want to ask, just fill it ques part and ans part</h6>
+                        </div>
+                            <ul class="nav nav-tabs " id="myTab" role="tablist" style="margin-top: 1rem;">
+
+                              <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Captions</a>
+                              </li>
+
+                              <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Materials</a>
+                              </li>
+
+                              <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Test</a>
+                              </li>
+
+                              <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="qanda-tab" data-toggle="tab" href="#qanda" role="tab" aria-controls="qanda" aria-selected="false">FAQ's </a>
+                              </li>
+
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+
+
+                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="fortest" style="margin-top: 1rem;">
+
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;" 
+                                    onclick="addneww()">Add New</button>
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: -.8rem;">Save</button>
+
+                                    <table class="table table-bordered justtry" id="table1">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" style="width: 1%; text-align: center;">No.</th>
+                                          <th scope="col" style="width: 16%; text-align: center;">Timer</th>
+                                          <th scope="col" style="text-align: center;">Content</th>
+                                          <th scope="col" style="text-align: center;">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row" class="tbl_id">1</th>
+                                          <td>
+                                              
+                                        <div class="forminmax">
+                                            <input type="number" min="0" max="14" class="form-control typeclass1 mincol" placeholder="Min">
+                                            <input type="number" min="0" max="59"  class="form-control typeclass1 maxcol" placeholder="Sec">
+                                        </div>
+                                          </td>
+                                          <td>
+                                            <div class="form-group focused destest">
+                                            <textarea rows="2.5" class="form-control form-control-alternative" placeholder="Type caption here..." style="border:none; resize: none;"></textarea>
+                                            </div>
+                                          </td>
+
+                                          <td>
+
+                                            <i class="fas fa-trash" onclick="ob_adRows.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+                                        
+                                      </tbody>
+                                    </table>
+
+                                    <div class="card" id="cd1" style="display:none;">
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table id="table1" class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                         <th scope="col">Enter Designation</th>
+                                                        <th scope="col" >Years of Experience</th>
+                                                        <th scope="col">Action &nbsp;&nbsp;&nbsp;<i class="fas fa-plus" onclick="ob_adRows.addRow()"/ style="cursor:pointer;" id="addd"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                    <td><input type="text" name="tm1[]"class="form-control form-control-alternative"/></td>
+                    <td><input type="text"class="form-control form-control-alternative" name="nm2[]"/></td>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" onclick="ob_adRows.delRow(this)"/style="cursor:pointer;" ></td>
+                                                    </tr> 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+ 
+
+                                    <script>
+                                        function addneww(){
+                                            document.getElementById('addd').click();
+                                        }
+
+                                        function adRowsTable(id){
+                                        var table = document.getElementById(id);
+                                        var me = this;
+                                        if(document.getElementById(id)){
+                                            var row1 = table.rows[1].outerHTML;
+
+                                        //adds index-id in cols with class .tbl_id
+                                            function setIds(){
+                                            var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id');
+                                            for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+                                            }
+
+                                        //add row after clicked row; receives clicked button in row
+                                            me.addRow = function(btn){
+                                            btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1): table.insertAdjacentHTML('beforeend',row1);
+                                            setIds();
+                                            }
+
+                                        //delete clicked row; receives clicked button in row
+                                            me.delRow = function(btn){
+                                            btn.parentNode.parentNode.outerHTML ='';
+                                            setIds();
+                                        }
+                                      }
+                                    }
+
+                                    //create object of adRowsTable(), pass the table id
+                                    var ob_adRows = new adRowsTable('table1');
+                                    </script>
+
+
+                                </div>
+
+                              </div> <!-- 1ST TAB END -->
+                              
+                              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                                <div class="fortest" style="margin-top: 1rem;">
+
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3.5rem;" 
+                                    onclick="uploadafile()">Add Materials
+                                    </button>
+                                    <input type="file" name="mat" id="openfileformaterial" style="display:none;">
+                                    <table class="table table-bordered" id="table4">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" style="text-align: center;">No.</th>
+                                          <th scope="col" style="text-align: center;">File name</th>
+                                          <th scope="col" style="text-align: center;">Date & Time</th>
+                                          <th scope="col" style="text-align: center;">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row" style="text-align: center;">1</th>
+                                          <td style="text-align: center;">joker.pdf</td>
+                                          <td style="text-align: center;">03-04-21 & 13:45:33</td>
+                                          <td style="text-align: center;">
+                                              <i class="fas fa-trash" onclick="ob_adRows4.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+
+                                    <script type="text/javascript">
+                                        
+                                        function uploadafile(){
+                                            document.getElementById('openfileformaterial').click();
+                                        }
+
+                                        function adRowsTable(id){
+                                        var table = document.getElementById(id);
+                                        var me = this;
+                                        if(document.getElementById(id)){
+                                            var row1 = table.rows[1].outerHTML;
+
+                                        //adds index-id in cols with class .tbl_id
+                                            function setIds(){
+                                            var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id');
+                                            for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+                                            }
+
+                                        //add row after clicked row; receives clicked button in row
+                                            me.addRow3 = function(btn){
+                                            btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1): table.insertAdjacentHTML('beforeend',row1);
+                                            setIds();
+                                            }
+
+                                        //delete clicked row; receives clicked button in row
+                                            me.delRow = function(btn){
+                                            btn.parentNode.parentNode.outerHTML ='';
+                                            setIds();
+                                        }
+                                      }
+                                    }
+
+                                    //create object of adRowsTable(), pass the table id
+                                    var ob_adRows4 = new adRowsTable('table4');
+                                    </script>
+
+                                    </script>
+                                </div>
+
+                              </div> <!-- 2ND TAB END -->
+
+                              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                                <div class="fortest" style="margin-top: 1rem;">
+
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;" 
+                                    onclick="testing()">Add New</button>
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: -.8rem;">Save</button>                             
+
+                                    <table class="table table-bordered" id="table2">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" style="width: 1%; text-align: center;">No.</th>
+                                          <th scope="col" style="text-align:center;">Type</th>
+                                          <th scope="col" style="text-align:center;">Question</th>
+                                          <th scope="col" style="width: 12%; text-align:center;">Answer</th>
+                                          <th scope="col" style="width: 4%; text-align:center;">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">1</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb" onchange="mtf('selb','multiplechoice','trueorfalse')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox1" onclick="selectOnlyThis1(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox1" onclick="selectOnlyThis1(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox1" onclick="selectOnlyThis1(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox1" onclick="selectOnlyThis(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox1" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis1(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox1"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis1(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis1(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox1");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 2nd TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">2</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb1" 
+                                            onchange="mtf('selb1','multiplechoice1','trueorfalse1')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice1" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox2" onclick="selectOnlyThis2(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox2" onclick="selectOnlyThis2(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox2" onclick="selectOnlyThis2(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox2" onclick="selectOnlyThis2(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse1" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox2" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis2(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox2"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis2(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis2(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox2");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 3RD TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">3</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb2" onchange="mtf('selb2','multiplechoice2','trueorfalse2')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice2" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox3" onclick="selectOnlyThis3(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox3" onclick="selectOnlyThis3(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox3" onclick="selectOnlyThis3(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox3" onclick="selectOnlyThis3(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse2" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox3" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis3(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox3"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis3(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <!-- 4TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">4</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb4" onchange="mtf('selb4','multiplechoice4','trueorfalse4')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice4" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox4" onclick="selectOnlyThis4(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox4" onclick="selectOnlyThis4(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox4" onclick="selectOnlyThis4(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox4" onclick="selectOnlyThis4(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse4" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox4" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis4(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox4"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis4(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis4(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox4");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 5TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">5</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb5" onchange="mtf('selb5','multiplechoice5','trueorfalse5')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice5" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox5" onclick="selectOnlyThis5(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox5" onclick="selectOnlyThis5(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox5" onclick="selectOnlyThis5(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox5" onclick="selectOnlyThis5(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse5" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox5" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis5(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox5"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis5(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis5(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox5");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 6TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">6</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb6" onchange="mtf('selb6','multiplechoice6','trueorfalse6')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice6" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox6" onclick="selectOnlyThis6(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox6" onclick="selectOnlyThis6(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox6" onclick="selectOnlyThis6(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox6" onclick="selectOnlyThis6(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse6" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox6" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis6(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox6"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis6(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis6(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox6");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 7TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">7</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb7" onchange="mtf('selb7','multiplechoice7','trueorfalse7')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice7" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox7" onclick="selectOnlyThis7(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox7" onclick="selectOnlyThis7(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox7" onclick="selectOnlyThis7(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox7" onclick="selectOnlyThis7(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse7" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox7" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis7(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox7"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis7(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis7(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox7");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 8TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">8</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb8" onchange="mtf('selb8','multiplechoice8','trueorfalse8')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice8" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox8" onclick="selectOnlyThis8(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox8" onclick="selectOnlyThis8(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox8" onclick="selectOnlyThis8(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox8" onclick="selectOnlyThis8(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse8" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox8" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis8(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox8"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis8(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis8(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox8");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 9TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">9</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb9" onchange="mtf('selb9','multiplechoice9','trueorfalse9')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice9" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox9" onclick="selectOnlyThis9(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox9" onclick="selectOnlyThis9(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox9" onclick="selectOnlyThis9(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox9" onclick="selectOnlyThis9(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse9" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox9" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis9(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox9"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis9(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis9(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox9");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+                                        <!-- 10TH TIME -->
+
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id1">10</th>
+
+                                          <td class="mulchoices">
+                                              
+                                            <select class="form-control typeclass" id="selb10" onchange="mtf('selb10','multiplechoice10','trueorfalse10')">
+                                                <option value="1">Multiple Choice</option>
+                                                <option value="2">True or False</option>
+                                            </select>
+
+                                          </td>
+
+                                          <td>
+
+                                            <div class="form-group focused destest">
+                                            <textarea rows="3" class="form-control form-control-alternative" placeholder="Enter a Question..." style="border:none; resize: none;"></textarea>
+                                            </textarea>
+                                            </div>
+
+                                          </td>
+                                          <td  style="width: 45%;"> <!-- destest -->
+                                            <div id="multiplechoice10" style="display:block;">
+                                                <div class="d-flex" style="justify-content:space-between;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="choice1" name="myCheckbox10" onclick="selectOnlyThis10(this)" style="margin-top:.8rem;" value="1">
+                                                        <input type="text" name="ch1" class="form-control c1in" placeholder="Choice -1" style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in">
+                                                        <input type="checkbox" id="choice2" name="myCheckbox10" onclick="selectOnlyThis10(this)"
+                                                        style="margin-top:.8rem;" value="2">
+                                                        <input type="text" name="ch2" class="form-control c1in" placeholder="Choice -2 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex" style="justify-content:space-between; margin-top: .8rem;">
+                                                    <div class="d-flex ">
+                                                        <input type="checkbox" id="choice3" name="myCheckbox10" onclick="selectOnlyThis10(this)"
+                                                        style="margin-top:.8rem;" value="3">
+                                                        <input type="text" name="ch3" class="form-control c1in" placeholder="Choice -3 " style="margin-left: .5rem;">
+                                                    </div>
+                                                    <div class="d-flex c2in" >
+                                                        <input type="checkbox" id="choice4" name="myCheckbox10" onclick="selectOnlyThis10(this)"
+                                                        style="margin-top:.8rem;" value="4">
+                                                        <input type="text" name="ch4" class="form-control c1in" placeholder="Choice -4 " style="margin-left: .5rem;">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="trueorfalse10" style="display: none;">
+                                                
+                                                <div class="d-flex" style="justify-content:space-evenly;">
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="true1" name="myCheckbox10" 
+                                                        style="margin-top:.8rem; " value="5" onclick="selectOnlyThis10(this)">
+                                                        <input type="text" name="tr1" class="form-control" placeholder="True" style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <input type="checkbox" id="false2" name="myCheckbox10"
+                                                        style="margin-top:.8rem;" value="6" onclick="selectOnlyThis10(this)">
+                                                        <input type="text" name="fa2" class="form-control" placeholder="False " style="margin-left: .5rem;" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            
+                                          </td>
+                                        
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows1.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+
+                                        <script type="text/javascript">
+                                                function selectOnlyThis10(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox10");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+                                        </script>
+
+
+
+                                      </tbody>
+                                    </table>
+
+                                    <script type="text/javascript">
+                                                function selectOnlyThis(id){
+                                                  var myCheckbox = document.getElementsByName("myCheckbox");
+                                                  Array.prototype.forEach.call(myCheckbox,function(el){
+                                                    el.checked = false;
+                                                  });
+                                                  id.checked = true;
+                                                }
+
+
+                                                function mtf(thisid,multiple,truefalse){
+                                                   if( document.getElementById(thisid).value=="1"){
+                                                    changerrr(multiple,truefalse);
+                                                   }
+                                                   else{
+                                                    changerrr(truefalse,multiple);
+                                                   }
+                                                }
+                                                function changerrr(a,b){
+                                                     document.getElementById(a).style.display="block";
+                                                    document.getElementById(b).style.display="none";
+                                                }
+                                              
+                                            </script>
+
+
+                                    <div class="card" id="cd1" style="display:none;">
+                                    
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table id="table2" class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                         <th scope="col">Enter Designation</th>
+                                                        <th scope="col" >Years of Experience</th>
+                                                        <th scope="col">Action &nbsp;&nbsp;&nbsp;<i class="fas fa-plus" onclick="ob_adRows1.addRow1()" style="cursor:pointer;" id="fortest"></i> </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                    <td><input type="text" name="tm1[]"class="form-control form-control-alternative"/></td>
+                    <td><input type="text"class="form-control form-control-alternative" name="nm2[]"/></td>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" onclick="ob_adRows1.delRow(this)"/style="cursor:pointer;" ></td>
+                                                    </tr> 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+ 
+
+                                    <script>
+                                        function testing(){
+                                            document.getElementById('fortest').click();
+                                        }
+
+                                        function adRowsTables(id){
+                                        var tablee = document.getElementById(id);
+                                        var mee = this;
+                                        if(document.getElementById(id)){
+                                            var row11 = tablee.rows[1].outerHTML;
+
+                                        //adds index-id in cols with class .tbl_id
+                                            function setIdss(){
+                                            var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id1');
+                                            for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+                                            }
+
+                                        //add row after clicked row; receives clicked button in row
+                                            mee.addRow1 = function(btns){
+                                            btns ? btns.parentNode.parentNode.insertAdjacentHTML('afterend', row11): tablee.insertAdjacentHTML('beforeend',row11);
+                                            setIdss();
+                                            }
+
+                                        //delete clicked row; receives clicked button in row
+                                            mee.delRow = function(btns){
+                                            btns.parentNode.parentNode.outerHTML ='';
+                                            setIdss();
+                                        }
+                                      }
+                                    }
+
+                                    //create object of adRowsTables(), pass the table id
+                                    var ob_adRows1 = new adRowsTables('table2');
+                                    </script>
+                                </div>
+
+                                
+                              </div> <!-- 3RD TAB END -->
+
+                              <div class="tab-pane fade" id="qanda" role="tabpanel" aria-labelledby="qanda-tab">
+
+                                <div class="fortest" style="margin-top: 1rem;">
+
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;" 
+                                    onclick="faqda()">Add New</button>
+                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: -.8rem;">Save
+                                    </button>
+                                    <table class="table table-bordered" id="table3">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" style="width: 1%; text-align:center;">No.</th>
+                                          <th scope="col" style="text-align:center;">Question</th>
+                                          <th scope="col" style="text-align:center;">Answer</th>
+                                          <th scope="col" style="width: 5%; text-align:center;">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row" style="text-align:center;" class="tbl_id">1</th>
+
+                                          <td>
+                                            <div class="form-group focused destest">
+                                            <textarea rows="2.5" class="form-control form-control-alternative" placeholder="Questions..." style="border:none; resize: none;"></textarea>
+                                            </div>
+                                          </td>
+
+                                          <td>
+                                              <div class="form-group focused destest">
+                                            <textarea rows="2.5" class="form-control form-control-alternative" placeholder="Answers..." style="border:none; resize: none;"></textarea>
+                                            </div>                                              
+                                          </td>
+                                          <td style="text-align:center;">
+                                            <i class="fas fa-trash" onclick="ob_adRows3.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+
+                                    <div class="card-body p-0" style="display:none;">
+                                        <div class="table-responsive">
+                                            <table id="table3" class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                         <th scope="col">Enter Designation</th>
+                                                        <th scope="col" >Years of Experience</th>
+                                                        <th scope="col">Action &nbsp;&nbsp;&nbsp;<i class="fas fa-plus" onclick="ob_adRows3.addRow3()" style="cursor:pointer;" id="faq"></i> </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                    <td><input type="text" name="tm1[]"class="form-control form-control-alternative"/></td>
+                    <td><input type="text"class="form-control form-control-alternative" name="nm2[]"/></td>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" onclick="ob_adRows.delRow(this)"/style="cursor:pointer;" ></td>
+                                                    </tr> 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <script>
+                                        function faqda(){
+                                            document.getElementById('faq').click();
+                                        }
+
+                                        function adRowsTable(id){
+                                        var table = document.getElementById(id);
+                                        var me = this;
+                                        if(document.getElementById(id)){
+                                            var row1 = table.rows[1].outerHTML;
+
+                                        //adds index-id in cols with class .tbl_id
+                                            function setIds(){
+                                            var tbl_id = document.querySelectorAll('#'+ id +' .tbl_id');
+                                            for(var i=0; i<tbl_id.length; i++) tbl_id[i].innerHTML = i+1;
+                                            }
+
+                                        //add row after clicked row; receives clicked button in row
+                                            me.addRow3 = function(btn){
+                                            btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1): table.insertAdjacentHTML('beforeend',row1);
+                                            setIds();
+                                            }
+
+                                        //delete clicked row; receives clicked button in row
+                                            me.delRow = function(btn){
+                                            btn.parentNode.parentNode.outerHTML ='';
+                                            setIds();
+                                        }
+                                      }
+                                    }
+
+                                    //create object of adRowsTable(), pass the table id
+                                    var ob_adRows3 = new adRowsTable('table3');
+                                    </script>
+
+                                </div>
+
+
+                                </div>
+
+
+                              </div> <!-- 4TH TAB END -->
+
+                            </div>
+
+
+
+                    </div><!-- 3RD DIV TAG END -->
+
+
+                        </div>
+
+
+                    </div>
+
+                            
+                            </div>
+                        <!-- ADD NEW POPUP -->
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hellojoker" data-whatever="@mdo" id="addnewsection" style="display: none;">Open modal for @mdo</button>
+
+                            <div class="modal fade" id="hellojoker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add new Section</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form>
+                                      <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Topic:</label>
+                                        <input type="text" class="form-control" id="recipient-name">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Description:</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                      </div>
+                                      <div>
+                                        <input type="file" id="videouploadbuttonid" name="videouploadbutton" style="display:none"></input>
+                                      </div>
+                                        <div>
+                                            <button type="button" class="btn btn-sm btn-primary uploadfilesection"
+                                            onclick="viupload()"><i class="fas fa-upload"></i> Upload Video         
+                                            </button>
+                                        </div>
+                                    </form>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-sm btn-primary" style="background-color:red; 
+                                    margin-right: -1rem; margin-top:.2rem"
+                                    data-dismiss="modal">Close</button>
+                                    <button type="button" id="createcrs" class="btn btn-sm btn-primary" 
+                                    style="margin-left: 2rem; margin-top: .1rem;">Upload</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <script type="text/javascript">
+                                function viupload(){
+                                    document.getElementById('videouploadbuttonid').click();
+                                }
+                            </script>
+
+                            <script type="text/javascript">
+                                
+                                    // get all folders in our .directory-list
+                                var allFolders = $(".directory-list li > ul");
+                                allFolders.each(function() {
+
+                                  // add the folder class to the parent <li>
+                                  var folderAndName = $(this).parent();
+                                  folderAndName.addClass("folder");
+
+                                  // backup this inner <ul>
+                                  var backupOfThisFolder = $(this);
+                                  // then delete it
+                                  $(this).remove();
+                                  // add an <a> tag to whats left ie. the folder name
+                                  folderAndName.wrapInner("<a href='#' />");
+                                  // then put the inner <ul> back
+                                  folderAndName.append(backupOfThisFolder);
+
+                                  // now add a slideToggle to the <a> we just added
+                                  folderAndName.find("a").click(function(e) {
+                                    $(this).siblings("ul").slideToggle("slow");
+                                    e.preventDefault();
+                                  });
+
+                                });
+
+                            </script>
+                </div>
+                
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+     <div id="snackbar"></div>
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content temp-loader">
+          <div class="modal-header" style="display: none;">
+                <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          <div class="modal-body">
+            <div class="d-flex">
+                <div>
+                    <img style="height:50px" src="../assets/images/loader.gif">
+                </div>
+                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- main js -->
+    
+    <!-- chart chartist js -->
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../assets/vendors/charts/sparkline/jquery.sparkline.js"></script>
+    <script>
+        function onLoadSetter(){
+          
+             localforage.getItem('fullAuth').then((e)=>{
+                nameApro=e;
+                nameAproA=nameApro.split('-*de*-');
+                document.getElementById('iName').innerHTML=nameAproA[0];
+                document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
+            });
+            }
+        function logout(){
+            auth.signOut().then(()=>{
+                localforage.clear();
+                
+                location.replace('../login');
+            });
+        }
+        function loaderTriggerAndEnder(d) {
+            if (d) {
+                document.getElementById('loaderTrigger').click();
+            }
+            else{
+                document.getElementById('closeLoader').click();
+            }
+        } 
+    </script>
+</body>
+ 
+</html>

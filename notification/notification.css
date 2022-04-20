@@ -1,0 +1,47 @@
+.card1
+{
+	background-color: #fff;
+    padding: .8rem;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 4px;
+    
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.classh3
+{
+	margin-top: 20px;
+	margin-left: 2.2rem;
+}
+.crossandname{
+    display: flex;
+    justify-content: space-between;
+}
+.imageuser{
+    margin-top: -15px;
+    width: 9%;
+    display: block;
+}
+.imgandcontent{
+    display: flex;
+    justify-content: space-between;
+}
+.smalltag{
+    display:none; 
+    color:#000;
+}
+
+
+
+/*MOBILE RESPONSIVE*/
+
+@media screen and (max-width: 800px) 
+{
+    .smalltag{
+        display: block;
+    }
+    .imageuser{
+        display: none;
+    }
+}

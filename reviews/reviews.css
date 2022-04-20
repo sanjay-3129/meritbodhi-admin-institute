@@ -1,0 +1,115 @@
+
+.heading {
+  font-size: 20px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+
+/* Three column layout */
+.side {
+  
+  width: 15%;
+  margin-top:10px;
+}
+
+.needleft{
+    margin-left: 4rem;
+}
+
+.middle {
+  margin-top:10px;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+  margin-left: -5rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 0%; height: 18px; background-color: #04AA6D;}
+.bar-4 {width: 0%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 0%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 0%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 0%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+  .needleft{
+    margin-left: 0rem;
+  }
+}
+
+.card1{
+    background-color: #fff;
+    padding: 2rem;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.testimonial-box img {
+    display: inline-block;
+    width: 90px;
+    height:90px;
+    border-radius: 50%;
+    margin: 0 0 15px;
+}
+.testimonial-box h4 {
+    color: #5969ff;
+}
+.testimonial-box p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+}
+.ratings-icons {
+    color: #fec42d;
+    margin-bottom: 15px;
+}
+.checked {
+  color: orange;
+  font-size: 1.2rem;
+}
+.not{
+    color: #71748d;
+    font-size: 1.2rem;
+}
+.needtop10px{
+    margin-top: 1rem;
+}
+
+@media screen and (max-width: 370px){
+    .h3tag{
+        flex-direction: column;
+        font-size: 1.2rem;
+    }
+}
