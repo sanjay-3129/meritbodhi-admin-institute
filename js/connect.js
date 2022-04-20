@@ -8,7 +8,8 @@ $(document).ready(function() {
         linkss.forEach((link)=>{
         console.log(link.getAttribute('href'));
         var newLink = link.getAttribute('href');
-        newLink = newLink+''
+        // newLink = newLink+''
+        console.log('newLink', newLink);
         link.setAttribute('href',newLink);
     })
     }

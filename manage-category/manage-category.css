@@ -125,7 +125,7 @@
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
-	margin-top: 30px;
+	margin-top: 40px;
 	font-size: 20px;
 	
   }
@@ -133,8 +133,8 @@
   .sidebar a {
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
-	font-size: 19px;
-	color: #007bff;
+	font-size: 16px;
+	color: #808080;
 	display: block;
 	transition: 0.3s;
 	margin-left: 26px;
@@ -151,6 +151,10 @@
 	font-size: 36px;
 	margin-left: 50px;
   }
+
+	.fa-chart-pie,.fa-university,.fa-chalkboard-teacher,.fa-book,.fa-sort-amount-down,.fa-credit-card,.fa-flag,.fa-question-circle,.fa-plus-square,.fa-power-off {
+		margin-right: 10px;
+	}
   
   .openbtn  {
 	font-size: 20px;
@@ -176,3 +180,8 @@
 	  margin-top: 24px;
 	  
   }
+
+	.option-cat {
+		margin-top: 15px;
+    margin-left: 93px;
+	}

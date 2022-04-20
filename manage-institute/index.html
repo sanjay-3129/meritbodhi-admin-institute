@@ -36,8 +36,8 @@
     <script src="../js/admin-setup.js"></script>
     <script>
         function openNav() {
-          document.getElementById("mySidebar").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
+          document.getElementById("mySidebar").style.width = "220px";
+        //   document.getElementById("main").style.marginLeft = "250px";
         }
         
         function closeNav() {
@@ -61,6 +61,10 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <div id="main">
+                    <button class="openbtn" onclick="openNav()">☰ </button>  
+                    
+                  </div>
                 <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -139,7 +143,7 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div id="mySidebar" class="sidebar">
+        <div id="mySidebar" class="sidebar" style="width: 220px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             <ul class="navbar-nav flex-column">
                                       <li class="nav-item ">
@@ -176,10 +180,7 @@
                                           </ul>
           </div>
           
-          <div id="main">
-            <button class="openbtn" onclick="openNav()">☰ </button>  
-            
-          </div>
+         
          
         
         <!-- ============================================================== -->
