@@ -1948,7 +1948,7 @@ Container / Wrapper
 }
 
 .dashboard-content {
-    padding: 30px 30px 60px 30px;
+    padding: 40px 30px 60px 30px;
 }
 
 
@@ -2263,7 +2263,9 @@ Pageheader
   5. Dashboard Ecommerce
    ========================================================================== */
 
-.dashboard-ecommerce {}
+.dashboard-ecommerce {
+    padding: 30px;
+}
 
 
 /* -------------- social sales -------------------*/
@@ -6826,9 +6828,9 @@ Media Query
         top: 0px;
         right: 0px;
     }
-    .topbar-rr{
+    /* .topbar-rr{
         display: none;
-    }
+    } */
     .dashboard-main-wrapper .main-content{
         margin-left: 0px;
     }
