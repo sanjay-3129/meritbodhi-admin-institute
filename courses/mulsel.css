@@ -7,6 +7,18 @@ div.multiselect, select#meal, button {
   
 }
 
+.addbottom {
+  
+}
+
+
+
+#add{
+  margin-top: 10px;
+ 
+  
+}
+
 .selectBox {
   position: relative;
 }
@@ -46,3 +58,5 @@ div.multiselect, select#meal, button {
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
+
+
