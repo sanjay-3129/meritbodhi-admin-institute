@@ -1,6 +1,6 @@
 <?php
-// require '/var/www/html/admin/php/Connection.php';
-require '../php/Connection.php';
+require '/var/www/html/admin/php/Connection.php';
+// require '../php/Connection.php';
 use Aws\S3\ObjectUploader;
 
 if (isset($_POST['fileNames'])) {

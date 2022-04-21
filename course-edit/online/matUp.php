@@ -1,6 +1,6 @@
 <?php
-// require '/var/www/html/admin/php/Connection.php';
-require '../php/Connection.php';
+require '/var/www/html/admin/php/Connection.php';
+// require '../php/Connection.php';
 use Aws\S3\ObjectUploader;
 //isset($_FILES['newCIimg']) || $_FILES['newCIimg']['error'] != UPLOAD_ERR_NO_FILE
 if (strcmp($_FILES['newCIimg']['tmp_name'], '')!=0) {
