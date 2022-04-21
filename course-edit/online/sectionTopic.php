@@ -94,7 +94,7 @@ if (strcmp($_FILES['topicVidNew']['tmp_name'], '')!=0) {
 	// $length=getDuration("/var/www/html/$uploadName1");
 	$length=getDuration($filee);
 
-	// $source = fopen("/var/www/html/$uploadName1", 'rb');
+	$source = fopen("/var/www/html/$uploadName1", 'rb');
 	// $source = fopen("./videos/$uploadName1", 'rb');
 
 	$uploader = new ObjectUploader(
