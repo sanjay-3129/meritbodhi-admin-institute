@@ -2879,7 +2879,7 @@
                 let fd=new FormData(document.querySelector('#sectionTopic'));
                 fd.append('uploadName', uploadName);
                 fd.append('duration', cutDuration);
-
+                console.log('formData', fd);
                 $.ajax({
                     url: 'sectionTopic.php',
                     type: 'post',
@@ -2896,6 +2896,7 @@
                             quiz: [],
                             sectionName: newSectionName,
                             sectionLength: parseInt(vall),
+                            // sectionLength: parseInt('2'),
                             topicNames: [
                                 newTopicName
                             ]
