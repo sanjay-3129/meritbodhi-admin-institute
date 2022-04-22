@@ -501,6 +501,14 @@
 
             data.collection('admin').doc(uid).get().then((dataata)=>{
                 var newInstitutes=dataata.data().newFaculties;
+                if (newFaculties.length === 0) {
+                        var reqString = `
+                        <td colspan="5"><div class="alert alert-warning" role="alert">
+  No new requests
+</div></td>`
+                        $('#reqtableBody').append(reqString);
+                        console.log("Array is empty!")
+                    }
                 newInstitutes.forEach((docc)=>{
                     i++;
                     data.collection('faculty').doc(docc).get().then((sdfghjkl)=>{
