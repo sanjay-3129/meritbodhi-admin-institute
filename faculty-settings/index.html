@@ -361,7 +361,7 @@
                 reauthenticate(oldPass).then(()=>{
                     user.updatePassword(newPass).then(() =>{
                         data.collection('faculty').doc(allFdata.id).update({
-                            defaultPassword:'-----'
+                            defaultPassword:'Password Changed'
                         }).then(()=>{
                       showToast('Password Updated !!!');
                       setTimeout(function(){

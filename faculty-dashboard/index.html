@@ -27,7 +27,7 @@
     <script src="../js/connect.js"></script>
     <link rel="stylesheet" type="text/css" href="newdash.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
-    <title>Meritbothi | Dashboard Institute</title>
+    <title>Meritbothi | Dashboard Faculty</title>
     <!-- cdns for custom multi select -->
 </head>
 
@@ -450,14 +450,14 @@
                 document.getElementById('iName').innerHTML=nameAproA[0];
                 document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
                 localforage.getItem('facultyDetails').then((f)=>{
-                    if (f.defaultPassword!="-----") {
-                        location.replace('../faculty-settings/');
+                    // if (f.defaultPassword!="-----") {
+                    //     location.replace('../faculty-settings/');
 
-                    }
-                    else{
+                    // }
+                    // else{
                         cardValuesSetter(f);
                         reviewsChartSetter(f.courseIds);
-                    }
+                    // }
                 })
             });
             
