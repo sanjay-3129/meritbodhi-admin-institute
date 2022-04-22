@@ -1168,14 +1168,11 @@
                     console.log(idddd);
                     facArray.push(idddd + "?***?" + facnames[inc]);
                     inc++;
-
                 })
 
                 if (form.crsType.value == 'Online') {
                     //course adding with nw subCategory
-
                     if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-
                         data.collection('subCategories').add({
                             id: '',
                             noOfCourses: 1,
@@ -1623,6 +1620,7 @@
                                                 }
                                             },
                                             meetings: [],
+                                            sections: [],
                                             totalRating:2.5,
                                             status: "Not Published",
                                             subcategory: form.subcat.value,
@@ -1749,6 +1747,7 @@
                                             },
                                             totalRating:2.5,
                                             meetings: [],
+                                            sections: [],
                                             status: "Not Published",
                                             subcategory: form.subcat.value,
                                             thumbnail: urls[1].substring(52),
@@ -1874,6 +1873,7 @@
                                     },
                                     totalRating:2.5,
                                     meetings: [],
+                                    sections: [],
                                     status: "Not Published",
                                     subcategory: form.subcat.value,
                                     thumbnail: urls[1].substring(52),

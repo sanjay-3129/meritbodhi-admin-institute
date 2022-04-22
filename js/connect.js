@@ -24,7 +24,7 @@ var firebaseConfig = {
   appId: "1:352967957649:web:4ed3558194774b41af7330",
   measurementId: "G-7DTG94NNBW",
 };
-const sadid = "KrnczbCIGXa0qyLf4rCfmFabc793";
+const sadid = "OsbMKqQ8j3bQjFgCEvuhnyLCBdE3";
 firebase.initializeApp(firebaseConfig);
 const data = firebase.firestore();
 const auth = firebase.auth();

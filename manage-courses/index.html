@@ -814,7 +814,7 @@
                     <!-- <h2>Dynamic Tabs</h2> -->
                     <ul class="nav nav-tabs">
                       <li class="active"><a data-toggle="tab" class="Request" href="#home">Requested List</a></li>
-                      <li><a data-toggle="tab" class="Request" href="#menu1">Institute List</a></li>
+                      <li><a data-toggle="tab" class="Request" href="#menu1">Course List</a></li>
                       
                     </ul>
                   
@@ -823,17 +823,19 @@
                         <div id="reqtable">
                             
                             <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col" class="nwidth">No.</th>
-                                  <th scope="col" class="nawidth">Name</th>
-                                  <th scope="col" class="ewidth">Faculty Count</th>
-                                  <!-- <th scope="col" class="dtwidth">Date & Time</th> -->
-                                  <th scope="col" class="awidth">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody id="reqtableBody">
-                              </tbody>
+                                <thead>
+                                    <tr>
+                                      <th scope="col">No.</th>
+                                      <th scope="col">Course Title</th>
+                                      <th scope="col">Faculty</th>
+                                      <th scope="col">Mode</th>
+                                      <th scope="col">Sections</th>
+                                      <th scope="col" class="styles">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="reqCoursesList">
+                            
+                                </tbody>
                             </table>
 
                         </div>
@@ -843,18 +845,18 @@
                         <div id="informationtable">
                             
                             <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col" class="nwidthn">No.</th>
-                                  <th scope="col" class="nawidthn">Name</th>
-                                  <th scope="col" class="ewidthn">Faculty Count</th>
-                                  <th scope="col" class="dtwidthn">Type</th>
-                                  <!-- <th scope="col" class="dtwidthn">Date & Time</th> -->
-                                  <th scope="col" class="awidthn">Actionss</th>
-                                </tr>
-                              </thead>
-                              <tbody id="infoTableBody">
-                              </tbody>
+                                <thead>
+                                    <tr>
+                                      <th scope="col">No.</th>
+                                      <th scope="col">Course Title</th>
+                                      <th scope="col">Faculty</th>
+                                      <th scope="col">Mode</th>
+                                      <th scope="col" class="styles">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="existingCourseSetterTbody">
+                           
+                                </tbody>
                             </table>
 
                         </div>
@@ -1312,11 +1314,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                <video id="vidPrevShowerV" autoplay loop style="width: 100%;"></video>
+                <video id="vidPrevShowerV" autoplay loop style="width: 100%;" controls></video>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red">Close</button>
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
               </div>
             </div>
           </div>
@@ -1344,7 +1346,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-primary">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red">Close</button>
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
               </div>
             </div>
           </div>
@@ -1404,11 +1406,65 @@
         document.getElementById('iName').innerHTML=sessionStorage.getItem('name');
 
         var uid='';
+        console.log('Userjs');
         auth.onAuthStateChanged((user)=>{
             if(user){
+                console.log('User', user.uid);
                 uid=user.uid;
-                existingCourseSetter();
-                fuccccc();
+                // existingCourseSetter();
+                loaderTriggerAndEnder(true);
+            var i =1;
+            data.collection('subCategories').get().then((subCategories) => {
+                subCategories.forEach((cats)=>{
+                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
+                     courses.forEach((course)=>{
+                         if (course.data().status=="Verified") {                            
+                            $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
+                                    <th scope="row">`+i+`</th>
+                                    <td>`+course.data().courseName+`</td>
+                                    <td>`+course.data().faculties.length+`</td>
+                                    <td>`+course.data().types+`</td>
+                                    
+                                    <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+cats.id+`?***?`+course.id+`" onclick="nviewmore(this)">View</button></td>
+                                    </tr>`);
+                            allCrsData[indexing]=course.data();
+                            i++;
+                            indexing++;
+                        }
+                    })     
+                })
+               
+            })
+            }).catch(e => console.log(e));    
+                
+            // fuccccc();
+            loaderTriggerAndEnder(true);
+            var i=1;
+            $('#reqCoursesList').html('');
+            data.collection('admin').doc(uid).get().then((adminData) => {
+                exisCrs = adminData.data().newCourses;
+            adminData.data().newCourses.forEach((doccc)=>{
+                var splitted=doccc.split('?***?');
+                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
+                    console.log('cour', course.data());
+                    $('#reqCoursesList').append(`<tr indexing = "`+indexing+`">
+                              <th scope="row">`+i+`</th>
+                              <td>`+course.data().courseName+`</td>
+                              <td>`+course.data().faculties.length+`</td>
+                              <td>`+course.data().types+`</td>
+                              <td>${course.data().sections.length} - sections</td>
+                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+doccc+`" onclick="viewmore(this)">View</button></td>
+                            </tr>`);
+                       allCrsData[indexing]=course.data();
+                    i++;
+                    indexing++;
+                });
+            })
+
+            setTimeout(()=>{
+                loaderTriggerAndEnder(false);
+            }, 2000);
+            }).catch(e => console.log(e));
             }else{
                 location.replace('../admin-login/');
             }
@@ -1416,15 +1472,14 @@
         var allCrsData=[];
         var indexing = 0;
         var exisCrs = [];
-        existingCourseSetter = async()=>{
+        existingCourseSetter = ()=>{
             loaderTriggerAndEnder(true);
             var i =1;
-            
-
-            const subCategories = await data.collection('subCategories').get();
-            subCategories.forEach((cats)=>{
+            data.collection('subCategories').get().then((subCategories) => {
+                subCategories.forEach((cats)=>{
                  data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
                      courses.forEach((course)=>{
+                         console.log('cour', course.data());
                         if (course.data().status=="Verified") {
                             
                     $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
@@ -1443,9 +1498,7 @@
                  })
                
             })
-
-            
-            
+            }).catch(e => console.log(e));    
         }
         fuccccc = async () => {
             loaderTriggerAndEnder(true);
@@ -1479,6 +1532,12 @@
             var w = "https://secure--storage.s3.ap-south-1.amazonaws.com/"+videoURL.getAttribute('video-url')+'?dummy='+String(Math.floor(Math.random() * 100000));
             document.getElementById('vidPrevShowerV').setAttribute('src',w)
             document.getElementById('invideo').click();
+        }
+
+        stopVideo = () => {
+            var video = document.getElementById("vidPrevShowerV");
+            video.pause();
+            video.currentTime = 0;
         }
 
         viewmore = (a) =>{
@@ -1648,7 +1707,6 @@
                 rejectMessage:msg,
                 status:'Blocked'
             })
-
         }
     </script>
     <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
