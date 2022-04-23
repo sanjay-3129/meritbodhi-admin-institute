@@ -35,7 +35,7 @@
 .cardstyle{
         display: grid;
         grid-template-columns: repeat(4,1fr);
-        grid-gap: 2rem;
+        grid-gap: -1rem;
         margin: 1rem;
         padding: 1rem;
 }
@@ -630,13 +630,13 @@
                     </select>
 
                             <button style="position: absolute;
-                            top: 64%;
+                            top: 49%;
                             left: 18%;" type="button" id="add" class="btn btn-sm btn-primary addibtn" onclick="ifyouclick()">
                          Add New</button>
                         </div>
                     </div>
 
-                    <main class="cardstyle" id="coursecardall" style="display: flex;">
+                    <main class="cardstyle row" id="coursecardall" style="display: flex;">
                        
                     </main>
                     <div class='d-flex justify-content-center'>
@@ -1066,13 +1066,13 @@
                             var ddd = data.data();
                             document.getElementById('loaderr-3').style.display = "none";
                             if (ddd.status == 'Not Published' || ddd.status == 'Not Verified') {
-                                courseCards = '<div style="width: 20%; margin-top: 20px; margin-left: 20px" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+                                courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px; margin-left: 20px" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
 
                                 $('#coursecardall').append(courseCards);
                             } else if (ddd.status == 'Verified') {
-                                courseCards = '<div style="width: 20%; margin-top: 20px;" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+                                courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px;" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
 
 
                                 $('#coursecardall').append(courseCards);
