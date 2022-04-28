@@ -487,34 +487,34 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item ">
-                                <a class="nav-link" href="../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                <a class="nav-link" href="../../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
 
                                 <li class="nav-item">
-                                    <a class="nav-link " href="../profile"><i class="fas fa-user"></i>Profile</a>
+                                    <a class="nav-link " href="../../profile"><i class="fas fa-user"></i>Profile</a>
 
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="../courses"><i class="fas fa-book"></i>Courses</a>
+                                        <a class="nav-link active" href="../../courses"><i class="fas fa-book"></i>Courses</a>
 
                                         <li class="nav-item ">
-                                            <a class="nav-link" href="../faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                            <a class="nav-link" href="../../faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
 
                                             <li class="nav-item">
-                                                <a class="nav-link " href="../notification"><i class="fas fa-fw fa-bell"></i>Notifications</a>
+                                                <a class="nav-link " href="../../notification"><i class="fas fa-fw fa-bell"></i>Notifications</a>
 
                                                 <li class="nav-item ">
-                                                    <a class="nav-link" href="../archive"><i class="fas fa-archive"></i>Archieve</a>
+                                                    <a class="nav-link" href="../../archive"><i class="fas fa-archive"></i>Archieve</a>
 
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="../reviews"><i class="fas fa-star"></i>Reviews</a>
+                                                        <a class="nav-link " href="../../reviews"><i class="fas fa-star"></i>Reviews</a>
 
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="../payments"><i class="fas fa-credit-card"></i>Payments</a>
+                                                            <a class="nav-link" href="../../payments"><i class="fas fa-credit-card"></i>Payments</a>
 
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="../referal"><i class="fas fa-hands-helping"></i>My Referal</a>
+                                                                <a class="nav-link" href="../../referal"><i class="fas fa-hands-helping"></i>My Referal</a>
 
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="../settings"><i class="fas fa-cog"></i>Settings</a>
+                                                                    <a class="nav-link" href="../../settings"><i class="fas fa-cog"></i>Settings</a>
                                                                 </li>
                                                                 <li class="nav-item hi-sh-lg">
                                                                     <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
@@ -1873,6 +1873,13 @@
         function pausevidprev() {
             document.getElementById('vidPrevShowerV').pause();
         }
+        function logout() {
+                auth.signOut().then(() => {
+                    localforage.clear();
+
+                    location.replace("../../login/");
+                });
+            }
     </script>
 
 </body>
