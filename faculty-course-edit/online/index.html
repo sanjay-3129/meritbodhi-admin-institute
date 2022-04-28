@@ -21,7 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
-    <script src="../js/connect.js"></script>
+    <script src="../../js/connect.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
     <link rel="stylesheet" href="../mulsel.css">
     <link rel="stylesheet" href="style1.css">
@@ -2253,9 +2253,8 @@
                     });
                 }
                 auth.onAuthStateChanged((user) => {
-                    if (user) {
+                    if (!user) {
 
-                    } else {
                         location.replace('../../login/');
                     }
                 })

@@ -702,21 +702,20 @@
                 var courseCards = '';
                 localforage.getItem('facultyDetails').then((g) => {
                     courseids = g.courseIds;
+                    console.log("courseID",g);
                     courseids.forEach((arg) => {
                         var cidsSplit = arg.split('?***?');
-
                         data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
                             var ddd = data.data();
                             document.getElementById('loaderr-3').style.display = "none";
-                            if (ddd.status == 'Not Published' || ddd.status == 'Not Verified') {
+                            if (ddd.status === 'Not Published' || ddd.status === 'Not Verified') {
                                 courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
                                     ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
 
                                 $('#coursecardall').append(courseCards);
-                            } else if (ddd.status == 'Published') {
+                            } else if (ddd.status === 'Published' || ddd.status === 'Verified') {
                                 courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
                                     ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green; display: none;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
-
 
                                 $('#coursecardall').append(courseCards);
                             }

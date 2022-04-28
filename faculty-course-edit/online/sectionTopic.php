@@ -2,7 +2,6 @@
 // require '/var/www/html/admin/php/Connection.php';
 // use Aws\S3\ObjectUploader;
 
-
 $bucketName = 'secure--storage';
 
 date_default_timezone_set('Asia/Kolkata');
