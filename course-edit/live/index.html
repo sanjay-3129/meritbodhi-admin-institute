@@ -388,7 +388,7 @@
 
 </head>
 
-<body onload="onLoadSetter()">
+<body onload="onLoadSetter()">                                    
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -1183,6 +1183,7 @@
         });
 
         function onLoadSetter() {
+            console.log('onLoadSetter');
             loaderTriggerAndEnder(true);
             localforage.getItem('fullAuth').then((e) => {
                 nameApro = e;
@@ -1193,10 +1194,13 @@
 
             localforage.getItem('instituteDetails').then((a) => {
                 instituteDetails = a;
+                // console.log('meetingDetails', instituteDetails, ids[0], ids[1]);
                 data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).get().then((snap557) => {
                     var allData = snap557.data();
                     var languages = ['Tamil', 'English', 'Hindi'];
                     existingMeets = allData.meetings;
+                    console.log('exis', existingMeets);
+                    getMeetings(existingMeets);
                     var facNames = '';
 
                     instituteDetails.facultyIds.forEach((dat) => {
@@ -1269,7 +1273,6 @@
                 })
             })
             setTimeout(() => {
-                getMeetings(existingMeets);
                 loaderTriggerAndEnder(false);
             }, 4000);
         }
@@ -1542,6 +1545,11 @@
             fd.append('dur', formMeeting.dur.value);
             fd.append('pass', formMeeting.pass.value);
 
+            console.log('meetname', formMeeting.meetname.value);
+            console.log('date', formMeeting.date.value);
+            console.log('time', formMeeting.time.value + ':00');
+            console.log('dur', formMeeting.dur.value);
+            console.log('pass', formMeeting.pass.value);
             $.ajax({
                 url: 'meeting_create.php',
                 type: 'post',
