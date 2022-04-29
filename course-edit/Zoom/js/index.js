@@ -102,8 +102,13 @@ function websdkready() {
           console.log(res.result);
           meetingConfig.signature = res.result;
           meetingConfig.apiKey = API_KEY;
-          var joinUrl = "/course-edit/Zoom/meeting.html?" + testTool.serialize(meetingConfig);
-          window.open(joinUrl, "_self");
+          if(location.hostname === 'meritbodhi.com') {
+            var joinUrl = "/admin/course-edit/Zoom/meeting.html?" + testTool.serialize(meetingConfig);
+            window.open(joinUrl, "_self");
+          } else {
+            var joinUrl = "/course-edit/Zoom/meeting.html?" + testTool.serialize(meetingConfig);
+            window.open(joinUrl, "_self");
+          }
         },
       });
     });
