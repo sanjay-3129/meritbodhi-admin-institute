@@ -1585,15 +1585,15 @@
             function redirecterToCourseEdit(l) {
                 if (l.getAttribute('card-type') == 'Online') {
                     sessionStorage.setItem('fac-course-edit-crs-id-online', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/online');
+                    location.replace('../faculty-course-edit/online/');
                 }
                 if (l.getAttribute('card-type') == 'Live') {
                     sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/live');
+                    location.replace('../faculty-course-edit/live/');
                 }
                 if (l.getAttribute('card-type') == 'One to One') {
                     sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/live');
+                    location.replace('../faculty-course-edit/live/');
                 }
             }
 
