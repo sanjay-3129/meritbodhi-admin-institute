@@ -12,7 +12,7 @@ $(document).ready(function () {
       console.log("newLink", newLink);
       link.setAttribute("href", newLink);
     });
-  } catch {}
+  } catch { }
 });
 // firestore initialization
 var firebaseConfig = {
