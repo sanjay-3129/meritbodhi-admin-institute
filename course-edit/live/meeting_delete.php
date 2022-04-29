@@ -65,7 +65,7 @@ try{
 
 if (isset($_POST['meetid'])) {
 	$mid=explode("?***?", $_POST['meetid']);
-
+    // echo 'mid---------------',$mid;
     for ($i=0; $i < count($mid); $i++) { 
         $response = $meetclient->request("DELETE", "/v2/meetings/$mid[$i]", [
             "headers" => [

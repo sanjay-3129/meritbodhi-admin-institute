@@ -67,8 +67,6 @@ if (isset($_POST['meetname'])) {
     // 00:30:00
 	$mpassword=$_POST['pass'];
 	$meetingdatetime=$mdate."T".$mtime;
-
-    // echo 'meeting detailsssssssssssssssssss',$mname, $meetingdatetime, $mduration, $mpassword;
  
     $response = $meetclient->request('POST', '/v2/users/me/meetings', [
         "headers" => [

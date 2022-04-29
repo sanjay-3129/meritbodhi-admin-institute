@@ -1470,7 +1470,7 @@
 
             if (confirm('Do you want to cancel and delete ' + meets[1] + ' meeting ?')) {
                 loaderTriggerAndEnder(true);
-
+                console.log('meetid', meets[0]);
                 $.ajax({
                     url: 'meeting_delete.php',
                     type: 'post',
@@ -1495,6 +1495,10 @@
                             loaderTriggerAndEnder(false);
                             showToast('Meeting deleted !!!');
                         })
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Status: " + textStatus); 
+                        alert("Error: " + errorThrown); 
                     }
                 });
             }
@@ -1526,6 +1530,11 @@
             var indexx = m.getAttribute('data-index-meet');
             var pass = document.querySelectorAll('.meetingpasswordClass')[indexx - 1].innerHTML;
 
+            // console.log('meetingId', idd);
+            // console.log('meetingPassword', pass);
+            // console.log('meetingEmail', instituteDetails.email);
+            // console.log('meetingHostName', instituteDetails.instituteName);
+            
             sessionStorage.setItem('meetingId', idd);
             sessionStorage.setItem('meetingPassword', pass);
             sessionStorage.setItem('meetingEmail', instituteDetails.email);

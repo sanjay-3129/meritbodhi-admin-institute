@@ -27,22 +27,15 @@ function websdkready() {
   var API_SECRET = "is6KgZKTYTZDw1Cs1R4RQyYWrkIKNoLH7lPm";
 
   // some help code, remember mn, pwd, lang to cookie, and autofill.
-  document.getElementById("display_name").value =
-    "CDN" +
-    ZoomMtg.getJSSDKVersion()[0] +
-    testTool.detectOS() +
-    "#" +
-    testTool.getBrowserInfo();
-  document.getElementById("meeting_number").value = testTool.getCookie(
-    "meeting_number"
-  );
-  document.getElementById("meeting_pwd").value = testTool.getCookie(
-    "meeting_pwd"
-  );
+  document.getElementById("display_name").value = sessionStorage.getItem("meetingHostName");
+  document.getElementById("meeting_number").value = sessionStorage.getItem("meetingId");
+  document.getElementById("meeting_pwd").value = sessionStorage.getItem("meetingPassword");
   if (testTool.getCookie("meeting_lang"))
     document.getElementById("meeting_lang").value = testTool.getCookie(
       "meeting_lang"
     );
+
+      console.log('meetingDet', sessionStorage.getItem("meetingId"), sessionStorage.getItem("meetingPassword"));
 
   document
     .getElementById("meeting_lang")
@@ -66,10 +59,10 @@ function websdkready() {
       }
       var tmpPwd = e.target.value.match(/pwd=([\d,\w]+)/);
       if (tmpPwd) {
-        document.getElementById("meeting_pwd").value = tmpPwd[1];
+        document.getElementById("meeting_pwd").value = sessionStorage.getItem("meetingPassword");
         testTool.setCookie("meeting_pwd", tmpPwd[1]);
       }
-      document.getElementById("meeting_number").value = tmpMn;
+      document.getElementById("meeting_number").value = sessionStorage.getItem("meetingId");
       testTool.setCookie(
         "meeting_number",
         document.getElementById("meeting_number").value
@@ -83,7 +76,7 @@ function websdkready() {
     document.getElementById("meeting_pwd").value = "";
     document.getElementById("meeting_lang").value = "en-US";
     document.getElementById("meeting_role").value = 0;
-    window.location.href = "/index.html";
+    // window.location.href = "/index.html";
   });
 
   // click join meeting button
@@ -96,13 +89,12 @@ function websdkready() {
         alert("Meeting number or username is empty");
         return false;
       }
-
       
-      testTool.setCookie("meeting_number", meetingConfig.mn);
-      testTool.setCookie("meeting_pwd", meetingConfig.pwd);
+      testTool.setCookie("meeting_number", sessionStorage.getItem("meetingId"));
+      testTool.setCookie("meeting_pwd", sessionStorage.getItem("meetingPassword"));
 
       var signature = ZoomMtg.generateSignature({
-        meetingNumber: meetingConfig.mn,
+        meetingNumber: sessionStorage.getItem("meetingId"),
         apiKey: API_KEY,
         apiSecret: API_SECRET,
         role: meetingConfig.role,

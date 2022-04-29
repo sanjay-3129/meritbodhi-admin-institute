@@ -62,7 +62,7 @@
             <div id="navbar" class="websdktest">
                 <form class="navbar-form navbar-right" id="meeting_form">
                     <div class="form-group">
-                        <input type="text" name="display_name" id="display_name" value="1.9.7#CDN" maxLength="100"
+                        <input type="text" name="display_name" id="display_name" value="" maxLength="100"
                             placeholder="Name" class="form-control" required>
                     </div>
                     <div class="form-group">
@@ -110,11 +110,9 @@
 
                     <input type="hidden" value="" id="copy_link_value" />
                     <button type="submit" class="btn btn-primary" id="join_meeting">Join</button>
-                    <button type="submit" class="btn btn-primary" id="clear_all">Clear</button>
+                    <button type="button" class="btn btn-primary" id="clear_all">Clear</button>
                     <button type="button" link="" onclick="window.copyJoinLink('#copy_join_link')"
                         class="btn btn-primary" id="copy_join_link">Copy Direct join link</button>
-
-
                 </form>
             </div>
             <!--/.navbar-collapse -->
@@ -143,13 +141,14 @@
             var mid=sessionStorage.getItem('meetingId');
             var mpass=sessionStorage.getItem('meetingPassword');
 
-            document.getElementById('display_name').value=name;
-            document.getElementById('meeting_email').value=email;
-            document.getElementById('meeting_number').value=mid;
-            document.getElementById('meeting_pwd').value=mpass;
+            console.log('dateazsdasda', name, email, mid, mpass);
+
+            document.getElementById('display_name').value = name;
+            document.getElementById('meeting_email').value = email;
+            document.getElementById('meeting_number').value = mid;
+            document.getElementById('meeting_pwd').value = mpass;
 
             document.getElementById('join_meeting').click();
-
         }
     </script>
 
