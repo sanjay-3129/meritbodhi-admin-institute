@@ -795,6 +795,7 @@
             $('#createCourse').on('click', function() {
                 loaderTriggerAndEnder(true);
                 var newSubCatId = '';
+               var courseIIId='';
                 var cid = '';
 
                 var facArray = [];
@@ -1133,6 +1134,7 @@
                                     types: form.crsType.value
                                 }).then((docid) => {
                                     cid = sub_CategoryId + '?***?' + docid.id;
+                                    courseIIId=docid.id;
                                     data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
                                         id: docid.id,
                                         subcategoryId: sub_CategoryId
