@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'bf196dc078555cc5bf43c6516ff8237fbf1c6d56',
+        'reference' => 'ecbd27dd1d68fa4319bcf4fdb84bce963058176d',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'bf196dc078555cc5bf43c6516ff8237fbf1c6d56',
+            'reference' => 'ecbd27dd1d68fa4319bcf4fdb84bce963058176d',
             'dev_requirement' => false,
         ),
         'aws/aws-crt-php' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'aws/aws-sdk-php' => array(
-            'pretty_version' => '3.220.1',
-            'version' => '3.220.1.0',
+            'pretty_version' => '3.222.2',
+            'version' => '3.222.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../aws/aws-sdk-php',
             'aliases' => array(),
-            'reference' => '1436b69a1e2e8005cc867feb021455ab0a26a30f',
+            'reference' => '17db4851c065b92e76466d8e6ddef0a7e8367416',
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(

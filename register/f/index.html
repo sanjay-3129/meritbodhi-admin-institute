@@ -1,439 +1,400 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>Merit Bodhi | Faculty Registration</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="facultyreg.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../../js/connect.js"></script>
-    <link rel="stylesheet" type="text/css" href="facreg1.css" />
-    <link rel="stylesheet" href="../../assets/libs/css/style.css" />
-    <style>
-      #snackbar {
-        visibility: hidden;
-        min-width: 250px;
-        margin-left: -125px;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 2px;
-        padding: 16px;
-        position: fixed;
-        z-index: 1;
-        left: 50%;
+
+<head>
+  <title>Merit Bodhi | Faculty Registration</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="f/facultyreg.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+  <script src="../../js/connect.js"></script>
+  <link rel="stylesheet" type="text/css" href="f/facreg1.css" />
+
+  <link rel="stylesheet" href="../../assets/libs/css/style.css" />
+  <style>
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+
+      to {
         bottom: 30px;
-        font-size: 17px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
       }
 
-      #snackbar.show {
-        visibility: visible;
-        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
       }
 
-      @-webkit-keyframes fadein {
-        from {
-          bottom: 0;
-          opacity: 0;
-        }
-        to {
-          bottom: 30px;
-          opacity: 1;
-        }
+      to {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
       }
 
-      @keyframes fadein {
-        from {
-          bottom: 0;
-          opacity: 0;
-        }
-        to {
-          bottom: 30px;
-          opacity: 1;
-        }
+      to {
+        bottom: 0;
+        opacity: 0;
       }
+    }
+  </style>
+</head>
 
-      @-webkit-keyframes fadeout {
-        from {
-          bottom: 30px;
-          opacity: 1;
-        }
-        to {
-          bottom: 0;
-          opacity: 0;
-        }
-      }
+<body>
+  <div id="snackbar"></div>
 
-      @keyframes fadeout {
-        from {
-          bottom: 30px;
-          opacity: 1;
-        }
-        to {
-          bottom: 0;
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="snackbar"></div>
-
-    <div class="container">
-      <div class="title">MeritBodhi</div>
-      <div class="content">
-        <form id="regform" method="POST">
-          <div class="user-details">
-            <div class="form-group focused">
-              <label class="form-control-label" for="iname">Faculty Name</label>
-              <input
-                type="text"
-                id="iname"
-                class="form-control form-control-alternative"
-                name="i_name"
-                placeholder="Faculty Name"
-                required
-              />
-            </div>
-
-            <div class="form-group focused">
-              <label class="form-control-label" for="email">Email</label>
-              <input
-                type="text"
-                id="email"
-                class="form-control form-control-alternative"
-                name="emailid"
-                placeholder="Email Id"
-                required
-              />
-            </div>
-            <div class="form-group focused">
-              <label class="form-control-label" for="ph">Phone Number</label>
-              <input
-                type="text"
-                id="ph"
-                class="form-control form-control-alternative"
-                name="p_no"
-                placeholder="Phone Number"
-                required
-              />
-            </div>
-
-            <div class="form-group focused">
-              <label class="form-control-label" for="door">Qualification</label>
-              <input
-                type="text"
-                id="door"
-                class="form-control form-control-alternative"
-                name="F_qualification"
-                placeholder="Faculty Qualifications"
-                required
-              />
-            </div>
-
-            <div class="form-group focused">
-              <label class="form-control-label" for="pass">Password</label>
-              <input
-                type="password"
-                id="pass"
-                class="form-control form-control-alternative"
-                name="pas"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <div class="form-group focused">
-              <label class="form-control-label" for="cpass"
-                >Confrim Password</label
-              >
-              <input
-                type="password"
-                id="cpass"
-                class="form-control form-control-alternative"
-                name="c_pas"
-                placeholder="Confrim Password"
-                required
-              />
-            </div>
-
-            <div class="form-group focused">
-              <label class="form-control-label" for="refcode"
-                >Referal Code<small>(optional)</small></label
-              >
-              <input
-                type="text"
-                id="refcode"
-                class="form-control form-control-alternative"
-                name="ref_code"
-                placeholder="Referal Code"
-                value=""
-                required
-              />
-            </div>
+  <div class="container">
+    <div class="title">MeritBodhi</div>
+    <div class="content">
+      <form id="regform" method="POST">
+        <div class="user-details">
+          <div class="form-group focused">
+            <label class="form-control-label" for="iname">Faculty Name</label>
+            <input type="text" id="iname" class="form-control form-control-alternative" name="i_name"
+              placeholder="Faculty Name" required />
           </div>
-          <div class="input-box" style="display: block" id="refcodmsg">
-            <!-- <span class="details" style="display:block;">Message</span> -->
-            <p id="msggg"></p>
+
+          <div class="form-group focused">
+            <label class="form-control-label" for="email">Email</label>
+            <input type="text" id="email" class="form-control form-control-alternative" name="emailid"
+              placeholder="Email Id" required />
           </div>
-          <div class="col-4 text-right" style="margin-left: 16rem">
-            <input
-              type="button"
-              id="regbtn"
-              style="margin-top: 1rem"
-              class="btn btn-primary"
-              name="submit"
-              value="SUBMIT"
-            />
+          <div class="form-group focused">
+            <label class="form-control-label" for="ph">Phone Number</label>
+            <input type="text" id="ph" class="form-control form-control-alternative" name="p_no"
+              placeholder="Phone Number" required />
           </div>
-        </form>
-      </div>
+
+          <div class="form-group focused">
+            <label class="form-control-label" for="door">Qualification</label>
+            <input type="text" id="door" class="form-control form-control-alternative" name="F_qualification"
+              placeholder="Faculty Qualifications" required />
+          </div>
+
+          <div class="form-group focused">
+            <label class="form-control-label" for="pass">Password</label>
+            <input type="password" id="pass" class="form-control form-control-alternative" name="pas"
+              placeholder="Password" required />
+          </div>
+          <div class="form-group focused">
+            <label class="form-control-label" for="cpass">Confrim Password</label>
+            <input type="password" id="cpass" class="form-control form-control-alternative" name="c_pas"
+              placeholder="Confrim Password" required />
+          </div>
+
+          <div class="form-group focused">
+            <label class="form-control-label" for="refcode">Referal Code<small>(optional)</small></label>
+            <input type="text" id="refcode" class="form-control form-control-alternative" name="ref_code"
+              placeholder="Referal Code" value="" required />
+          </div>
+        </div>
+        <div class="input-box" style="display: block" id="refcodmsg">
+          <!-- <span class="details" style="display:block;">Message</span> -->
+          <p id="msggg"></p>
+        </div>
+        <div class="col-4 text-right" style="margin-left: 16rem">
+          <input type="button" id="regbtn" style="margin-top: 1rem" class="btn btn-primary" name="submit"
+            value="SUBMIT" />
+        </div>
+      </form>
     </div>
-    <!-------------------------loading overlay--------------------------------------------------->
-    <div id="loaderForLogin" class="overlay" style="display: none">
-      <div class="overlay__inner">
-        <div class="overlay__content"><span class="spinner"></span></div>
-      </div>
+  </div>
+  <!-------------------------loading overlay--------------------------------------------------->
+  <div id="loaderForLogin" class="overlay" style="display: none">
+    <div class="overlay__inner">
+      <div class="overlay__content"><span class="spinner"></span></div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
-    <script src="../../js/connect.js"></script>
+  </div>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+  <script src="../../js/connect.js"></script> -->
 
-    <script>
-      //--------------------------------------JAVA SCRIPT------------------------------------------------//
-      const form = document.getElementById("regform");
-      var sadidi = "OsbMKqQ8j3bQjFgCEvuhnyLCBdE3";
-      // Initialize Firebase
+  <script>
+    //--------------------------------------JAVA SCRIPT------------------------------------------------//
+    const form = document.getElementById("regform");
+    var sadidi = "OsbMKqQ8j3bQjFgCEvuhnyLCBdE3";
+    // Initialize Firebase
 
-      //------------------------------on submit getting form data-------------------------------------//
-      document.getElementById("regbtn").addEventListener("click", function () {
-        const iname = form.i_name.value; //institute name
-        const email = form.email.value; //email
-        const passw = form.pas.value; //password
-        const cpass = form.c_pas.value; //confirm password
-        const mobil = form.p_no.value; //mobile
-        const quali = form.F_qualification.value; //qualification
-        const refer = form.ref_code.value; //referal code
-        var allow = false;
+    //------------------------------on submit getting form data-------------------------------------//
+    document.getElementById("regbtn").addEventListener("click", function () {
+      const iname = form.i_name.value; //institute name
 
-        if (
-          iname !== null &&
-          iname !== "" &&
-          email !== null &&
-          email !== "" &&
-          passw !== null &&
-          passw !== "" &&
-          cpass !== null &&
-          cpass !== "" &&
-          mobil !== null &&
-          mobil !== "" &&
-          quali !== null &&
-          quali !== ""
-        ) {
-          //checking is there any null available in form
-          allow = true;
-        }
+      const email = form.email.value; //email
+      const passw = form.pas.value; //password
+      const cpass = form.c_pas.value; //confirm password
+      const mobil = form.p_no.value; //mobile
+      const quali = form.F_qualification.value; //qualification
+      const refer = form.ref_code.value; //referal code
+      console.log("Faculty Registration Details", iname, email, mobil, quali, refer)
+      var allow = false;
 
-        if (passw == cpass && allow == true) {
-          //----------------------------------authantication setting----------------------------------------//
-          document.getElementById("loaderForLogin").style.display = "block";
-          const authcrea = auth.createUserWithEmailAndPassword(email, cpass);
-          authcrea
-            .catch(function (e) {
-              showToast(e.message);
-            })
-            .then(function (b) {
-              b.user
-                .updateProfile({
-                  displayName: iname,
-                  photoURL: "user.png",
-                })
-                .then(function (c) {
-                  //----------------------------------writing data int firestore--------------------------------------//
+      if (
+        iname !== null &&
+        iname !== "" &&
+        email !== null &&
+        email !== "" &&
+        passw !== null &&
+        passw !== "" &&
+        cpass !== null &&
+        cpass !== "" &&
+        mobil !== null &&
+        mobil !== "" &&
+        quali !== null &&
+        quali !== ""
+      ) {
+        //checking is there any null available in form
+        allow = true;
+      }
 
-                  var refCodeF = refCodeGenerater(email);
-                  data
-                    .collection("faculty")
-                    .doc(b.user.uid)
-                    .set({
-                      email: email,
-                      status: "Not Verified",
-                      mobileNo: mobil,
-                      refBy: "",
-                      referalCode: refCodeF,
-                      id: b.user.uid,
-                      instituteIds: [],
-                      courseIds: [],
-                      qualification: quali,
-                      profileImage: "group.png",
-                      defaultPassword: "-----",
-                      description: "",
-                      designation: [],
-                      experience: [],
-                      name: iname,
-                      referedFaculties: [],
-                      notification: [],
-                      requests: [],
-                      requestedAt: parseInt(new Date().getTime()),
-                    })
-                    .then(function () {
-                      //---------------------------------erasing data from form--------------------------------------------------------//
-                      var bgbg = b.user.uid;
-                      var refbyins = "";
-                      var newFacs = [];
-                      console.log(refer);
-                      if (refer != "" || refer != null) {
-                        data
-                          .collection("faculty")
-                          .where("referalCode", "==", refer)
-                          .get()
-                          .then((querySnapshot) => {
-                            querySnapshot.forEach((doc) => {
-                              refbyins = doc.id;
-                              var allreferins = doc.data().referedInstitutes;
-                              allreferins.push(bgbg);
-                              data.collection("faculty").doc(doc.id).update({
-                                referedFaculties: allreferins,
-                              });
+      if (passw == cpass && allow == true) {
+        //----------------------------------authantication setting----------------------------------------//
+        document.getElementById("loaderForLogin").style.display = "block";
+        const authcrea = auth.createUserWithEmailAndPassword(email, cpass);
+        authcrea
+          .catch(function (e) {
+            showToast(e.message);
+          })
+          .then(function (b) {
+            b.user
+              .updateProfile({
+                displayName: iname,
+                photoURL: "user.png",
+              })
+              .then(function (c) {
+                //----------------------------------writing data int firestore--------------------------------------//
+
+                var refCodeF = refCodeGenerater(email);
+                data
+                  .collection("faculty")
+                  .doc(b.user.uid)
+                  .set({
+                    email: email,
+                    status: "Not Verified",
+                    mobileNo: mobil,
+                    refBy: "",
+                    referalCode: refCodeF,
+                    id: b.user.uid,
+                    instituteIds: [],
+                    courseIds: [],
+                    qualification: quali,
+                    profileImage: "group.png",
+                    defaultPassword: "-----",
+                    description: "",
+                    designation: [],
+                    experience: [],
+                    name: iname,
+                    referedFaculties: [],
+                    notification: [],
+                    requests: [],
+                    requestedAt: parseInt(new Date().getTime()),
+                  })
+                  .then(function () {
+                    //---------------------------------erasing data from form--------------------------------------------------------//
+                    var bgbg = b.user.uid;
+                    var refbyins = "";
+                    var newFacs = [];
+                    console.log(refer);
+                    if (refer != "" || refer != null) {
+                      data
+                        .collection("faculty")
+                        .where("referalCode", "==", refer)
+                        .get()
+                        .then((querySnapshot) => {
+                          querySnapshot.forEach((doc) => {
+                            refbyins = doc.id;
+                            var allreferins = doc.data().referedInstitutes;
+                            allreferins.push(bgbg);
+                            data.collection("faculty").doc(doc.id).update({
+                              referedFaculties: allreferins,
                             });
-                          })
-                          .then(() => {
-                            data
-                              .collection("faculty")
-                              .doc(bgbg)
-                              .update({
-                                refBy: refbyins,
-                              })
-                              .then(() => {
-                                data
-                                  .collection("admin")
-                                  .doc(sadid)
-                                  .get()
-                                  .then((adVal) => {
-                                    newFacs = adVal.data().newFaculties;
-                                  })
-                                  .then(() => {
-                                    newFacs.push(bgbg);
-                                    data
-                                      .collection("admin")
-                                      .doc(sadid)
-                                      .update({
-                                        newFaculties: newFacs,
-                                      })
-                                      .then(() => {
-                                        form.i_name.value = ""; //institute name
-                                        form.email.value = ""; //email
-                                        form.pas.value = ""; //password
-                                        form.c_pas.value = ""; //confirm password
-                                        form.p_no.value = ""; //mobile
-                                        form.F_qualification.value = ""; //qualification
-                                        form.ref_code.value = ""; //referal code
-
-                                        //-------------------------------------redirecting to login-------------------------------------------------------//
-
-                                        window.location.replace("../../login/");
-                                      });
-                                  });
-                              })
-                              .catch((error) => {
-                                showToast("Shomething Went Wrong");
-                              });
-                          })
-                          .catch((error) => {
-                            showToast("Please provide a correct Referal code");
                           });
-                      } else {
-                      }
-                    })
-                    .catch(function (err) {
-                      showToast(err);
-                    });
-                });
-            });
-        } else if (allow == false) {
-          showToast("Please fill all the fields");
-        } else {
-          showToast("Password and Confirm Password must be same");
-        }
-      });
-      function showToast(msg) {
-        var x = document.getElementById("snackbar");
-        x.innerHTML = msg;
-        x.className = "show";
-        setTimeout(function () {
-          x.className = x.className.replace("show", "");
-        }, 2000);
-      }
-      function refCodeGenerater(val2) {
-        var alnuVal = [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "0",
-          "N",
-          "M",
-          "L",
-          "K",
-          "R",
-          "Q",
-          "P",
-          "O",
-          "V",
-          "U",
-          "T",
-          "S",
-          "Z",
-          "Y",
-          "X",
-          "W",
-        ];
-        var alnu = [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-          "G",
-          "H",
-          "I",
-          "J",
-          "K",
-          "L",
-          "M",
-          "N",
-          "O",
-          "P",
-          "Q",
-          "R",
-          "S",
-          "T",
-          "U",
-          "V",
-          "W",
-          "X",
-          "Y",
-          "Z",
-        ];
+                        })
+                        .then(() => {
+                          data
+                            .collection("faculty")
+                            .doc(bgbg)
+                            .update({
+                              refBy: refbyins,
+                            })
+                            .then(() => {
+                              data
+                                .collection("admin")
+                                .doc(sadid)
+                                .get()
+                                .then((adVal) => {
+                                  newFacs = adVal.data().newFaculties;
+                                })
+                                .then(() => {
+                                  newFacs.push(bgbg);
+                                  data
+                                    .collection("admin")
+                                    .doc(sadid)
+                                    .update({
+                                      newFaculties: newFacs,
+                                    })
+                                    .then(() => {
+                                      form.i_name.value = ""; //institute name
+                                      form.email.value = ""; //email
+                                      form.pas.value = ""; //password
+                                      form.c_pas.value = ""; //confirm password
+                                      form.p_no.value = ""; //mobile
+                                      form.F_qualification.value = ""; //qualification
+                                      form.ref_code.value = ""; //referal code
 
-        var up2 = val2.toUpperCase();
-        var final = "";
-        for (let i in up2) {
-          for (let j in alnu) {
-            if (up2[i] == alnu[j]) {
-              final += alnuVal[j];
-            }
+                                      //-------------------------------------redirecting to login-------------------------------------------------------//
+
+                                      window.location.replace("../../login/");
+                                    });
+                                });
+                            })
+                            .catch((error) => {
+                              showToast("Shomething Went Wrong");
+                            });
+                        })
+                        .catch((error) => {
+                          showToast("Please provide a correct Referal code");
+                        });
+                    } else {
+                    }
+                  })
+                  .catch(function (err) {
+                    showToast(err);
+                  });
+              });
+          });
+      } else if (allow == false) {
+        showToast("Please fill all the fields");
+      } else {
+        showToast("Password and Confirm Password must be same");
+      }
+    });
+    function showToast(msg) {
+      var x = document.getElementById("snackbar");
+      x.innerHTML = msg;
+      x.className = "show";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 2000);
+    }
+    function refCodeGenerater(val2) {
+      var alnuVal = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "0",
+        "N",
+        "M",
+        "L",
+        "K",
+        "R",
+        "Q",
+        "P",
+        "O",
+        "V",
+        "U",
+        "T",
+        "S",
+        "Z",
+        "Y",
+        "X",
+        "W",
+      ];
+      var alnu = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+      ];
+
+      var up2 = val2.toUpperCase();
+      var final = "";
+      for (let i in up2) {
+        for (let j in alnu) {
+          if (up2[i] == alnu[j]) {
+            final += alnuVal[j];
           }
         }
-
-        return final;
       }
-    </script>
-  </body>
+
+      return final;
+    }
+  </script>
+</body>
+
 </html>
