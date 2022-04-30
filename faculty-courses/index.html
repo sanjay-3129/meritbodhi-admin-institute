@@ -918,10 +918,12 @@
                                                                         courseIds: array1
                                                                     }).then(() => {
                                                                 count++;
-                                                                if (count == facArray.length) {
-                                                                    loaderTriggerAndEnder(false);
-                                                                    location.replace('');
-                                                                }
+                                                                loaderTriggerAndEnder(false);
+                                                                location.replace('');
+                                                                // if (count == facArray.length) {
+                                                                //     loaderTriggerAndEnder(false);
+                                                                //     location.replace('');
+                                                                // }
                                                             })
                                                         })
                                                     })
@@ -1035,6 +1037,12 @@
                                                         }).then(() => {
                                                             var count = 0;
                                                             facArray.forEach((one) => {
+                                                                data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
+                                                                    var array1 = datatata.data().courseIds;
+                                                                    array1.push(cid);
+                                                                    data.collection('faculty').doc(one.split('?***?')[0]).update({
+                                                                        courseIds: array1
+                                                                    }).then(() => {
                                                                 count++;
                                                                 if (count == facArray.length) {
                                                                     loaderTriggerAndEnder(false);
@@ -1042,8 +1050,9 @@
                                                                 }
                                                             })
                                                         })
-
                                                     })
+                                                    })
+                                                })
                                                 })
                                             })
                                         }).catch((e) => {
