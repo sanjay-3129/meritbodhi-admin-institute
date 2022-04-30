@@ -3981,23 +3981,24 @@
                         },
                         progess: 100,
                         status: 'Not Verified'
-                    })..then(()=>{
-                data.collection('admin').doc('OsbMKqQ8j3bQjFgCEvuhnyLCBdE3').get().then((ddddd)=>{
+                    }).then(()=>{
+                    data.collection('admin').doc('OsbMKqQ8j3bQjFgCEvuhnyLCBdE3').get().then((ddddd)=>{
                     var newCous=ddddd.data().newCourses;
 
                     newCous.push(ids[0]+'?***?'+ids[1]);
 
                     data.collection('admin').doc('OsbMKqQ8j3bQjFgCEvuhnyLCBdE3').update({
                         newCourses: newCous
-                    })then(() => {
+                    }).then(() => {
                         loaderTriggerAndEnder(false);
                         showToast('Course Published !!!');
                         setTimeout(() => {
                             location.replace('../../faculty-courses/');
                         }, 3000);
                     })
-                }
-
+                    })
+                    })
+                  };
                 function showRelated(value) {
                     if (value == "1") {
                         document.getElementById('containerOfPayDis').innerHTML = '';
@@ -4068,7 +4069,7 @@
                             ele.style.display = "block";
                         })
                     }
-                }
+                };
 
                 function createNewDiscountPeriod(cont) {
                     $("#" + cont).append(` <div class="d-flex" style="justify-content:space-between;">
