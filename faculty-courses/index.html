@@ -918,6 +918,7 @@
                                                                         courseIds: array1
                                                                     }).then(() => {
                                                                 count++;
+                                                                console.log("One")
                                                                 loaderTriggerAndEnder(false);
                                                                 location.replace('');
                                                                 // if (count == facArray.length) {
@@ -1044,6 +1045,9 @@
                                                                         courseIds: array1
                                                                     }).then(() => {
                                                                 count++;
+                                                                console.log("Two")
+                                                                loaderTriggerAndEnder(false);
+                                                                location.replace('');
                                                                 if (count == facArray.length) {
                                                                     loaderTriggerAndEnder(false);
                                                                     location.replace('');
@@ -1079,6 +1083,7 @@
                                 alert("Upload Failed, Try Again !!!");
                             },
                             success: function(vall) {
+                                console.log("Course upload details", vall)
                                 var urls = String(vall).split('?***?');
                                 sub_CategoryId = '';
 
