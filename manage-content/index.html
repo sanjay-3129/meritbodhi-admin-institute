@@ -25,6 +25,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="../js/connect.js"></script>
     <script src="../js/admin-setup.js"></script>
@@ -33,7 +34,18 @@
             document.getElementById("mySidebar").style.width = "220px";
             //   document.getElementById("main").style.marginLeft = "250px";
         }
+        const existingCourseSetter = ()=>{
+         data.collection('content').doc("carousel").get().then((banner)=>{
+            let bannerData =banner.data() 
+            var preview1 = document.getElementById("OldImage1");
+            preview1.src = bannerData.banner.banner1;
+            var preview2 = document.getElementById("OldImage2");
+            preview2.src = bannerData.banner.banner2;
+            var preview3 = document.getElementById("OldImage3");
+            preview3.src = bannerData.banner.banner3;
 
+      }).catch(e => console.log(e));    
+}
         function closeNav() {
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
@@ -625,10 +637,11 @@
                 display: none;
             }
         }
+
     </style>
 </head>
 
-<body>
+<body onload="existingCourseSetter()">
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -1028,96 +1041,19 @@
                     </div>
 
                 </div>
-                <div class="backround" id="completetable1">
-                    <h3>Search Institute name for finding the Courses</h3>
-                    <div class="searchboxclass">
-
-                        <input type="text" class="form-control" name="searchbox" placeholder="Institute Name...">
-                        <button class="fas fa-search searchicon" type="submit"></button>
-                    </div>
+                <div class="backround" style="align-items: center; position: relative; position: relative;"  id="completetable1">
+                    <h3 >Manage Website Contents Here...</h3>
+                  
                 </div>
+                <div id="snackbar"></div>
+    <!-- temprory loading -->
+    
                 <div class="backround" id="completetable">
 
-                    <!-- <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                  <li class="nav-item hovrclr" role="presentation">
-                    <a class="nav-link active hovrclr" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><p class="hovrclr">Requested Course</p></a>
-                  </li>
-                  <li class="nav-item hovrclr" role="presentation">
-                    <a class="nav-link hovrclr" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><p class="hovrclr">Course List</p></a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                    <div class="formobile">
-                        <table class="table table-bordered">
-                          <thead>
-                            <tr>
-                              <th scope="col">No.</th>
-                              <th scope="col">Course Title</th>
-                              <th scope="col">Faculty</th>
-                              <th scope="col">Mode</th>
-                              <th scope="col">Sections</th>
-                              <th scope="col" class="styles">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody id="reqCoursesList">
-                            
-                          </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="formobile">
-                        <table class="table table-bordered">
-                          <thead>
-                            <tr>
-                              <th scope="col">No.</th>
-                              <th scope="col">Course Title</th>
-                              <th scope="col">Faculty</th>
-                              <th scope="col">Mode</th>
-                              <th scope="col" class="styles">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody id="existingCourseSetterTbody">
-                           
-                          </tbody>
-                        </table>
-                    </div>
-                </div> -->
+               
                 <div class="container">
-                    <!-- <h2>Dynamic Tabs</h2> -->
-                    <ul class="nav nav-tabs">
-                      <li class="nav-link active"><a data-toggle="tab" class="Request" data-target="#home">Requested List</a></li>
-                      <li class="nav-link"><a data-toggle="tab" class="Request" data-target="#menu1">Course List</a></li>
-                      
-                    </ul>
                   
-                    <div class="tab-content">
-                      <div id="home" class="tab-pane fade in active">
-                        <div id="reqtable">
-                            
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                      <th scope="col">No.</th>
-                                      <th scope="col">Course Title</th>
-                                      <th scope="col">Faculty</th>
-                                      <th scope="col">Mode</th>
-                                      <th scope="col">Sections</th>
-                                      <th scope="col" class="styles">Action</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="reqCoursesList">
-                            
-                                </tbody>
-                            </table>
-
-                        </div>
-                      </div>
-                      <div id="menu1" class="tab-pane fade">
+                      <div id="home" class="tab-pane ">
                           
                         <div id="informationtable">
                             
@@ -1125,42 +1061,52 @@
                                 <thead>
                                     <tr>
                                       <th scope="col">No.</th>
-                                      <th scope="col">Course Title</th>
-                                      <th scope="col">Faculty</th>
-                                      <th scope="col">Mode</th>
+                                      <th scope="col">Previous Image</th>
+                                      <th scope="col">New Image</th>
+                                      <th scope="col">Select Image</th>
                                       <th scope="col" class="styles">Action</th>
                                     </tr>
                                   </thead>
+
                                   <tbody id="existingCourseSetterTbody">
-                           
+                           <tr>
+                               <td>1.</td>
+                               <td><img src="carosalimage.jpg" id="OldImage1" height="100px" width="150px" alt="Old Carosal Image 1"></td>
+                               <td><img id="preview1" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 1" style="display: none;"></td>
+                                <td><input id="upload1" type="file" style="display: none;" accept="image/*" onchange="showPreview1(event);" /> 
+                                    <label for="upload1"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                        </svg></label>
+                               
+                            </td>
+                               <td><button type="submit" onclick="upload1()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
+                           <tr>
+                               <td>2.</td>
+                               <td><img src="carosalimage.jpg" id="OldImage2" height="100px" width="150px" alt="Old Carosal Image 2"></td>
+                               <td><img id="preview2" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 2" style="display: none;"></td>
+                               <td><input id="upload2" type="file" style="display: none;" accept="image/*" onchange="showPreview2(event);" />
+                                <label for="upload2"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                </svg></label></td>
+                               <td><button type="submit" onclick="upload2()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
+                           <tr>
+                               <td>3.</td>
+                               <td><img src="carosalimage.jpg" id="OldImage3" height="100px" width="150px" alt="Old Carosal Image 3"></td>
+                               <td><img id="preview3" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 3" style="display: none;"></td>
+                               <td><input id="upload3" type="file" style="display: none;" accept="image/*" onchange="showPreview3(event);" />
+                                <label for="upload3"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                </svg></label></td>
+                               <td><button type="submit" onclick="upload3()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
                                 </tbody>
-                            </table>
-
-                                </div>
+                                </table>
                             </div>
-                            <div id="menu1" class="tab-pane fade">
-
-                                <div id="informationtable">
-
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" class="nwidthn">No.</th>
-                                                <th scope="col" class="nawidthn">Name</th>
-                                                <th scope="col" class="ewidthn">Faculty Count</th>
-                                                <th scope="col" class="dtwidthn">Type</th>
-                                                <!-- <th scope="col" class="dtwidthn">Date & Time</th> -->
-                                                <th scope="col" class="awidthn">Actionss</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="existingCourseSetterTbody">
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -1177,658 +1123,103 @@
         <!-- HERE START COURSE LIST DETAILS : -->
 
 
-        <div class="nbackround33" id="ndetailsofcourse">
-            <!-- VIEW -->
-
-            <i class="fas fa-arrow-left narrowstyle" onclick="nbackbtn()"></i>
-            <h3 style="text-align:center;">Course Details</h3>
-            <div class="nneedflex">
-                <div class="npolaroid">
-                    <img src="book.jfif" id="nthumbnailCPV" alt="Cover image" class="nimgstyles">
-                    <div class="ncontainer">
-                        <h4>Course Thumbnail image</h4>
-                    </div>
-                </div>
-
-                <div class="npolaroid1">
-                    <img src="inst.jpg" id="ncoverCPV" alt="Thumnail" class="nimgstyles">
-                    <div class="ncontainer">
-                        <h4>Course Cover Image</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- <hr style="width: 97%;"> -->
-            <div class="ncontentclass">
-                <div class="ntitle">
-                    <h3>Title:</h3>
-                    <p id="ntitleCPV">Mobile Application Mobile Application</p>
-                </div>
-
-                <div class="nconcept">
-                    <h3>Concept:</h3>
-                    <p id="nconceptsCPV">Mobile Application is the best course for everyone. Then, easy to learn this
-                        course...
-                        Mobile Application is the best course for everyone. Then, easy to learn this course... </p>
-                </div>
-
-                <div class="nfaculty">
-                    <h3>Faculties:</h3>
-                    <p id="nfacultiesCPV">Alan, Joker, Black Alan, Joker, Black Alan, Joker, Black </p>
-                </div>
-            </div>
-
-            <!-- <hr style="width: 97%;"> -->
-
-            <div class="ndescription">
-                <div>
-                    <h3>Description:</h3>
-                    <p id="ndescriptionCPV">Mobile Application is the best course for everyone. Then, easy to learn this
-                        course...
-                        Mobile Application is the best course for everyone. Then, easy to learn this course... Mobile
-                        Application is the best course for everyone. Then, easy to learn this course...
-                        Mobile Application is the best course for everyone. Then, easy to learn this course...</p>
-                </div>
-            </div>
-
-            <!-- <hr style="width: 97%;"> -->
-
-            <div class="ncontentclass1">
-                <div class="nlang">
-                    <h3>Languages:</h3>
-                    <div class="nneedcrt">
-                        <p id="nlanguageCPV">Tamil & English</p>
-                    </div>
-                </div>
-
-                <div class="nintrovideo">
-                    <h3>Intro Video:</h3>
-                    <div class="nneedcrt1">
-                        <p><i class="fas fa-play" id="nintrovideoCPV" onclick="nintro(this)"
-                                style="cursor: pointer; font-size: 1.3rem;"></i></p>
-                    </div>
-                </div>
-
-                <div class="nmode">
-                    <h3>Mode:</h3>
-                    <div class="nneedcrt2">
-                        <p id="nmodeCPV">Online</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <hr style="width: 97%;"> -->
-
-            <div class="ncontentclass2">
-
-                <div class="ncna">
-                    <h3>Course Nationality:</h3>
-                    <p id="nnationalityCPV">International</p>
-                </div>
-
-                <div class="ncc">
-                    <h3>Course Category:</h3>
-                    <p id="ncategoryCPV">TNSPC</p>
-                </div>
-
-                <div class="ncsc">
-                    <h3>Course Sub-Category:</h3>
-                    <p id="nsubCategoryCPV"> Group - 1 </p>
-                </div>
-
-            </div>
-
-            <div class="nsectionstyle">
-                <!-- SECTION START -->
-
-                <h3 class="nh3style">Sections: </h3>
-                <div class="ncourse_contents">
-
-                    <!------------Panel---------------------------->
-                    <div class="npanel">
-                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">Getting
-                            Started</button>
-                        <!------------Panel Body------------------->
-                        <div class="npanel-body" style="display: none;">
-                            <div class="nvedio-details">
-                                <img class="nlogo" src="book.jfif">
-                                <span class="nvedio-title">1. Introduction to the Course</span>
-                                <span class="nflt_rt"><i class="fas fa-play" onclick="nintro()"></i>
-                                    <span class="nvedio-length">02:53</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------Panel---------------------------->
-                    <div class="npanel">
-                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">Brief</button>
-                        <!------------Panel Body------------------->
-                        <div class="npanel-body" style="display: none;">
-                            <div class="nvedio-details">
-                                <img class="nlogo" src="book.jfif">
-                                <span class="nvedio-title">2. Your first design challenge </span>
-                                <span class="nflt_rt"><i class="fas fa-play"></i><span
-                                        class="nvedio-length">12:53</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------Panel---------------------------->
-                    <div class="npanel">
-                        <button type="button" class="fas npanel-title ncollapsible" aria-hidden="true">The
-                            Conclusion</button>
-                        <!------------Panel Body------------------->
-                        <div class="npanel-body">
-                            <div class="nvedio-details">
-                                <img class="nlogo" src="book.jfif">
-                                <span class="nvedio-title">5. Title of the vedio given from institution side</span>
-                                <span class="nflt_rt"><i class="fas fa-play"></i><span
-                                        class="nvedio-length">02:53</span>
-                                </span>
-                            </div>
-                        </div>
-                        <!------------/ Panel Body /-------------------->
-                    </div>
-                    <!------------/ Panel /--------------------------->
-                    <script>
-                        var coll1 = document.getElementsByClassName("ncollapsible");
-                        var i;
-
-                        for (i = 0; i < coll1.length; i++) {
-                            coll1[i].addEventListener("click", function () {
-                                this.classList.toggle("active");
-                                var content = this.nextElementSibling;
-                                if (content.style.display === "block") {
-                                    content.style.display = "none";
-                                } else {
-                                    content.style.display = "block";
-                                }
-                                if (content.style.maxHeight) {
-                                    content.style.maxHeight = null;
-                                } else {
-                                    content.style.maxHeight = content.scrollHeight + "px";
-                                }
-                            });
-                        }
-                    </script>
-                </div>
-            </div> <!-- SECTION END -->
-
-            <div class="nformobile" style="margin-top: 1rem;">
-                <!-- MATERIAL START'S -->
-
-                <h3 class="nh3style">Materials: </h3>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Section</th>
-                            <th scope="col">File</th>
-                            <th scope="col">Material</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Web Development</td>
-                            <td>Intro.mp4</td>
-                            <td>Introduction.pdf</td>
-                            <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Web Development</td>
-                            <td>Intro.mp4</td>
-                            <td>Introduction.pdf</td>
-                            <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Web Development</td>
-                            <td>Intro.mp4</td>
-                            <td>Introduction.pdf</td>
-                            <td><i class="fas fa-download" style="cursor: pointer;"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div> <!-- MATERIAL END'S -->
-
-
-
-        </div> <!-- END VIEW -->
-
-
-
-    </div> <!-- DASHBOARD-WRAPPER -->
-    </div> <!-- DASHBOARD-ECOMMERCE -->
-
-
-    <!-- MODAL -->
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"
-        style="display:none;" id="invideo">
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <video id="vidPrevShowerV" autoplay loop style="width: 100%;" controls></video>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL END -->
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop22"
-        style="display:none;" id="ninvideo">
-        Launch static backdrop modal
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop22" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
-              </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div id="snackbar"></div>
-    <!-- temprory loading -->
-    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal"
-        style="display: none;">
-    </button>
-
-    <!-- Modal -->
-    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog"
-        aria-labelledby="loaderModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-            <div class="modal-content temp-loader">
-                <div class="modal-header" style="display: none;">
-                    <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
-                    <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex">
-                        <div>
-                            <img style="height:50px" src="../assets/images/loader.gif">
-                        </div>
-                        <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--REJECT MESSAGE HOLDER-->
-    <div class="modal" id="R-messageModal" tabindex="-1" role="dialog" aria-labelledby="R-messageModalTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="display: none;">
-                    <h5 class="modal-title" id="R-messageModalTitle">Modal title</h5>
-                    <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Enter your complaintsabout this course...</p>
-                    <textarea style="width:100% ; height:6rem" id="rejectTAmsg"></textarea><br>
-                    <button class="btn btn-sm btn-primary"
-                        style="background-color:red ; margin-left:200px; margin-top: 20px;"
-                        onclick="rejectCourse()">Confirm Reject</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+        
     <script type="text/javascript">
         document.getElementById('iName').innerHTML = sessionStorage.getItem('name');
 
-        var uid='';
-        console.log('Userjs');
         auth.onAuthStateChanged((user)=>{
-            if(user){
-                console.log('User', user.uid);
-                uid=user.uid;
-                // existingCourseSetter();
-                loaderTriggerAndEnder(true);
-            var i =1;
-            data.collection('subCategories').get().then((subCategories) => {
-                subCategories.forEach((cats)=>{
-                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
-                     courses.forEach((course)=>{
-                         if (course.data().status=="Verified") {                            
-                            $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
-                                    <th scope="row">`+i+`</th>
-                                    <td>`+course.data().courseName+`</td>
-                                    <td>`+course.data().faculties.length+`</td>
-                                    <td>`+course.data().types+`</td>
-                                    
-                                    <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+cats.id+`?***?`+course.id+`" onclick="nviewmore(this)">View</button></td>
-                                    </tr>`);
-                            allCrsData[indexing]=course.data();
-                            i++;
-                            indexing++;
-                        }
-                    })     
-                })
-               
-            })
-            }).catch(e => console.log(e));    
-                
-            // fuccccc();
-            loaderTriggerAndEnder(true);
-            var i=1;
-            $('#reqCoursesList').html('');
-            data.collection('admin').doc(uid).get().then((adminData) => {
-                exisCrs = adminData.data().newCourses;
-            adminData.data().newCourses.forEach((doccc)=>{
-                var splitted=doccc.split('?***?');
-                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
-                    console.log('cour', course.data());
-                    $('#reqCoursesList').append(`<tr indexing = "`+indexing+`">
-                              <th scope="row">`+i+`</th>
-                              <td>`+course.data().courseName+`</td>
-                              <td>`+course.data().faculties.length+`</td>
-                              <td>`+course.data().types+`</td>
-                              <td>${course.data().sections.length} - sections</td>
-                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+doccc+`" onclick="viewmore(this)">View</button></td>
-                            </tr>`);
-                       allCrsData[indexing]=course.data();
-                    i++;
-                    indexing++;
-                });
-            })
-
-            setTimeout(()=>{
-                loaderTriggerAndEnder(false);
-            }, 2000);
-            }).catch(e => console.log(e));
-            }else{
+            if(!user){
                 location.replace('../admin-login/');
             }
         })
-        var allCrsData = [];
-        var indexing = 0;
-        var exisCrs = [];
-        existingCourseSetter = ()=>{
-            loaderTriggerAndEnder(true);
-            var i =1;
-            data.collection('subCategories').get().then((subCategories) => {
-                subCategories.forEach((cats)=>{
-                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
-                     courses.forEach((course)=>{
-                         console.log('cour', course.data());
-                        if (course.data().status=="Verified") {
-                            
-                    $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
-                              <th scope="row">`+i+`</th>
-                              <td>`+course.data().courseName+`</td>
-                              <td>`+course.data().faculties.length+`</td>
-                              <td>`+course.data().types+`</td>
-                             
-                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + cats.id + `?***?` + course.id + `" onclick="nviewmore(this)">View</button></td>
-                            </tr>`);
-                            allCrsData[indexing] = course.data();
-                            i++;
-                            indexing++;
-                        }
-                    })
-                })
+        function showPreview1(event){
+  if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("preview1");
+    preview.src = src;
+    preview.style.display = "block";
+  }
+}
+        function showPreview2(event){
+  if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("preview2");
+    preview.src = src;
+    preview.style.display = "block";
+  }
+}
+        function showPreview3(event){
+  if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("preview3");
+    preview.src = src;
+    preview.style.display = "block";
+  }
+}
 
-            })
-            }).catch(e => console.log(e));    
+function upload1(){
+    var preview = document.getElementById("preview1");
+  if(  preview.style.display == "block"){
+    console.log("Upload Started");
+    const ref = firebase.storage().ref();
+    const file = document.querySelector('#upload1').files[0];
+    const metadata = { contentType: file.type };
+    const task = ref.child("banner1").put(file, metadata);
+    task
+    .then(snapshot => snapshot.ref.getDownloadURL())
+    .then(url => {
+        data.collection('content').doc("carousel").update({"banner.banner1" : url}).then(()=> location.replace(''))
+    })
+    }
+    else{
+        alert("Please Select An Image First")
+    }
+    }
+    
+    function upload2(){
+        var preview = document.getElementById("preview2");
+  if(  preview.style.display == "block"){
+        console.log("Upload Started");
+        const ref = firebase.storage().ref();
+        const file = document.querySelector('#upload2').files[0];
+        const metadata = { contentType: file.type };
+        const task = ref.child("banner2").put(file, metadata);
+        task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            data.collection('content').doc("carousel").update({"banner.banner2" : url}).then(()=> location.replace(''))
+        })
+    } 
+    else{
+        alert("Please Select An Image First")
+    }
         }
-        fuccccc = async () => {
-            loaderTriggerAndEnder(true);
-            var i = 1;
-            $('#reqCoursesList').html('');
-            const adminData = await data.collection('admin').doc(uid).get();
-            exisCrs = adminData.data().newCourses;
-            adminData.data().newCourses.forEach((doccc) => {
-                var splitted = doccc.split('?***?');
-                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((kjhgffgh) => {
-                    $('#reqCoursesList').append(`<tr indexing = "` + indexing + `">
-                              <th scope="row">`+ i + `</th>
-                              <td>`+ kjhgffgh.data().courseName + `</td>
-                              <td>`+ kjhgffgh.data().faculties.length + `</td>
-                              <td>`+ kjhgffgh.data().types + `</td>
-                              <td>${kjhgffgh.data().sections.length} - sections</td>
-                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + doccc + `" onclick="viewmore(this)">View</button></td>
-                            </tr>`);
-                    allCrsData[indexing] = kjhgffgh.data();
-                    i++;
-                    indexing++;
-                });
-            })
-
-            setTimeout(() => {
-                loaderTriggerAndEnder(false);
-            }, 2000);
-        }
-
-        intro = (videoURL) => {
-            var w = "https://secure--storage.s3.ap-south-1.amazonaws.com/" + videoURL.getAttribute('video-url') + '?dummy=' + String(Math.floor(Math.random() * 100000));
-            document.getElementById('vidPrevShowerV').setAttribute('src', w)
-            document.getElementById('invideo').click();
-        }
-
-        stopVideo = () => {
-            var video = document.getElementById("vidPrevShowerV");
-            video.pause();
-            video.currentTime = 0;
-        }
-
-        viewmore = (a) =>{
-            var index = a.getAttribute('indexing');
-            document.getElementById('rejectBtnOfCourse').setAttribute('data-id', a.getAttribute('data-id'));
-            document.getElementById('acceptBtnOfCourse').setAttribute('data-id', a.getAttribute('data-id'));
-            document.getElementById('detailsofcourse').style.display = "block";
-            document.getElementById('completetable1').style.display = "none";
-            document.getElementById('completetable').style.display = "none";
-
-            showDetailedDataOfCourse(index, 'A');
-        }
-
-        backbtn = () => {
-            document.getElementById('detailsofcourse').style.display = "none";
-            document.getElementById('completetable1').style.display = "block";
-            document.getElementById('completetable').style.display = "block";
-        }
-        showDetailedDataOfCourse = (index, ab) => {
-            loaderTriggerAndEnder(true);
-            console.log(ab);
-            if (ab == 'A') {
-                document.getElementById('AcceptRejectContainer').style.display = "block";
-                document.getElementById('BlockContainer').style.display = "none";
-            }
-            else if (ab == 'B') {
-                document.getElementById('AcceptRejectContainer').style.display = "none";
-                document.getElementById('BlockContainer').style.display = "block";
-            }
-            else {
-                showToast('something Went Wrong');
-            }
-            var datas = allCrsData[index];
-            document.getElementById('coverCPV').setAttribute('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + datas.coverImg);
-            document.getElementById('thumbnailCPV').setAttribute('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + datas.thumbnail);
-            document.getElementById('titleCPV').innerHTML = datas.courseName;
-            document.getElementById('facultiesCPV').innerHTML = datas.courseName;
-            document.getElementById('conceptsCPV').innerHTML = datas.concept;
-            document.getElementById('languageCPV').innerHTML = datas.lang;
-            document.getElementById('descriptionCPV').innerHTML = datas.description;
-            document.getElementById('introvideoCPV').setAttribute('video-url', datas.introVideo);
-            document.getElementById('categoryCPV').innerHTML = datas.category;
-            document.getElementById('subCategoryCPV').innerHTML = datas.subcategory;
-            document.getElementById('modeCPV').innerHTML = datas.types;
-            document.getElementById('nationalityCPV').innerHTML = datas.region;
-
-            getSections(datas.sections);
-
-            loaderTriggerAndEnder(false);
-        }
-        nintro = () => {
-            document.getElementById('ninvideo').click();
+    function upload3(){   
+         var preview = document.getElementById("preview3");
+  if(  preview.style.display == "block"){
+    console.log("Upload Started");
+        const ref = firebase.storage().ref();
+        const file = document.querySelector('#upload3').files[0];
+        const metadata = { contentType: file.type };
+        const task = ref.child("banner3").put(file, metadata);
+        task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            data.collection('content').doc("carousel").update({"banner.banner3" : url}).then(()=> location.replace(''))
+        })
+    }
+    else{
+        alert("Please Select An Image First")
+    }
         }
 
-        nviewmore = (a) => {
-
-            var index = a.getAttribute('indexing');
-            document.getElementById('blockBtnOfCourse').setAttribute('data-id', a.getAttribute('data-id'));
-            document.getElementById('detailsofcourse').style.display = "block";
-            document.getElementById('completetable1').style.display = "none";
-            document.getElementById('completetable').style.display = "none";
-            showDetailedDataOfCourse(index, 'B');
-        }
-
-        nbackbtn = () => {
-            document.getElementById('ndetailsofcourse').style.display = "none";
-            document.getElementById('completetable1').style.display = "block";
-            document.getElementById('completetable').style.display = "block";
-        }
-
-        function getSections(array) {
-            var i = 0;
-            loaderTriggerAndEnder(true);
-            $('#sectionsAppend').html('');
-            $('#materialsAppendBody').html('');
-            array.forEach((secId) => {
-                data.collection('sections').doc(secId).get().then((gfgf) => {
-                    data.collection('sections').doc(secId).collection('topics').orderBy('topicName', 'desc').get().then((snapshot) => {
-                        var fff = 0;
-
-                        snapshot.docs.forEach((doc) => {
-                            if (fff == 0) {
-                                var appendString = `<div class="panel"><button type="button" class="fas panel-title collapsible" aria-hidden="true" onclick="showHidePanelBody(this)" >` + gfgf.data().sectionName.split(': ')[1] + `</button>
-                                    <div class="panel-body" style="display: none;">
-                                    <div id="`+ secId + `"></div>
-                                   </div></div>`;
-                                $('#sectionsAppend').append(appendString);
-                                fff = 1;
-                            }
-                            if (fff == 1) {
-                                var appendString = `
-                                    <div class="vedio-details">
-                                    <i class="fas fa-book"> </i>
-                                    <span class="vedio-title">`+ doc.data().topicName + `</span>
-                                    <span class="flt_rt"><i class="fas fa-play" onclick="intro(this)" video-url="`+ doc.data().video + `" style="cursor: pointer;"></i></span>
-                                    <span class="vedio-length" >`+ doc.data().videoLength + `</span>
-                                    </div>
-                                    `;
-
-                                doc.data().materials.forEach((material) => {
-                                    i++;
-                                    $('#materialsAppendBody').append(`<tr>
-                                          <th scope="row">${i}</th>
-                                          <td>${gfgf.data().sectionName.split(': ')[1]}</td>
-                                          <td>${doc.data().topicName}</td>
-                                          <td>${material.fileName}</td>
-                                          <td><a href="https://secure--storage.s3.ap-south-1.amazonaws.com/${material.materialURL}"><i class="fas fa-download" style="cursor: pointer;"></i></a></td>
-                                        </tr>`);
-                                })
-
-                                $('#' + secId).after(appendString);
-                            }
-                        })
-                    })
-                })
-
-            })
-
-            setTimeout(() => {
-                loaderTriggerAndEnder(false);
-            }, 2000);
-        }
-
-        function showHidePanelBody(h) {
-            if (h.className == "fas panel-title collapsible") {
-                h.setAttribute('class', 'fas panel-title collapsible active');
-                h.nextElementSibling.style.display = "block";
-
-            }
-            else {
-                h.setAttribute('class', 'fas panel-title collapsible');
-                h.nextElementSibling.style.display = "none";
-            }
-        }
-        function rejectCourse() {
-            var msg = document.getElementById('rejectTAmsg').value;
-            var id = document.getElementById('rejectBtnOfCourse').getAttribute('data-id');
-            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
-                rejectMessage: msg,
-                status: 'Rejected'
-            })
-
-        }
-        function acceptCourse() {
-            var newCrs = [];
-            var id = document.getElementById('acceptBtnOfCourse').getAttribute('data-id');
-            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
-                status: 'Verified'
-            }).then(() => {
-
-                exisCrs.forEach((course) => {
-                    if (id != course) {
-                        newCrs.push(course);
-                    }
-                })
-                data.collection('admin').doc(uid).update({
-                    newCourses: newCrs
-                }).then(() => {
-                    location.replace('');
-                })
-
-            })
-        }
-        function blockCourse() {
-            var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
-            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
-                rejectMessage: msg,
-                status: 'Blocked'
-            })
-        }
+      
+      
     </script>
     <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
     <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
 
 </body>
-<!-- primary color : #5e72e4 -->
 
 </html>
