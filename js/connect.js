@@ -12,7 +12,7 @@ $(document).ready(function () {
       console.log("newLink", newLink);
       link.setAttribute("href", newLink);
     });
-  } catch { }
+  } catch {}
 });
 // firestore initialization
 var firebaseConfig = {
@@ -28,3 +28,6 @@ const sadid = "OsbMKqQ8j3bQjFgCEvuhnyLCBdE3";
 firebase.initializeApp(firebaseConfig);
 const data = firebase.firestore();
 const auth = firebase.auth();
+const db = firebase.storage();
+console.log(data, "data");
+console.log(db, "db");
