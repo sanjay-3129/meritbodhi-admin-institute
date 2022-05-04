@@ -1069,6 +1069,18 @@
                                   </thead>
 
                                   <tbody id="existingCourseSetterTbody">
+                           <!-- <tr>
+                               <td>1.</td>
+                               <td><p  id="carouselText1" ></td>
+                               <td><p id="newcarouselText1" ></td>
+                                <td>
+                                   
+                                        <input id="textupload1" type="text" onchange="setText1(event);" style="display: block;" />
+                                             </td>
+                               <td><button type="submit" onclick="upload1()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                           </tr> -->
+                          
+                           
                            <tr>
                                <td>1.</td>
                                <td><img src="carosalimage.jpg" id="OldImage1" height="100px" width="150px" alt="Old Carosal Image 1"></td>
@@ -1212,7 +1224,11 @@ function upload1(){
         alert("Please Select An Image First")
     }
         }
-
+const setText1 =(event) => {
+    console.log(event.target.value);
+    var preview = document.getElementById("newcarouselText1");
+    preview.value = event.target.value;
+} 
       
       
     </script>
