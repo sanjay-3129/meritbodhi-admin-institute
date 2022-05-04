@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="../js/connect.js"></script>
     <script type="text/javascript">
@@ -426,6 +427,23 @@
                             <h3>Address :</h3>
                             <p class="forfontnew" id="infoTableAddr">21, Gandhi Road, AnnaNagar, Chennai - 600032. </p>
                         </div>
+                        <div class="institueemail1new">
+                            <h3>Courses :</h3>
+                            <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Course Title</th>
+                                    <th scope="col">Faculty</th>
+                                    <th scope="col">Mode</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="existingCourseSetterTbody">
+                                 
+                                </tbody>
+                              </table>
+                            <!-- <p class="forfontnew" id="infoTableCourse">Courses will be here. </p> -->
+                        </div>
                     </div>
 
                     <div class="styleforaboutnew">
@@ -513,7 +531,6 @@
                 infoTablearray = [];
                 i = 0;
                 j = 0;
-
                 $('#reqtableBody').html('');
                 $('#infoTableBody').html('');
 
@@ -552,7 +569,7 @@
                     })
                 })
 
-                data.collection('institute').limit(10).get().then((snackbar) => {
+                data.collection('institute').get().then((snackbar) => {
                     var flag = 0;
                     snackbar.docs.forEach((doc) => {
                         flag++;
@@ -582,6 +599,8 @@
                                     </tr>`;
                                 $('#infoTableBody').append(reqString);
                             }
+                  
+                          
                             infoTablearray.push({
                                 image: docu.logoUrl,
                                 name: docu.instituteName,
@@ -590,16 +609,17 @@
                                 address: docu.address,
                                 aboutUs: docu.aboutUs,
                                 id: docu.id,
-                                blockStatus: docu.blocked
+                                blockStatus: docu.blocked,
+                                courseIds: docu.courseIds
                             });
                         }
-
                     })
                     loaderTriggerAndEnder(false);
                 })
             }
 
             informations = (i) => {
+
                 var url = reqTablearray[i - 1].image;
                 document.getElementById('reqtableImage').src = 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + url;
                 document.getElementById('reqtableInsname').innerHTML = reqTablearray[i - 1].name;
@@ -616,6 +636,8 @@
             }
 
             informations1 = (i) => {
+                var indexing = 0;
+
                 var url = infoTablearray[i - 1].image;
                 document.getElementById('infoTableImage').src = 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + url;
                 document.getElementById('infoTableInsname').innerHTML = infoTablearray[i - 1].name;
@@ -633,6 +655,36 @@
                     document.getElementById('blockButton').innerHTML = "block";
                     document.getElementById('blockButton').setAttribute('actionType', 'true');
                 }
+               console.log("Final Page", infoTablearray[i-1]?.courseIds);
+               
+               infoTablearray[i-1]?.courseIds.forEach((doccc)=>{
+                document.getElementById('existingCourseSetterTbody').innerHTML = "";
+                var splitted=doccc.split('?***?');
+
+                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
+                    $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
+                              <th scope="row">`+(indexing+1)+`</th>
+                              <td>`+course.data()?.courseName+`</td>
+                              <td>`+course.data()?.faculties.length+`</td>
+                              <td>`+course.data()?.types+`</td>
+                              <td>${course.data()?.sections.length} - sections</td>
+                            </tr>`);
+                    i++;
+                    indexing++;
+                });
+            })
+               
+               
+               
+               
+               
+               // if(infoTablearray.courseIds.length>0){
+                //     infoTablearray.courseIds.forEach((fullCourseId)=> {
+                //                let splitted = fullCourseId.split('?***?');
+                //            console.log("Full Course ID",splitted)
+                          
+                //        })
+                // }
                 document.getElementById('blockButton').setAttribute('data-id', infoTablearray[i - 1].id);
                 document.getElementById('firstdivtag').style.display = "none";
                 document.getElementById('informationtable').style.display = "none";
