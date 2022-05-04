@@ -80,18 +80,21 @@
 .instname
 {
 	/*margin-top: .2rem;*/
-	font-size: 1rem;
+	font-size: 14px;
 	width: 60%;
+	height: 50px;
 }
 
 .instnamenew
 {
 	/*margin-top: .2rem;*/
-	font-size: 1rem;
+	font-size: 14px;
 	width: 60%;
+	height: 50px;
 }
 .institueemail{
 	width: 55%;
+	height: 50px;
 }
 
 .institueemailnew{
@@ -110,26 +113,32 @@
 	display: flex;
 	justify-content: space-between;
 	margin-top: -5rem;
-	width: 80%;
-	margin-left: 25rem;
+	width: 56.2%;
+	margin-left: 20rem;
 }
 .instname1{
 	/*margin-top: .2rem;*/
-	font-size: 1rem;
+	font-size: 16px;
 	width: 60%;
+	height: 50px;
 }
 
 .instname1new{
 	/*margin-top: .2rem;*/
-	font-size: 1rem;
+	font-size: 16px;
 	width: 60%;
+	height: 50px;
 }
 .institueemail1{
 	width: 55%;
+	height: 50px;
 }
 
 .institueemail1new{
 	width: 55%;
+	
+	margin-left: 20rem;
+	margin-top: 2rem;
 }
 
 .aboutinst{
@@ -139,8 +148,8 @@
 }
 
 .aboutinstnew{
-	margin-left: 25rem;
-	margin-top: 2rem;
+	margin-left: 0rem;
+	margin-top: 0rem;
 }
 
 .twobtns{
@@ -166,11 +175,11 @@
 }
 
 .forfont{
-	font-size: 1rem;
+	font-size: 14px;
 }
 
 .forfontnew{
-	font-size: 1rem;
+	font-size: 14px;
 }
 
 .instinformation
