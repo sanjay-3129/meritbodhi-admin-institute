@@ -271,7 +271,7 @@
                                 <a class="nav-link active" href="../faculty"><i
                                         class="fas fa-chalkboard-teacher"></i>Faculty</a>
 
-                            <!-- <li class="nav-item">
+                                <!-- <li class="nav-item">
                                 <a class="nav-link " href="../notification"><i
                                         class="fas fa-fw fa-bell"></i>Notifications</a>
 
@@ -310,8 +310,8 @@
                 <div class="rt">
                     <p style="font-size: 25px; font-weight: bold; margin-left: 1rem;">Faculty List</p>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab"  data-target="#home">Existing Faculty</a>
+                        <li class="nav-item active">
+                            <a class="nav-link active" data-toggle="tab" data-target="#home">Existing Faculty</a>
                         </li>
 
                         <li class="nav-item">
@@ -538,7 +538,7 @@
                                             class="form-control" id="searchfaccccc"></div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div style="margin-top: 5px;"><button type="button" class="btn btn-sm btn-primary"
-                                            style="margin-left:0.8rem; margin-top:0.45rem;"
+                                            id="searchButtonTrigger" style="margin-left:0.8rem; margin-top:0.45rem;"
                                             onclick="searchForFaculty()"><i class="fa fa-search newsearch"
                                                 style="cursor: pointer;"></i></button></div>
                                 </form>
@@ -681,7 +681,20 @@
             </div>
         </div>
 
+        <script>
+            var input = document.getElementById("searchfaccccc");
 
+            // Execute a function when the user presses a key on the keyboard
+            input.addEventListener("keypress", function (event) {
+                // If the user presses the "Enter" key on the keyboard
+                if (event.key === "Enter") {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+                    // Trigger the button element with a click
+                    document.getElementById("searchButtonTrigger").click();
+                }
+            }); 
+        </script>
 
         <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
 
@@ -906,7 +919,7 @@
                     loaderTriggerAndEnder(true);
                     var disignation = getValuesByClassName('FacDesignation', 'array');
                     console.log(disignation);
-                    console.log("form ",formF);
+                    console.log("form ", formF);
                     var Experiancee = getValuesByClassName('FacExeriance', 'array');
                     console.log(Experiancee);
                     var dpass = makepass(7);
@@ -977,7 +990,7 @@
                                 }).catch(() => {
                                     localforage.getItem('instituteDetails').then((a) => {
                                         a = alldata;
-                                        
+
                                     })
                                 })
                             })
@@ -994,7 +1007,7 @@
                 loaderTriggerAndEnder(true);
                 var f = v.getAttribute('fac-id');
                 var exf = alldata.facultyIds;
-                console.log("All fac",alldata.facultyIds)
+                console.log("All fac", alldata.facultyIds)
                 var out = removeElementOfArray(exf, f)
                 console.log("updated fac", out)
                 alldata.facultyIds = out;
@@ -1090,7 +1103,7 @@
         <script>
             function searchForFaculty() {
                 loaderTriggerAndEnder(true);
-                
+
                 document.getElementById('searchfacContainer').innerHTML = "";
                 var searchVariable = document.getElementById('searchfaccccc').value;
                 var ind = 1;
@@ -1115,7 +1128,7 @@
                         // }
                         if (goOrNot && notOrGo) {
                             console.log('hi');
-                            console.log(doc.id); 
+                            console.log(doc.id);
                             var row3 = '<tr><td>1</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/' + doc.data().profileImage + '" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>' + doc.data().name + '</td><td>' + doc.data().email + '</td><td>' + doc.data().qualification + '</td><td>' + doc.data().description.substring(0, 16) + '...</td><td> <button class="btn btn-sm btn-primary coobtn" onclick="requestThisFaculty(this)" fac-id="' + doc.id + '">Give Request</button></td></tr>';
                             $('#searchfacContainer').append(row3);
                             ind++;

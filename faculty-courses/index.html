@@ -39,13 +39,13 @@
             --webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
             animation: s3 1s infinite linear;
         }
-        
+
         @keyframes s3 {
             to {
                 transform: rotate(1turn)
             }
         }
-        
+
         #snackbar {
             visibility: hidden;
             min-width: 250px;
@@ -61,61 +61,65 @@
             bottom: 30px;
             font-size: 17px;
         }
-        
+
         #snackbar.show {
             visibility: visible;
             -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
-        
+
         @-webkit-keyframes fadein {
             from {
                 bottom: 0;
                 opacity: 0;
             }
+
             to {
                 bottom: 30px;
                 opacity: 1;
             }
         }
-        
+
         @keyframes fadein {
             from {
                 bottom: 0;
                 opacity: 0;
             }
+
             to {
                 bottom: 30px;
                 opacity: 1;
             }
         }
-        
+
         @-webkit-keyframes fadeout {
             from {
                 bottom: 30px;
                 opacity: 1;
             }
+
             to {
                 bottom: 0;
                 opacity: 0;
             }
         }
-        
+
         @keyframes fadeout {
             from {
                 bottom: 30px;
                 opacity: 1;
             }
+
             to {
                 bottom: 0;
                 opacity: 0;
             }
         }
-        
+
         .card-text {
             height: 2rem;
         }
-        
+
         .card-img-top {
             object-fit: cover;
             height: 150px;
@@ -135,14 +139,18 @@
         <div class="dashboard-header">
             <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
 
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span >5</span></a>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i>
+                                <span>5</span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
@@ -150,32 +158,48 @@
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-2.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Kishore</span>accepted
+                                                        your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-3.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Bharath </span>is now
+                                                        following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-4.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Sudhersun</span> is
+                                                        watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-5.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Sandy</span>accepted
+                                                        your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
@@ -190,15 +214,20 @@
                         </li>
 
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"
+                                    id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i
+                                        class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -216,44 +245,52 @@
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item ">
-                                <a class="nav-link" href="../faculty-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                <a class="nav-link" href="../faculty-dashboard"><i
+                                        class="fas fa-chart-pie"></i>Dashboard</a>
 
-                                <li class="nav-item">
-                                    <a class="nav-link " href="../faculty-profile"><i class="fas fa-user"></i>Profile</a>
+                            <li class="nav-item">
+                                <a class="nav-link " href="../faculty-profile"><i class="fas fa-user"></i>Profile</a>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="../faculty-courses"><i class="fas fa-book"></i>Courses</a>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../faculty-courses"><i
+                                        class="fas fa-book"></i>Courses</a>
 
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="../faculty-requests"><i class="fas fa-envelope"></i>Request</a>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-requests"><i
+                                        class="fas fa-envelope"></i>Request</a>
 
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="../faculty-notification"><i class="fas fa-fw fa-bell"></i>Notifications</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-notification"><i
+                                        class="fas fa-fw fa-bell"></i>Notifications</a>
 
-                                                <li class="nav-item ">
-                                                    <a class="nav-link" href="../faculty-archive"><i class="fas fa-archive"></i>Archieve</a>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-archive"><i class="fas fa-archive"></i>Archieve</a>
 
-                                                    <li class="nav-item ">
-                                                        <a class="nav-link" href="../faculty-reviews"><i class="fas fa-star"></i>Reviews</a>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-reviews"><i class="fas fa-star"></i>Reviews</a>
 
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="../faculty-payments"><i class="fas fa-credit-card"></i>Payments</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-payments"><i
+                                        class="fas fa-credit-card"></i>Payments</a>
 
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="../faculty-referal"><i class="fas fa-hands-helping"></i>My Referal</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-referal"><i class="fas fa-hands-helping"></i>My
+                                    Referal</a>
 
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="../faculty-settings"><i class="fas fa-cog"></i>Settings</a>
-                                                                </li>
-                                                                <li class="nav-item hi-sh-lg">
-                                                                    <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
-                                                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-settings"><i class="fas fa-cog"></i>Settings</a>
+                            </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i
+                                        class="fas fa-power-off"></i>Logout</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -272,20 +309,22 @@
                     <div id="newdd">
                         <div class="d-flex">
 
-                            <select class="btn btn-sm btn-grey selectbtn" id="types-switcher" onchange="typeSorter(this)">
-                       <option value="All">All</option>
-                       <option value="Online">Online</option>
-                       <option value="One to One">One to One</option>
-                       <option value="Live">Live</option>
-                    </select>
-                            <select class="btn btn-sm btn-grey selectbtn" id="types-switcher-owner" onchange="typeInstitute(this)">
-                       <option value="All">All</option>
-                       <option value="Institutes">Institutes</option>
-                       <option value="Individual">Individual</option>
-                    </select>
+                            <select class="btn btn-sm btn-grey selectbtn" id="types-switcher"
+                                onchange="typeSorter(this)">
+                                <option value="All">All</option>
+                                <option value="Online">Online</option>
+                                <option value="One to One">One to One</option>
+                                <option value="Live">Live</option>
+                            </select>
+                            <select class="btn btn-sm btn-grey selectbtn" id="types-switcher-owner"
+                                onchange="typeInstitute(this)">
+                                <option value="All">All</option>
+                                <option value="Institutes">Institutes</option>
+                                <option value="Individual">Individual</option>
+                            </select>
 
                             <button type="button" class="btn btn-sm btn-primary addibtn" onclick="ifyouclick()">
-                         Add New</button>
+                                Add New</button>
                         </div>
                     </div>
 
@@ -312,18 +351,24 @@
                             </div>
 
                             <div class="cont">
-                                <img src="joker.jpg" alt="Avatar" class="image" id="coverImg" style="width:100%">
+                                <h3>Course Cover</h3>
+                                <img src="courseUpload.webp" alt="Avatar" class="image" id="coverImg"
+                                    style="width:100%">
                                 <div class="middle">
-                                    <div class="text">
-
-                                        <i class="fas fa-upload" onclick="imgupppp()" style="cursor: pointer;"></i></div>
+                                    <div class="text" style="color: #333;">
+                                        Change Course Cover
+                                        <i class="fas fa-upload" onclick="imgupppp()" style="cursor: pointer;"></i>
+                                    </div>
                                 </div>
                             </div>
                             <input type="file" name="fileupload" style="display: none;" id="newuppp">
                             <div class="cardfirst">
+
                                 <!--style="display: flex; justify-content: space-between;" -->
-                                <div class="thumb"><img src="joker.jpg" class="thmimg" id="thumbImg"><br><br>
-                                    <button type="button" class="btn btn-sm btn-primary" style="margin-left: 4.5rem;" onclick="imgupppp1()">Edit</button>
+                                <div class="thumb"><img src="courseUpload.webp" class="thmimg" id="thumbImg"><br><br>
+
+                                    <button type="button" class="btn btn-sm btn-primary" style="margin-left: 4.5rem;"
+                                        onclick="imgupppp1()">Edit</button>
                                 </div>
                                 <input type="file" name="fileupload1" style="display: none;" id="newuppp1">
                                 <!-- form start -->
@@ -332,11 +377,13 @@
                                 <div class="box">
                                     <div class="title">
                                         <div class="tit" style="width: 20rem;">
-                                            <h3>Title</h3><input type="text" name="t_name" class="form-control titi" placeholder="Course Title">
+                                            <h3>Title</h3><input type="text" name="t_name" class="form-control titi"
+                                                placeholder="Course Title">
                                         </div>
                                         <div class="cons">
                                             <h3 style="margin-top: .5rem; margin-left: 2rem;">Concept</h3>
-                                            <input type="text" name="concept" class="form-control cours" style="width:150%; margin-left:2rem" placeholder="Course Concepts">
+                                            <input type="text" name="concept" class="form-control cours"
+                                                style="width:150%; margin-left:2rem" placeholder="Course Concepts">
                                         </div>
                                     </div>
                                 </div>
@@ -350,11 +397,12 @@
                                 <div class="langu">
                                     <h3>Language</h3>
                                     <div class="d-flex">
-                                        <select name="language" id="language" class="form-control langus" style="width:200px">
-                                              <option>Select Languages</option>
-                                              <option value="Tamil">Tamil</option>
-                                              <option value="English">English</option>
-                                            </select>
+                                        <select name="language" id="language" class="form-control langus"
+                                            style="width:200px">
+                                            <option>Select Languages</option>
+                                            <option value="Tamil">Tamil</option>
+                                            <option value="English">English</option>
+                                        </select>
 
                                         <i class="fas fa-plus-square labtn" style="display:none;"></i>
                                     </div>
@@ -364,13 +412,15 @@
                             <div class="descri">
                                 <h3>Description</h3>
                                 <div class="form-group focused">
-                                    <textarea rows="4" class="form-control form-control-alternative" name="crsDesc" placeholder="A few words about this course ..."></textarea>
+                                    <textarea rows="4" class="form-control form-control-alternative" name="crsDesc"
+                                        placeholder="A few words about this course ..."></textarea>
                                 </div>
 
                                 <div>
                                     <!-- style="margin-top: 25px;" -->
                                     <h3>Introduction Video &nbsp; </h3>
-                                    <input type="file" class="inpuu" name="crsIntr">
+                                    <input type="file" class="inpuu" name="crsIntr"
+                                        accept="video/mp4,video/x-m4v,video/*">
                                 </div>
 
                                 <div class="cousr">
@@ -379,11 +429,11 @@
                                         <h3>Course Mode</h3>
                                         <div class="d-flex">
                                             <select class="form-control cours" name="crsType">
-                                            
-                                            <option value="Online">Online</option>
-                                            <option value="Live">Live</option>
-                                            <option value="One to One">One to One</option>
-                                          </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
+
+                                                <option value="Online">Online</option>
+                                                <option value="Live">Live</option>
+                                                <option value="One to One">One to One</option>
+                                            </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
                                         </div>
                                     </div>
 
@@ -391,10 +441,10 @@
                                         <h3 class="cnal">Course Nationality</h3>
                                         <div class="d-flex clsa">
                                             <select class="form-control cours11" name="crsNationality">
-                                            <option value="default" selected>---select---</option>
-                                            <option value="National">National</option>
-                                            <option value="International">International</option>
-                                          </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
+                                                <option value="default" selected>---select---</option>
+                                                <option value="National">National</option>
+                                                <option value="International">International</option>
+                                            </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -405,13 +455,14 @@
                                         <h3>Course Category</h3>
                                         <div class="d-flex">
                                             <select class="form-control cours11" name="maincat">
-                                            <option value="0">Select</option>
-                                            <option value="1">Audi</option>
-                                            <option value="2">BMW</option>
-                                            <option value="3">Citroen</option>
-                                            <option value="4">Ford</option>
-                                            <option value="5">Honda</option>
-                                          </select><i style="display: none;" class="fas fa-plus-square plbtn" onclick=""></i>
+                                                <option value="0">Select</option>
+                                                <option value="1">Audi</option>
+                                                <option value="2">BMW</option>
+                                                <option value="3">Citroen</option>
+                                                <option value="4">Ford</option>
+                                                <option value="5">Honda</option>
+                                            </select><i style="display: none;" class="fas fa-plus-square plbtn"
+                                                onclick=""></i>
                                         </div>
                                     </div>
 
@@ -420,16 +471,18 @@
                                         <div class="d-flex">
                                             <div>
                                                 <select class="form-control coursddd" name="subcat">
-                                            <option value="0">Select</option>
-                                            <option value="1">Audi</option>
-                                            <option value="2">BMW</option>
-                                            <option value="3">Citroen</option>
-                                            <option value="4">Ford</option>
-                                            <option value="5">Honda</option>
-                                          </select>
+                                                    <option value="0">Select</option>
+                                                    <option value="1">Audi</option>
+                                                    <option value="2">BMW</option>
+                                                    <option value="3">Citroen</option>
+                                                    <option value="4">Ford</option>
+                                                    <option value="5">Honda</option>
+                                                </select>
                                             </div>
                                             <div>
-                                                <i style="display:none" class="fas fa-plus-square plbtn11" onclick=""></i></div>
+                                                <i style="display:none" class="fas fa-plus-square plbtn11"
+                                                    onclick=""></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -437,19 +490,21 @@
                                 <div style="margin-top: 1rem;" id="selectbx">
                                     <h3>Is there any Assessment in this course ?</h3>
                                     <div style="width: 10%;">
-                                        <select class="form-control typeclass" id="selb"  name="selb">
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
+                                        <select class="form-control typeclass" id="selb" name="selb">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <hr>
                                 <br>
                                 <div style="text-align: right;">
-                                    <button type="button" class="btn btn-sm btn-primary" id="createCourse">Create Course</button>
-                                    <a href="#courses"><button type="button" class="btn btn-sm btn-primary" style="background-color: #dc3545;" onclick="creationcancelbtn()">
-                            Cancel</button></a>
+                                    <button type="button" class="btn btn-sm btn-primary" id="createCourse">Create
+                                        Course</button>
+                                    <a href="#courses"><button type="button" class="btn btn-sm btn-primary"
+                                            style="background-color: #dc3545;" onclick="creationcancelbtn()">
+                                            Cancel</button></a>
                                 </div>
                             </div>
                         </div>
@@ -458,19 +513,21 @@
 
                         <div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mainCatCmodal" style="display:none;" id="coursecategorypopup">
-                      Launch demo modal
-                    </button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#mainCatCmodal" style="display:none;" id="coursecategorypopup">
+                                Launch demo modal
+                            </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="mainCatCmodal" tabindex="-1" aria-labelledby="mainCatCmodalLabel" aria-hidden="true">
+                            <div class="modal fade" id="mainCatCmodal" tabindex="-1"
+                                aria-labelledby="mainCatCmodalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="mainCatCmodalLabel">Course Category</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="d-flex" style="justify-content:center;">
@@ -478,13 +535,16 @@
                                                     <div>
                                                         <tr>
                                                             <td>Main Category :</td>
-                                                            <td><input type="text" name="newmaincat" class="form-control" placeholder="Main Category"></td>
+                                                            <td><input type="text" name="newmaincat"
+                                                                    class="form-control" placeholder="Main Category">
+                                                            </td>
                                                         </tr>
                                                     </div>
                                                     <div>
                                                         <tr>
                                                             <td>Sub Category :</td>
-                                                            <td><input type="text" name="newsubcat" class="form-control" placeholder="Sub Category"></td>
+                                                            <td><input type="text" name="newsubcat" class="form-control"
+                                                                    placeholder="Sub Category"></td>
                                                         </tr>
                                                     </div>
                                                 </table>
@@ -493,7 +553,9 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-sm btn-primary" style="background-color:red; 
                         margin-right: -1rem; margin-top:.2rem" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-sm btn-primary" style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal" onclick="setNewMainCategory()">Create</button>
+                                            <button type="button" class="btn btn-sm btn-primary"
+                                                style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal"
+                                                onclick="setNewMainCategory()">Create</button>
                                         </div>
                                     </div>
                                 </div>
@@ -504,19 +566,21 @@
 
                         <!-- COURSE SUBCATEGORY POPUP -->
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subCatCmodal" style="display:none;" id="helloworldd">
-                      Launch demo modal
-                    </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subCatCmodal"
+                            style="display:none;" id="helloworldd">
+                            Launch demo modal
+                        </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="subCatCmodal" tabindex="-1" aria-labelledby="subCatCmodalLabel" aria-hidden="true">
+                        <div class="modal fade" id="subCatCmodal" tabindex="-1" aria-labelledby="subCatCmodalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="subCatCmodalLabel">Course Sub Category</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="d-flex" style="justify-content:center;">
@@ -526,7 +590,8 @@
                                                 <div>
                                                     <tr>
                                                         <td>Sub Category :</td>
-                                                        <td><input type="text" name="newsolosubcat" class="form-control" placeholder="Sub Category"></td>
+                                                        <td><input type="text" name="newsolosubcat" class="form-control"
+                                                                placeholder="Sub Category"></td>
                                                     </tr>
                                                 </div>
                                             </table>
@@ -534,7 +599,9 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-sm btn-primary" style="background-color:red; 
                         margin-right: -1rem; margin-top:.2rem" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-sm btn-primary" style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal" onclick="newsolosubcatset()">Create</button>
+                                            <button type="button" class="btn btn-sm btn-primary"
+                                                style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal"
+                                                onclick="newsolosubcatset()">Create</button>
                                         </div>
                                     </div>
                                 </div>
@@ -569,1095 +636,1097 @@
 
                         </div>
             </form>
-            </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <div id="snackbar"></div>
-        <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    </div>
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
+    </div>
+    <div id="snackbar"></div>
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal"
+        style="display: none;">
     </button>
 
-        <!-- Modal -->
-        <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-                <div class="modal-content temp-loader">
-                    <div class="modal-header" style="display: none;">
-                        <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
-                        <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex">
-                            <div>
-                                <img style="height:50px" src="../assets/images/loader.gif">
-                            </div>
-                            <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
-                        </div>
-                    </div>
-
+    <!-- Modal -->
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="loaderModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+            <div class="modal-content temp-loader">
+                <div class="modal-header" style="display: none;">
+                    <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
+                    <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body">
+                    <div class="d-flex">
+                        <div>
+                            <img style="height:50px" src="../assets/images/loader.gif">
+                        </div>
+                        <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 
-        <script>
-            var form = document.getElementById('overallForm');
-            var faculties = []
-            var facultyDetails = [];
-            localforage.getItem('facultyDetails').then((a) => {
-                facultyDetails = a;
-                faculties[0] = facultyDetails.id + "?***?" + facultyDetails.name;
-                console.log(faculties)
-            })
-            var mainCategories = [];
-            localforage.getItem('mainCategories').then((b) => {
-                mainCategories = b;
-            })
-            var subCategories = [];
-            localforage.getItem('subCategories').then((c) => {
-                subCategories = c;
-            })
-            var nationalMainC = [];
-            localforage.getItem('nationalMainC').then((d) => {
-                nationalMainC = d;
-            })
-            var interNationalMainC = [];
-            localforage.getItem('interNationalMainC').then((e) => {
-                interNationalMainC = e;
-            })
+    <script>
+        var form = document.getElementById('overallForm');
+        var faculties = []
+        var facultyDetails = [];
+        localforage.getItem('facultyDetails').then((a) => {
+            facultyDetails = a;
+            faculties[0] = facultyDetails.id + "?***?" + facultyDetails.name;
+            console.log(faculties)
+        })
+        var mainCategories = [];
+        localforage.getItem('mainCategories').then((b) => {
+            mainCategories = b;
+        })
+        var subCategories = [];
+        localforage.getItem('subCategories').then((c) => {
+            subCategories = c;
+        })
+        var nationalMainC = [];
+        localforage.getItem('nationalMainC').then((d) => {
+            nationalMainC = d;
+        })
+        var interNationalMainC = [];
+        localforage.getItem('interNationalMainC').then((e) => {
+            interNationalMainC = e;
+        })
 
-            function newsolosubcatset() {
-                var subCatval = form.newsolosubcat.value.toLowerCase();
-                var option = '<option value="' + subCatval + '">' + subCatval.toUpperCase() + '</option>';
-                form.subcat.innerHTML = option;
+        function newsolosubcatset() {
+            var subCatval = form.newsolosubcat.value.toLowerCase();
+            var option = '<option value="' + subCatval + '">' + subCatval.toUpperCase() + '</option>';
+            form.subcat.innerHTML = option;
+        }
+
+        function setNewMainCategory() {
+            var newmaincat = form.newmaincat.value.toLowerCase();
+            var newsubcat = form.newsubcat.value.toLowerCase();
+            var option = '<option value="' + newmaincat + '">' + newmaincat.toUpperCase() + '</option>';
+            var option1 = '<option value="' + newsubcat + '">' + newsubcat.toUpperCase() + '</option>';
+            form.maincat.innerHTML = option;
+            form.subcat.innerHTML = option1;
+        }
+
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+
+            } else {
+                location.replace('../login');
             }
-
-            function setNewMainCategory() {
-                var newmaincat = form.newmaincat.value.toLowerCase();
-                var newsubcat = form.newsubcat.value.toLowerCase();
-                var option = '<option value="' + newmaincat + '">' + newmaincat.toUpperCase() + '</option>';
-                var option1 = '<option value="' + newsubcat + '">' + newsubcat.toUpperCase() + '</option>';
-                form.maincat.innerHTML = option;
-                form.subcat.innerHTML = option1;
+        })
+        //Cover image preview
+        function imgupppp() {
+            document.getElementById('newuppp').click();
+        }
+        form.fileupload.addEventListener('change', function () {
+            if (event.target.files.length == 0) {
+                return;
             }
+            var iurl = URL.createObjectURL(event.target.files[0]);
+            $('#coverImg').attr("src", iurl);
+        });
+        //ThumbNail image preview
+        function imgupppp1() {
+            document.getElementById('newuppp1').click();
+        }
 
-            auth.onAuthStateChanged((user) => {
-                    if (user) {
-
-                    } else {
-                        location.replace('../login');
-                    }
-                })
-                //Cover image preview
-            function imgupppp() {
-                document.getElementById('newuppp').click();
+        function loaderTriggerAndEnder(d) {
+            if (d) {
+                document.getElementById('loaderTrigger').click();
+            } else {
+                document.getElementById('closeLoader').click();
             }
-            form.fileupload.addEventListener('change', function() {
-                if (event.target.files.length == 0) {
-                    return;
-                }
-                var iurl = URL.createObjectURL(event.target.files[0]);
-                $('#coverImg').attr("src", iurl);
-            });
-            //ThumbNail image preview
-            function imgupppp1() {
-                document.getElementById('newuppp1').click();
+        }
+        form.fileupload1.addEventListener('change', function () {
+            if (event.target.files.length == 0) {
+                return;
             }
+            var iurl = URL.createObjectURL(event.target.files[0]);
+            $('#thumbImg').attr("src", iurl);
+        });
 
-            function loaderTriggerAndEnder(d) {
-                if (d) {
-                    document.getElementById('loaderTrigger').click();
-                } else {
-                    document.getElementById('closeLoader').click();
-                }
-            }
-            form.fileupload1.addEventListener('change', function() {
-                if (event.target.files.length == 0) {
-                    return;
-                }
-                var iurl = URL.createObjectURL(event.target.files[0]);
-                $('#thumbImg').attr("src", iurl);
-            });
+        var nameApro = '';
+        localforage.getItem('fullAuthF').then((e) => {
+            nameApro = e;
 
-            var nameApro = '';
+        });
+        var nameAproA = nameApro.split('-*de*-');
+
+        function onLoadSetter() {
+
             localforage.getItem('fullAuthF').then((e) => {
                 nameApro = e;
+                nameAproA = nameApro.split('-*de*-');
+                document.getElementById('iName').innerHTML = nameAproA[0];
+                document.getElementById('smallProfileImage').setAttribute('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + nameAproA[1]);
+            });
+
+
+            var courseids = "";
+            var courseCards = '';
+            localforage.getItem('facultyDetails').then((g) => {
+                courseids = g.courseIds;
+                console.log("courseID", g);
+                courseids.forEach((arg) => {
+                    var cidsSplit = arg.split('?***?');
+                    data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
+                        var ddd = data.data();
+                        document.getElementById('loaderr-3').style.display = "none";
+                        if (ddd.status === 'Not Published' || ddd.status === 'Not Verified') {
+                            courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+
+                            $('#coursecardall').append(courseCards);
+                        } else if (ddd.status === 'Published' || ddd.status === 'Verified') {
+                            courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green; display: none;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+
+                            $('#coursecardall').append(courseCards);
+                        }
+                    }).catch((e) => {
+                        showToast(e.message);
+                    })
+                })
 
             });
-            var nameAproA = nameApro.split('-*de*-');
+        }
 
-            function onLoadSetter() {
+        function showToast(msg) {
+            var x = document.getElementById("snackbar");
+            x.innerHTML = msg;
+            x.className = "show";
+            setTimeout(function () {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
 
-                localforage.getItem('fullAuthF').then((e) => {
-                    nameApro = e;
-                    nameAproA = nameApro.split('-*de*-');
-                    document.getElementById('iName').innerHTML = nameAproA[0];
-                    document.getElementById('smallProfileImage').setAttribute('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + nameAproA[1]);
-                });
+        function logout() {
+            auth.signOut().then(() => {
+                localforage.clear();
 
+                location.replace('../login');
+            });
+        }
 
-                var courseids = "";
-                var courseCards = '';
-                localforage.getItem('facultyDetails').then((g) => {
-                    courseids = g.courseIds;
-                    console.log("courseID",g);
-                    courseids.forEach((arg) => {
-                        var cidsSplit = arg.split('?***?');
-                        data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
-                            var ddd = data.data();
-                            document.getElementById('loaderr-3').style.display = "none";
-                            if (ddd.status === 'Not Published' || ddd.status === 'Not Verified') {
-                                courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+        function ifyouclick() {
+            document.getElementById('coursecardall').style.display = "none";
+            document.getElementById('addnewcourse').style.display = "block";
+            document.getElementById('newdd').style.display = "none";
 
-                                $('#coursecardall').append(courseCards);
-                            } else if (ddd.status === 'Published' || ddd.status === 'Verified') {
-                                courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green; display: none;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+            loaderTriggerAndEnder(true);
 
-                                $('#coursecardall').append(courseCards);
-                            }
-                        }).catch((e) => {
-                            showToast(e.message);
-                        })
-                    })
+            //main and sub categories set
+            var mainCArray = [];
+            var subCArray = [];
 
-                });
-            }
+            var facOption = '';
 
-            function showToast(msg) {
-                var x = document.getElementById("snackbar");
-                x.innerHTML = msg;
-                x.className = "show";
-                setTimeout(function() {
-                    x.className = x.className.replace("show", "");
-                }, 3000);
-            }
+            document.getElementById('facNameForCrsCreate').value = nameAproA[0];
 
-            function logout() {
-                auth.signOut().then(() => {
-                    localforage.clear();
+            loaderTriggerAndEnder(false);
+        }
 
-                    location.replace('../login');
-                });
-            }
+        form.crsNationality.addEventListener('change', () => {
+            var type = form.crsNationality.value;
+            var mcats = '<option value="default" selected>---select---</option>';
+            form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
 
-            function ifyouclick() {
-                document.getElementById('coursecardall').style.display = "none";
-                document.getElementById('addnewcourse').style.display = "block";
-                document.getElementById('newdd').style.display = "none";
-
-                loaderTriggerAndEnder(true);
-
-                //main and sub categories set
-                var mainCArray = [];
-                var subCArray = [];
-
-                var facOption = '';
-
-                document.getElementById('facNameForCrsCreate').value = nameAproA[0];
-
-                loaderTriggerAndEnder(false);
-            }
-
-            form.crsNationality.addEventListener('change', () => {
-                var type = form.crsNationality.value;
-                var mcats = '<option value="default" selected>---select---</option>';
-                form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
-
-                if (type == 'National') {
-                    for (var i = 0; i < nationalMainC.length; i++) {
-                        mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
-                    }
-                    form.maincat.innerHTML = mcats;
-                } else {
-                    for (var i = 0; i < interNationalMainC.length; i++) {
-                        mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
-                    }
-                    form.maincat.innerHTML = mcats;
+            if (type == 'National') {
+                for (var i = 0; i < nationalMainC.length; i++) {
+                    mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
                 }
-            })
+                form.maincat.innerHTML = mcats;
+            } else {
+                for (var i = 0; i < interNationalMainC.length; i++) {
+                    mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
+                }
+                form.maincat.innerHTML = mcats;
+            }
+        })
 
-            form.maincat.addEventListener('change', (a) => {
-                var mainCategory = form.maincat.value;
-                var subCategoryIndex = mainCategories.indexOf(mainCategory);
-                var subCategoryArray = subCategories[subCategoryIndex];
-                var scats = '<option value="default" selected>---select---</option>';
+        form.maincat.addEventListener('change', (a) => {
+            var mainCategory = form.maincat.value;
+            var subCategoryIndex = mainCategories.indexOf(mainCategory);
+            var subCategoryArray = subCategories[subCategoryIndex];
+            var scats = '<option value="default" selected>---select---</option>';
 
-                subCategoryArray.forEach((arr) => {
-                    scats += '<option value="' + arr.subCategoryName + '">' + arr.subCategoryName.toUpperCase() + '</option>'
-                });
-                form.subcat.innerHTML = scats;
-            })
+            subCategoryArray.forEach((arr) => {
+                scats += '<option value="' + arr.subCategoryName + '">' + arr.subCategoryName.toUpperCase() + '</option>'
+            });
+            form.subcat.innerHTML = scats;
+        })
 
-            $('#createCourse').on('click', function() {
-                loaderTriggerAndEnder(true);
-                var newSubCatId = '';
-               var courseIIId='';
-                var cid = '';
+        $('#createCourse').on('click', function () {
+            loaderTriggerAndEnder(true);
+            var newSubCatId = '';
+            var courseIIId = '';
+            var cid = '';
 
-                var facArray = [];
-
-
-                facArray.push(nameAproA[0]);
+            var facArray = [];
 
 
-                if (form.crsType.value == 'Online') {
-                    //course adding with nw subCategory
+            facArray.push(nameAproA[0]);
 
-                    if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
 
-                        data.collection('subCategories').add({
-                            id: '',
-                            noOfCourses: 1,
-                            subcategory: form.newsolosubcat.value.toLowerCase()
-                        }).then((docid) => {
-                            newSubCatId = docid.id;
-                            data.collection('subCategories').doc(newSubCatId).update({
-                                id: newSubCatId
-                            }).then((arg) => {
-                                let fd = new FormData(document.querySelector('#overallForm'));
-                                const user = firebase.auth().currentUser;
-                                fd.append('uid', user.uid);
+            if (form.crsType.value == 'Online') {
+                //course adding with nw subCategory
 
-                                $.ajax({
-                                    url: 'matUp.php',
-                                    type: 'post',
-                                    data: fd,
-                                    processData: false,
-                                    contentType: false,
-                                    error: function() {
-                                        alert("Upload Failed, Try Again !!!");
-                                    },
-                                    success: function(vall) {
-                                        var urls = String(vall).split('?***?');
+                if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
 
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                            category: form.maincat.value,
-                                            courseName: form.t_name.value,
-                                            coverImg: urls[0].substring(52),
-                                            faculties: nameAproA[0],
-                                            id: '',
-                                            subcategoryId: '',
-                                            instituteName: nameAproA[0],
-                                            instituteRef: facultyDetails.id,
-                                            introVideo: urls[2].substring(52),
-                                            lang: form.language.value,
-                                            lastUpdated: String(new Date().getTime()),
-                                            noOfStudents: 0,
-                                            concept: form.concept.value,
-                                            description: form.crsDesc.value,
-                                            progess: 20,
-                                            region: form.crsNationality.value,
-                                            requirements: [],
-                                            whatYouWillLearn: [],
-                                            publish: {
-                                                discountPercentage: 0,
-                                                discountedPrice: 0,
-                                                offers: {
-                                                    '1year': 0,
-                                                    '3months': 0
-                                                },
-                                                tax: {
-                                                    CGST: 0,
-                                                    IGST: 0,
-                                                    SGST: 0,
-                                                    UGST: 0
-                                                }
+                    data.collection('subCategories').add({
+                        id: '',
+                        noOfCourses: 1,
+                        subcategory: form.newsolosubcat.value.toLowerCase()
+                    }).then((docid) => {
+                        newSubCatId = docid.id;
+                        data.collection('subCategories').doc(newSubCatId).update({
+                            id: newSubCatId
+                        }).then((arg) => {
+                            let fd = new FormData(document.querySelector('#overallForm'));
+                            const user = firebase.auth().currentUser;
+                            fd.append('uid', user.uid);
+
+                            $.ajax({
+                                url: 'matUp.php',
+                                type: 'post',
+                                data: fd,
+                                processData: false,
+                                contentType: false,
+                                error: function () {
+                                    alert("Upload Failed, Try Again !!!");
+                                },
+                                success: function (vall) {
+                                    var urls = String(vall).split('?***?');
+
+                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
+                                        category: form.maincat.value,
+                                        courseName: form.t_name.value,
+                                        coverImg: urls[0].substring(52),
+                                        faculties: nameAproA[0],
+                                        id: '',
+                                        subcategoryId: '',
+                                        instituteName: nameAproA[0],
+                                        instituteRef: facultyDetails.id,
+                                        introVideo: urls[2].substring(52),
+                                        lang: form.language.value,
+                                        lastUpdated: String(new Date().getTime()),
+                                        noOfStudents: 0,
+                                        concept: form.concept.value,
+                                        description: form.crsDesc.value,
+                                        progess: 20,
+                                        region: form.crsNationality.value,
+                                        requirements: [],
+                                        whatYouWillLearn: [],
+                                        publish: {
+                                            discountPercentage: 0,
+                                            discountedPrice: 0,
+                                            offers: {
+                                                '1year': 0,
+                                                '3months': 0
                                             },
-                                            sections: [],
-                                            status: "Not Published",
-                                            subcategory: form.subcat.value,
-                                            thumbnail: urls[1].substring(52),
-                                            types: form.crsType.value
-                                        }).then((docid) => {
-                                            cid = newSubCatId + '?***?' + docid.id;
-                                            data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                                id: docid.id,
-                                                subcategoryId: newSubCatId
-                                            }).then((arg) => {
-                                                facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                                localforage.setItem('facultyDetails', facultyDetails);
-                                                data.collection('faculty').doc(user.uid).update({
-                                                    courseIds: facultyDetails.courseIds
-                                                }).then(() => {
+                                            tax: {
+                                                CGST: 0,
+                                                IGST: 0,
+                                                SGST: 0,
+                                                UGST: 0
+                                            }
+                                        },
+                                        sections: [],
+                                        status: "Not Published",
+                                        subcategory: form.subcat.value,
+                                        thumbnail: urls[1].substring(52),
+                                        types: form.crsType.value
+                                    }).then((docid) => {
+                                        cid = newSubCatId + '?***?' + docid.id;
+                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
+                                            id: docid.id,
+                                            subcategoryId: newSubCatId
+                                        }).then((arg) => {
+                                            facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
+                                            localforage.setItem('facultyDetails', facultyDetails);
+                                            data.collection('faculty').doc(user.uid).update({
+                                                courseIds: facultyDetails.courseIds
+                                            }).then(() => {
 
-                                                    var catDetails1 = [];
-                                                    var index = 0;
-                                                    var indexFound = 0;
-                                                    var arrayFound = [];
-                                                    data.collection('category').doc('categories').get().then((arg) => {
-                                                        catDetails1 = arg.data().catDetails;
-                                                        catDetails1.forEach((vall) => {
-                                                            if (vall.categoryName == form.maincat.value) {
-                                                                arrayFound = vall;
-                                                                indexFound = index;
-                                                            }
-                                                            index++;
-                                                        })
-
-                                                        arrayFound.noOfCourses += 1;
-                                                        arrayFound.isVerified = false;
-                                                        arrayFound.subcategoryList.push({
-                                                            subCategoryId: newSubCatId,
-                                                            subCategoryName: form.newsolosubcat.value.toLowerCase()
-                                                        });
-
-                                                        catDetails1[indexFound] = arrayFound;
-
-                                                        data.collection('category').doc('categories').update({
-                                                            catDetails: catDetails1
-                                                        }).then(() => {
-                                                            var count = 0;
-                                                            facArray.forEach((one) => {
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                    var array1 = datatata.data().courseIds;
-                                                                    array1.push(cid);
-                                                                    data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                        courseIds: array1
-                                                                    }).then(() => {
-                                                                count++;
-                                                                console.log("One")
-                                                                loaderTriggerAndEnder(false);
-                                                                location.replace('');
-                                                                // if (count == facArray.length) {
-                                                                //     loaderTriggerAndEnder(false);
-                                                                //     location.replace('');
-                                                                // }
-                                                            })
-                                                        })
+                                                var catDetails1 = [];
+                                                var index = 0;
+                                                var indexFound = 0;
+                                                var arrayFound = [];
+                                                data.collection('category').doc('categories').get().then((arg) => {
+                                                    catDetails1 = arg.data().catDetails;
+                                                    catDetails1.forEach((vall) => {
+                                                        if (vall.categoryName == form.maincat.value) {
+                                                            arrayFound = vall;
+                                                            indexFound = index;
+                                                        }
+                                                        index++;
                                                     })
-                                                })
-                                                    })
-                                                })
-                                            })
-                                        }).catch((e) => {
-                                            showToast(e.message);
-                                        });
-                                    }
-                                });
-                            })
-                        })
-                    } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
-                        data.collection('subCategories').add({
-                            id: '',
-                            noOfCourses: 1,
-                            subcategory: form.newsubcat.value.toLowerCase()
-                        }).then((docid) => {
-                            newSubCatId = docid.id;
-                            data.collection('subCategories').doc(newSubCatId).update({
-                                id: newSubCatId
-                            }).then((arg) => {
-                                let fd = new FormData(document.querySelector('#overallForm'));
-                                const user = firebase.auth().currentUser;
-                                fd.append('uid', user.uid);
 
-                                $.ajax({
-                                    url: 'matUp.php',
-                                    type: 'post',
-                                    data: fd,
-                                    processData: false,
-                                    contentType: false,
-                                    error: function() {
-                                        alert("Upload Failed, Try Again !!!");
-                                    },
-                                    success: function(vall) {
-                                        var urls = String(vall).split('?***?');
+                                                    arrayFound.noOfCourses += 1;
+                                                    arrayFound.isVerified = false;
+                                                    arrayFound.subcategoryList.push({
+                                                        subCategoryId: newSubCatId,
+                                                        subCategoryName: form.newsolosubcat.value.toLowerCase()
+                                                    });
 
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                            category: form.maincat.value,
-                                            courseName: form.t_name.value,
-                                            coverImg: urls[0].substring(52),
-                                            faculties: nameAproA[0],
-                                            id: '',
-                                            subcategoryId: '',
-                                            instituteName: nameAproA[0],
-                                            instituteRef: facultyDetails.id,
-                                            introVideo: urls[2].substring(52),
-                                            lang: form.language.value,
-                                            lastUpdated: String(new Date().getTime()),
-                                            noOfStudents: 0,
-                                            concept: form.concept.value,
-                                            description: form.crsDesc.value,
-                                            progess: 20,
-                                            region: form.crsNationality.value,
-                                            requirements: [],
-                                            whatYouWillLearn: [],
-                                            publish: {
-                                                discountPercentage: 0,
-                                                discountedPrice: 0,
-                                                offers: {
-                                                    '1year': 0,
-                                                    '3months': 0
-                                                },
-                                                tax: {
-                                                    CGST: 0,
-                                                    IGST: 0,
-                                                    SGST: 0,
-                                                    UGST: 0
-                                                }
-                                            },
-                                            sections: [],
-                                            status: "Not Published",
-                                            subcategory: form.subcat.value,
-                                            thumbnail: urls[1].substring(52),
-                                            types: form.crsType.value
-                                        }).then((docid) => {
-                                            cid = newSubCatId + '?***?' + docid.id;
-                                            data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                                id: docid.id,
-                                                subcategoryId: newSubCatId
-                                            }).then((arg) => {
-                                                facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                                localforage.setItem('facultyDetails', facultyDetails);
-                                                data.collection('faculty').doc(user.uid).update({
-                                                    courseIds: facultyDetails.courseIds
-                                                }).then(() => {
+                                                    catDetails1[indexFound] = arrayFound;
 
-                                                    var catDetails1 = [];
-
-                                                    data.collection('category').doc('categories').get().then((arg) => {
-                                                        catDetails1 = arg.data().catDetails;
-                                                        var newArray = {
-                                                            categoryName: form.newmaincat.value.toLowerCase(),
-                                                            isVerified: false,
-                                                            noOfCourses: 1,
-                                                            subcategoryList: [{
-                                                                subCategoryName: form.newsubcat.value.toLowerCase(),
-                                                                subCategoryId: newSubCatId
-                                                            }],
-                                                            subcollection: form.newmaincat.value.toLowerCase(),
-                                                            type: form.crsNationality.value
-                                                        };
-
-                                                        catDetails1.push(newArray);
-
-                                                        data.collection('category').doc('categories').update({
-                                                            catDetails: catDetails1
-                                                        }).then(() => {
-                                                            var count = 0;
-                                                            facArray.forEach((one) => {
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                    var array1 = datatata.data().courseIds;
-                                                                    array1.push(cid);
-                                                                    data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                        courseIds: array1
-                                                                    }).then(() => {
-                                                                count++;
-                                                                console.log("Two")
-                                                                loaderTriggerAndEnder(false);
-                                                                location.replace('');
-                                                                if (count == facArray.length) {
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: catDetails1
+                                                    }).then(() => {
+                                                        var count = 0;
+                                                        facArray.forEach((one) => {
+                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
+                                                                var array1 = datatata.data().courseIds;
+                                                                array1.push(cid);
+                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
+                                                                    courseIds: array1
+                                                                }).then(() => {
+                                                                    count++;
+                                                                    console.log("One")
                                                                     loaderTriggerAndEnder(false);
                                                                     location.replace('');
-                                                                }
+                                                                    // if (count == facArray.length) {
+                                                                    //     loaderTriggerAndEnder(false);
+                                                                    //     location.replace('');
+                                                                    // }
+                                                                })
                                                             })
                                                         })
                                                     })
-                                                    })
-                                                })
                                                 })
                                             })
-                                        }).catch((e) => {
-                                            showToast(e.message);
-                                        });
-                                    }
-                                });
-                            })
+                                        })
+                                    }).catch((e) => {
+                                        showToast(e.message);
+                                    });
+                                }
+                            });
                         })
-                    } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-                        //normal course adding
-                        let fd = new FormData(document.querySelector('#overallForm'));
-                        const user = firebase.auth().currentUser;
-                        fd.append('uid', user.uid);
-                        var sub_CategoryId = '';
+                    })
+                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
+                    data.collection('subCategories').add({
+                        id: '',
+                        noOfCourses: 1,
+                        subcategory: form.newsubcat.value.toLowerCase()
+                    }).then((docid) => {
+                        newSubCatId = docid.id;
+                        data.collection('subCategories').doc(newSubCatId).update({
+                            id: newSubCatId
+                        }).then((arg) => {
+                            let fd = new FormData(document.querySelector('#overallForm'));
+                            const user = firebase.auth().currentUser;
+                            fd.append('uid', user.uid);
 
-                        $.ajax({
-                            url: 'matUp.php',
-                            type: 'post',
-                            data: fd,
-                            processData: false,
-                            contentType: false,
-                            error: function() {
-                                alert("Upload Failed, Try Again !!!");
-                            },
-                            success: function(vall) {
-                                console.log("Course upload details", vall)
-                                var urls = String(vall).split('?***?');
-                                sub_CategoryId = '';
+                            $.ajax({
+                                url: 'matUp.php',
+                                type: 'post',
+                                data: fd,
+                                processData: false,
+                                contentType: false,
+                                error: function () {
+                                    alert("Upload Failed, Try Again !!!");
+                                },
+                                success: function (vall) {
+                                    var urls = String(vall).split('?***?');
 
-                                subCategories.forEach((arg) => {
-                                    arg.forEach((argg) => {
-                                        if (form.subcat.value == argg.subCategoryName) {
-                                            sub_CategoryId = argg.subCategoryId;
-                                        }
-                                    })
-                                });
+                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
+                                        category: form.maincat.value,
+                                        courseName: form.t_name.value,
+                                        coverImg: urls[0].substring(52),
+                                        faculties: nameAproA[0],
+                                        id: '',
+                                        subcategoryId: '',
+                                        instituteName: nameAproA[0],
+                                        instituteRef: facultyDetails.id,
+                                        introVideo: urls[2].substring(52),
+                                        lang: form.language.value,
+                                        lastUpdated: String(new Date().getTime()),
+                                        noOfStudents: 0,
+                                        concept: form.concept.value,
+                                        description: form.crsDesc.value,
+                                        progess: 20,
+                                        region: form.crsNationality.value,
+                                        requirements: [],
+                                        whatYouWillLearn: [],
+                                        publish: {
+                                            discountPercentage: 0,
+                                            discountedPrice: 0,
+                                            offers: {
+                                                '1year': 0,
+                                                '3months': 0
+                                            },
+                                            tax: {
+                                                CGST: 0,
+                                                IGST: 0,
+                                                SGST: 0,
+                                                UGST: 0
+                                            }
+                                        },
+                                        sections: [],
+                                        status: "Not Published",
+                                        subcategory: form.subcat.value,
+                                        thumbnail: urls[1].substring(52),
+                                        types: form.crsType.value
+                                    }).then((docid) => {
+                                        cid = newSubCatId + '?***?' + docid.id;
+                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
+                                            id: docid.id,
+                                            subcategoryId: newSubCatId
+                                        }).then((arg) => {
+                                            facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
+                                            localforage.setItem('facultyDetails', facultyDetails);
+                                            data.collection('faculty').doc(user.uid).update({
+                                                courseIds: facultyDetails.courseIds
+                                            }).then(() => {
 
-                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
-                                    category: form.maincat.value,
-                                    courseName: form.t_name.value,
-                                    coverImg: urls[0].substring(52),
-                                    faculties: faculties,
-                                    id: '',
-                                    subcategoryId: '',
-                                    instituteName: nameAproA[0],
-                                    instituteId: facultyDetails.id,
-                                    introVideo: urls[2].substring(52),
-                                    lang: form.language.value,
-                                    lastUpdated: String(new Date().getTime()),
-                                    noOfStudents: 0,
-                                    concept: form.concept.value,
-                                    description: form.crsDesc.value,
-                                    progess: 20,
-                                    region: form.crsNationality.value,
-                                    assessments: form.selb.value,
-                                    requirements: [],
-                                    whatYouWillLearn: [],
-                                    publish: {
-                                        originalPrice: 0,
-                                        offers: [],
-                                        tax: {
-                                            CGST: 0,
-                                            IGST: 0,
-                                            SGST: 0,
-                                            UGST: 0
-                                        }
-                                    },
-                                    totalRating: 2.5,
-                                    sections: [],
-                                    status: "Not Published",
-                                    subcategory: form.subcat.value,
-                                    thumbnail: urls[1].substring(52),
-                                    types: form.crsType.value
-                                }).then((docid) => {
-                                    cid = sub_CategoryId + '?***?' + docid.id;
-                                    courseIIId=docid.id;
-                                    data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
-                                        id: docid.id,
-                                        subcategoryId: sub_CategoryId
-                                    }).then((arg) => {
-                                        facultyDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
-                                        localforage.setItem('facultyDetails', facultyDetails);
-                                        data.collection('faculty').doc(user.uid).update({
-                                            courseIds: facultyDetails.courseIds
-                                        }).then(() => {
-                                            var count = 0;
-                                            facArray.forEach((one) => {
-                                                count++;
-                                                if (count == facArray.length) {
-                                                    data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
-                                                        data.collection('subCategories').doc(sub_CategoryId).update({
-                                                            noOfCourses: b1.data().noOfCourses + 1
-                                                        }).then(() => {
-                                                            data.collection('category').doc('categories').get().then((b2) => {
-                                                                var ttemp = b2.data().catDetails;
-                                                                var arrayFound = [];
-                                                                var indexFound = 0;
-                                                                var index = 0;
+                                                var catDetails1 = [];
 
-                                                                ttemp.forEach((vall) => {
-                                                                    if (vall.categoryName == form.maincat.value) {
-                                                                        arrayFound = vall;
-                                                                        indexFound = index;
+                                                data.collection('category').doc('categories').get().then((arg) => {
+                                                    catDetails1 = arg.data().catDetails;
+                                                    var newArray = {
+                                                        categoryName: form.newmaincat.value.toLowerCase(),
+                                                        isVerified: false,
+                                                        noOfCourses: 1,
+                                                        subcategoryList: [{
+                                                            subCategoryName: form.newsubcat.value.toLowerCase(),
+                                                            subCategoryId: newSubCatId
+                                                        }],
+                                                        subcollection: form.newmaincat.value.toLowerCase(),
+                                                        type: form.crsNationality.value
+                                                    };
+
+                                                    catDetails1.push(newArray);
+
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: catDetails1
+                                                    }).then(() => {
+                                                        var count = 0;
+                                                        facArray.forEach((one) => {
+                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
+                                                                var array1 = datatata.data().courseIds;
+                                                                array1.push(cid);
+                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
+                                                                    courseIds: array1
+                                                                }).then(() => {
+                                                                    count++;
+                                                                    console.log("Two")
+                                                                    loaderTriggerAndEnder(false);
+                                                                    location.replace('');
+                                                                    if (count == facArray.length) {
+                                                                        loaderTriggerAndEnder(false);
+                                                                        location.replace('');
                                                                     }
-                                                                    index++;
                                                                 })
+                                                            })
+                                                        })
+                                                    })
+                                                })
+                                            })
+                                        })
+                                    }).catch((e) => {
+                                        showToast(e.message);
+                                    });
+                                }
+                            });
+                        })
+                    })
+                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
+                    //normal course adding
+                    let fd = new FormData(document.querySelector('#overallForm'));
+                    const user = firebase.auth().currentUser;
+                    fd.append('uid', user.uid);
+                    var sub_CategoryId = '';
 
-                                                                arrayFound.noOfCourses += 1;
+                    $.ajax({
+                        url: 'matUp.php',
+                        type: 'post',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        error: function () {
+                            alert("Upload Failed, Try Again !!!");
+                        },
+                        success: function (vall) {
+                            console.log("Course upload details", vall)
+                            var urls = String(vall).split('?***?');
+                            sub_CategoryId = '';
 
-                                                                ttemp[indexFound] = arrayFound;
+                            subCategories.forEach((arg) => {
+                                arg.forEach((argg) => {
+                                    if (form.subcat.value == argg.subCategoryName) {
+                                        sub_CategoryId = argg.subCategoryId;
+                                    }
+                                })
+                            });
 
-                                                                data.collection('category').doc('categories').update({
-                                                                    catDetails: ttemp
+                            data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
+                                category: form.maincat.value,
+                                courseName: form.t_name.value,
+                                coverImg: urls[0].substring(52),
+                                faculties: faculties,
+                                id: '',
+                                subcategoryId: '',
+                                instituteName: nameAproA[0],
+                                instituteId: facultyDetails.id,
+                                introVideo: urls[2].substring(52),
+                                lang: form.language.value,
+                                lastUpdated: String(new Date().getTime()),
+                                noOfStudents: 0,
+                                concept: form.concept.value,
+                                description: form.crsDesc.value,
+                                progess: 20,
+                                region: form.crsNationality.value,
+                                assessments: form.selb.value,
+                                requirements: [],
+                                whatYouWillLearn: [],
+                                publish: {
+                                    originalPrice: 0,
+                                    offers: [],
+                                    tax: {
+                                        CGST: 0,
+                                        IGST: 0,
+                                        SGST: 0,
+                                        UGST: 0
+                                    }
+                                },
+                                totalRating: 2.5,
+                                sections: [],
+                                status: "Not Published",
+                                subcategory: form.subcat.value,
+                                thumbnail: urls[1].substring(52),
+                                types: form.crsType.value
+                            }).then((docid) => {
+                                cid = sub_CategoryId + '?***?' + docid.id;
+                                courseIIId = docid.id;
+                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
+                                    id: docid.id,
+                                    subcategoryId: sub_CategoryId
+                                }).then((arg) => {
+                                    facultyDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
+                                    localforage.setItem('facultyDetails', facultyDetails);
+                                    data.collection('faculty').doc(user.uid).update({
+                                        courseIds: facultyDetails.courseIds
+                                    }).then(() => {
+                                        var count = 0;
+                                        facArray.forEach((one) => {
+                                            count++;
+                                            if (count == facArray.length) {
+                                                data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
+                                                    data.collection('subCategories').doc(sub_CategoryId).update({
+                                                        noOfCourses: b1.data().noOfCourses + 1
+                                                    }).then(() => {
+                                                        data.collection('category').doc('categories').get().then((b2) => {
+                                                            var ttemp = b2.data().catDetails;
+                                                            var arrayFound = [];
+                                                            var indexFound = 0;
+                                                            var index = 0;
+
+                                                            ttemp.forEach((vall) => {
+                                                                if (vall.categoryName == form.maincat.value) {
+                                                                    arrayFound = vall;
+                                                                    indexFound = index;
+                                                                }
+                                                                index++;
+                                                            })
+
+                                                            arrayFound.noOfCourses += 1;
+
+                                                            ttemp[indexFound] = arrayFound;
+
+                                                            data.collection('category').doc('categories').update({
+                                                                catDetails: ttemp
+                                                            }).then(() => {
+                                                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(courseIIId).collection('reviews').doc('reviews').set({
+                                                                    reviews: []
                                                                 }).then(() => {
                                                                     data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(courseIIId).collection('reviews').doc('reviews').set({
                                                                         reviews: []
                                                                     }).then(() => {
-                                                                        data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(courseIIId).collection('reviews').doc('reviews').set({
-                                                                            reviews: []
-                                                                        }).then(() => {
-                                                                            loaderTriggerAndEnder(false);
-                                                                            location.replace('');
-                                                                        })
+                                                                        loaderTriggerAndEnder(false);
+                                                                        location.replace('');
                                                                     })
                                                                 })
                                                             })
                                                         })
                                                     })
-                                                }
-                                            })
-
+                                                })
+                                            }
                                         })
+
                                     })
-                                }).catch((e) => {
-                                    showToast(e.message);
-                                });
-                            }
-                        });
-                    } else {
-                        showToast('Error has happened: please wait, while Refreshing page !!!');
-                        location.replace('');
-                    }
+                                })
+                            }).catch((e) => {
+                                showToast(e.message);
+                            });
+                        }
+                    });
                 } else {
-                    //course adding with nw subCategory
+                    showToast('Error has happened: please wait, while Refreshing page !!!');
+                    location.replace('');
+                }
+            } else {
+                //course adding with nw subCategory
 
-                    if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
+                if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
 
-                        data.collection('subCategories').add({
-                            id: '',
-                            noOfCourses: 1,
-                            subcategory: form.newsolosubcat.value.toLowerCase()
-                        }).then((docid) => {
-                            newSubCatId = docid.id;
-                            data.collection('subCategories').doc(newSubCatId).update({
-                                id: newSubCatId
-                            }).then((arg) => {
-                                let fd = new FormData(document.querySelector('#overallForm'));
-                                const user = firebase.auth().currentUser;
-                                fd.append('uid', user.uid);
+                    data.collection('subCategories').add({
+                        id: '',
+                        noOfCourses: 1,
+                        subcategory: form.newsolosubcat.value.toLowerCase()
+                    }).then((docid) => {
+                        newSubCatId = docid.id;
+                        data.collection('subCategories').doc(newSubCatId).update({
+                            id: newSubCatId
+                        }).then((arg) => {
+                            let fd = new FormData(document.querySelector('#overallForm'));
+                            const user = firebase.auth().currentUser;
+                            fd.append('uid', user.uid);
 
-                                $.ajax({
-                                    url: 'matUp.php',
-                                    type: 'post',
-                                    data: fd,
-                                    processData: false,
-                                    contentType: false,
-                                    error: function() {
-                                        alert("Upload Failed, Try Again !!!");
-                                    },
-                                    success: function(vall) {
-                                        var urls = String(vall).split('?***?');
+                            $.ajax({
+                                url: 'matUp.php',
+                                type: 'post',
+                                data: fd,
+                                processData: false,
+                                contentType: false,
+                                error: function () {
+                                    alert("Upload Failed, Try Again !!!");
+                                },
+                                success: function (vall) {
+                                    var urls = String(vall).split('?***?');
 
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                            category: form.maincat.value,
-                                            courseName: form.t_name.value,
-                                            coverImg: urls[0].substring(52),
-                                            faculties: nameAproA[0],
-                                            id: '',
-                                            subcategoryId: '',
-                                            instituteName: nameAproA[0],
-                                            instituteRef: facultyDetails.id,
-                                            introVideo: urls[2].substring(52),
-                                            lang: form.language.value,
-                                            lastUpdated: String(new Date().getTime()),
-                                            noOfStudents: 0,
-                                            concept: form.concept.value,
-                                            description: form.crsDesc.value,
-                                            progess: 20,
-                                            region: form.crsNationality.value,
-                                            requirements: [],
-                                            whatYouWillLearn: [],
-                                            publish: {
-                                                discountPercentage: 0,
-                                                discountedPrice: 0,
-                                                offers: {
-                                                    '1year': 0,
-                                                    '3months': 0
-                                                },
-                                                tax: {
-                                                    CGST: 0,
-                                                    IGST: 0,
-                                                    SGST: 0,
-                                                    UGST: 0
-                                                }
+                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
+                                        category: form.maincat.value,
+                                        courseName: form.t_name.value,
+                                        coverImg: urls[0].substring(52),
+                                        faculties: nameAproA[0],
+                                        id: '',
+                                        subcategoryId: '',
+                                        instituteName: nameAproA[0],
+                                        instituteRef: facultyDetails.id,
+                                        introVideo: urls[2].substring(52),
+                                        lang: form.language.value,
+                                        lastUpdated: String(new Date().getTime()),
+                                        noOfStudents: 0,
+                                        concept: form.concept.value,
+                                        description: form.crsDesc.value,
+                                        progess: 20,
+                                        region: form.crsNationality.value,
+                                        requirements: [],
+                                        whatYouWillLearn: [],
+                                        publish: {
+                                            discountPercentage: 0,
+                                            discountedPrice: 0,
+                                            offers: {
+                                                '1year': 0,
+                                                '3months': 0
                                             },
-                                            meetings: [],
-                                            status: "Not Published",
-                                            subcategory: form.subcat.value,
-                                            thumbnail: urls[1].substring(52),
-                                            types: form.crsType.value
-                                        }).then((docid) => {
-                                            cid = newSubCatId + '?***?' + docid.id;
-                                            data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                                id: docid.id,
-                                                subcategoryId: newSubCatId
-                                            }).then((arg) => {
-                                                facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                                localforage.setItem('facultyDetails', facultyDetails);
-                                                data.collection('faculty').doc(user.uid).update({
-                                                    courseIds: facultyDetails.courseIds
-                                                }).then(() => {
+                                            tax: {
+                                                CGST: 0,
+                                                IGST: 0,
+                                                SGST: 0,
+                                                UGST: 0
+                                            }
+                                        },
+                                        meetings: [],
+                                        status: "Not Published",
+                                        subcategory: form.subcat.value,
+                                        thumbnail: urls[1].substring(52),
+                                        types: form.crsType.value
+                                    }).then((docid) => {
+                                        cid = newSubCatId + '?***?' + docid.id;
+                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
+                                            id: docid.id,
+                                            subcategoryId: newSubCatId
+                                        }).then((arg) => {
+                                            facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
+                                            localforage.setItem('facultyDetails', facultyDetails);
+                                            data.collection('faculty').doc(user.uid).update({
+                                                courseIds: facultyDetails.courseIds
+                                            }).then(() => {
 
-                                                    var catDetails1 = [];
-                                                    var index = 0;
-                                                    var indexFound = 0;
+                                                var catDetails1 = [];
+                                                var index = 0;
+                                                var indexFound = 0;
+                                                var arrayFound = [];
+                                                data.collection('category').doc('categories').get().then((arg) => {
+                                                    catDetails1 = arg.data().catDetails;
+                                                    catDetails1.forEach((vall) => {
+                                                        if (vall.categoryName == form.maincat.value) {
+                                                            arrayFound = vall;
+                                                            indexFound = index;
+                                                        }
+                                                        index++;
+                                                    })
+
+                                                    arrayFound.noOfCourses += 1;
+                                                    arrayFound.isVerified = false;
+                                                    arrayFound.subcategoryList.push({
+                                                        subCategoryId: newSubCatId,
+                                                        subCategoryName: form.newsolosubcat.value.toLowerCase()
+                                                    });
+
+                                                    catDetails1[indexFound] = arrayFound;
+
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: catDetails1
+                                                    }).then(() => {
+                                                        var count = 0;
+                                                        facArray.forEach((one) => {
+                                                            count++;
+                                                            if (count == facArray.length) {
+                                                                loaderTriggerAndEnder(false);
+                                                                location.replace('');
+                                                            }
+                                                        })
+                                                    })
+                                                })
+                                            })
+                                        })
+                                    }).catch((e) => {
+                                        showToast(e.message);
+                                    });
+                                }
+                            });
+                        })
+                    })
+                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
+                    data.collection('subCategories').add({
+                        id: '',
+                        noOfCourses: 1,
+                        subcategory: form.newsubcat.value.toLowerCase()
+                    }).then((docid) => {
+                        newSubCatId = docid.id;
+                        data.collection('subCategories').doc(newSubCatId).update({
+                            id: newSubCatId
+                        }).then((arg) => {
+                            let fd = new FormData(document.querySelector('#overallForm'));
+                            const user = firebase.auth().currentUser;
+                            fd.append('uid', user.uid);
+
+                            $.ajax({
+                                url: 'matUp.php',
+                                type: 'post',
+                                data: fd,
+                                processData: false,
+                                contentType: false,
+                                error: function () {
+                                    alert("Upload Failed, Try Again !!!");
+                                },
+                                success: function (vall) {
+                                    var urls = String(vall).split('?***?');
+
+                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
+                                        category: form.maincat.value,
+                                        courseName: form.t_name.value,
+                                        coverImg: urls[0].substring(52),
+                                        faculties: nameAproA[0],
+                                        id: '',
+                                        subcategoryId: '',
+                                        instituteName: nameAproA[0],
+                                        instituteRef: facultyDetails.id,
+                                        introVideo: urls[2].substring(52),
+                                        lang: form.language.value,
+                                        lastUpdated: String(new Date().getTime()),
+                                        noOfStudents: 0,
+                                        concept: form.concept.value,
+                                        description: form.crsDesc.value,
+                                        progess: 20,
+                                        region: form.crsNationality.value,
+                                        requirements: [],
+                                        whatYouWillLearn: [],
+                                        publish: {
+                                            discountPercentage: 0,
+                                            discountedPrice: 0,
+                                            offers: {
+                                                '1year': 0,
+                                                '3months': 0
+                                            },
+                                            tax: {
+                                                CGST: 0,
+                                                IGST: 0,
+                                                SGST: 0,
+                                                UGST: 0
+                                            }
+                                        },
+                                        meetings: [],
+                                        status: "Not Published",
+                                        subcategory: form.subcat.value,
+                                        thumbnail: urls[1].substring(52),
+                                        types: form.crsType.value
+                                    }).then((docid) => {
+                                        cid = newSubCatId + '?***?' + docid.id;
+                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
+                                            id: docid.id,
+                                            subcategoryId: newSubCatId
+                                        }).then((arg) => {
+                                            facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
+                                            localforage.setItem('facultyDetails', facultyDetails);
+                                            data.collection('faculty').doc(user.uid).update({
+                                                courseIds: facultyDetails.courseIds
+                                            }).then(() => {
+
+                                                var catDetails1 = [];
+
+                                                data.collection('category').doc('categories').get().then((arg) => {
+                                                    catDetails1 = arg.data().catDetails;
+                                                    var newArray = {
+                                                        categoryName: form.newmaincat.value.toLowerCase(),
+                                                        isVerified: false,
+                                                        noOfCourses: 1,
+                                                        subcategoryList: [{
+                                                            subCategoryName: form.newsubcat.value.toLowerCase(),
+                                                            subCategoryId: newSubCatId
+                                                        }],
+                                                        subcollection: form.newmaincat.value.toLowerCase(),
+                                                        type: form.crsNationality.value
+                                                    };
+
+                                                    catDetails1.push(newArray);
+
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: catDetails1
+                                                    }).then(() => {
+                                                        var count = 0;
+                                                        facArray.forEach((one) => {
+                                                            count++;
+                                                            if (count == facArray.length) {
+                                                                loaderTriggerAndEnder(false);
+                                                                location.replace('');
+                                                            }
+                                                        })
+                                                    })
+
+                                                })
+                                            })
+                                        })
+                                    }).catch((e) => {
+                                        showToast(e.message);
+                                    });
+                                }
+                            });
+                        })
+                    })
+                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
+                    //normal course adding
+                    let fd = new FormData(document.querySelector('#overallForm'));
+                    const user = firebase.auth().currentUser;
+                    fd.append('uid', user.uid);
+                    var sub_CategoryId = '';
+
+                    $.ajax({
+                        url: 'matUp.php',
+                        type: 'post',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        error: function () {
+                            alert("Upload Failed, Try Again !!!");
+                        },
+                        success: function (vall) {
+                            var urls = String(vall).split('?***?');
+                            sub_CategoryId = '';
+
+                            subCategories.forEach((arg) => {
+                                arg.forEach((argg) => {
+                                    if (form.subcat.value == argg.subCategoryName) {
+                                        sub_CategoryId = argg.subCategoryId;
+                                    }
+                                })
+                            });
+
+                            data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
+                                category: form.maincat.value,
+                                courseName: form.t_name.value,
+                                coverImg: urls[0].substring(52),
+                                faculties: faculties,
+                                id: '',
+                                subcategoryId: '',
+                                instituteName: nameAproA[0],
+                                instituteId: facultyDetails.id,
+                                introVideo: urls[2].substring(52),
+                                lang: form.language.value,
+                                lastUpdated: String(new Date().getTime()),
+                                noOfStudents: 0,
+                                concept: form.concept.value,
+                                description: form.crsDesc.value,
+                                progess: 20,
+                                region: form.crsNationality.value,
+                                assessments: form.selb.value,
+                                requirements: [],
+                                whatYouWillLearn: [],
+                                publish: {
+                                    originalPrice: 0,
+                                    offers: [],
+                                    tax: {
+                                        CGST: 0,
+                                        IGST: 0,
+                                        SGST: 0,
+                                        UGST: 0
+                                    }
+                                },
+                                totalRating: 2.5,
+                                meetings: [],
+                                status: "Not Published",
+                                subcategory: form.subcat.value,
+                                thumbnail: urls[1].substring(52),
+                                types: form.crsType.value
+                            }).then((docid) => {
+                                cid = sub_CategoryId + '?***?' + docid.id;
+                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
+                                    id: docid.id,
+                                    subcategoryId: sub_CategoryId
+                                }).then((arg) => {
+                                    facultyDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
+                                    localforage.setItem('facultyDetails', facultyDetails);
+                                    data.collection('faculty').doc(user.uid).update({
+                                        courseIds: facultyDetails.courseIds
+                                    }).then(() => {
+                                        var count = 0;
+                                        facArray.forEach((one) => {
+                                            count++;
+                                            if (count == facArray.length) {
+                                                data.collection('category').doc('categories').get().then((b2) => {
+                                                    var ttemp = b2.data().catDetails;
                                                     var arrayFound = [];
-                                                    data.collection('category').doc('categories').get().then((arg) => {
-                                                        catDetails1 = arg.data().catDetails;
-                                                        catDetails1.forEach((vall) => {
-                                                            if (vall.categoryName == form.maincat.value) {
-                                                                arrayFound = vall;
-                                                                indexFound = index;
-                                                            }
-                                                            index++;
-                                                        })
+                                                    var indexFound = 0;
+                                                    var index = 0;
 
-                                                        arrayFound.noOfCourses += 1;
-                                                        arrayFound.isVerified = false;
-                                                        arrayFound.subcategoryList.push({
-                                                            subCategoryId: newSubCatId,
-                                                            subCategoryName: form.newsolosubcat.value.toLowerCase()
-                                                        });
+                                                    ttemp.forEach((vall) => {
+                                                        if (vall.categoryName == form.maincat.value) {
+                                                            arrayFound = vall;
+                                                            indexFound = index;
+                                                        }
+                                                        index++;
+                                                    })
 
-                                                        catDetails1[indexFound] = arrayFound;
+                                                    arrayFound.noOfCourses += 1;
 
-                                                        data.collection('category').doc('categories').update({
-                                                            catDetails: catDetails1
-                                                        }).then(() => {
-                                                            var count = 0;
-                                                            facArray.forEach((one) => {
-                                                                count++;
-                                                                if (count == facArray.length) {
-                                                                    loaderTriggerAndEnder(false);
-                                                                    location.replace('');
-                                                                }
-                                                            })
-                                                        })
+                                                    ttemp[indexFound] = arrayFound;
+
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: ttemp
+                                                    }).then(() => {
+                                                        loaderTriggerAndEnder(false);
+                                                        location.replace('');
                                                     })
                                                 })
-                                            })
-                                        }).catch((e) => {
-                                            showToast(e.message);
-                                        });
-                                    }
-                                });
-                            })
-                        })
-                    } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
-                        data.collection('subCategories').add({
-                            id: '',
-                            noOfCourses: 1,
-                            subcategory: form.newsubcat.value.toLowerCase()
-                        }).then((docid) => {
-                            newSubCatId = docid.id;
-                            data.collection('subCategories').doc(newSubCatId).update({
-                                id: newSubCatId
-                            }).then((arg) => {
-                                let fd = new FormData(document.querySelector('#overallForm'));
-                                const user = firebase.auth().currentUser;
-                                fd.append('uid', user.uid);
-
-                                $.ajax({
-                                    url: 'matUp.php',
-                                    type: 'post',
-                                    data: fd,
-                                    processData: false,
-                                    contentType: false,
-                                    error: function() {
-                                        alert("Upload Failed, Try Again !!!");
-                                    },
-                                    success: function(vall) {
-                                        var urls = String(vall).split('?***?');
-
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                            category: form.maincat.value,
-                                            courseName: form.t_name.value,
-                                            coverImg: urls[0].substring(52),
-                                            faculties: nameAproA[0],
-                                            id: '',
-                                            subcategoryId: '',
-                                            instituteName: nameAproA[0],
-                                            instituteRef: facultyDetails.id,
-                                            introVideo: urls[2].substring(52),
-                                            lang: form.language.value,
-                                            lastUpdated: String(new Date().getTime()),
-                                            noOfStudents: 0,
-                                            concept: form.concept.value,
-                                            description: form.crsDesc.value,
-                                            progess: 20,
-                                            region: form.crsNationality.value,
-                                            requirements: [],
-                                            whatYouWillLearn: [],
-                                            publish: {
-                                                discountPercentage: 0,
-                                                discountedPrice: 0,
-                                                offers: {
-                                                    '1year': 0,
-                                                    '3months': 0
-                                                },
-                                                tax: {
-                                                    CGST: 0,
-                                                    IGST: 0,
-                                                    SGST: 0,
-                                                    UGST: 0
-                                                }
-                                            },
-                                            meetings: [],
-                                            status: "Not Published",
-                                            subcategory: form.subcat.value,
-                                            thumbnail: urls[1].substring(52),
-                                            types: form.crsType.value
-                                        }).then((docid) => {
-                                            cid = newSubCatId + '?***?' + docid.id;
-                                            data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                                id: docid.id,
-                                                subcategoryId: newSubCatId
-                                            }).then((arg) => {
-                                                facultyDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                                localforage.setItem('facultyDetails', facultyDetails);
-                                                data.collection('faculty').doc(user.uid).update({
-                                                    courseIds: facultyDetails.courseIds
-                                                }).then(() => {
-
-                                                    var catDetails1 = [];
-
-                                                    data.collection('category').doc('categories').get().then((arg) => {
-                                                        catDetails1 = arg.data().catDetails;
-                                                        var newArray = {
-                                                            categoryName: form.newmaincat.value.toLowerCase(),
-                                                            isVerified: false,
-                                                            noOfCourses: 1,
-                                                            subcategoryList: [{
-                                                                subCategoryName: form.newsubcat.value.toLowerCase(),
-                                                                subCategoryId: newSubCatId
-                                                            }],
-                                                            subcollection: form.newmaincat.value.toLowerCase(),
-                                                            type: form.crsNationality.value
-                                                        };
-
-                                                        catDetails1.push(newArray);
-
-                                                        data.collection('category').doc('categories').update({
-                                                            catDetails: catDetails1
-                                                        }).then(() => {
-                                                            var count = 0;
-                                                            facArray.forEach((one) => {
-                                                                count++;
-                                                                if (count == facArray.length) {
-                                                                    loaderTriggerAndEnder(false);
-                                                                    location.replace('');
-                                                                }
-                                                            })
-                                                        })
-
-                                                    })
-                                                })
-                                            })
-                                        }).catch((e) => {
-                                            showToast(e.message);
-                                        });
-                                    }
-                                });
-                            })
-                        })
-                    } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-                        //normal course adding
-                        let fd = new FormData(document.querySelector('#overallForm'));
-                        const user = firebase.auth().currentUser;
-                        fd.append('uid', user.uid);
-                        var sub_CategoryId = '';
-
-                        $.ajax({
-                            url: 'matUp.php',
-                            type: 'post',
-                            data: fd,
-                            processData: false,
-                            contentType: false,
-                            error: function() {
-                                alert("Upload Failed, Try Again !!!");
-                            },
-                            success: function(vall) {
-                                var urls = String(vall).split('?***?');
-                                sub_CategoryId = '';
-
-                                subCategories.forEach((arg) => {
-                                    arg.forEach((argg) => {
-                                        if (form.subcat.value == argg.subCategoryName) {
-                                            sub_CategoryId = argg.subCategoryId;
-                                        }
-                                    })
-                                });
-
-                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
-                                    category: form.maincat.value,
-                                    courseName: form.t_name.value,
-                                    coverImg: urls[0].substring(52),
-                                    faculties: faculties,
-                                    id: '',
-                                    subcategoryId: '',
-                                    instituteName: nameAproA[0],
-                                    instituteId: facultyDetails.id,
-                                    introVideo: urls[2].substring(52),
-                                    lang: form.language.value,
-                                    lastUpdated: String(new Date().getTime()),
-                                    noOfStudents: 0,
-                                    concept: form.concept.value,
-                                    description: form.crsDesc.value,
-                                    progess: 20,
-                                    region: form.crsNationality.value,
-                                    assessments: form.selb.value,
-                                    requirements: [],
-                                    whatYouWillLearn: [],
-                                    publish: {
-                                        originalPrice: 0,
-                                        offers: [],
-                                        tax: {
-                                            CGST: 0,
-                                            IGST: 0,
-                                            SGST: 0,
-                                            UGST: 0
-                                        }
-                                    },
-                                    totalRating: 2.5,
-                                    meetings: [],
-                                    status: "Not Published",
-                                    subcategory: form.subcat.value,
-                                    thumbnail: urls[1].substring(52),
-                                    types: form.crsType.value
-                                }).then((docid) => {
-                                    cid = sub_CategoryId + '?***?' + docid.id;
-                                    data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
-                                        id: docid.id,
-                                        subcategoryId: sub_CategoryId
-                                    }).then((arg) => {
-                                        facultyDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
-                                        localforage.setItem('facultyDetails', facultyDetails);
-                                        data.collection('faculty').doc(user.uid).update({
-                                            courseIds: facultyDetails.courseIds
-                                        }).then(() => {
-                                            var count = 0;
-                                            facArray.forEach((one) => {
-                                                count++;
-                                                if (count == facArray.length) {
-                                                    data.collection('category').doc('categories').get().then((b2) => {
-                                                        var ttemp = b2.data().catDetails;
-                                                        var arrayFound = [];
-                                                        var indexFound = 0;
-                                                        var index = 0;
-
-                                                        ttemp.forEach((vall) => {
-                                                            if (vall.categoryName == form.maincat.value) {
-                                                                arrayFound = vall;
-                                                                indexFound = index;
-                                                            }
-                                                            index++;
-                                                        })
-
-                                                        arrayFound.noOfCourses += 1;
-
-                                                        ttemp[indexFound] = arrayFound;
-
-                                                        data.collection('category').doc('categories').update({
-                                                            catDetails: ttemp
-                                                        }).then(() => {
-                                                            loaderTriggerAndEnder(false);
-                                                            location.replace('');
-                                                        })
-                                                    })
-                                                }
-                                            })
-
+                                            }
                                         })
+
                                     })
-                                }).catch((e) => {
-                                    showToast(e.message);
-                                });
-                            }
-                        });
+                                })
+                            }).catch((e) => {
+                                showToast(e.message);
+                            });
+                        }
+                    });
+                } else {
+                    showToast('Error has happened: please wait, while Refreshing page !!!');
+                    location.replace('');
+                }
+            }
+        });
+
+        function typeSorter(j) {
+            var allCardClass = document.querySelectorAll('.nallaClass');
+            if (j.value == 'All') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    allCardClass[i].style.display = "block";
+                }
+                document.getElementById('types-switcher-owner').value = "All";
+            } else if (j.value == 'Online') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    var type = allCardClass[i].getAttribute('card-type');
+                    if (type == 'Online') {
+                        allCardClass[i].style.display = "block";
                     } else {
-                        showToast('Error has happened: please wait, while Refreshing page !!!');
-                        location.replace('');
+                        allCardClass[i].style.display = 'none';
                     }
                 }
-            });
-
-            function typeSorter(j) {
-                var allCardClass = document.querySelectorAll('.nallaClass');
-                if (j.value == 'All') {
-                    for (var i = 0; i < allCardClass.length; i++) {
+                document.getElementById('types-switcher-owner').value = "All";
+            } else if (j.value == 'One to One') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    var type = allCardClass[i].getAttribute('card-type');
+                    if (type == 'One to One') {
                         allCardClass[i].style.display = "block";
+                    } else {
+                        allCardClass[i].style.display = 'none';
                     }
-                    document.getElementById('types-switcher-owner').value = "All";
-                } else if (j.value == 'Online') {
-                    for (var i = 0; i < allCardClass.length; i++) {
-                        var type = allCardClass[i].getAttribute('card-type');
-                        if (type == 'Online') {
-                            allCardClass[i].style.display = "block";
-                        } else {
-                            allCardClass[i].style.display = 'none';
-                        }
-                    }
-                    document.getElementById('types-switcher-owner').value = "All";
-                } else if (j.value == 'One to One') {
-                    for (var i = 0; i < allCardClass.length; i++) {
-                        var type = allCardClass[i].getAttribute('card-type');
-                        if (type == 'One to One') {
-                            allCardClass[i].style.display = "block";
-                        } else {
-                            allCardClass[i].style.display = 'none';
-                        }
-                    }
-                    document.getElementById('types-switcher-owner').value = "All";
-                } else if (j.value == 'Live') {
-                    for (var i = 0; i < allCardClass.length; i++) {
-                        var type = allCardClass[i].getAttribute('card-type');
-                        if (type == 'Live') {
-                            allCardClass[i].style.display = "block";
-                        } else {
-                            allCardClass[i].style.display = 'none';
-                        }
-                    }
-                    document.getElementById('types-switcher-owner').value = "All";
-                } else {
-
                 }
-            }
-
-            function redirecterToCourseEdit(l) {
-                if (l.getAttribute('card-type') == 'Online') {
-                    sessionStorage.setItem('fac-course-edit-crs-id-online', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/online/');
-                }
-                if (l.getAttribute('card-type') == 'Live') {
-                    sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/live/');
-                }
-                if (l.getAttribute('card-type') == 'One to One') {
-                    sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
-                    location.replace('../faculty-course-edit/live/');
-                }
-            }
-
-            function typeInstitute(x) {
-                var allCardClass = document.querySelectorAll('.nallaClass');
-                if (x.value == 'All') {
-                    for (var i = 0; i < allCardClass.length; i++) {
+                document.getElementById('types-switcher-owner').value = "All";
+            } else if (j.value == 'Live') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    var type = allCardClass[i].getAttribute('card-type');
+                    if (type == 'Live') {
                         allCardClass[i].style.display = "block";
+                    } else {
+                        allCardClass[i].style.display = 'none';
                     }
-                    document.getElementById('types-switcher').value = "All";
-                } else if (x.value == 'Institutes') {
-                    for (var i = 0; i < allCardClass.length; i++) {
-                        var owner = allCardClass[i].getAttribute('card-owner');
-                        if (owner != nameAproA[0]) {
-                            allCardClass[i].style.display = "block";
-                        } else {
-                            allCardClass[i].style.display = 'none';
-                        }
-                    }
-                    document.getElementById('types-switcher').value = "All";
-                } else if (x.value == 'Individual') {
-                    for (var i = 0; i < allCardClass.length; i++) {
-                        var owner = allCardClass[i].getAttribute('card-owner');
-                        if (owner == nameAproA[0]) {
-                            allCardClass[i].style.display = "block";
-                        } else {
-                            allCardClass[i].style.display = 'none';
-                        }
-                    }
-                    document.getElementById('types-switcher').value = "All";
-                } else {
-
                 }
+                document.getElementById('types-switcher-owner').value = "All";
+            } else {
+
             }
-        </script>
-        <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+        }
 
-        <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+        function redirecterToCourseEdit(l) {
+            if (l.getAttribute('card-type') == 'Online') {
+                sessionStorage.setItem('fac-course-edit-crs-id-online', l.getAttribute('card-id'));
+                location.replace('../faculty-course-edit/online/');
+            }
+            if (l.getAttribute('card-type') == 'Live') {
+                sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
+                location.replace('../faculty-course-edit/live/');
+            }
+            if (l.getAttribute('card-type') == 'One to One') {
+                sessionStorage.setItem('fac-course-edit-crs-id-live', l.getAttribute('card-id'));
+                location.replace('../faculty-course-edit/live/');
+            }
+        }
 
-        <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+        function typeInstitute(x) {
+            var allCardClass = document.querySelectorAll('.nallaClass');
+            if (x.value == 'All') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    allCardClass[i].style.display = "block";
+                }
+                document.getElementById('types-switcher').value = "All";
+            } else if (x.value == 'Institutes') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    var owner = allCardClass[i].getAttribute('card-owner');
+                    if (owner != nameAproA[0]) {
+                        allCardClass[i].style.display = "block";
+                    } else {
+                        allCardClass[i].style.display = 'none';
+                    }
+                }
+                document.getElementById('types-switcher').value = "All";
+            } else if (x.value == 'Individual') {
+                for (var i = 0; i < allCardClass.length; i++) {
+                    var owner = allCardClass[i].getAttribute('card-owner');
+                    if (owner == nameAproA[0]) {
+                        allCardClass[i].style.display = "block";
+                    } else {
+                        allCardClass[i].style.display = 'none';
+                    }
+                }
+                document.getElementById('types-switcher').value = "All";
+            } else {
+
+            }
+        }
+    </script>
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
 
 </body>
 <!-- primary color : #5e72e4 -->
