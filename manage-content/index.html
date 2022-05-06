@@ -36,13 +36,31 @@
         }
         const existingCourseSetter = ()=>{
          data.collection('content').doc("carousel").get().then((banner)=>{
-            let bannerData =banner.data() 
-            var preview1 = document.getElementById("OldImage1");
-            preview1.src = bannerData.banner.banner1;
-            var preview2 = document.getElementById("OldImage2");
-            preview2.src = bannerData.banner.banner2;
-            var preview3 = document.getElementById("OldImage3");
-            preview3.src = bannerData.banner.banner3;
+            let bannerData =banner.data()?.banner; 
+            let preview1 = document.getElementById("OldImage1");
+            preview1.src = bannerData?.banner1;
+            let preview2 = document.getElementById("OldImage2");
+            preview2.src = bannerData?.banner2;
+            let preview3 = document.getElementById("OldImage3");
+            preview3.src = bannerData?.banner3;
+            let previewText1 = document.getElementById("oldText1");
+            previewText1.innerHTML = bannerData?.bannerText1;
+            let previewText2 = document.getElementById("oldText2");
+            previewText2.innerHTML = bannerData?.bannerText2;
+            let previewText3 = document.getElementById("oldText3");
+            previewText3.innerHTML = bannerData?.bannerText3;
+            let previewLink1 = document.getElementById("oldLink1");
+            previewLink1.innerHTML = bannerData?.bannerLink1;
+            let previewLink2 = document.getElementById("oldLink2");
+            previewLink2.innerHTML = bannerData?.bannerLink2;
+            let previewLink3 = document.getElementById("oldLink3");
+            previewLink3.innerHTML = bannerData?.bannerLink3;
+            let previewDesc1 = document.getElementById("oldDesc1");
+            previewDesc1.innerHTML = bannerData?.bannerDesc1;
+            let previewDesc2 = document.getElementById("oldDesc2");
+            previewDesc2.innerHTML = bannerData?.bannerDesc2;
+            let previewDesc3 = document.getElementById("oldDesc3");
+            previewDesc3.innerHTML = bannerData?.bannerDesc3;
 
       }).catch(e => console.log(e));    
 }
@@ -1062,59 +1080,117 @@
                                     <tr>
                                       <th scope="col">No.</th>
                                       <th scope="col">Previous Image</th>
-                                      <th scope="col">New Image</th>
                                       <th scope="col">Select Image</th>
                                       <th scope="col" class="styles">Action</th>
                                     </tr>
                                   </thead>
 
                                   <tbody id="existingCourseSetterTbody">
-                           <!-- <tr>
-                               <td>1.</td>
-                               <td><p  id="carouselText1" ></td>
-                               <td><p id="newcarouselText1" ></td>
-                                <td>
-                                   
-                                        <input id="textupload1" type="text" onchange="setText1(event);" style="display: block;" />
-                                             </td>
-                               <td><button type="submit" onclick="upload1()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
-                           </tr> -->
-                          
-                           
                            <tr>
-                               <td>1.</td>
+                               <td>Banner Title 1.</td>
+                               <td><p  id="oldText1" ></td>
+                               
+                                <td> <input id="textUpload1" type="text" style="display: block;" /></td>
+                               <td><button type="submit" onclick="setText1()"  style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
+                           <tr>
+                               <td>Banner Description 1.</td>
+                               <td><p  id="oldDesc1" ></td>
+                               
+                                <td> <input id="descUpload1" type="text" style="display: block;" /></td>
+                               <td><button type="submit" onclick="setDesc1()"  style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
+                           <tr>
+                               <td>Banner Link 1.</td>
+                               <td><p  id="oldLink1" ></td>
+                                
+                                <td> <input id="linkUpload1" type="text" style="display: block;" /></td>
+                               <td><button type="submit" onclick="setLink1()"  style="background-color: green; color: white;">Upload</button></td>
+                           </tr>
+                          <tr>
+                               <td>Banner Image 1.</td>
                                <td><img src="carosalimage.jpg" id="OldImage1" height="100px" width="150px" alt="Old Carosal Image 1"></td>
-                               <td><img id="preview1" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 1" style="display: none;"></td>
-                                <td><input id="upload1" type="file" style="display: none;" accept="image/*" onchange="showPreview1(event);" /> 
+                               
+                                <td>
+                                    <img id="preview1" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 1" style="display: none;"> 
+                                    <input id="upload1" type="file" style="display: none;" accept="image/*" onchange="showPreview1(event);" /> 
                                     <label for="upload1"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
                                         <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                         <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                         </svg></label>
                                
                             </td>
-                               <td><button type="submit" onclick="upload1()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                               <td><button type="submit" onclick="upload1()"  style="background-color: green; color: white;">Upload</button></td>
                            </tr>
+                           <tr><td></td></tr>
                            <tr>
-                               <td>2.</td>
+                            <td>Banner Title 2.</td>
+                            <td><p  id="oldText2" ></td>
+                         
+                             <td> <input id="textUpload2" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setText2()"  style="background-color: green; color: white;">Upload</button></td>
+                        </tr>
+                        <tr>
+                            <td>Banner Description 2.</td>
+                            <td><p  id="oldDesc2" ></td>
+                            
+                             <td> <input id="descUpload2" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setDesc2()"  style="background-color: green; color: white;">Upload</button></td>
+                        </tr>
+                        <tr>
+                            <td>Banner Link 2.</td>
+                            <td><p  id="oldLink2" ></td>
+                             
+                             <td> <input id="linkUpload2" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setLink2()" style="background-color: green; color: white;" >Upload</button></td>
+                        </tr>
+                           <tr>
+                               <td>Banner Image 2.</td>
                                <td><img src="carosalimage.jpg" id="OldImage2" height="100px" width="150px" alt="Old Carosal Image 2"></td>
-                               <td><img id="preview2" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 2" style="display: none;"></td>
-                               <td><input id="upload2" type="file" style="display: none;" accept="image/*" onchange="showPreview2(event);" />
+                               
+                               <td>
+                                <img id="preview2" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 2" style="display: none;">   
+                                <input id="upload2" type="file" style="display: none;" accept="image/*" onchange="showPreview2(event);" />
                                 <label for="upload2"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                 <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                 </svg></label></td>
-                               <td><button type="submit" onclick="upload2()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                               <td><button type="submit" onclick="upload2()"  style="background-color: green; color: white;">Upload</button></td>
                            </tr>
+                           <tr><td></td></tr>
                            <tr>
-                               <td>3.</td>
+                            <td>Banner Title 3.</td>
+                            <td><p  id="oldText3" ></td>
+                            
+                             <td> <input id="textUpload3" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setText3()"  style="background-color: green; color: white;">Upload</button></td>
+                        </tr>
+                        <tr>
+                            <td>Banner Description 3.</td>
+                            <td><p  id="oldDesc3" ></td>
+                            
+                             <td> <input id="descUpload3" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setDesc3()"  style="background-color: green; color: white;">Upload</button></td>
+                        </tr>
+                        <tr>
+                            <td>Banner Link 3.</td>
+                            <td><p  id="oldLink3" ></td>
+                            
+                             <td> <input id="linkUpload3" type="text" style="display: block;" /></td>
+                            <td><button type="submit" onclick="setLink3()" style="background-color: green; color: white;" >Upload</button></td>
+                        </tr>
+                           <tr>
+                               <td>Banner Image 3.</td>
                                <td><img src="carosalimage.jpg" id="OldImage3" height="100px" width="150px" alt="Old Carosal Image 3"></td>
-                               <td><img id="preview3" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 3" style="display: none;"></td>
-                               <td><input id="upload3" type="file" style="display: none;" accept="image/*" onchange="showPreview3(event);" />
+                               
+                               <td>
+                                <img id="preview3" src="newcarosalimage.jpg" height="100px" width="150px" alt="New Carosal Image 3" style="display: none;">   
+                                <input id="upload3" type="file" style="display: none;" accept="image/*" onchange="showPreview3(event);" />
                                 <label for="upload3"style="cursor: pointer;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                 <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                 </svg></label></td>
-                               <td><button type="submit" onclick="upload3()" class="button primary" style="background-color: green; color: white;">Upload</button></td>
+                               <td><button type="submit" onclick="upload3()"  style="background-color: green; color: white;">Upload</button></td>
                            </tr>
                                 </tbody>
                                 </table>
@@ -1225,10 +1301,41 @@ function upload1(){
     }
         }
 const setText1 =(event) => {
-    console.log(event.target.value);
-    var preview = document.getElementById("newcarouselText1");
-    preview.value = event.target.value;
-} 
+    let preview = document.getElementById("textUpload1").value;
+    data.collection('content').doc("carousel").update({"banner.bannerText1" : preview}).then(()=> location.replace(''))
+}
+const setText2 =(event) => {
+    let preview = document.getElementById("textUpload2").value;
+    data.collection('content').doc("carousel").update({"banner.bannerText2" : preview}).then(()=> location.replace(''))
+}
+const setText3 =(event) => {
+    let preview = document.getElementById("textUpload3").value;
+    data.collection('content').doc("carousel").update({"banner.bannerText3" : preview}).then(()=> location.replace(''))
+}
+const setLink1 =(event) => {
+    let preview = document.getElementById("linkUpload1").value;
+    data.collection('content').doc("carousel").update({"banner.bannerLink1" : preview}).then(()=> location.replace(''))
+}
+const setLink2 =(event) => {
+    let preview = document.getElementById("linkUpload2").value;
+    data.collection('content').doc("carousel").update({"banner.bannerLink2" : preview}).then(()=> location.replace(''))
+}
+const setLink3 =(event) => {
+    let preview = document.getElementById("linkUpload3").value;
+    data.collection('content').doc("carousel").update({"banner.bannerLink3" : preview}).then(()=> location.replace(''))
+}
+const setDesc1 =(event) => {
+    let preview = document.getElementById("descUpload1").value;
+    data.collection('content').doc("carousel").update({"banner.bannerDesc1" : preview}).then(()=> location.replace(''))
+}
+const setDesc2 =(event) => {
+    let preview = document.getElementById("descUpload2").value;
+    data.collection('content').doc("carousel").update({"banner.bannerDesc2" : preview}).then(()=> location.replace(''))
+}
+const setDesc3 =(event) => {
+    let preview = document.getElementById("descUpload3").value;
+    data.collection('content').doc("carousel").update({"banner.bannerDesc3" : preview}).then(()=> location.replace(''))
+}
       
       
     </script>
