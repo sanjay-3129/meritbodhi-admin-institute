@@ -508,6 +508,7 @@
                                                             <th scope="col">Qualification</th>
                                                             <th scope="col">Default Password</th>
                                                             <th scope="col" style="text-align:center">Action</th>
+                                                            <th scope="col" style="text-align:center">Block</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="facListContainer">
@@ -872,7 +873,7 @@
                             }
                             if (instance) {
 
-                                var row1 = '<tr><td>' + ind + '</td> <td> <div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/' + b.profileImage + '" style="border-radius: 50%;width: 70px;height: 70px;"></div> </td><td>' + b.name + '</td> <td>' + b.email + '</td> <td>' + b.qualification + '</td><td>' + b.defaultPassword + '</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button><input type="button" id="blockButton" class="btn btn-sm btn-danger cbtn" fac-id="' + b.id + '"  value="'+status+'" onclick="blockFacultyFromInsttute(`'+b.id+'`)"></input></td> </tr>';
+                                var row1 = '<tr><td>' + ind + '</td> <td> <div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/' + b.profileImage + '" style="border-radius: 50%;width: 70px;height: 70px;"></div> </td><td>' + b.name + '</td> <td>' + b.email + '</td> <td>' + b.qualification + '</td><td>' + b.defaultPassword + '</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button></td><td><input type="button" id="blockButton" class="btn btn-sm btn-danger cbtn" fac-id="' + b.id + '"  value="'+status+'" onclick="blockFacultyFromInsttute(`'+b.id+'`)"></input></td> </tr>';
                                 $('#facListContainer').append(row1);
                                 console.log(ind);
                                 ind++;
@@ -881,14 +882,14 @@
 
                             }
                             else {
-                                var row2 = ` <tr><td>` + ind + `</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/` + b.profileImage + `" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>` + b.name + `</td> <td>` + b.email + `</td><td>` + b.qualification + `</td><td>` + b.defaultPassword + `</td><td style="text-align:center"> <input class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="` + b.id + `" onclick="removeFacultyFromInsttute(this)">Remove</button><button class="btn btn-sm btn-danger cbtn" fac-id="` + b.id + `" value="`+status+`" onclick="blockFacultyFromInsttute("`+b.id+`")">Block</button></td></tr>`
+                                var row2 = ` <tr><td>` + ind + `</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/` + b.profileImage + `" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>` + b.name + `</td> <td>` + b.email + `</td><td>` + b.qualification + `</td><td>` + b.defaultPassword + `</td><td style="text-align:center"> <input class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="` + b.id + `" onclick="removeFacultyFromInsttute(this)">Remove</button></td><td><input type="button" class="btn btn-sm btn-danger cbtn" fac-id="` + b.id + `" value="`+status+`" onclick="blockFacultyFromInsttute("`+b.id+`")"></input></td></tr>`
                                 $('#facListContainer').append(row2);
                                 ind++;
                                 console.log('1ele');
                             }
                         }
                         else {
-                            var row2 = ` <tr><td>` + ind + `</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/` + b.profileImage + `" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>` + b.name + `</td><td>` + b.email + `</td><td>` + b.qualification + `</td><td>` + b.defaultPassword + `</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="` + b.id + `" onclick="removeFacultyFromInsttute(this)">Remove</button><input class="btn btn-sm btn-danger cbtn" fac-id="` + b.id + `" type="button" value="`+status+`" onclick="blockFacultyFromInsttute('`+b.id+`')"></input></td> </tr>`
+                            var row2 = ` <tr><td>` + ind + `</td><td><div class="m-r-10"><img src="https://secure--storage.s3.ap-south-1.amazonaws.com/` + b.profileImage + `" style="border-radius: 50%;width: 70px;height: 70px;"></div></td><td>` + b.name + `</td><td>` + b.email + `</td><td>` + b.qualification + `</td><td>` + b.defaultPassword + `</td><td style="text-align:center"> <button class="btn btn-sm btn-primary cbtn">view</button><button class="btn btn-sm btn-primary cbtn" fac-id="` + b.id + `" onclick="removeFacultyFromInsttute(this)">Remove</button></td><td><input class="btn btn-sm btn-danger cbtn" fac-id="` + b.id + `" type="button" value="`+status+`" onclick="blockFacultyFromInsttute('`+b.id+`')"></input></td> </tr>`
                             $('#facListContainer').append(row2);
                             ind++;
                             console.log('2ele');
