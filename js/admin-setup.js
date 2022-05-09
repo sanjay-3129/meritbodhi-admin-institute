@@ -41,7 +41,7 @@ logout = () => {
   auth.signOut().then(() => {
     localforage.clear().then(() => {
       sessionStorage.clear();
-      location.replace("https://meritbodhi.co.in/admin-login");
+      location.replace("https://meritbodhi.com/admin-login");
     });
   });
 };
