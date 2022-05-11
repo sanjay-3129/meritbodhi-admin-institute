@@ -24,7 +24,7 @@ new WebpackDevServer(webpack(webpackConfig), {
   disableHostCheck: true,
   historyApiFallback: true,
   proxy: [{
-    path: 'file:///C:/Users/ELCOT/Desktop/sample-app-web-master/CDN//meeting.html',
+    path: '/meeting.html',
     target: 'http://127.0.0.1:9998/'
   }]
 }).listen(9999, '0.0.0.0', runFunc);
