@@ -1208,6 +1208,14 @@
             });
         });
       };
+      logout = () => {
+        auth.signOut().then(() => {
+          localforage.clear().then(() => {
+            sessionStorage.clear();
+            location.replace("https://meritbodhi.com/admin-login");
+          });
+        });
+      };
     </script>
   </body>
   <!-- primary color : #5e72e4 -->
