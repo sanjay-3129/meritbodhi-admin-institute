@@ -24,6 +24,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
     <script src="../js/connect.js"></script>
     <link rel="stylesheet" type="text/css" href="Account-Details.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
@@ -180,17 +181,17 @@
                                <form class="form-group">
                                 
                                     <div class="form-group">
-                                      <label for="exampleInputEmail1">Name</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                      <label for="inputName">Name</label>
+                                      <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" >
                                       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                     </div>
                                     <div class="form-group">
-                                      <label for="exampleInputPassword1">Phone Number</label>
-                                      <input type="tel" class="form-control" id="exampleInputPassword1" >
+                                      <label for="inputPhoneNumber">Phone Number</label>
+                                      <input type="tel" class="form-control" id="inputPhoneNumber" >
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Branch</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1" >
+                                        <label for="inputBranch">Branch</label>
+                                        <input type="text" class="form-control" id="inputBranch" >
                                       </div>
                                     <!-- <div class="form-group form-check">
                                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -203,13 +204,13 @@
                            <div class="col-md-6">
                              <form>
                                 <div class="form-group">
-                                  <label for="exampleInputEmail1">Account No</label>
-                                  <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                  <label for="inputAccountNumber">Account No</label>
+                                  <input type="tel" class="form-control" id="inputAccountNumber" aria-describedby="emailHelp" >
                                   <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">IFSC</label>
-                                  <input type="tel" class="form-control" id="exampleInputPassword1" >
+                                  <label for="inputIfsc">IFSC</label>
+                                  <input type="tel" class="form-control" id="inputIfsc" >
                                 </div>
                                 
                                 <!-- <div class="form-group form-check">
@@ -230,27 +231,23 @@
                     <div class="col-md-12">
                       <form>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Upi</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@upi" >
+                          <label for="inputUpi">Upi</label>
+                          <input type="text" class="form-control" id="inputUpi" aria-describedby="emailHelp" placeholder="name@upi" >
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <br>
                       </form>
                       <h3>Preferred Method</h3>
-                      <div class="form-check">
-                        <input class="form-check-input" style="display: block;" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                        Online Payments
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" style="display: block;" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Upi Payments
-                        </label>
+                      <div class="form-check" id="paymentMethod">
+                        <input class="form-check-input" style="display: block;" type="radio" value="online" name="flexRadioDefault" id="onlinePayment" checked>
+                        <label for="onlinePayment">Online Payments</label><br>
+                         <input class="form-check-input" style="display: block;" type="radio" value="upi" name="flexRadioDefault" id="upiPayment" >
+                        
+                        <label for="upiPayment">  Upi Payments</label><br>
+
                       </div>
                       <div class="form-check" style="margin-top: 50px; ">
-                        <button type="submit" class="btn btn-primary " style="margin-right: 20px; ">Save</button>
+                        <button type="submit" class="btn btn-primary" onclick="upload()" style="margin-right: 20px; ">Save</button>
                         <button type="submit" class="btn btn-primary"  style="background-color: red; ">Cancel</button>
                       </div>
                       
@@ -277,8 +274,26 @@
         var form = document.getElementById('profileForm');
         var nameAproA=[];
         var instituteDetails=[];
-
-        function onLoadSetter(){
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+               data.collection('institute').doc(user.uid).get().then((snapshot)=>{
+                                let dataFromDb =snapshot.data().paymentDetails;
+                                document.getElementById('inputName').value=dataFromDb?.name;
+                                document.getElementById('inputPhoneNumber').value=dataFromDb?.phoneNumber;
+                                document.getElementById('inputBranch').value=dataFromDb?.branch;
+                                document.getElementById('inputAccountNumber').value=dataFromDb?.accountNumber;
+                                document.getElementById('inputIfsc').value=dataFromDb?.ifsc;
+                                document.getElementById('inputUpi').value=dataFromDb?.upi;
+                                document.querySelector('input[name="flexRadioDefault"]:checked').value=dataFromDb?.method;
+                            }).then(()=>{
+                                console.log("Initial load completed");
+                            })
+            }else{
+                location.replace('../login/');
+            }
+        })
+         function onLoadSetter(){
+          
             localforage.getItem('fullAuth').then((e)=>{
                 console.log(e);
                 nameApro=e;
@@ -287,24 +302,38 @@
                 document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
                 localforage.getItem('instituteDetails').then((f)=>{
                     instituteDetails=f;
+                    instituteId = f.id;
                     cardValuesSetter();
-                    
                     reviewsChartSetter(f.courseIds);
-                    
-                    
+                   
                 })
             });
-            
-            
-        }
-         auth.onAuthStateChanged((user)=>{
-            if(user){
-               
-            }else{
-                location.replace('../login/');
+         }
+         // Upload payment details to firestore
+function upload ()  {
+    let user = firebase.auth().currentUser;
+    let name =document.getElementById('inputName').value;
+    let phoneNumber =document.getElementById('inputPhoneNumber').value;
+    let branch =document.getElementById('inputBranch').value;
+    let accountNumber =document.getElementById('inputAccountNumber').value;
+    let ifsc =document.getElementById('inputIfsc').value;
+    let upi =document.getElementById('inputUpi').value;
+    let method= document.querySelector('input[name="flexRadioDefault"]:checked').value;
+// Upload to firestore
+        data.collection('institute').doc(user.uid).update({
+            paymentDetails : {
+                name : name,
+                branch: branch,
+                accountNumber: accountNumber,
+                phoneNumber: phoneNumber,
+                preferredMethod : method,
+                upi: upi,
+                ifsc:ifsc
             }
+        }).then(()=>{
+            location.replace("")
         })
-
+}
          function loaderTriggerAndEnder(d) {
             if (d) {
                 document.getElementById('loaderTrigger').click();
