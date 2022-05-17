@@ -25,8 +25,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="../js/connect.js"></script>
-    <link rel="stylesheet" type="text/css" href="newdash.css">
+    <link rel="stylesheet" type="text/css" href="payments.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Meritbothi | Dashboard Institute</title>
     <!-- cdns for custom multi select -->`
 </head>
@@ -153,7 +154,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/payments" ><i class="fas fa-credit-card"></i>Payments</a>
                             </li>    
-                            <li class="nav-item">
+                             <li class="nav-item">
                                 <a class="nav-link" href="/Account-Details" ><i class="fas fa-hands-helping"></i>Account Details</a>
                             </li> 
                             <li class="nav-item">
@@ -176,29 +177,29 @@
                     <div class="ecommerce-widget">
 
                         <div class="row">
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Courses</h2>
-                                    <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="courseCount">000</h3>
-                                    </div>
-                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span><i class="fas fa-book"></i></span><span></span>
-                                    </div>
-                                    </div>
-                                    <div id="sparkline-revenue"></div>
-                                </div>
-                                </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Teachers</h2>
+                                        <h2 style="color: #5e72e4;">Total Pending </h2>
+                                        <div class="metric-value d-inline-block">
+                                            <h3 class="mb-1">500 Rupees</h3>
+                                        </div>
+                                        <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                            <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                                        </div>
+                                    </div>
+                                    <div id="sparkline-revenue4"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 style="color: #5e72e4;">Institution</h2>
                                     <div class="metric-value d-inline-block">
                                             <h3 class="mb-1" id="facultyCount">000</h3>
                                     </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span><i class="fas fa-user"></i></span><span></span>
+                                    <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
                                     </div>
                                     </div>
                                 
@@ -207,31 +208,38 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Students</h2>
+                                        <h2 style="color: #5e72e4;">Meritbothi</h2>
                                         <div class="metric-value d-inline-block">
                                             <h3 class="mb-1" id="studentCount">0.00</h3>
                                         </div>
-                                        <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
-                                            <i class="fas fa-user-graduate"></i>
+                                        <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                            <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
                                         </div>
                                     </div>
                                     <div id="sparkline-revenue3"></div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                            
+                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Name</h2>
-                                        <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1">Website by</h3>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                                            <span><a href="#">go to</a></span>
-                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="display: block;">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                             Monthly
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: block;">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              Yearly
+                                            </label>
+                                          </div>
+
                                     </div>
-                                    <div id="sparkline-revenue4"></div>
+                                    
                                 </div>
-                            </div>
+                             </div>
                         </div>
     <!-- row1start -->
                       
@@ -250,9 +258,10 @@
                                                     <tr class="border-0">
                                                        <th class="border-0">S.no</th>
 
-                                                       <th class="border-0">Courses</th>
-                                                        <th class="border-0">No of Students</th>
-                                                        <th class="border-0">Cost</th>
+                                                       <th class="border-0">Courses Name</th>
+                                                        <th class="border-0">Student mail</th>
+                                                        <th class="border-0">Price</th>
+                                                        <th class="border-0">status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="topPerfTab">
@@ -264,7 +273,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="abcde">
+                            <!-- <div class="abcde">
                                 <div class="card">
                                     <h5 class="card-header">Low Performing Courses</h5>
                                     <div class="card-body p-0">
@@ -286,7 +295,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             
                     </div>    
 
@@ -294,7 +303,7 @@
 <!-- row2end -->
 <!-- row3start -->
 
-<div class="abc1">
+<!-- <div class="abc1">
                                    
                                    <div class="card graphjoker1"> 
                                      <div class="graphcontainer">
@@ -314,7 +323,7 @@
   
 
 
-</div>
+</div> -->
 
 
 

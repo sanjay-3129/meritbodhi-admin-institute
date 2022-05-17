@@ -25,8 +25,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="../js/connect.js"></script>
-    <link rel="stylesheet" type="text/css" href="newdash.css">
+    <link rel="stylesheet" type="text/css" href="Account-Details.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Meritbothi | Dashboard Institute</title>
     <!-- cdns for custom multi select -->`
 </head>
@@ -153,7 +154,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/payments" ><i class="fas fa-credit-card"></i>Payments</a>
                             </li>    
-                            <li class="nav-item">
+                             <li class="nav-item">
                                 <a class="nav-link" href="/Account-Details" ><i class="fas fa-hands-helping"></i>Account Details</a>
                             </li> 
                             <li class="nav-item">
@@ -161,174 +162,106 @@
                                  </li>
                             <li class="nav-item hi-sh-lg">
                                 <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
-                                 </li>
+                            </li>
                                 </ul>
-                                </div>
-                                </nav>
-                                </div>
-                                </div>
-        
-
-                <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
-                    
-                    <div class="ecommerce-widget">
-
-                        <div class="row">
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Courses</h2>
-                                    <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="courseCount">000</h3>
-                                    </div>
-                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span><i class="fas fa-book"></i></span><span></span>
-                                    </div>
-                                    </div>
-                                    <div id="sparkline-revenue"></div>
-                                </div>
-                                </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Teachers</h2>
-                                    <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="facultyCount">000</h3>
-                                    </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span><i class="fas fa-user"></i></span><span></span>
-                                    </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Students</h2>
-                                        <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="studentCount">0.00</h3>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
-                                            <i class="fas fa-user-graduate"></i>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline-revenue3"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 style="color: #5e72e4;">Name</h2>
-                                        <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1">Website by</h3>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                                            <span><a href="#">go to</a></span>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline-revenue4"></div>
-                                </div>
-                            </div>
-                        </div>
-    <!-- row1start -->
-                      
-<!-- row1end -->
-
-<!-- row2start -->
-                        <div class="abc" >
-
-                            <div class="abcd">
-                                <div class="card">
-                                    <h5 class="card-header">Top performing Courses</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                       <th class="border-0">S.no</th>
-
-                                                       <th class="border-0">Courses</th>
-                                                        <th class="border-0">No of Students</th>
-                                                        <th class="border-0">Cost</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="topPerfTab">
-                                                   <tr><td colspan="4">Loading...</td></tr>
-                                                </tbody>
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="abcde">
-                                <div class="card">
-                                    <h5 class="card-header">Low Performing Courses</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                       <th class="border-0">S.no</th>
-
-                                                       <th class="border-0">Courses</th>
-                                                        <th class="border-0">No of Students</th>
-                                                        <th class="border-0">Cost</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="lowPerfTab">
-                                                      <tr><td colspan="4">Loading...</td></tr>        
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                    </div>    
-
-
-<!-- row2end -->
-<!-- row3start -->
-
-<div class="abc1">
-                                   
-                                   <div class="card graphjoker1"> 
-                                     <div class="graphcontainer">
-                                        <canvas id="incomeAsPerYear" class="graphjoker"></canvas>
-                                    </div>   
-                                   </div>
-                                   <div class="card">
-                                   <div class="graphcontainer1" style="background-color: #fff;">
-                                    <h2 style="padding: 1rem;">Institute Rating</h2>
-                                    <canvas id="ratingDougnetChart"></canvas>
-                                    </div>
-                                    </div>
-                                    
-                                    
-
-                            
-  
-
-
-</div>
-
-
-
-
-<!-- row3end -->
-
-                                
-
+                    </div>
+                </nav>
             </div>
         </div>
-    </div> 
-</div>         
+        
+
+             <div class="dashboard-wrapper">
+                <div class="dashboard-ecommerce">
+                  <div class="container-fluid dashboard-content " style="padding: 30px;">  
+                    <div class="ecommerce-widget">
+                      <h3>Bank Details</h3>
+                       <div class="row">
+                           <div class="col-md-6">
+                               <form class="form-group">
+                                
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Name</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Phone Number</label>
+                                      <input type="tel" class="form-control" id="exampleInputPassword1" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Branch</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" >
+                                      </div>
+                                    <!-- <div class="form-group form-check">
+                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div> -->
+                                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                                </form>
                         
-    
+                           </div>
+                           <div class="col-md-6">
+                             <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Account No</label>
+                                  <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">IFSC</label>
+                                  <input type="tel" class="form-control" id="exampleInputPassword1" >
+                                </div>
+                                
+                                <!-- <div class="form-group form-check">
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div> -->
+                                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                              </form>
+                           </div>
+                         
+                        </div>
+                        
+                    </div>
+                  </div>
+                  <div class="dashboard-content" style="padding: 30px;">
+                      <h3>Upi Payments</h3>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Upi</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@upi" >
+                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <br>
+                      </form>
+                      <h3>Preferred Method</h3>
+                      <div class="form-check">
+                        <input class="form-check-input" style="display: block;" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                        Online Payments
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" style="display: block;" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Upi Payments
+                        </label>
+                      </div>
+                      <div class="form-check" style="margin-top: 50px; ">
+                        <button type="submit" class="btn btn-primary " style="margin-right: 20px; ">Save</button>
+                        <button type="submit" class="btn btn-primary"  style="background-color: red; ">Cancel</button>
+                      </div>
+                      
+                    </div>
+                    <!-- <div class="col-md-6"></div> -->
+                </div>
+            </div>
+                </div>
+              </div>
+            
+                        
 
 <script type="text/javascript" src="jsjoker.js"></script>
        

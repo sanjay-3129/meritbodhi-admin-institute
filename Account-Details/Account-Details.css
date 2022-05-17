@@ -1,0 +1,76 @@
+.abc {
+  display: flex;
+}
+.abcd {
+  width: 100%;
+}
+.abcde {
+  width: 50%;
+  margin-left: 2rem;
+}
+.abc1 {
+  display: flex;
+  justify-content: space-between;
+}
+.graphjoker1 {
+  width: 68%;
+}
+
+.dashboard-content {
+  background-color: #fff;
+}
+
+label {
+  font-size: large;
+}
+
+input[type="text"] {
+  width: 80%;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  color: #000;
+  font-family: "poppins" cursive;
+}
+
+input[type="tel"] {
+  width: 80%;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  color: #000;
+}
+
+#ratingDougnetChart {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+@media only screen and (max-width: 1024px) {
+  .abc1 {
+    flex-direction: column;
+    grid-column: 5;
+  }
+  .graphjoker1 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .abc {
+    flex-direction: column;
+    grid-column: 5;
+  }
+  .abcd {
+    width: 100%;
+  }
+  .abcde {
+    width: 100%;
+    margin-left: 1px;
+  }
+}

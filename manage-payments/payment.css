@@ -1,0 +1,112 @@
+.abc{
+	display: flex; 
+}
+.abcd{
+	width:50%;
+}
+.abcde{
+	width:50%; margin-left: 2rem;
+}
+.abc1{
+	display: flex;
+	justify-content: space-between;
+}
+.graphjoker1{
+	width: 68%;
+}
+@media only screen and (max-width: 1024px)
+{
+	.abc1{
+	flex-direction: column;
+	grid-column: 5;
+}
+.graphjoker1{
+	width: 100%;
+
+}
+}
+
+@media only screen and (max-width: 568px)
+{
+.abc{
+	flex-direction: column;
+	grid-column: 5;
+}
+.abcd{
+	width:100%;
+}
+.abcde{
+	width:100%;
+	margin-left: 1px;
+}
+
+
+}
+
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+
+	top: 0;
+	left: 0;
+	background-color:white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	margin-top: 40px;
+	font-size: 20px;
+	
+  }
+  
+  .sidebar a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #808080;
+	display: block;
+	transition: 0.3s;
+	margin-left: 26px;
+  }
+  
+  .sidebar a:hover {
+	color: black;
+  }
+  
+  .sidebar .closebtn  {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+
+.fa-chart-pie,.fa-university,.fa-chalkboard-teacher,.fa-book,.fa-sort-amount-down,.fa-credit-card,.fa-flag,.fa-question-circle,.fa-plus-square,.fa-power-off {
+	margin-right: 10px;
+}
+  
+  .openbtn  {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: #007bff;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+  
+  #main1 {
+	transition: margin-left .5s;
+	padding: 16px;
+  }
+  .closebtn:hover {
+	  background-color: whitesmoke;
+  }
+  .closebtn {
+	  margin-top: 24px;
+	  
+  }

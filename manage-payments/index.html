@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <link
+      rel="icon"
+      href="../assets/images/header-logo2.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      href="../assets/vendors/fonts/circular-std/style.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/libs/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/charts/chartist-bundle/chartist.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/charts/morris-bundle/morris.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/28d953b416.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="payment.css" />
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "220px";
+        //   document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+
+    <title>Meritbothi | Manage-Institute's</title>
+  </head>
+
+  <body onload="onLoadSetter()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+      <!-- ============================================================== -->
+      <!-- navbar -->
+      <!-- ============================================================== -->
+      <div class="dashboard-header">
+        <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+          <div id="main1">
+            <button class="openbtn" onclick="openNav()">☰</button>
+          </div>
+          <a class="navbar-brand" href="index.html" style="font-size: 23px"
+            >Meritbothi</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto navbar-right-top">
+              <li class="nav-item dropdown notification">
+                <a
+                  class="nav-link nav-icons"
+                  href="#"
+                  id="navbarDropdownMenuLink1"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-right notification-dropdown"
+                >
+                  <li>
+                    <div class="notification-title">Notification</div>
+                    <div class="notification-list">
+                      <div class="list-group">
+                        <a
+                          href="#"
+                          class="list-group-item list-group-item-action active"
+                        >
+                          <div class="notification-info">
+                            <div class="notification-list-user-img">
+                              <img
+                                src="../assets/images/avatar-2.jpg"
+                                alt=""
+                                class="user-avatar-md rounded-circle"
+                              />
+                            </div>
+                            <div class="notification-list-user-block">
+                              <span class="notification-list-user-name"
+                                >Kishor</span
+                              >accepted your invitation to join the team.
+                              <div class="notification-date">2 min ago</div>
+                            </div>
+                          </div>
+                        </a>
+                        <a
+                          href="#"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <div class="notification-info">
+                            <div class="notification-list-user-img">
+                              <img
+                                src="../assets/images/avatar-3.jpg"
+                                alt=""
+                                class="user-avatar-md rounded-circle"
+                              />
+                            </div>
+                            <div class="notification-list-user-block">
+                              <span class="notification-list-user-name"
+                                >Bharath </span
+                              >is now following you
+                              <div class="notification-date">2 days ago</div>
+                            </div>
+                          </div>
+                        </a>
+                        <a
+                          href="#"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <div class="notification-info">
+                            <div class="notification-list-user-img">
+                              <img
+                                src="../assets/images/avatar-4.jpg"
+                                alt=""
+                                class="user-avatar-md rounded-circle"
+                              />
+                            </div>
+                            <div class="notification-list-user-block">
+                              <span class="notification-list-user-name"
+                                >Sudhersun</span
+                              >
+                              is watching your main repository
+                              <div class="notification-date">2 min ago</div>
+                            </div>
+                          </div>
+                        </a>
+                        <a
+                          href="#"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <div class="notification-info">
+                            <div class="notification-list-user-img">
+                              <img
+                                src="../assets/images/avatar-5.jpg"
+                                alt=""
+                                class="user-avatar-md rounded-circle"
+                              />
+                            </div>
+                            <div class="notification-list-user-block">
+                              <span class="notification-list-user-name"
+                                >Sandy</span
+                              >accepted your invitation to join the team.
+                              <div class="notification-date">2 min ago</div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-footer">
+                      <a href="#">View all notifications</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown nav-user">
+                <a
+                  class="nav-link nav-user-img"
+                  href="#"
+                  id="navbarDropdownMenuLink2"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="../assets/images/avatar-1.jpg"
+                    alt=""
+                    class="user-avatar-md rounded-circle"
+                    id="smallProfileImage"
+                /></a>
+                <div
+                  class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                  aria-labelledby="navbarDropdownMenuLink2"
+                >
+                  <div class="nav-user-info">
+                    <h5 class="mb-0 text-white nav-user-name" id="iName">
+                      Black
+                    </h5>
+                    <span class="status"></span
+                    ><span class="ml-2">Available</span>
+                  </div>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user mr-2"></i>Account</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog mr-2"></i>Setting</a
+                  >
+                  <a class="dropdown-item" onclick="logout()" href="#"
+                    ><i class="fas fa-power-off mr-2"></i>Logout</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- ============================================================== -->
+      <!-- end navbar -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- left sidebar -->
+      <!-- ============================================================== -->
+
+      <div id="mySidebar" class="sidebar" style="width: 220px">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <ul class="navbar-nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="../manage-dashboard"
+              ><i class="fas fa-chart-pie"></i>Dashboard</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-institute"
+              ><i class="fas fa-university"></i>Institute's</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-faculty"
+              ><i class="fas fa-chalkboard-teacher"></i>Faculty</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-courses"
+              ><i class="fas fa-book"></i>Courses</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-content"
+              ><i class="fas fa-image"></i> Content</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-category"
+              ><i class="fas fa-sort-amount-down"></i>Category</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-payments"
+              ><i class="fas fa-credit-card"></i>Payments</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-report"
+              ><i class="fas fa-flag"></i>Report Generation</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-complaints"
+              ><i class="fas fa-question-circle"></i>Complaints</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../manage-addadmins"
+              ><i class="fas fa-plus-square"></i>Add Admins</a
+            >
+          </li>
+
+          <li class="nav-item hi-sh-lg">
+            <a class="nav-link" href="#" onclick="logout()"
+              ><i class="fas fa-power-off"></i>Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- end left sidebar -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- wrapper  -->
+      <!-- ============================================================== -->
+      <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+          <div class="container-fluid dashboard-content">
+            <div class="ecommerce-widget">
+              <!-- rowstart -->
+
+              
+
+              <!-- rowend -->
+
+              <!--recent table-->
+
+              <div class="row">
+                <div style="width: 100%; margin-left: 15px; margin-right: 15px">
+                  <div class="card">
+                    <h5 class="card-header">Recent Orders</h5>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="bg-light">
+                            <tr class="border-0">
+                              <th class="border-0">#</th>
+                              <th class="border-0">Image</th>
+                              <th class="border-0">Student Name</th>
+                              <th class="border-0">Student Id</th>
+                              <th class="border-0">Course Name</th>
+                              <th class="border-0">Date & Time</th>
+                            </tr>
+                          </thead>
+                          <tbody id="orderTab">
+                            <tr>
+                              <td>1</td>
+                              <td>
+                                <div class="m-r-10">
+                                  <img
+                                    src="spider.jpeg"
+                                    alt="user"
+                                    class="rounded"
+                                    width="45"
+                                  />
+                                </div>
+                              </td>
+                              <td>student 1</td>
+                              <td>id000001</td>
+                              <td>course1</td>
+                              <td>27-08-2018 01:22:12</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>
+                                <div class="m-r-10">
+                                  <img
+                                    src="spider.jpeg"
+                                    alt="user"
+                                    class="rounded"
+                                    width="45"
+                                  />
+                                </div>
+                              </td>
+                              <td>Student 2</td>
+                              <td>id000002</td>
+                              <td>course2</td>
+                              <td>25-08-2018 21:12:56</td>
+                              <td>
+                                <span
+                                  class="badge-dot badge-success mr-1"
+                                ></span
+                                >Paid
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>
+                                <div class="m-r-10">
+                                  <img
+                                    src="spider.jpeg"
+                                    alt="user"
+                                    class="rounded"
+                                    width="45"
+                                  />
+                                </div>
+                              </td>
+                              <td>Student 3</td>
+                              <td>id000003</td>
+                              <td>course3</td>
+                              <td>25-08-2018 21:12:56</td>
+                              <td>
+                                <span
+                                  class="badge-dot badge-success mr-1"
+                                ></span
+                                >Paid
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>
+                                <div class="m-r-10">
+                                  <img
+                                    src="spider.jpeg"
+                                    alt="user"
+                                    class="rounded"
+                                    width="45"
+                                  />
+                                </div>
+                              </td>
+                              <td>Student 4</td>
+                              <td>id000004</td>
+                              <td>course4</td>
+                              <td>23-08-2018 09:12:35</td>
+                              <td>
+                                <span
+                                  class="badge-dot badge-success mr-1"
+                                ></span
+                                >Paid
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>
+                                <div class="m-r-10">
+                                  <img
+                                    src="spider.jpeg"
+                                    alt="user"
+                                    class="rounded"
+                                    width="45"
+                                  />
+                                </div>
+                              </td>
+                              <td>Student 5</td>
+                              <td>id000005</td>
+                              <td>course5</td>
+                              <td>23-08-2018 09:12:35</td>
+                              <td>
+                                <span
+                                  class="badge-dot badge-success mr-1"
+                                ></span
+                                >Paid
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tr>
+                            <td colspan="9">
+                              <a
+                                href="#"
+                                class="btn btn-outline-light float-right"
+                                >View Details</a
+                              >
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ============================================================== -->
+              <!-- end recent orders  -->
+              
+
+              <div class="row">
+                <!-- ============================================================== -->
+                <!-- product category  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-5 col-lg-9 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                    <h5 class="card-header">Product Category</h5>
+                    <div class="card-body">
+                      <br />
+                      <br />
+                      <div id="myChart"></div>
+                      <br />
+                      <br />
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  google.charts.load("current", { packages: ["corechart"] });
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                      ["Contry", "Mhl"],
+                      ["User", 54.8],
+                      ["Students", 48.6],
+                      ["Course", 44.4],
+                      ["Customers", 23.9],
+                      ["Institute", 40],
+                    ]);
+
+                    var options = {
+                      is3D: true,
+                    };
+
+                    var chart = new google.visualization.PieChart(
+                      document.getElementById("myChart")
+                    );
+                    chart.draw(data, options);
+                  }
+                </script>
+                <!-- ============================================================== -->
+                <!-- end product category  -->
+                <!-- product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product sales  -->
+                <!-- ============================================================== -->
+                <div class="abcde" style="margin-left: 1rem">
+                  <div class="card">
+                    <h5 class="card-header">Courses</h5>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="bg-light">
+                            <tr class="border-0">
+                              <th class="border-0">S.no</th>
+                              <th class="border-0">Name</th>
+                              <th class="border-0">Category</th>
+                              <th class="border-0">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody id="courseTab">
+                            <tr>
+                              <td>1</td>
+                              <td>Web</td>
+                              <td>100</td>
+                              <td>$100</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Web</td>
+                              <td>100</td>
+                              <td>$100</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Web</td>
+                              <td>100</td>
+                              <td>$100</td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>Web</td>
+                              <td>100</td>
+                              <td>$100</td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>Web</td>
+                              <td>100</td>
+                              <td>$100</td>
+                            </tr>
+                          </tbody>
+                          <tr>
+                            <td colspan="4">
+                              <a
+                                href="../manage-courses"
+                                class="btn btn-outline-light float-right"
+                                >View All</a
+                              >
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <script>
+                                var xValues = ["2019", "2020", "2021", "2022", "2033"];
+                                var yValues = [20, 15, 60, 50, 100];
+                                var barColors = ["lightblue", "lightblue","lightblue","lightblue","lightblue"];
+
+                                new Chart("myChart1", {
+                                  type: "bar",
+                                  data: {
+                                    labels: xValues,
+                                    datasets: [{
+                                      backgroundColor: barColors,
+                                      data: yValues
+                                    }]
+                                  },
+                                  options: {
+                                    legend: {display: true},
+                                    title: {
+                                      display: true,
+                                      
+                                    }
+                                  }
+                                });
+
+                            </script> -->
+
+              <div class="row">
+                <!-- ============================================================== -->
+                <!-- total revenue  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- category revenue  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-5 col-lg-7 col-md-12 col-sm-12 col-12">
+                  <div class="card">
+                    <h5 class="card-header">Revenue by Category</h5>
+                    <div class="card-body">
+                      <br />
+                      <br />
+                      <br />
+                      <div id="app1"></div>
+
+                      <script type="text/babel">
+                        class ApexChart extends React.Component {
+                          constructor(props) {
+                            super(props);
+
+                            this.state = {
+                              series: [44, 55, 41, 17, 15],
+                              options: {
+                                chart: {
+                                  width: 380,
+                                  type: "donut",
+                                },
+                                plotOptions: {
+                                  pie: {
+                                    startAngle: -90,
+                                    endAngle: 270,
+                                  },
+                                },
+                                dataLabels: {
+                                  enabled: false,
+                                },
+                                fill: {
+                                  type: "gradient",
+                                },
+                                legend: {
+                                  formatter: function (val, opts) {
+                                    return (
+                                      val +
+                                      " - " +
+                                      opts.w.globals.series[opts.seriesIndex]
+                                    );
+                                  },
+                                },
+
+                                responsive: [
+                                  {
+                                    breakpoint: 480,
+                                    options: {
+                                      chart: {
+                                        width: 200,
+                                      },
+                                      legend: {
+                                        position: "bottom",
+                                      },
+                                    },
+                                  },
+                                ],
+                              },
+                            };
+                          }
+
+                          render() {
+                            return (
+                              <div>
+                                <div id="chart">
+                                  <ReactApexChart
+                                    options={this.state.options}
+                                    series={this.state.series}
+                                    type="donut"
+                                    width={380}
+                                  />
+                                </div>
+                              </div>
+                            );
+                          }
+                        }
+
+                        const domContainer1 = document.querySelector("#app1");
+                        ReactDOM.render(
+                          React.createElement(ApexChart),
+                          domContainer1
+                        );
+                      </script>
+
+                      <br /><br /><br /><br />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- end category revenue  -->
+                <!-- ============================================================== -->
+
+                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                  <div class="card">
+                    <h5 class="card-header">Total Revenue</h5>
+                    <div class="card-body">
+                      <div id="app"></div>
+
+                      <script type="text/babel">
+                        class ApexChart extends React.Component {
+                          constructor(props) {
+                            super(props);
+
+                            this.state = {
+                              series: [
+                                {
+                                  name: "Desktops",
+                                  data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+                                },
+                              ],
+                              options: {
+                                chart: {
+                                  height: 350,
+                                  type: "line",
+                                  zoom: {
+                                    enabled: false,
+                                  },
+                                },
+                                dataLabels: {
+                                  enabled: false,
+                                },
+                                stroke: {
+                                  curve: "straight",
+                                },
+
+                                grid: {
+                                  row: {
+                                    colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+                                    opacity: 0.5,
+                                  },
+                                },
+                                xaxis: {
+                                  categories: [
+                                    "Jan",
+                                    "Feb",
+                                    "Mar",
+                                    "Apr",
+                                    "May",
+                                    "Jun",
+                                    "Jul",
+                                    "Aug",
+                                    "Sep",
+                                  ],
+                                },
+                              },
+                            };
+                          }
+
+                          render() {
+                            return (
+                              <div>
+                                <div id="chart">
+                                  <ReactApexChart
+                                    options={this.state.options}
+                                    series={this.state.series}
+                                    type="line"
+                                    height={350}
+                                  />
+                                </div>
+                                <div id="html-dist"></div>
+                              </div>
+                            );
+                          }
+                        }
+
+                        const domContainer = document.querySelector("#app");
+                        ReactDOM.render(
+                          React.createElement(ApexChart),
+                          domContainer
+                        );
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================================== -->
+              <!-- end sales traffice country source  -->
+              <!-- ============================================================== -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- end wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+
+    <script src="../assets/vendors/charts/morris-bundle/raphael.min.js"></script>
+    <script src="../assets/vendors/charts/morris-bundle/morris.js"></script>
+
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../assets/vendors/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+
+    <!-- chart c3 js -->
+    <script src="../assets/vendors/charts/c3charts/c3.min.js"></script>
+    <script src="../assets/vendors/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../assets/vendors/charts/c3charts/C3chartjs.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/react@16.12/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.12/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prop-types@15.7.2/prop-types.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts@1.3.6/dist/react-apexcharts.iife.min.js"></script>
+    <script>
+      var subCategories = [];
+      var institutes = [];
+      var faculties = [];
+      var students = [];
+      var courses = [];
+      var courseCountter = 0;
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+        } else {
+          location.replace("../admin-login/");
+        }
+      });
+      onLoadSetter = () => {
+        data
+          .collection("subCategories")
+          .get()
+          .then((cats) => {
+            cats.forEach((cat) => {
+              subCategories.push(cat.id);
+            });
+          })
+          .then(() => {
+            courseGetter(subCategories);
+            data
+              .collection("institute")
+              .get()
+              .then((ins) => {
+                ins.forEach((inst) => {
+                  institutes.push(inst.data());
+                });
+              })
+              .then(() => {
+                data
+                  .collection("faculty")
+                  .get()
+                  .then((facs) => {
+                    facs.forEach((fac) => {
+                      faculties.push(fac.data());
+                    });
+                  })
+                  .then(() => {
+                    data
+                      .collection("students")
+                      .get()
+                      .then((stds) => {
+                        stds.forEach((std) => {
+                          students.push(std.data());
+                        });
+                      })
+                      .then(() => {
+                        console.log(institutes);
+                        console.log(faculties);
+                        console.log(subCategories);
+                        console.log(courses);
+                        console.log(students.length);
+                        document.getElementById("studentCount").innerHTML =
+                          students.length;
+                        document.getElementById("facultyCount").innerHTML =
+                          faculties.length;
+                        document.getElementById("instituteCount").innerHTML =
+                          institutes.length;
+                        document.getElementById("courseCount").innerHTML =
+                          courseCountter;
+                        $("#instituteTab").html("");
+                        var indFins = 0;
+                        institutes.forEach((institute) => {
+                          var status = "Not Verified";
+                          if (institute.isVerified) status = "Verified";
+                          if (indFins < 5) {
+                            $("#instituteTab").append(
+                              `  <tr>
+                                                    <td>` +
+                                (indFins + 1) +
+                                `</td>
+                                                        <td>
+                                                            ` +
+                                institute.instituteName +
+                                `
+                                                        </td>
+                                                        <td>` +
+                                institute.email +
+                                `</td>
+                                                        <td>` +
+                                status +
+                                `</td>
+
+                                                    </tr>`
+                            );
+                          }
+                          indFins++;
+                        });
+                        var indFfac = 0;
+                        $("#facultyTab").html("");
+                        faculties.forEach((faculty) => {
+                          var status = "Not Verified";
+                          if (faculty.status == "Verified") status = "Verified";
+                          if (indFfac < 5) {
+                            $("#facultyTab").append(
+                              `  <tr>
+                                                    <td>` +
+                                (indFfac + 1) +
+                                `</td>
+                                                        <td>
+                                                            ` +
+                                faculty.name +
+                                `
+                                                        </td>
+                                                        <td>` +
+                                faculty.email +
+                                `</td>
+                                                        <td>` +
+                                status +
+                                `</td>
+
+                                                    </tr>`
+                            );
+                          }
+                          indFfac++;
+                        });
+                        var indFcrs = 0;
+                        $("#courseTab").html("");
+                        courses.forEach((course) => {
+                          var status = "Not Verified";
+                          if (course.status == "Verified") status = "Verified";
+                          if (indFcrs < 5) {
+                            $("#courseTab").append(
+                              `  <tr>
+                                                    <td>` +
+                                (indFcrs + 1) +
+                                `</td>
+                                                        <td>
+                                                            ` +
+                                course.courseName +
+                                `
+                                                        </td>
+                                                        <td>` +
+                                course.subcategory +
+                                `</td>
+                                                        <td>` +
+                                status +
+                                `</td>
+
+                                                    </tr>`
+                            );
+                          }
+                          indFcrs++;
+                        });
+                      });
+                  });
+              });
+          });
+      };
+      courseGetter = (cats) => {
+        console.log(cats.length);
+        cats.forEach((scat) => {
+          data
+            .collection("subCategories")
+            .doc(scat)
+            .collection("courses")
+            .get()
+            .then((crs) => {
+              crs.forEach((cr) => {
+                courses.push(cr.data());
+                courseCountter++;
+              });
+            });
+        });
+      };
+      logout = () => {
+        auth.signOut().then(() => {
+          localforage.clear().then(() => {
+            sessionStorage.clear();
+            location.replace("https://meritbodhi.com/admin-login");
+          });
+        });
+      };
+    </script>
+  </body>
+  <!-- primary color : #5e72e4 -->
+</html>
