@@ -443,6 +443,7 @@
                               <th class="border-0">Pending</th>
                               <th class="border-0">Paid Date</th>
                               <th class="border-0">View Account Details</th>
+                              <th class="border-0">Payment Details</th>
                             </tr>
                           </thead>
                           <tbody id="orderTab">
@@ -461,6 +462,9 @@
                               <td class="text-center">
                                 <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                             </tr>
                             <tr>
                               <td>2</td>
@@ -474,6 +478,9 @@
                               <td>id000002</td>
                               <td>course2</td>
                               <td>25-08-2018 21:12:56</td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                               <td class="text-center">
                                 <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
@@ -494,6 +501,9 @@
                               <td class="text-center">
                                 <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                             </tr>
                             <tr>
                               <td>4</td>
@@ -510,6 +520,9 @@
                               <td class="text-center">
                                 <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                             </tr>
                             <tr>
                               <td>5</td>
@@ -523,6 +536,9 @@
                               <td>id000005</td>
                               <td>course5</td>
                               <td>23-08-2018 09:12:35</td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                               <td class="text-center">
                                 <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
@@ -589,7 +605,7 @@
           </div>
         </form>
              <button type="submit" class="btn sub">Paid</button>
-             <button type="submit" class="btn can">Cancel</button>
+             <button type="submit" class="btn can modalclose" >Cancel</button>
       </div>
 
       </div>
@@ -801,6 +817,7 @@
 
       var modal = document.getElementById("myModal");
       var span = document.getElementsByClassName("close")[0];
+      var closemodal = document.getElementsByClassName("modalclose")[0];
       openModal = () => {
         console.log('openModal');
 
@@ -809,6 +826,10 @@
       };
       
       span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      closemodal.onclick = function() {
         modal.style.display = "none";
       }
       
