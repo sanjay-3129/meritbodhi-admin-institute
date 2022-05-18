@@ -208,13 +208,10 @@
                                   <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                 </div>
                                 <div class="form-group">
-<<<<<<< HEAD
-                                  <label for="exampleInputPassword1">IFSC <span style="font-size: small;">(INDO1234)</span></label>
-                                  <input type="tel" class="form-control" id="exampleInputPassword1" >
-=======
-                                  <label for="inputIfsc">IFSC</label>
+
+                                  <label for="inputIfsc">IFSC  <span style="font-size: small;">(INDO001234)</span></label>
                                   <input type="tel" class="form-control" id="inputIfsc" >
->>>>>>> 3c02f150ff6a0075bca4b71430ce2598c465cac8
+
                                 </div>
                                 
                                 <!-- <div class="form-group form-check">
@@ -243,7 +240,7 @@
                       </form>
                       <h3>Preferred Method</h3>
                       <div class="form-check" id="paymentMethod">
-                        <input class="form-check-input" style="display: block;" type="radio" value="online" name="flexRadioDefault" id="onlinePayment" checked>
+                        <input class="form-check-input" style="display: block;" type="radio" value="online" name="flexRadioDefault" id="onlinePayment" >
                         <label for="onlinePayment">Online Payments</label><br>
                          <input class="form-check-input" style="display: block;" type="radio" value="upi" name="flexRadioDefault" id="upiPayment" >
                         
@@ -280,15 +277,17 @@
         var instituteDetails=[];
         auth.onAuthStateChanged((user)=>{
             if(user){
+                console.log("user.uid>>>", user.uid);
                data.collection('institute').doc(user.uid).get().then((snapshot)=>{
-                                let dataFromDb =snapshot.data().paymentDetails;
+                                let dataFromDb =snapshot.data()?.paymentDetails;
                                 document.getElementById('inputName').value=dataFromDb?.name;
                                 document.getElementById('inputPhoneNumber').value=dataFromDb?.phoneNumber;
                                 document.getElementById('inputBranch').value=dataFromDb?.branch;
                                 document.getElementById('inputAccountNumber').value=dataFromDb?.accountNumber;
                                 document.getElementById('inputIfsc').value=dataFromDb?.ifsc;
                                 document.getElementById('inputUpi').value=dataFromDb?.upi;
-                                document.querySelector('input[name="flexRadioDefault"]:checked').value=dataFromDb?.method;
+
+                                dataFromDb?.preferredMethod == "upi" ? document.getElementById('upiPayment').checked = true : document.getElementById('onlinePayment').checked = true
                             }).then(()=>{
                                 console.log("Initial load completed");
                             })
