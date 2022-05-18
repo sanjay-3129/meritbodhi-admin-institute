@@ -56,10 +56,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="../js/connect.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <link rel="stylesheet" type="text/css" href="payment.css" />
     <script>
       function openNav() {
@@ -306,11 +309,11 @@
             >
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="../manage-report"
               ><i class="fas fa-flag"></i>Report Generation</a
             >
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link" href="../manage-complaints"
@@ -318,11 +321,11 @@
             >
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="../manage-addadmins"
               ><i class="fas fa-plus-square"></i>Add Admins</a
             >
-          </li>
+          </li> -->
 
           <li class="nav-item hi-sh-lg">
             <a class="nav-link" href="#" onclick="logout()"
@@ -348,23 +351,98 @@
 
               <!-- rowend -->
 
-              <!--recent table-->
+              <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h2 style="color: #5e72e4">Total Pending</h2>
+                      <div class="metric-value d-inline-block">
+                        <h3 class="mb-1" id="courseCount">500 Rupees</h3>
+                      </div>
+                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                    </div>
+                    </div>
+                    <div id="sparkline-revenue"></div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h2 style="color: #5e72e4">Institution</h2>
+                      <div class="metric-value d-inline-block">
+                        <h3 class="mb-1" id="facultyCount">000</h3>
+                      </div>
+                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                    </div>
+                    </div>
+                    <div id="sparkline-revenue2"></div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h2 style="color: #5e72e4">Meritbothi</h2>
+                      <div class="metric-value d-inline-block">
+                        <h3 class="mb-1" id="studentCount">000</h3>
+                      </div>
+                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                    </div>
+                    </div>
+                    <div id="sparkline-revenue3"></div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="display: block;">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                         Monthly
+                        </label>  
+                      </div>
+                      <input class="dateandtime" type="month" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
+                      <div class="form-check mt-2 mb-2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: block;">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Yearly
+                        </label>
+                      </div>
+                      <input class="dateandtime" type="text" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
+                      <button type="button" class="btn apply mt-2"> Apply</button>
+                    </div>  
+                    </div>
+                    <div id="sparkline-revenue4"></div>
+                  </div>
+                </div>
+              </div>
 
+              <!--recent table-->
               <div class="row">
                 <div style="width: 100%; margin-left: 15px; margin-right: 15px">
                   <div class="card">
-                    <h5 class="card-header">Recent Orders</h5>
+                    <!-- <div class="row headder"> -->
+                    <h5 class="card-header" style="display: flex;
+                    justify-content: space-between;
+                    align-items: center;">Payments 
+                      <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button>
+                    </h5>
+                   
+                  <!-- </div> -->
                     <div class="card-body p-0">
                       <div class="table-responsive">
                         <table class="table">
                           <thead class="bg-light">
                             <tr class="border-0">
-                              <th class="border-0">#</th>
-                              <th class="border-0">Image</th>
-                              <th class="border-0">Student Name</th>
-                              <th class="border-0">Student Id</th>
-                              <th class="border-0">Course Name</th>
-                              <th class="border-0">Date & Time</th>
+                              <th class="border-0">SI no</th>
+                              <th class="border-0">Institute Name</th>
+                              <th class="border-0">Amount for us</th>
+                              <th class="border-0">Amount to be paid</th>
+                              <th class="border-0">Pending</th>
+                              <th class="border-0">Paid Date</th>
+                              <th class="border-0">View Account Details</th>
                             </tr>
                           </thead>
                           <tbody id="orderTab">
@@ -372,109 +450,81 @@
                               <td>1</td>
                               <td>
                                 <div class="m-r-10">
-                                  <img
-                                    src="spider.jpeg"
-                                    alt="user"
-                                    class="rounded"
-                                    width="45"
-                                  />
+                                  
+                                  jagadish
                                 </div>
                               </td>
                               <td>student 1</td>
                               <td>id000001</td>
                               <td>course1</td>
                               <td>27-08-2018 01:22:12</td>
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
+                              </td>
                             </tr>
                             <tr>
                               <td>2</td>
                               <td>
                                 <div class="m-r-10">
-                                  <img
-                                    src="spider.jpeg"
-                                    alt="user"
-                                    class="rounded"
-                                    width="45"
-                                  />
+                                  
+                                  jagadish
                                 </div>
                               </td>
                               <td>Student 2</td>
                               <td>id000002</td>
                               <td>course2</td>
                               <td>25-08-2018 21:12:56</td>
-                              <td>
-                                <span
-                                  class="badge-dot badge-success mr-1"
-                                ></span
-                                >Paid
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
+                            
                             </tr>
                             <tr>
                               <td>3</td>
                               <td>
                                 <div class="m-r-10">
-                                  <img
-                                    src="spider.jpeg"
-                                    alt="user"
-                                    class="rounded"
-                                    width="45"
-                                  />
+                                
+                                  jagadish
                                 </div>
                               </td>
                               <td>Student 3</td>
                               <td>id000003</td>
                               <td>course3</td>
                               <td>25-08-2018 21:12:56</td>
-                              <td>
-                                <span
-                                  class="badge-dot badge-success mr-1"
-                                ></span
-                                >Paid
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
                             </tr>
                             <tr>
                               <td>4</td>
                               <td>
                                 <div class="m-r-10">
-                                  <img
-                                    src="spider.jpeg"
-                                    alt="user"
-                                    class="rounded"
-                                    width="45"
-                                  />
+                                 
+                                  jagadish
                                 </div>
                               </td>
                               <td>Student 4</td>
                               <td>id000004</td>
                               <td>course4</td>
                               <td>23-08-2018 09:12:35</td>
-                              <td>
-                                <span
-                                  class="badge-dot badge-success mr-1"
-                                ></span
-                                >Paid
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
                             </tr>
                             <tr>
                               <td>5</td>
                               <td>
                                 <div class="m-r-10">
-                                  <img
-                                    src="spider.jpeg"
-                                    alt="user"
-                                    class="rounded"
-                                    width="45"
-                                  />
+                                 
+                                  jagadish
                                 </div>
                               </td>
                               <td>Student 5</td>
                               <td>id000005</td>
                               <td>course5</td>
                               <td>23-08-2018 09:12:35</td>
-                              <td>
-                                <span
-                                  class="badge-dot badge-success mr-1"
-                                ></span
-                                >Paid
+                              <td class="text-center">
+                                <button type="button" class="btn view" onclick="openModal()">View</button>
                               </td>
                             </tr>
                           </tbody>
@@ -483,7 +533,7 @@
                               <a
                                 href="#"
                                 class="btn btn-outline-light float-right"
-                                >View Details</a
+                                >View More</a
                               >
                             </td>
                           </tr>
@@ -497,325 +547,7 @@
               <!-- end recent orders  -->
               
 
-              <div class="row">
-                <!-- ============================================================== -->
-                <!-- product category  -->
-                <!-- ============================================================== -->
-                <div class="col-xl-5 col-lg-9 col-md-6 col-sm-12 col-12">
-                  <div class="card">
-                    <h5 class="card-header">Product Category</h5>
-                    <div class="card-body">
-                      <br />
-                      <br />
-                      <div id="myChart"></div>
-                      <br />
-                      <br />
-                    </div>
-                  </div>
-                </div>
-                <script>
-                  google.charts.load("current", { packages: ["corechart"] });
-                  google.charts.setOnLoadCallback(drawChart);
-
-                  function drawChart() {
-                    var data = google.visualization.arrayToDataTable([
-                      ["Contry", "Mhl"],
-                      ["User", 54.8],
-                      ["Students", 48.6],
-                      ["Course", 44.4],
-                      ["Customers", 23.9],
-                      ["Institute", 40],
-                    ]);
-
-                    var options = {
-                      is3D: true,
-                    };
-
-                    var chart = new google.visualization.PieChart(
-                      document.getElementById("myChart")
-                    );
-                    chart.draw(data, options);
-                  }
-                </script>
-                <!-- ============================================================== -->
-                <!-- end product category  -->
-                <!-- product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product sales  -->
-                <!-- ============================================================== -->
-                <div class="abcde" style="margin-left: 1rem">
-                  <div class="card">
-                    <h5 class="card-header">Courses</h5>
-                    <div class="card-body p-0">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class="bg-light">
-                            <tr class="border-0">
-                              <th class="border-0">S.no</th>
-                              <th class="border-0">Name</th>
-                              <th class="border-0">Category</th>
-                              <th class="border-0">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody id="courseTab">
-                            <tr>
-                              <td>1</td>
-                              <td>Web</td>
-                              <td>100</td>
-                              <td>$100</td>
-                            </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>Web</td>
-                              <td>100</td>
-                              <td>$100</td>
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>Web</td>
-                              <td>100</td>
-                              <td>$100</td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>Web</td>
-                              <td>100</td>
-                              <td>$100</td>
-                            </tr>
-                            <tr>
-                              <td>5</td>
-                              <td>Web</td>
-                              <td>100</td>
-                              <td>$100</td>
-                            </tr>
-                          </tbody>
-                          <tr>
-                            <td colspan="4">
-                              <a
-                                href="../manage-courses"
-                                class="btn btn-outline-light float-right"
-                                >View All</a
-                              >
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <script>
-                                var xValues = ["2019", "2020", "2021", "2022", "2033"];
-                                var yValues = [20, 15, 60, 50, 100];
-                                var barColors = ["lightblue", "lightblue","lightblue","lightblue","lightblue"];
-
-                                new Chart("myChart1", {
-                                  type: "bar",
-                                  data: {
-                                    labels: xValues,
-                                    datasets: [{
-                                      backgroundColor: barColors,
-                                      data: yValues
-                                    }]
-                                  },
-                                  options: {
-                                    legend: {display: true},
-                                    title: {
-                                      display: true,
-                                      
-                                    }
-                                  }
-                                });
-
-                            </script> -->
-
-              <div class="row">
-                <!-- ============================================================== -->
-                <!-- total revenue  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- category revenue  -->
-                <!-- ============================================================== -->
-                <div class="col-xl-5 col-lg-7 col-md-12 col-sm-12 col-12">
-                  <div class="card">
-                    <h5 class="card-header">Revenue by Category</h5>
-                    <div class="card-body">
-                      <br />
-                      <br />
-                      <br />
-                      <div id="app1"></div>
-
-                      <script type="text/babel">
-                        class ApexChart extends React.Component {
-                          constructor(props) {
-                            super(props);
-
-                            this.state = {
-                              series: [44, 55, 41, 17, 15],
-                              options: {
-                                chart: {
-                                  width: 380,
-                                  type: "donut",
-                                },
-                                plotOptions: {
-                                  pie: {
-                                    startAngle: -90,
-                                    endAngle: 270,
-                                  },
-                                },
-                                dataLabels: {
-                                  enabled: false,
-                                },
-                                fill: {
-                                  type: "gradient",
-                                },
-                                legend: {
-                                  formatter: function (val, opts) {
-                                    return (
-                                      val +
-                                      " - " +
-                                      opts.w.globals.series[opts.seriesIndex]
-                                    );
-                                  },
-                                },
-
-                                responsive: [
-                                  {
-                                    breakpoint: 480,
-                                    options: {
-                                      chart: {
-                                        width: 200,
-                                      },
-                                      legend: {
-                                        position: "bottom",
-                                      },
-                                    },
-                                  },
-                                ],
-                              },
-                            };
-                          }
-
-                          render() {
-                            return (
-                              <div>
-                                <div id="chart">
-                                  <ReactApexChart
-                                    options={this.state.options}
-                                    series={this.state.series}
-                                    type="donut"
-                                    width={380}
-                                  />
-                                </div>
-                              </div>
-                            );
-                          }
-                        }
-
-                        const domContainer1 = document.querySelector("#app1");
-                        ReactDOM.render(
-                          React.createElement(ApexChart),
-                          domContainer1
-                        );
-                      </script>
-
-                      <br /><br /><br /><br />
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ============================================================== -->
-                <!-- end category revenue  -->
-                <!-- ============================================================== -->
-
-                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
-                  <div class="card">
-                    <h5 class="card-header">Total Revenue</h5>
-                    <div class="card-body">
-                      <div id="app"></div>
-
-                      <script type="text/babel">
-                        class ApexChart extends React.Component {
-                          constructor(props) {
-                            super(props);
-
-                            this.state = {
-                              series: [
-                                {
-                                  name: "Desktops",
-                                  data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-                                },
-                              ],
-                              options: {
-                                chart: {
-                                  height: 350,
-                                  type: "line",
-                                  zoom: {
-                                    enabled: false,
-                                  },
-                                },
-                                dataLabels: {
-                                  enabled: false,
-                                },
-                                stroke: {
-                                  curve: "straight",
-                                },
-
-                                grid: {
-                                  row: {
-                                    colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-                                    opacity: 0.5,
-                                  },
-                                },
-                                xaxis: {
-                                  categories: [
-                                    "Jan",
-                                    "Feb",
-                                    "Mar",
-                                    "Apr",
-                                    "May",
-                                    "Jun",
-                                    "Jul",
-                                    "Aug",
-                                    "Sep",
-                                  ],
-                                },
-                              },
-                            };
-                          }
-
-                          render() {
-                            return (
-                              <div>
-                                <div id="chart">
-                                  <ReactApexChart
-                                    options={this.state.options}
-                                    series={this.state.series}
-                                    type="line"
-                                    height={350}
-                                  />
-                                </div>
-                                <div id="html-dist"></div>
-                              </div>
-                            );
-                          }
-                        }
-
-                        const domContainer = document.querySelector("#app");
-                        ReactDOM.render(
-                          React.createElement(ApexChart),
-                          domContainer
-                        );
-                      </script>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              
               <!-- ============================================================== -->
               <!-- end sales traffice country source  -->
               <!-- ============================================================== -->
@@ -826,6 +558,43 @@
       <!-- ============================================================== -->
       <!-- end wrapper  -->
       <!-- ============================================================== -->
+    </div>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <h2>Payment Detail <span class="close">&times;</span></h2>
+        <div class="row">
+          <div class="col-md-4">
+        <h3>Bank Details</h3>
+        <p><b>Name : </b><span>Jagadish</span></p>
+        <p><b>Phone no : </b><span>1234567890</span></p>
+        <p><b>Account no : </b><span>xxxxxxxxxxx</span></p>
+        <p><b>IFSC : </b><span>INDO1234</span></p>
+        <p><b>Branch : </b><span>avadi,chennai</span></p>
+      </div>
+      <div class="col-md-4">
+        <h3>Upi Detail</h3>
+        <p><b>Upi id : </b><span>Jagadish@upi</span></p>
+      </div>
+      <div class="col-md-4">
+        <p><b>Amount to paid : </b><span>200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <p><b>GST : </b><span>12%</span></p>
+        <p><b>Total Amount to paid  : </b><span>250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Amount paid</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+          </div>
+        </form>
+             <button type="submit" class="btn sub">Paid</button>
+             <button type="submit" class="btn can">Cancel</button>
+      </div>
+
+      </div>
+      </div>
+    
     </div>
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
@@ -1020,6 +789,7 @@
             });
         });
       };
+      
       logout = () => {
         auth.signOut().then(() => {
           localforage.clear().then(() => {
@@ -1028,6 +798,37 @@
           });
         });
       };
+
+      var modal = document.getElementById("myModal");
+      var span = document.getElementsByClassName("close")[0];
+      openModal = () => {
+        console.log('openModal');
+
+          modal.style.display = "block";
+        
+      };
+      
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+
+      function exportReportToExcel() {
+  let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
+  TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
+    name: `export.xlsx`, // fileName you could use any name
+    sheet: {
+      name: 'Sheet 1' // sheetName
+    }
+  });
+}
     </script>
   </body>
   <!-- primary color : #5e72e4 -->

@@ -15,6 +15,32 @@
 	width: 68%;
 }
 
+.dateandtime1 {
+	border: 1px solid #000;
+	border-radius: 2px;
+	background: #fff;
+	color: #000;
+}
+
+.apply {
+	padding: 5px;
+	width: 30%;
+	background: #5e72e4;
+	color: #fff;
+	margin-top: 5px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.export {
+	padding: 5px;
+	width: 7%;
+	background: #5e72e4;
+	color: #fff;
+	margin-top: 5px;
+	font-size: 14px;
+	border-radius: 5px;
+}
 
 #ratingDougnetChart {
 	width: 200px;

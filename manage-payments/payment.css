@@ -61,7 +61,7 @@
   }
   
   .sidebar a {
-	padding: 8px 8px 8px 32px;
+	padding: 20px 8px 8px 32px;
 	text-decoration: none;
 	font-size: 16px;
 	color: #808080;
@@ -98,6 +98,97 @@
   .openbtn:hover {
 	background-color: #444;
   }
+
+
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		/* overflow: auto; Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 60%; /* Could be more or less, depending on screen size */
+	}
+	
+	/* The Close Button */
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+
+
+	.sub {
+		padding: 10px;
+		background: #5e72e4;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+	.can {
+		padding: 10px;
+		background: red;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+
+	.view {
+		padding: 5px;
+		background: #5e72e4;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+	
+
+	.apply {
+		padding: 5px;
+		width: 30%;
+		background: #5e72e4;
+		color: #fff;
+		margin-top: 5px;
+		font-size: 14px;
+		border-radius: 5px;
+	}
+
+	.export {
+		padding: 5px;
+		width: 7%;
+		background: #5e72e4;
+		color: #fff;
+		margin-top: 5px;
+		font-size: 14px;
+		border-radius: 5px;
+		margin-right: 20px;
+	}
+
+	.headder {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
   
   #main1 {
 	transition: margin-left .5s;
