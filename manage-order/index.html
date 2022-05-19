@@ -453,7 +453,7 @@
                               <th class="border-0">Payment Details</th>
                             </tr>
                           </thead>
-                          <tbody id="orderTab">
+                          <tbody id="orders">
                          
                           </tbody>
                           <tr>
@@ -604,45 +604,41 @@
                         console.log(subCategories);
                         console.log(courses);
                         console.log(students.length);
-                        document.getElementById("studentCount").innerHTML =
-                          students.length;
-                        document.getElementById("facultyCount").innerHTML =
-                          faculties.length;
-                        document.getElementById("instituteCount").innerHTML =
-                          institutes.length;
-                        document.getElementById("courseCount").innerHTML =
-                          courseCountter;
+                        // document.getElementById("studentCount").innerHTML =
+                        //   students.length;
+                        // document.getElementById("facultyCount").innerHTML =
+                        //   faculties.length;
+                        // document.getElementById("instituteCount").innerHTML =
+                        //   institutes.length;
+                        // document.getElementById("courseCount").innerHTML =
+                        //   courseCountter;
                       })
                   });
               });
           });
           //Get institute details from firestore
-          data.collection('institute').get().then((instituteDetailArray)=>{
-  
-          //MApping institute details
-          let i =0;
-          instituteDetailArray.forEach((detail)=> {
-            let revenueDetail = detail.data()?.revenueDetails;
-            //Appending payment details to the table body
-            $('#orderTab').append(`<tr>
-                      // <th scope="row">`+(i+1)+`</th>
-                      <td>`+detail.data()?.instituteName+`</td>
-                      <td>`+revenueDetail?.currentMeritbodhiRevenue+`</td>
-                      <td>`+revenueDetail?.currentInstituteRevenue+`</td>
-                      <td>`+revenueDetail?.pendingAmount+`</td>
-                      <td>`+revenueDetail?.lastPaymentDate+`</td>
-                      <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal(`+ detail.data() +`)">View</button>
-                      </td>
-                      <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal()">View</button>
-                      </td>
-                    </tr>`);
-                    i++;
-        });
-          })
-
-
+          const initialGetDetails = ()=>{
+            data.collection('orders').limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+                       console.log("allOrderArray", allOrderArray);
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                            // if(orderDetail.data().instituteId == instituteDetails.id){
+                                $('#orders').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                            // }
+                        })
+                    })
+        }
+       
       };
       courseGetter = (cats) => {
         console.log(cats.length);
