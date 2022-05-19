@@ -184,7 +184,7 @@
                                     <div class="card-body">
                                         <h2 style="color: #5e72e4;">Total Pending </h2>
                                         <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1">500 Rupees</h3>
+                                            <h3 class="mb-1"id="pendingAmount">500 Rupees</h3>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                             <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -198,7 +198,7 @@
                                     <div class="card-body">
                                         <h2 style="color: #5e72e4;">Institution</h2>
                                     <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="facultyCount">000</h3>
+                                            <h3 class="mb-1" id="institutePayment">000</h3>
                                     </div>
                                     <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                         <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -212,7 +212,7 @@
                                     <div class="card-body">
                                         <h2 style="color: #5e72e4;">Meritbothi</h2>
                                         <div class="metric-value d-inline-block">
-                                            <h3 class="mb-1" id="studentCount">0.00</h3>
+                                            <h3 class="mb-1" id="meritbodhiPayment">0.00</h3>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                             <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -303,7 +303,9 @@
         var form = document.getElementById('profileForm');
         var nameAproA=[];
         var instituteDetails=[];
-       
+        var institutePaymentAmount=0;
+        console.log("institutePaymentAmount>>>", institutePaymentAmount);
+        var meritbodhiPaymentAmount = 0;
         let i =0;
         function onLoadSetter(){
             localforage.getItem('fullAuth').then((e)=>{
@@ -315,41 +317,60 @@
                 localforage.getItem('instituteDetails').then((f)=>{
                     instituteDetails=f;
                     console.log("instituteID>>",instituteDetails.id);
-                  initialGetDetails();
-                    
+                    initialGetDetails();
+                    getInstituteDetails();
                 })
             });
         }
+        //Get pending amount
+        const getInstituteDetails=()=>{
+            data.collection('institute').doc(instituteDetails.id).get().then((instituteDetailFromDb) => {
+                let pendingAmount = instituteDetailFromDb.data().revenueDetails.pendingAmount;
+                document.getElementById("pendingAmount").innerHTML = pendingAmount;
+            })
+        }
         //getting institute details for the first time on load
         const initialGetDetails = ()=>{
-            data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+            data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(3).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
                        
                         let date1;
                         allOrderArray.forEach((orderDetail)=>{
+                            institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+                            meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
+                            console.log("institutePaymentAmount>>>", institutePaymentAmount);
                             console.log("orderDetail>>", orderDetail.data());
                              date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
-                            // if(orderDetail.data().instituteId == instituteDetails.id){
                                 $('#orderTab').append(`<tr>
                                 <th scope="row">`+(i+1)+`</th>
                                 <td>`+orderDetail.data()?.courseName+`</td>                     
                                 <td>`+orderDetail.data()?.studentName+`</td>                     
                                 <td>`+orderDetail.data()?.totalAmount+`</td>                     
                                 <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
-                                <td>`+orderDetail.data()?.status+`</td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                      
                                 </tr>`);
                                 i++;
-                            // }
+                            
                         })
+                        console.log("institutePaymentAmount>>>", institutePaymentAmount);
+                        console.log("meritbodhiPaymentAmount>>>", meritbodhiPaymentAmount);
+                    }).then(()=>{
+
+                        document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+                        document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
                     })
         }
         
         
         const addmore = ()=>{
             $('#orderTab').empty();
+            institutePaymentAmount =0;
+            meritbodhiPaymentAmount=0;
             data.collection('orders').orderBy("courseBoughtTimestamp").where("instituteId", "==", instituteDetails.id).get().then((allOrderArray)=>{
                 let i=0;
                         let date1;
                         allOrderArray.forEach((orderDetail)=>{
+                            institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+                            meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
                             console.log("orderDetail>>", orderDetail.data());
                              date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
                             if(orderDetail.data().instituteId == instituteDetails.id){
@@ -364,7 +385,11 @@
                                 i++;
                             }
                         })
-                    })
+                    }).then(()=>{
+
+document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+})
         }
 
 
