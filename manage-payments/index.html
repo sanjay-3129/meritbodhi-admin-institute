@@ -513,11 +513,11 @@
         <p><b>Total Amount to paid  : </b><span>250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Amount paid</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <label for="institutePaymentAmount">Amount paid</label>
+            <input type="text" class="form-control" id="institutePaymentAmount" aria-describedby="emailHelp" >
           </div>
         </form>
-             <button type="submit" class="btn sub">Paid</button>
+             <button type="submit" onclick="updateInstitutePayment()" class="btn sub">Paid</button>
              <button type="submit" class="btn can modalclose" >Cancel</button>
       </div>
 
@@ -842,11 +842,17 @@
                       </td>
                     </tr>`);
                     i++;
-        });
+               });
           })
-
-
       };
+
+      //Update Payment to institute
+      const updateInstitutePayment = (instituteId)=>{
+        let amount = document.getElementById('institutePaymentAmount').value;
+        data.collection('institute').doc(instituteId).get().then((prevData) => {
+          console.log("prevData", prevData);
+        })
+      }
       courseGetter = (cats) => {
         console.log(cats.length);
         cats.forEach((scat) => {
