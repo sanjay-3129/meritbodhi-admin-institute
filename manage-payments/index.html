@@ -499,27 +499,32 @@
         <div class="row">
           <div class="col-md-4">
         <h3>Bank Details</h3>
-        <p><b>Name : </b><span>Jagadish</span></p>
-        <p><b>Phone no : </b><span>1234567890</span></p>
-        <p><b>Account no : </b><span>xxxxxxxxxxx</span></p>
-        <p><b>IFSC : </b><span>INDO1234</span></p>
-        <p><b>Branch : </b><span>avadi,chennai</span></p>
+        <p><b>Account no : </b><span id="instituteName">xxxxxxxxxxx</span></p>
+        <p style="display:none ;"><b>Institute Id : </b><span id="instituteId">xxxxxxxxxxx</span></p>
+            <p><b>Name : </b><span id="institutePhoneNo">Jagadish</span></p>
+                <p><b>Phone no : </b><span id="instituteAccountNo">1234567890</span></p>
+                    <p><b>IFSC : </b><span  id="instituteIfsc">INDO1234</span></p>
+                    <p><b>Branch : </b><span  id="instituteBranch">avadi,chennai</span></p>
+                      </div>
+                      <div class="col-md-4">
+                        <h3>Upi Detail</h3>
+                        <p><b>Upi id : </b><span id="instituteUpi">Jagadish@upi</span></p>
+                      
+                        <h3>Preferred Method</h3>
+                        <p><b> <span id="instituteMethod">Jagadish@upi</span></b></p>
       </div>
       <div class="col-md-4">
-        <h3>Upi Detail</h3>
-        <p><b>Upi id : </b><span>Jagadish@upi</span></p>
-      </div>
-      <div class="col-md-4">
-        <p><b>Amount to paid : </b><span>200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <p><b>Current Pending Amount : </b><span id="currentPendingAmount">200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <p><b>Previous Pending Amount : </b><span id="previousPendingAmount">200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <p><b>GST : </b><span>12%</span></p>
-        <p><b>Total Amount to paid  : </b><span>250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <p><b>Total Amount to paid  : </b><span id="totalPendingAmount">250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <form>
           <div class="form-group">
             <label for="institutePaymentAmount">Amount paid</label>
             <input type="text" class="form-control" id="institutePaymentAmount" aria-describedby="emailHelp" >
           </div>
         </form>
-             <button type="submit" onclick="updateInstitutePayment()" class="btn sub">Paid</button>
+             <button type="submit" onclick="updateInstitutePayment(document.getElementById('instituteId').innerHTML)" class="btn sub">Paid</button>
              <button type="submit" class="btn can modalclose" >Cancel</button>
       </div>
 
@@ -527,13 +532,6 @@
       </div>
     
     </div>
-
-
-
-
-
-
-
 
     <!-- -->
 
@@ -859,6 +857,7 @@
           let i =0;
           instituteDetailArray.forEach((detail)=> {
             let revenueDetail = detail.data()?.revenueDetails;
+            console.log(detail.data());
             //Appending payment details to the table body
             $('#orderTab').append(`<tr>
                       <th scope="row">`+(i+1)+`</th>
@@ -868,24 +867,18 @@
                       <td>`+revenueDetail?.pendingAmount+`</td>
                       <td>`+revenueDetail?.lastPaymentDate+`</td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal({name:'`+detail.data()?.paymentDetails?.name+`', accountNumber:'`+detail.data()?.paymentDetails?.accountNumber+`', branch:'`+detail.data()?.paymentDetails?.branch+`', ifsc: '`+detail.data()?.paymentDetails?.ifsc+`', phoneNumber: '`+detail.data()?.paymentDetails?.phoneNumber+`', preferredMethod: '`+detail.data()?.paymentDetails?.preferredMethod+`', upi: '`+detail.data()?.paymentDetails?.upi+`'})">View</button>
+                      <button type="button" class="btn view" onclick="openModal({name:'`+detail.data()?.paymentDetails?.name+`', accountNumber:'`+detail.data()?.paymentDetails?.accountNumber+`', branch:'`+detail.data()?.paymentDetails?.branch+`', ifsc: '`+detail.data()?.paymentDetails?.ifsc+`', phoneNumber: '`+detail.data()?.paymentDetails?.phoneNumber+`', preferredMethod: '`+detail.data()?.paymentDetails?.preferredMethod+`', upi: '`+detail.data()?.paymentDetails?.upi+`', id: '`+detail.data()?.id+`', currentAmount: '`+detail.data()?.revenueDetails?.currentInstituteRevenue+`',  pendingAmount: '`+detail.data()?.revenueDetails?.pendingAmount+`'})">View</button>
                       </td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModalDetails('`+detail.data()?.id+`')">View</button>
-                      </td>
-                    </tr>`);
-                    i++;
-               });
-          })
+                        <button type="button" class="btn view" onclick="openModalDetails('`+detail.data()?.id+`')">View</button>
+                        </td>
+                        </tr>`);
+                        i++;
+                      });
+                    })
       };
 
-      //Update Payment to institute
-      const updateInstitutePayment = (instituteId)=>{
-        let amount = document.getElementById('institutePaymentAmount').value;
-        data.collection('institute').doc(instituteId).get().then((prevData) => {
-          console.log("prevData", prevData);
-        })
-      }
+      
       courseGetter = (cats) => {
         console.log(cats.length);
         cats.forEach((scat) => {
@@ -900,9 +893,27 @@
                 courseCountter++;
               });
             });
-        });
-      };
-      
+          });
+        };
+        var totalPending=0;
+//Update Payment to institute
+const updateInstitutePayment = (instituteId)=>{
+        let amount = document.getElementById('institutePaymentAmount').value;
+        console.log(instituteId, amount);
+        if (totalPending<amount) {
+window.alert("You are sending more money then the pending amount");
+return;
+        }
+        let newPending = totalPending - amount;
+        data.collection('institute').doc(instituteId).update({
+"revenueDetails.pendingAmount" : newPending,
+"revenueDetails.currentInstituteRevenue" : 0,
+"revenueDetails.currentMeritbodhiRevenue" : 0
+
+        }).then(() => {
+location.replace("")
+        })
+      }      
       logout = () => {
         auth.signOut().then(() => {
           localforage.clear().then(() => {
@@ -917,6 +928,19 @@
       var closemodal = document.getElementsByClassName("modalclose")[0];
       openModal = (data) => {
         console.log('Data>>>', data);
+        totalPending = ((data.currentAmount) + (data.pendingAmount))* 0.82;
+        console.log("totalPending",totalPending);
+        document.getElementById('instituteName').innerHTML=data.name;
+        document.getElementById('instituteId').innerHTML=data.id;
+        document.getElementById('institutePhoneNo').innerHTML=data.phoneNumber;
+        document.getElementById('instituteAccountNo').innerHTML=data.accountNumber;
+        document.getElementById('instituteIfsc').innerHTML=data.ifsc.toUpperCase();
+        document.getElementById('instituteBranch').innerHTML=data.branch;
+        document.getElementById('instituteUpi').innerHTML=data.upi;
+        document.getElementById('currentPendingAmount').innerHTML=data.currentAmount;
+        document.getElementById('previousPendingAmount').innerHTML=data.pendingAmount;
+        document.getElementById('totalPendingAmount').innerHTML=totalPending;
+        document.getElementById('instituteMethod').innerHTML=data.preferredMethod.toUpperCase();
 
           modal.style.display = "block";
         
@@ -963,7 +987,6 @@
       }
 
 
-
       function exportReportToExcel() {
   let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
   TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
@@ -973,6 +996,7 @@
     }
   });
 }
+
 
 
     </script>
