@@ -64,7 +64,7 @@
     ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <link rel="stylesheet" type="text/css" href="payment.css" />
+    <link rel="stylesheet" type="text/css" href="order.css" />
     <script>
       function openNav() {
         document.getElementById("mySidebar").style.width = "220px";
@@ -309,7 +309,6 @@
               ><i class="fas fa-credit-card"></i>Payments</a
             >
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="../manage-order"
               ><i class="fas fa-credit-card"></i>Orders</a
@@ -359,7 +358,7 @@
 
               <!-- rowend -->
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
                     <div class="card-body">
@@ -425,7 +424,7 @@
                     <div id="sparkline-revenue4"></div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!--recent table-->
               <div class="row">
@@ -440,7 +439,7 @@
                    
                   <!-- </div> -->
                     <div class="card-body p-0">
-                      <div class="table-responsive ">
+                      <div class="table-responsive">
                         <table class="table">
                           <thead class="bg-light">
                             <tr class="border-0">
@@ -525,208 +524,6 @@
       </div>
     
     </div>
-
-
-
-
-
-
-
-
-    <!-- -->
-
-    <div id="myModal1" class="modal1">
-
-      <!-- Modal content -->
-      <div class="modal-content1">
-        <h2>Payment Detail <span class="close1">&times;</span></h2>
-        <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h2 style="color: #5e72e4;">Total Pending </h2>
-                      <div class="metric-value d-inline-block">
-                          <h3 class="mb-1">500 Rupees</h3>
-                      </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                          <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
-                      </div>
-                  </div>
-                  <div id="sparkline-revenue4"></div>
-              </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h2 style="color: #5e72e4;">Institution</h2>
-                  <div class="metric-value d-inline-block">
-                          <h3 class="mb-1" id="facultyCount">000</h3>
-                  </div>
-                  <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                      <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
-                  </div>
-                  </div>
-              
-          </div>
-      </div>
-          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h2 style="color: #5e72e4;">Meritbothi</h2>
-                      <div class="metric-value d-inline-block">
-                          <h3 class="mb-1" id="studentCount">0.00</h3>
-                      </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                          <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
-                      </div>
-                  </div>
-                  <div id="sparkline-revenue3"></div>
-              </div>
-          </div>
-          
-           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card">
-                  <div class="card-body">
-                      <div class="form-check mb-2">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="display: block;">
-                          <label class="form-check-label" for="flexRadioDefault1">
-                           Monthly
-                          </label>
-                      </div>
-                      <input class="dateandtime" type="month" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
-                      <div class="form-check mt-2 mb-2">
-                          <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: block;">
-                          <label class="form-check-label" for="flexRadioDefault2">
-                            Yearly
-                          </label>
-                        </div>
-                        <input class="dateandtime1" type="text" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
-                        <button type="button"  class="btn apply mt-2"> Apply</button>
-                      </div>  
-
-                  </div>
-                  
-              </div>
-           </div>
-           <div class="abc" >
-
-            <div class="abcd1">
-                <div class="card">
-                    <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Top performing Courses  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                       <th class="border-0">S.no</th>
-
-                                       <th class="border-0">Courses Name</th>
-                                        <th class="border-0">Student mail</th>
-                                        <th class="border-0">Price</th>
-                                        <th class="border-0">status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="orderTab">
-                                    <tr>
-                                      <td>1</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                          
-                                          English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course1</td>
-                                     
-                                      <!-- <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>2</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                          
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course2</td>
-                                      <!-- <td>25-08-2018 21:12:56</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    
-                                    </tr>
-                                    <tr>
-                                      <td>3</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                        
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course3</td>
-                                      <!-- <td>25-08-2018 21:12:56</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>4</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                         
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course4</td>
-                                      <!-- <td>23-08-2018 09:12:35</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>5</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                         
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course5</td>
-                                      <!-- <td>23-08-2018 09:12:35</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                  </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-    </div>
-      </div>
-
-      
-      
-      </div>
-    
-    </div>
-    
-    <!--  -->
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
 
@@ -897,32 +694,6 @@
           modal.style.display = "none";
         }
       }
-
-      var modal = document.getElementById("myModal1");
-      var span = document.getElementsByClassName("close1")[0];
-      var closemodal = document.getElementsByClassName("modalclose1")[0];
-      openModalDetails= () => {
-        console.log('openModalDetails');
-
-          modal.style.display = "block";
-        
-      };
-      
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      closemodal.onclick = function() {
-        modal.style.display = "none";
-      }
-      
-      
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-
 
 
       function exportReportToExcel() {
