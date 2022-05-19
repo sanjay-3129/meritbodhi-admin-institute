@@ -320,6 +320,7 @@
                 })
             });
         }
+        //getting institute details for the first time on load
         const initialGetDetails = ()=>{
             data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
                        
