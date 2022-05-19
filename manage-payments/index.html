@@ -472,6 +472,8 @@
                   </div>
                 </div>
               </div>
+
+              
               <!-- ============================================================== -->
               <!-- end recent orders  -->
               
@@ -718,6 +720,37 @@
             
             
     </div>
+    <div class="abc" >
+
+      <div class="abcd2">
+          <div class="card">
+              <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Buy Order History  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead class="bg-light">
+                              <tr class="border-0">
+                                 <th class="border-0">S.no</th>
+
+                                 <th class="border-0">Courses Name</th>
+                                  <th class="border-0">Student Name</th>
+                                  <th class="border-0">Price</th>
+                                  <th class="border-0">Purchase Date</th>
+                                  <th class="border-0">status</th>
+                              </tr>
+                          </thead>
+                          <tbody id="orderTab1">
+                             
+                          </tbody>
+                          <tr>
+                              <th ><button class="btn btn-sm btn-primary " onclick="addmore()">Load All Orders</button></th></tr>
+                          </table>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
       </div>
 
       
