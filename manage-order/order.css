@@ -1,0 +1,218 @@
+.abc{
+	display: flex; 
+}
+.abcd{
+	width:50%;
+}
+.abcde{
+	width:50%; margin-left: 2rem;
+}
+.abc1{
+	display: flex;
+	justify-content: space-between;
+}
+.graphjoker1{
+	width: 68%;
+}
+@media only screen and (max-width: 1024px)
+{
+	.abc1{
+	flex-direction: column;
+	grid-column: 5;
+}
+.graphjoker1{
+	width: 100%;
+
+}
+}
+
+@media only screen and (max-width: 568px)
+{
+.abc{
+	flex-direction: column;
+	grid-column: 5;
+}
+.abcd{
+	width:100%;
+}
+.abcde{
+	width:100%;
+	margin-left: 1px;
+}
+
+
+}
+
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+
+	top: 0;
+	left: 0;
+	background-color:white;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	margin-top: 40px;
+	font-size: 20px;
+	
+  }
+  
+  .sidebar a {
+	padding: 20px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #808080;
+	display: block;
+	transition: 0.3s;
+	margin-left: 26px;
+  }
+  
+  .sidebar a:hover {
+	color: black;
+  }
+  
+  .sidebar .closebtn  {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+
+.fa-chart-pie,.fa-university,.fa-chalkboard-teacher,.fa-book,.fa-sort-amount-down,.fa-credit-card,.fa-flag,.fa-question-circle,.fa-plus-square,.fa-power-off {
+	margin-right: 10px;
+}
+  
+  .openbtn  {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	color: #007bff;
+	padding: 10px 15px;
+	border: none;
+  }
+  
+  .openbtn:hover {
+	background-color: #444;
+  }
+
+
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		/* overflow: auto; Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 60%; /* Could be more or less, depending on screen size */
+	}
+	
+	/* The Close Button */
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+
+
+	.sub {
+		padding: 10px;
+		background: #5e72e4;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+	.can {
+		padding: 10px;
+		background: red;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+
+	.view {
+		padding: 5px;
+		background: #5e72e4;
+		color: #fff;
+		border-radius: 5px;
+	}
+
+	
+
+	.apply {
+		padding: 5px;
+		width: 30%;
+		background: #5e72e4;
+		color: #fff;
+		margin-top: 5px;
+		font-size: 14px;
+		border-radius: 5px;
+	}
+
+	.export {
+		padding: 5px;
+		width: 7%;
+		background: #5e72e4;
+		color: #fff;
+		margin-top: 5px;
+		font-size: 14px;
+		border-radius: 5px;
+		margin-right: 20px;
+	}
+
+	.headder {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+  
+  #main1 {
+	transition: margin-left .5s;
+	padding: 16px;
+  }
+  .closebtn:hover {
+	  background-color: whitesmoke;
+  }
+  .closebtn {
+	  margin-top: 24px;
+	  
+  }
+  .table-responsive {
+    overflow-y: auto;
+  height: 400px;
+}
+
+.table-responsive thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+}
+
+.table {
+    border-collapse: collapse;        
+    width: 100%;
+}
