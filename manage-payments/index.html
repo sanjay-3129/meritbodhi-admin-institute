@@ -861,17 +861,17 @@
             let revenueDetail = detail.data()?.revenueDetails;
             //Appending payment details to the table body
             $('#orderTab').append(`<tr>
-                      // <th scope="row">`+(i+1)+`</th>
+                      <th scope="row">`+(i+1)+`</th>
                       <td>`+detail.data()?.instituteName+`</td>
                       <td>`+revenueDetail?.currentMeritbodhiRevenue+`</td>
                       <td>`+revenueDetail?.currentInstituteRevenue+`</td>
                       <td>`+revenueDetail?.pendingAmount+`</td>
                       <td>`+revenueDetail?.lastPaymentDate+`</td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal()">View</button>
+                      <button type="button" class="btn view" onclick="openModal({name:'`+detail.data()?.paymentDetails?.name+`', accountNumber:'`+detail.data()?.paymentDetails?.accountNumber+`', branch:'`+detail.data()?.paymentDetails?.branch+`', ifsc: '`+detail.data()?.paymentDetails?.ifsc+`', phoneNumber: '`+detail.data()?.paymentDetails?.phoneNumber+`', preferredMethod: '`+detail.data()?.paymentDetails?.preferredMethod+`', upi: '`+detail.data()?.paymentDetails?.upi+`'})">View</button>
                       </td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModalDetails()">View</button>
+                      <button type="button" class="btn view" onclick="openModalDetails('`+detail.data()?.id+`')">View</button>
                       </td>
                     </tr>`);
                     i++;
@@ -954,9 +954,9 @@
       var detailModal = document.getElementById("myModal1");
       var detailSpan = document.getElementsByClassName("close1")[0];
       var detailsclosemodal = document.getElementsByClassName("modalclose1")[0];
-      openModalDetails= () => {
-        console.log('openModalDetails');
-
+      openModalDetails= (id) => {
+        console.log('openModalDetails', id);
+        
           detailModal.style.display = "block";
         
       };
