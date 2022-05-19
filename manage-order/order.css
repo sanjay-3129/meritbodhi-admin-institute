@@ -202,17 +202,17 @@
 	  
   }
   .table-responsive {
-	overflow-y: auto;
+    overflow-y: auto;
   height: 400px;
 }
 
 .table-responsive thead th {
-	position: sticky;
-	top: 0;
-	background: #fff;
+    position: sticky;
+    top: 0;
+    background: #fff;
 }
 
 .table {
-	border-collapse: collapse;        
-	width: 100%;
+    border-collapse: collapse;        
+    width: 100%;
 }
