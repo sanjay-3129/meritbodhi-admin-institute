@@ -720,6 +720,37 @@
             
             
     </div>
+    <div class="abc" >
+
+      <div class="abcd2">
+          <div class="card">
+              <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Buy Order History  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead class="bg-light">
+                              <tr class="border-0">
+                                 <th class="border-0">S.no</th>
+
+                                 <th class="border-0">Courses Name</th>
+                                  <th class="border-0">Student Name</th>
+                                  <th class="border-0">Price</th>
+                                  <th class="border-0">Purchase Date</th>
+                                  <th class="border-0">status</th>
+                              </tr>
+                          </thead>
+                          <tbody id="orderTab1">
+                             
+                          </tbody>
+                          <tr>
+                              <th ><button class="btn btn-sm btn-primary " onclick="addmore()">Load All Orders</button></th></tr>
+                          </table>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
       </div>
 
       
@@ -846,7 +877,27 @@
                     i++;
         });
           })
-
+          const initialGetDetails = ()=>{
+            data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+                       
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                            // if(orderDetail.data().instituteId == instituteDetails.id){
+                                $('#orderTab1').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                            // }
+                        })
+                    })
+        }
 
       };
       courseGetter = (cats) => {
