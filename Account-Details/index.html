@@ -345,73 +345,8 @@ function upload ()  {
                 document.getElementById('closeLoader').click();
             }
         }
-        function cardValuesSetter() {
-            document.getElementById('courseCount').innerHTML = instituteDetails.courseIds.length;
-            document.getElementById('facultyCount').innerHTML =instituteDetails.facultyIds.length;
-        }
-        function coursePerformance(){
-            var arrayOfCourses=[];
-            var totalNs = 0;
-            var crss = instituteDetails.courseIds;
-            crss.forEach((crs)=>{
-                var crsid = crs.split('?***?');
-                data.collection('subCategories').doc(crsid[0]).collection('courses').doc(crsid[1]).get().then((allVals)=>{
-                    var ns = allVals.data().noOfStudents;
-                    var an = allVals.data().courseName;
-                    var ac = allVals.data().publish.originalPrice;
-                    var obj = {
-                        'name':an,
-                        'cost':ac,
-                        'prio':ns
-                    }
-                    totalNs+=parseInt(ns);
-                    arrayOfCourses.push(obj)
-                }).catch((e)=>{
+  
 
-                })
-            })
-            setTimeout(function(){
-                document.getElementById('studentCount').innerHTML=totalNs;
-                var byPrioLow = arrayOfCourses.slice(0);
-                var byPrioHigh = arrayOfCourses.slice(0);
-                var ind = 0;
-                byPrioLow.sort(function(a,b) {
-                    return a.prio - b.prio;
-                });
-                byPrioHigh.sort(function(a,b) {
-                    return b.prio-a.prio;
-                })
-                console.log(byPrioHigh);
-                $('#topPerfTab').html('');
-                $('#lowPerfTab').html('');
-
-                byPrioHigh.forEach((crs)=>{
-                    console.log(crs);
-
-                if (ind<5) {
-                    
-                    $('#topPerfTab').append(` <tr>
-                                                            <td>`+(ind+1)+`</td>
-                                                            <td>`+crs.name+`</td>
-                                                            <td>`+crs.prio+`</td>
-                                                            <td>`+crs.cost+`</td>
-
-                                                        </tr>`);
-                    $('#lowPerfTab').append(` <tr>
-                                                            <td>`+(ind+1)+`</td>
-                                                            <td>`+byPrioLow[ind].name+`</td>
-                                                            <td>`+byPrioLow[ind].prio+`</td>
-                                                            <td>`+byPrioLow[ind].cost+`</td>
-
-                                                        </tr>`);
-            }
-                ind++;
-
-            })
-            },8000);
-                
-            
-        }
         function logout(){
             auth.signOut().then(()=>{
                 localforage.clear().then(()=>{
@@ -421,84 +356,7 @@ function upload ()  {
             });
 
         }
-        function reviewsChartSetter(courses) {
-            var rev=[];
-            var fiverev=0;
-            var fourrev=0;
-            var threerev=0;
-            var tworev=0;
-            var onerev=0;
-            var avgrev=0;
-            var toprow='';
-            for (var i = 0; i < courses.length; i++) {
-                    var courseArgs = courses[i].split('?***?');
-                     data.collection('subCategories').doc(courseArgs[0]).collection('courses').doc(courseArgs[1]).collection('reviews').get().then((revs)=>{
-                        revs.forEach((revDoc)=>{
-                            var revData = revDoc.data();
-                            for (var i = 0; i < revData.reviews.length; i++) {
-                                rev.push(revData.reviews[i].rating);
-                                if (revData.reviews[i].rating==1) {
-                                    onerev++;
-                                }
-                                if (revData.reviews[i].rating==2) {
-                                    tworev++;   
-                                }
-                                if (revData.reviews[i].rating==3) {
-                                    threerev++;
-                                }
-                                if (revData.reviews[i].rating==4) {
-                                    fourrev++;
-                                }
-                                if (revData.reviews[i].rating==5) {
-                                    fiverev++;
-                                }
-                            }
-                            
-                        })
 
-                     }).then(()=>{
-                            //rating doughnut chart 
-                            const data_rat = {
-                              //labels
-                              labels: ['1★', '2★', '3★', '4★', '5★'],
-                              datasets: [
-                                {
-                                  label: 'Ratings',
-                                  //members list per rating
-                                  data: [onerev,tworev, threerev,fourrev,fiverev],
-                                  //
-                                  backgroundColor: ['rgb(255, 90, 124)',
-                                                    'rgb(255, 178, 52)',
-                                                    'rgb(255, 216, 52)',
-                                                    'rgb(173, 214, 51)',
-                                                    'rgb(159, 192, 90)']
-                                }
-                              ]
-                            };
-
-                            new Chart("ratingDougnetChart",{
-                                type: 'doughnut',
-                                data: data_rat,
-                                options: {
-                                  responsive: true,
-                                  plugins: {
-                                    legend: {
-                                      position: 'bottom',
-                                    },
-                                    title: {
-                                      display: true,
-                                      text: 'Ratings'
-                                    }
-                                  }
-                                },
-                            });
-
-                        });
-
-                 }   
-                 coursePerformance();  
-        }
-       
     </script>
 </body>
 <!-- primary color : #5e72e4 -->

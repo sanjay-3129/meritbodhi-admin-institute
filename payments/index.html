@@ -267,161 +267,30 @@
                                                        <th class="border-0">Courses Name</th>
                                                         <th class="border-0">Student mail</th>
                                                         <th class="border-0">Price</th>
+                                                        <th class="border-0">Purchase Date</th>
                                                         <th class="border-0">status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="orderTab">
+                                                   
                                                     <tr>
-                                                      <td>1</td>
-                                                      <td>
-                                                        <div class="m-r-10">
-                                                          
-                                                          English
-                                                        </div>
-                                                      </td>
-                                                      <td>jagadish00198@gmail.com</td>
-                                                      <td>3000</td>
-                                                      <td>course1</td>
-                                                     
-                                                      <!-- <td class="text-center">
-                                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                                      </td> -->
-                                                    </tr>
-                                                    <tr>
-                                                      <td>2</td>
-                                                      <td>
-                                                        <div class="m-r-10">
-                                                          
-                                                            English
-                                                        </div>
-                                                      </td>
-                                                      <td>jagadish00198@gmail.com</td>
-                                                      <td>3000</td>
-                                                      <td>course2</td>
-                                                      <!-- <td>25-08-2018 21:12:56</td>
-                                                      <td class="text-center">
-                                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                                      </td> -->
-                                                    
-                                                    </tr>
-                                                    <tr>
-                                                      <td>3</td>
-                                                      <td>
-                                                        <div class="m-r-10">
-                                                        
-                                                            English
-                                                        </div>
-                                                      </td>
-                                                      <td>jagadish00198@gmail.com</td>
-                                                      <td>3000</td>
-                                                      <td>course3</td>
-                                                      <!-- <td>25-08-2018 21:12:56</td>
-                                                      <td class="text-center">
-                                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                                      </td> -->
-                                                    </tr>
-                                                    <tr>
-                                                      <td>4</td>
-                                                      <td>
-                                                        <div class="m-r-10">
-                                                         
-                                                            English
-                                                        </div>
-                                                      </td>
-                                                      <td>jagadish00198@gmail.com</td>
-                                                      <td>3000</td>
-                                                      <td>course4</td>
-                                                      <!-- <td>23-08-2018 09:12:35</td>
-                                                      <td class="text-center">
-                                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                                      </td> -->
-                                                    </tr>
-                                                    <tr>
-                                                      <td>5</td>
-                                                      <td>
-                                                        <div class="m-r-10">
-                                                         
-                                                            English
-                                                        </div>
-                                                      </td>
-                                                      <td>jagadish00198@gmail.com</td>
-                                                      <td>3000</td>
-                                                      <td>course5</td>
-                                                      <!-- <td>23-08-2018 09:12:35</td>
-                                                      <td class="text-center">
-                                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                                      </td> -->
-                                                    </tr>
-                                                  </tbody>
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="abcde">
-                                <div class="card">
-                                    <h5 class="card-header">Low Performing Courses</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                       <th class="border-0">S.no</th>
-
-                                                       <th class="border-0">Courses</th>
-                                                        <th class="border-0">No of Students</th>
-                                                        <th class="border-0">Cost</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="lowPerfTab">
-                                                      <tr><td colspan="4">Loading...</td></tr>        
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th ><button class="btn btn-sm btn-primary " onclick="addmore()">Load All Orders</button></th></tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
-                            
-                    </div>    
-
-
-<!-- row2end -->
-<!-- row3start -->
-
-<!-- <div class="abc1">
-                                   
-                                   <div class="card graphjoker1"> 
-                                     <div class="graphcontainer">
-                                        <canvas id="incomeAsPerYear" class="graphjoker"></canvas>
-                                    </div>   
-                                   </div>
-                                   <div class="card">
-                                   <div class="graphcontainer1" style="background-color: #fff;">
-                                    <h2 style="padding: 1rem;">Institute Rating</h2>
-                                    <canvas id="ratingDougnetChart"></canvas>
-                                    </div>
-                                    </div>
-                                    
-                                    
-
-                            
-  
-
-
-</div> -->
-
-
-
-
-<!-- row3end -->
-
-                                
-
-            </div>
-        </div>
-    </div> 
-</div>         
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div> 
+        </div>         
                         
     
 
@@ -435,11 +304,12 @@
     
     <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
     <script type="text/javascript">
-         var nameApro="";
+        var nameApro="";
         var form = document.getElementById('profileForm');
         var nameAproA=[];
         var instituteDetails=[];
-
+        var lastVisible=0;
+        let i =0;
         function onLoadSetter(){
             localforage.getItem('fullAuth').then((e)=>{
                 console.log(e);
@@ -449,16 +319,59 @@
                 document.getElementById('smallProfileImage').setAttribute('src','https://secure--storage.s3.ap-south-1.amazonaws.com/'+nameAproA[1]);
                 localforage.getItem('instituteDetails').then((f)=>{
                     instituteDetails=f;
-                    cardValuesSetter();
-                    
-                    reviewsChartSetter(f.courseIds);
-                    
+                    console.log("instituteID>>",instituteDetails.id);
+                  initialGetDetails();
                     
                 })
             });
-            
-            
         }
+        const initialGetDetails = ()=>{
+            data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+                       
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                            // if(orderDetail.data().instituteId == instituteDetails.id){
+                                $('#orderTab').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                            // }
+                        })
+                    })
+        }
+        
+        
+        const addmore = ()=>{
+            $('#orderTab').empty();
+            data.collection('orders').orderBy("courseBoughtTimestamp").startAt(lastVisible).get().then((allOrderArray)=>{
+                let i=0;
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                            if(orderDetail.data().instituteId == instituteDetails.id){
+                                $('#orderTab').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                            }
+                        })
+                    })
+        }
+
+
          auth.onAuthStateChanged((user)=>{
             if(user){
                
@@ -475,160 +388,16 @@
                 document.getElementById('closeLoader').click();
             }
         }
-        function cardValuesSetter() {
-            document.getElementById('courseCount').innerHTML = instituteDetails.courseIds.length;
-            document.getElementById('facultyCount').innerHTML =instituteDetails.facultyIds.length;
-        }
-        function coursePerformance(){
-            var arrayOfCourses=[];
-            var totalNs = 0;
-            var crss = instituteDetails.courseIds;
-            crss.forEach((crs)=>{
-                var crsid = crs.split('?***?');
-                data.collection('subCategories').doc(crsid[0]).collection('courses').doc(crsid[1]).get().then((allVals)=>{
-                    var ns = allVals.data().noOfStudents;
-                    var an = allVals.data().courseName;
-                    var ac = allVals.data().publish.originalPrice;
-                    var obj = {
-                        'name':an,
-                        'cost':ac,
-                        'prio':ns
-                    }
-                    totalNs+=parseInt(ns);
-                    arrayOfCourses.push(obj)
-                }).catch((e)=>{
 
-                })
-            })
-            setTimeout(function(){
-                document.getElementById('studentCount').innerHTML=totalNs;
-                var byPrioLow = arrayOfCourses.slice(0);
-                var byPrioHigh = arrayOfCourses.slice(0);
-                var ind = 0;
-                byPrioLow.sort(function(a,b) {
-                    return a.prio - b.prio;
-                });
-                byPrioHigh.sort(function(a,b) {
-                    return b.prio-a.prio;
-                })
-                console.log(byPrioHigh);
-                $('#topPerfTab1').html('');
-                $('#lowPerfTab').html('');
-
-                byPrioHigh.forEach((crs)=>{
-                    console.log(crs);
-
-                if (ind<5) {
-                    
-                    $('#topPerfTab1').append(` <tr>
-                                                            <td>`+(ind+1)+`</td>
-                                                            <td>`+crs.name+`</td>
-                                                            <td>`+crs.prio+`</td>
-                                                            <td>`+crs.cost+`</td>
-
-                                                        </tr>`);
-                    $('#lowPerfTab').append(` <tr>
-                                                            <td>`+(ind+1)+`</td>
-                                                            <td>`+byPrioLow[ind].name+`</td>
-                                                            <td>`+byPrioLow[ind].prio+`</td>
-                                                            <td>`+byPrioLow[ind].cost+`</td>
-
-                                                        </tr>`);
-            }
-                ind++;
-
-            })
-            },8000);
-                
-            
-        }
         function logout(){
             auth.signOut().then(()=>{
                 localforage.clear().then(()=>{
                     location.replace('../login/');
                 });
-                
             });
 
         }
-        function reviewsChartSetter(courses) {
-            var rev=[];
-            var fiverev=0;
-            var fourrev=0;
-            var threerev=0;
-            var tworev=0;
-            var onerev=0;
-            var avgrev=0;
-            var toprow='';
-            for (var i = 0; i < courses.length; i++) {
-                    var courseArgs = courses[i].split('?***?');
-                     data.collection('subCategories').doc(courseArgs[0]).collection('courses').doc(courseArgs[1]).collection('reviews').get().then((revs)=>{
-                        revs.forEach((revDoc)=>{
-                            var revData = revDoc.data();
-                            for (var i = 0; i < revData.reviews.length; i++) {
-                                rev.push(revData.reviews[i].rating);
-                                if (revData.reviews[i].rating==1) {
-                                    onerev++;
-                                }
-                                if (revData.reviews[i].rating==2) {
-                                    tworev++;   
-                                }
-                                if (revData.reviews[i].rating==3) {
-                                    threerev++;
-                                }
-                                if (revData.reviews[i].rating==4) {
-                                    fourrev++;
-                                }
-                                if (revData.reviews[i].rating==5) {
-                                    fiverev++;
-                                }
-                            }
-                            
-                        })
-
-                     }).then(()=>{
-                            //rating doughnut chart 
-                            const data_rat = {
-                              //labels
-                              labels: ['1★', '2★', '3★', '4★', '5★'],
-                              datasets: [
-                                {
-                                  label: 'Ratings',
-                                  //members list per rating
-                                  data: [onerev,tworev, threerev,fourrev,fiverev],
-                                  //
-                                  backgroundColor: ['rgb(255, 90, 124)',
-                                                    'rgb(255, 178, 52)',
-                                                    'rgb(255, 216, 52)',
-                                                    'rgb(173, 214, 51)',
-                                                    'rgb(159, 192, 90)']
-                                }
-                              ]
-                            };
-
-                            new Chart("ratingDougnetChart",{
-                                type: 'doughnut',
-                                data: data_rat,
-                                options: {
-                                  responsive: true,
-                                  plugins: {
-                                    legend: {
-                                      position: 'bottom',
-                                    },
-                                    title: {
-                                      display: true,
-                                      text: 'Ratings'
-                                    }
-                                  }
-                                },
-                            });
-
-                        });
-
-                 }   
-                 coursePerformance();  
-        }
-
+ 
         
        
     </script>
