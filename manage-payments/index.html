@@ -448,106 +448,7 @@
                             </tr>
                           </thead>
                           <tbody id="orderTab">
-<<<<<<< HEAD
-                            <tr>
-                              <td>1</td>
-                              <td>
-                                <div class="m-r-10">
-                                  
-                                  jagadish
-                                </div>
-                              </td>
-                              <td>student 1</td>
-                              <td>id000001</td>
-                              <td>course1</td>
-                              <td>27-08-2018 01:22:12</td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModal()">View</button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModalDetails()">View</button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>
-                                <div class="m-r-10">
-                                  
-                                  jagadish
-                                </div>
-                              </td>
-                              <td>Student 2</td>
-                              <td>id000002</td>
-                              <td>course2</td>
-                              <td>25-08-2018 21:12:56</td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModal()">View</button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModalDetails()">View</button>
-                              </td>
-                            
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>
-                                <div class="m-r-10">
-                                
-                                  jagadish
-                                </div>
-                              </td>
-                              <td>Student 3</td>
-                              <td>id000003</td>
-                              <td>course3</td>
-                              <td>25-08-2018 21:12:56</td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModal()">View</button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModalDetails()">View</button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>
-                                <div class="m-r-10">
-                                 
-                                  jagadish
-                                </div>
-                              </td>
-                              <td>Student 4</td>
-                              <td>id000004</td>
-                              <td>course4</td>
-                              <td>23-08-2018 09:12:35</td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModal()">View</button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModalDetails()">View</button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>5</td>
-                              <td>
-                                <div class="m-r-10">
-                                 
-                                  jagadish
-                                </div>
-                              </td>
-                              <td>Student 5</td>
-                              <td>id000005</td>
-                              <td>course5</td>
-                              <td>23-08-2018 09:12:35</td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModal()">View</button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" class="btn view" onclick="openModalDetails()">View</button>
-                              </td>
-                            </tr>
-=======
                          
->>>>>>> 8aa7cecf4de8e9e18895314fb574171e5d358ed4
                           </tbody>
                           <tr>
                             <td colspan="9">
@@ -927,10 +828,10 @@
                       <td>`+revenueDetail?.pendingAmount+`</td>
                       <td>`+revenueDetail?.lastPaymentDate+`</td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal(`+ detail.data() +`)">View</button>
+                      <button type="button" class="btn view" onclick="openModal()">View</button>
                       </td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal()">View</button>
+                      <button type="button" class="btn view" onclick="openModalDetails()">View</button>
                       </td>
                     </tr>`);
                     i++;
@@ -971,7 +872,7 @@
       openModal = (data) => {
         console.log('Data>>>', data);
 
-          // modal.style.display = "block";
+          modal.style.display = "block";
         
       };
       
@@ -990,28 +891,28 @@
         }
       }
 
-      var modal = document.getElementById("myModal1");
-      var span = document.getElementsByClassName("close1")[0];
-      var closemodal = document.getElementsByClassName("modalclose1")[0];
+      var detailModal = document.getElementById("myModal1");
+      var detailSpan = document.getElementsByClassName("close1")[0];
+      var detailsclosemodal = document.getElementsByClassName("modalclose1")[0];
       openModalDetails= () => {
         console.log('openModalDetails');
 
-          modal.style.display = "block";
+          detailModal.style.display = "block";
         
       };
       
-      span.onclick = function() {
-        modal.style.display = "none";
+      detailSpan .onclick = function() {
+        detailModal.style.display = "none";
       }
 
-      closemodal.onclick = function() {
-        modal.style.display = "none";
+      detailsclosemodal.onclick = function() {
+        detailModal.style.display = "none";
       }
       
       
       window.onclick = function(event) {
         if (event.target == modal) {
-          modal.style.display = "none";
+          detailModal.style.display = "none";
         }
       }
 

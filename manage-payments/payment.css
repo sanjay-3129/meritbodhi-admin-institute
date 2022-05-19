@@ -257,6 +257,7 @@
 	.table-responsive thead th {
 		position: sticky;
 		top: 0;
+		background: #fff;
 	}
 
 	.table {
