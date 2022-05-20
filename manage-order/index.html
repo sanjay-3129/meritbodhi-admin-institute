@@ -62,8 +62,14 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" type="text/css" href="order.css" />
     <script>
       function openNav() {
@@ -315,7 +321,6 @@
             >
           </li>
 
-
           <!-- <li class="nav-item">
             <a class="nav-link" href="../manage-report"
               ><i class="fas fa-flag"></i>Report Generation</a
@@ -353,8 +358,6 @@
           <div class="container-fluid dashboard-content">
             <div class="ecommerce-widget">
               <!-- rowstart -->
-
-              
 
               <!-- rowend -->
 
@@ -431,38 +434,49 @@
                 <div style="width: 100%; margin-left: 15px; margin-right: 15px">
                   <div class="card">
                     <!-- <div class="row headder"> -->
-                    <h5 class="card-header" style="display: flex;
-                    justify-content: space-between;
-                    align-items: center;">Institute Payment Details
-                      <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button>
+                    <h5
+                      class="card-header"
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                      "
+                    >
+                      Institute Payment Details
+                      <button
+                        type="button"
+                        id="btnExport"
+                        onclick="exportReportToExcel(this)"
+                        class="btn export"
+                      >
+                        Export
+                      </button>
                     </h5>
-                   
-                  <!-- </div> -->
+
+                    <!-- </div> -->
                     <div class="card-body p-0">
                       <div class="table-responsive">
                         <table class="table">
                           <thead class="bg-light">
                             <tr class="border-0">
-                              <th class="border-0">SI no</th>
+                              <th class="border-0">Sl no</th>
+                              <th class="border-0">Course Name</th>
+                              <th class="border-0">Student Name</th>
                               <th class="border-0">Institute Name</th>
-                              <th class="border-0">Amount for us</th>
-                              <th class="border-0">Amount to be paid</th>
-                              <th class="border-0">Pending</th>
-                              <th class="border-0">Paid Date</th>
-                              <th class="border-0">View Account Details</th>
-                              <th class="border-0">Payment Details</th>
+                              <th class="border-0">Amount</th>
+                              <th class="border-0">Bought time</th>
+                              <th class="border-0">Status</th>
                             </tr>
                           </thead>
-                          <tbody id="orders">
-                         
-                          </tbody>
+                          <tbody id="orderTableBody"></tbody>
                           <tr>
                             <td colspan="9">
-                              <a
-                                href="#"
+                              <button
+                                onclick="addmore()"
                                 class="btn btn-outline-light float-right"
-                                >View More</a
                               >
+                                View More
+                              </button>
                             </td>
                           </tr>
                         </table>
@@ -473,9 +487,7 @@
               </div>
               <!-- ============================================================== -->
               <!-- end recent orders  -->
-              
 
-              
               <!-- ============================================================== -->
               <!-- end sales traffice country source  -->
               <!-- ============================================================== -->
@@ -489,40 +501,48 @@
     </div>
 
     <div id="myModal" class="modal">
-
       <!-- Modal content -->
       <div class="modal-content">
         <h2>Payment Detail <span class="close">&times;</span></h2>
         <div class="row">
           <div class="col-md-4">
-        <h3>Bank Details</h3>
-        <p><b>Name : </b><span>Jagadish</span></p>
-        <p><b>Phone no : </b><span>1234567890</span></p>
-        <p><b>Account no : </b><span>xxxxxxxxxxx</span></p>
-        <p><b>IFSC : </b><span>INDO1234</span></p>
-        <p><b>Branch : </b><span>avadi,chennai</span></p>
-      </div>
-      <div class="col-md-4">
-        <h3>Upi Detail</h3>
-        <p><b>Upi id : </b><span>Jagadish@upi</span></p>
-      </div>
-      <div class="col-md-4">
-        <p><b>Amount to paid : </b><span>200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
-        <p><b>GST : </b><span>12%</span></p>
-        <p><b>Total Amount to paid  : </b><span>250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Amount paid</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <h3>Bank Details</h3>
+            <p><b>Name : </b><span>Jagadish</span></p>
+            <p><b>Phone no : </b><span>1234567890</span></p>
+            <p><b>Account no : </b><span>xxxxxxxxxxx</span></p>
+            <p><b>IFSC : </b><span>INDO1234</span></p>
+            <p><b>Branch : </b><span>avadi,chennai</span></p>
           </div>
-        </form>
-             <button type="submit" class="btn sub">Paid</button>
-             <button type="submit" class="btn can modalclose" >Cancel</button>
+          <div class="col-md-4">
+            <h3>Upi Detail</h3>
+            <p><b>Upi id : </b><span>Jagadish@upi</span></p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <b>Amount to paid : </b
+              ><span>200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span>
+            </p>
+            <p><b>GST : </b><span>12%</span></p>
+            <p>
+              <b>Total Amount to paid : </b
+              ><span>250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span>
+            </p>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Amount paid</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+            </form>
+            <button type="submit" class="btn sub">Paid</button>
+            <button type="submit" class="btn can modalclose">Cancel</button>
+          </div>
+        </div>
       </div>
-
-      </div>
-      </div>
-    
     </div>
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
@@ -612,34 +632,106 @@
                         //   institutes.length;
                         // document.getElementById("courseCount").innerHTML =
                         //   courseCountter;
-                      })
+                      });
                   });
               });
           });
-          //Get institute details from firestore
-          const initialGetDetails = ()=>{
-            data.collection('orders').limit(5).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
-                       console.log("allOrderArray", allOrderArray);
-                        let date1;
-                        allOrderArray.forEach((orderDetail)=>{
-                            console.log("orderDetail>>", orderDetail.data());
-                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
-                            // if(orderDetail.data().instituteId == instituteDetails.id){
-                                $('#orders').append(`<tr>
-                                <th scope="row">`+(i+1)+`</th>
-                                <td>`+orderDetail.data()?.courseName+`</td>                     
-                                <td>`+orderDetail.data()?.studentName+`</td>                     
-                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
-                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
-                                <td>`+orderDetail.data()?.status+`</td>                     
-                                </tr>`);
-                                i++;
-                            // }
-                        })
-                    })
-        }
-       
+        //Get institute details from firestore
+        initialGetDetails();
       };
+      const initialGetDetails = () => {
+        data
+          .collection("orders")
+          .limit(3)
+          .orderBy("courseBoughtTimestamp")
+          .get()
+          .then((allOrderArray) => {
+            console.log("allOrderArray", allOrderArray);
+            let date1;
+            let i = 0;
+            allOrderArray.forEach((orderDetail) => {
+              console.log("orderDetail>>", orderDetail.data());
+              date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+              $("#orderTableBody").append(
+                `<tr>
+                              <th scope="row">` +
+                  (i + 1) +
+                  `</th>
+                              <td>` +
+                  orderDetail.data()?.courseName +
+                  `</td>                     
+                              <td>` +
+                  orderDetail.data()?.studentName +
+                  `</td>                     
+                              <td>` +
+                  orderDetail.data()?.instituteName +
+                  `</td>                     
+                              <td>` +
+                  orderDetail.data()?.totalAmount +
+                  `</td>                     
+                              <td class="text-center">` +
+                  date1.toLocaleDateString() +
+                  " <small>" +
+                  date1.toLocaleTimeString() +
+                  `</small></td>                     
+                              <td>` +
+                  orderDetail.data()?.status +
+                  `</td>                     
+                              </tr>`
+              );
+              i++;
+              // }
+            });
+          });
+      };
+
+      // Load All order details
+      const addmore = () => {
+        $("#orderTableBody").empty();
+        institutePaymentAmount = 0;
+        meritbodhiPaymentAmount = 0;
+        data
+          .collection("orders")
+          .orderBy("courseBoughtTimestamp")
+          .get()
+          .then((allOrderArray) => {
+            let i = 0;
+            let date1;
+            allOrderArray.forEach((orderDetail) => {
+              console.log("orderDetail>>", orderDetail.data());
+              date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+              $("#orderTableBody").append(
+                `<tr>
+                                <th scope="row">` +
+                  (i + 1) +
+                  `</th>
+                                <td>` +
+                  orderDetail.data()?.courseName +
+                  `</td>                     
+                  <td>` +
+                  orderDetail.data()?.studentName +
+                  `</td>                     
+                                <td>` +
+                  orderDetail.data()?.instituteName +
+                  `</td>                     
+                                <td>` +
+                  orderDetail.data()?.totalAmount +
+                  `</td>                     
+                                <td class="text-center">` +
+                  date1.toLocaleDateString() +
+                  " <small>" +
+                  date1.toLocaleTimeString() +
+                  `</small></td>                     
+                                <td>` +
+                  orderDetail.data()?.status +
+                  `</td>                     
+                                </tr>`
+              );
+              i++;
+            });
+          });
+      };
+
       courseGetter = (cats) => {
         console.log(cats.length);
         cats.forEach((scat) => {
@@ -656,7 +748,7 @@
             });
         });
       };
-      
+
       logout = () => {
         auth.signOut().then(() => {
           localforage.clear().then(() => {
@@ -670,39 +762,35 @@
       var span = document.getElementsByClassName("close")[0];
       var closemodal = document.getElementsByClassName("modalclose")[0];
       openModal = (data) => {
-        console.log('Data>>>', data);
+        console.log("Data>>>", data);
 
-          // modal.style.display = "block";
-        
+        // modal.style.display = "block";
       };
-      
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
 
-      closemodal.onclick = function() {
+      span.onclick = function () {
         modal.style.display = "none";
-      }
-      
-      
-      window.onclick = function(event) {
+      };
+
+      closemodal.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
-      }
-
+      };
 
       function exportReportToExcel() {
-  let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
-  TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
-    name: `export.xlsx`, // fileName you could use any name
-    sheet: {
-      name: 'Sheet 1' // sheetName
-    }
-  });
-}
-
-
+        let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
+        TableToExcel.convert(table[0], {
+          // html code may contain multiple tables so here we are refering to 1st table tag
+          name: `export.xlsx`, // fileName you could use any name
+          sheet: {
+            name: "Sheet 1", // sheetName
+          },
+        });
+      }
     </script>
   </body>
   <!-- primary color : #5e72e4 -->

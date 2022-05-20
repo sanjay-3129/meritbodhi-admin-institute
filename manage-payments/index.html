@@ -365,7 +365,7 @@
                     <div class="card-body">
                       <h2 style="color: #5e72e4">Total Pending</h2>
                       <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="courseCount">500 Rupees</h3>
+                        <h3 class="mb-1" id="totalPayAmount">500 Rupees</h3>
                       </div>
                       <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                         <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -379,7 +379,7 @@
                     <div class="card-body">
                       <h2 style="color: #5e72e4">Institution</h2>
                       <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="facultyCount">000</h3>
+                        <h3 class="mb-1" id="institutePayAmount">000</h3>
                       </div>
                       <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                         <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -393,7 +393,7 @@
                     <div class="card-body">
                       <h2 style="color: #5e72e4">Meritbothi</h2>
                       <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="studentCount">000</h3>
+                        <h3 class="mb-1" id="meritbodhiPayAmount">000</h3>
                       </div>
                       <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                         <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -457,7 +457,7 @@
                           <tbody id="orderTab">
                          
                           </tbody>
-                          <tr>
+                          <!-- <tr>
                             <td colspan="9">
                               <a
                                 href="#"
@@ -465,7 +465,7 @@
                                 >View More</a
                               >
                             </td>
-                          </tr>
+                          </tr> -->
                         </table>
                       </div>
                     </div>
@@ -499,7 +499,8 @@
         <div class="row">
           <div class="col-md-4">
         <h3>Bank Details</h3>
-        <p><b>Account no : </b><span id="instituteName">xxxxxxxxxxx</span></p>
+        <p><b>Institute name : </b><span id="instituteName">xxxxxxxxxxx</span></p>
+        <p><b>Account name : </b><span id="instituteAccountName">xxxxxxxxxxx</span></p>
         <p style="display:none ;"><b>Institute Id : </b><span id="instituteId">xxxxxxxxxxx</span></p>
             <p><b>Name : </b><span id="institutePhoneNo">Jagadish</span></p>
                 <p><b>Phone no : </b><span id="instituteAccountNo">1234567890</span></p>
@@ -517,7 +518,7 @@
         <p><b>Current Pending Amount : </b><span id="currentPendingAmount">200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <p><b>Previous Pending Amount : </b><span id="previousPendingAmount">200 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <p><b>GST : </b><span>12%</span></p>
-        <p><b>Total Amount to paid  : </b><span id="totalPendingAmount">250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
+        <p><b>Total Amount to be paid  : </b><span id="totalPendingAmount">250 <i class="fa-solid fa-indian-rupee-sign"></i>/-</span></p>
         <form>
           <div class="form-group">
             <label for="institutePaymentAmount">Amount paid</label>
@@ -540,7 +541,7 @@
       <!-- Modal content -->
       <div class="modal-content1">
         <h2>Payment Detail <span class="close1">&times;</span></h2>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card">
                   <div class="card-body">
@@ -607,12 +608,12 @@
                   </div>
                   
               </div>
-           </div>
+           </div> -->
            <div class="abc" >
 
             <div class="abcd1">
                 <div class="card">
-                    <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Top performing Courses  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
+                    <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Order History of Institute  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">
@@ -621,95 +622,26 @@
                                        <th class="border-0">S.no</th>
 
                                        <th class="border-0">Courses Name</th>
-                                        <th class="border-0">Student mail</th>
+                                        <th class="border-0">Student name</th>
+                                        <th class="border-0">Institute name</th>
                                         <th class="border-0">Price</th>
+                                        <th class="border-0">Bought Time</th>
                                         <th class="border-0">status</th>
                                     </tr>
                                 </thead>
-                                <tbody id="orderTab">
-                                    <tr>
-                                      <td>1</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                          
-                                          English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course1</td>
-                                     
-                                      <!-- <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>2</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                          
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course2</td>
-                                      <!-- <td>25-08-2018 21:12:56</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
+                                <tbody id="instituteOrderTable">
                                     
-                                    </tr>
-                                    <tr>
-                                      <td>3</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                        
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course3</td>
-                                      <!-- <td>25-08-2018 21:12:56</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>4</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                         
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course4</td>
-                                      <!-- <td>23-08-2018 09:12:35</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
-                                    <tr>
-                                      <td>5</td>
-                                      <td>
-                                        <div class="m-r-10">
-                                         
-                                            English
-                                        </div>
-                                      </td>
-                                      <td>jagadish00198@gmail.com</td>
-                                      <td>3000</td>
-                                      <td>course5</td>
-                                      <!-- <td>23-08-2018 09:12:35</td>
-                                      <td class="text-center">
-                                        <button type="button" class="btn view" onclick="openModal()">View</button>
-                                      </td> -->
-                                    </tr>
                                   </tbody>
-
+                                  <tr>
+                                    <td colspan="9">
+                                      <button
+                                        onclick="addMoreOrder()"
+                                        class="btn btn-outline-light float-right"
+                                      >
+                                        Load All Orders
+                                      </button>
+                                    </td>
+                                  </tr>
                             </table>
                         </div>
                     </div>
@@ -722,7 +654,7 @@
 
       <div class="abcd2">
           <div class="card">
-              <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Buy Order History  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
+              <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Payment History of Institute  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
               <div class="card-body p-0">
                   <div class="table-responsive">
                       <table class="table">
@@ -730,18 +662,18 @@
                               <tr class="border-0">
                                  <th class="border-0">S.no</th>
 
-                                 <th class="border-0">Courses Name</th>
-                                  <th class="border-0">Student Name</th>
-                                  <th class="border-0">Price</th>
-                                  <th class="border-0">Purchase Date</th>
-                                  <th class="border-0">status</th>
+                                 <th class="border-0">Institute Name</th>
+                                  <th class="border-0">Previous Pending</th>
+                                  <th class="border-0">Payment Amount</th>
+                                  <th class="border-0">Current Pending</th>
+                                  <th class="border-0">Time</th>
                               </tr>
                           </thead>
-                          <tbody id="orderTab1">
+                          <tbody id="institutePaymentTable">
                              
                           </tbody>
                           <tr>
-                              <th ><button class="btn btn-sm btn-primary " onclick="addmore()">Load All Orders</button></th></tr>
+                              <th ><button class="btn btn-sm btn-primary " onclick="addMorePayments()">Load All Payments</button></th></tr>
                           </table>
                       </div>
               </div>
@@ -789,6 +721,11 @@
       var students = [];
       var courses = [];
       var courseCountter = 0;
+      var totalPending=0;
+      var modalInstituteId = "";
+      var amountMeritbodhi = 0;
+      var amountInstitute = 0;
+      var totalPaymentAmount = 0;
       auth.onAuthStateChanged((user) => {
         if (user) {
         } else {
@@ -838,18 +775,19 @@
                         console.log(subCategories);
                         console.log(courses);
                         console.log(students.length);
-                        document.getElementById("studentCount").innerHTML =
-                          students.length;
-                        document.getElementById("facultyCount").innerHTML =
-                          faculties.length;
-                        document.getElementById("instituteCount").innerHTML =
-                          institutes.length;
-                        document.getElementById("courseCount").innerHTML =
-                          courseCountter;
+                        // document.getElementById("studentCount").innerHTML =
+                        //   students.length;
+                        // document.getElementById("facultyCount").innerHTML =
+                        //   faculties.length;
+                        // document.getElementById("instituteCount").innerHTML =
+                        //   institutes.length;
+                        // document.getElementById("courseCount").innerHTML =
+                        //   courseCountter;
                       })
                   });
               });
           });
+
           //Get institute details from firestore
           data.collection('institute').get().then((instituteDetailArray)=>{
   
@@ -857,7 +795,10 @@
           let i =0;
           instituteDetailArray.forEach((detail)=> {
             let revenueDetail = detail.data()?.revenueDetails;
-            console.log(detail.data());
+            console.log("InstituteDetail",detail.data());
+            amountMeritbodhi += parseInt(revenueDetail?.currentMeritbodhiRevenue);
+            amountInstitute += parseInt(revenueDetail?.currentInstituteRevenue);
+            
             //Appending payment details to the table body
             $('#orderTab').append(`<tr>
                       <th scope="row">`+(i+1)+`</th>
@@ -867,7 +808,7 @@
                       <td>`+revenueDetail?.pendingAmount+`</td>
                       <td>`+revenueDetail?.lastPaymentDate+`</td>
                       <td class="text-center">
-                      <button type="button" class="btn view" onclick="openModal({name:'`+detail.data()?.paymentDetails?.name+`', accountNumber:'`+detail.data()?.paymentDetails?.accountNumber+`', branch:'`+detail.data()?.paymentDetails?.branch+`', ifsc: '`+detail.data()?.paymentDetails?.ifsc+`', phoneNumber: '`+detail.data()?.paymentDetails?.phoneNumber+`', preferredMethod: '`+detail.data()?.paymentDetails?.preferredMethod+`', upi: '`+detail.data()?.paymentDetails?.upi+`', id: '`+detail.data()?.id+`', currentAmount: '`+detail.data()?.revenueDetails?.currentInstituteRevenue+`',  pendingAmount: '`+detail.data()?.revenueDetails?.pendingAmount+`'})">View</button>
+                      <button type="button" class="btn view" onclick="openModal({name:'`+detail.data()?.paymentDetails?.name+`', accountNumber:'`+detail.data()?.paymentDetails?.accountNumber+`', branch:'`+detail.data()?.paymentDetails?.branch+`', ifsc: '`+detail.data()?.paymentDetails?.ifsc+`', phoneNumber: '`+detail.data()?.paymentDetails?.phoneNumber+`', preferredMethod: '`+detail.data()?.paymentDetails?.preferredMethod+`', upi: '`+detail.data()?.paymentDetails?.upi+`', id: '`+detail.data()?.id+`', currentAmount: '`+detail.data()?.revenueDetails?.currentInstituteRevenue+`',  pendingAmount: '`+detail.data()?.revenueDetails?.pendingAmount+`', instituteName: '`+detail.data()?.instituteName+`'})">View</button>
                       </td>
                       <td class="text-center">
                         <button type="button" class="btn view" onclick="openModalDetails('`+detail.data()?.id+`')">View</button>
@@ -875,10 +816,79 @@
                         </tr>`);
                         i++;
                       });
+                    }).then(()=>{
+                      let totalPaymentAmount = amountInstitute + amountMeritbodhi;
+                      document.getElementById("totalPayAmount").innerHTML = totalPaymentAmount;
+                      document.getElementById("institutePayAmount").innerHTML = amountInstitute;
+                      document.getElementById("meritbodhiPayAmount").innerHTML = amountMeritbodhi;
                     })
       };
 
-      
+      //Add more Orders for institute
+
+      const addMoreOrder = () => {
+        $("#instituteOrderTable").empty();
+        data
+          .collection("orders").where("instituteId", "==", modalInstituteId).orderBy("courseBoughtTimestamp")
+          .get()
+          .then((allOrderArray) => {
+            let i = 0;
+            let date1;
+            allOrderArray.forEach((orderDetail) => {
+              console.log("orderDetail>>", orderDetail.data());
+              date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+              $("#instituteOrderTable").append(
+                `<tr>
+                                <th scope="row">` +
+                  (i + 1) +
+                  `</th>
+                                <td>` +
+                  orderDetail.data()?.courseName +
+                  `</td>                     
+                  <td>` +
+                  orderDetail.data()?.studentName +
+                  `</td>                     
+                                <td>` +
+                  orderDetail.data()?.instituteName +
+                  `</td>                     
+                                <td>` +
+                  orderDetail.data()?.totalAmount +
+                  `</td>                     
+                                <td class="text-center">` +
+                  date1.toLocaleDateString() +
+                  " <small>" +
+                  date1.toLocaleTimeString() +
+                  `</small></td>                     
+                                <td>` +
+                  orderDetail.data()?.status +
+                  `</td>                     
+                                </tr>`
+              );
+              i++;
+            });
+          });
+      };
+
+      const addMorePayments = ()=> {
+
+        data.collection('payments').where("instituteId", "==", modalInstituteId).orderBy("timestamp").get().then((allPaymentArray)=>{
+                       let j=0;
+                       let date1;
+                       allPaymentArray.forEach((paymentDetail)=>{
+                           console.log("paymentDetail>>", paymentDetail.data());
+                            date1 = new Date(paymentDetail.data()?.timestamp);
+                               $('#institutePaymentTable').append(`<tr>
+                               <th scope="row">`+(j+1)+`</th>
+                               <td>`+paymentDetail.data()?.instituteName+`</td>                     
+                               <td>`+paymentDetail.data()?.previousAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.paidAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.pendingAmount+`</td>                     
+                               <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString()+`</small></td>    
+                               </tr>`);
+                               j++;
+                           })
+                     })
+      }
       courseGetter = (cats) => {
         console.log(cats.length);
         cats.forEach((scat) => {
@@ -895,21 +905,33 @@
             });
           });
         };
-        var totalPending=0;
 //Update Payment to institute
 const updateInstitutePayment = (instituteId)=>{
         let amount = document.getElementById('institutePaymentAmount').value;
-        console.log(instituteId, amount);
-        if (totalPending<amount) {
-window.alert("You are sending more money then the pending amount");
-return;
-        }
-        let newPending = totalPending - amount;
+        let totalAmount = document.getElementById('totalPendingAmount').innerHTML;
+        let instituteName = document.getElementById('instituteName').innerHTML;
+        console.log(instituteId, amount, totalAmount);
+       
+        var newPending = totalAmount - amount;
+        
+        console.log("newPending",newPending, totalAmount, amount);
         data.collection('institute').doc(instituteId).update({
 "revenueDetails.pendingAmount" : newPending,
 "revenueDetails.currentInstituteRevenue" : 0,
 "revenueDetails.currentMeritbodhiRevenue" : 0
 
+        }).then(()=>{
+console.log("totalAmount",totalAmount);
+          console.log("amount",amount);
+          data.collection('payments').add({
+            instituteId: instituteId,
+            instituteName:instituteName,
+            paidAmount : parseInt(amount),
+            previousAmount: parseInt(totalPending),
+            pendingAmount: parseInt(newPending),
+            timestamp : new Date().getTime()
+
+        })
         }).then(() => {
 location.replace("")
         })
@@ -930,7 +952,8 @@ location.replace("")
         console.log('Data>>>', data);
         totalPending = ((data.currentAmount) + (data.pendingAmount))* 0.82;
         console.log("totalPending",totalPending);
-        document.getElementById('instituteName').innerHTML=data.name;
+        document.getElementById('instituteName').innerHTML=data.instituteName;
+        document.getElementById('instituteAccountName').innerHTML=data.name;
         document.getElementById('instituteId').innerHTML=data.id;
         document.getElementById('institutePhoneNo').innerHTML=data.phoneNumber;
         document.getElementById('instituteAccountNo').innerHTML=data.accountNumber;
@@ -941,11 +964,55 @@ location.replace("")
         document.getElementById('previousPendingAmount').innerHTML=data.pendingAmount;
         document.getElementById('totalPendingAmount').innerHTML=totalPending;
         document.getElementById('instituteMethod').innerHTML=data.preferredMethod.toUpperCase();
-
           modal.style.display = "block";
         
       };
       
+      const instituteOrderDetails = (id)=>{
+        $('#instituteOrderTable').empty();
+        $('#institutePaymentTable').empty();
+        modalInstituteId = id;
+        console.log("instituteOrderTable and institutePaymentTable called");
+        let i=0;
+        let j=0;
+            data.collection('orders').where("instituteId", "==", id).limit(2).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+                       
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                                $('#instituteOrderTable').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td> 
+                                <td>`+orderDetail.data()?.instituteName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                      
+                                </tr>`);
+                                i++;
+                            })
+                      })
+            data.collection('payments').where("instituteId", "==", id).limit(2).orderBy("timestamp").get().then((allPaymentArray)=>{
+                       
+                        let date1;
+                        allPaymentArray.forEach((paymentDetail)=>{
+                            console.log("paymentDetail>>", paymentDetail.data());
+                            date1 = new Date(paymentDetail.data()?.timestamp);
+                                $('#institutePaymentTable').append(`<tr>
+                                <th scope="row">`+(j+1)+`</th>
+                                <td>`+paymentDetail.data()?.instituteName+`</td>                     
+                                <td>`+paymentDetail.data()?.previousAmount+`</td>                     
+                                <td>`+paymentDetail.data()?.paidAmount+`</td>                     
+                                <td>`+paymentDetail.data()?.pendingAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>    
+                                </tr>`);
+                                j++;
+                            })
+                      })
+                }
+
+
       span.onclick = function() {
         modal.style.display = "none";
       }
@@ -966,6 +1033,7 @@ location.replace("")
       var detailsclosemodal = document.getElementsByClassName("modalclose1")[0];
       openModalDetails= (id) => {
         console.log('openModalDetails', id);
+        instituteOrderDetails(id);
         
           detailModal.style.display = "block";
         
@@ -985,6 +1053,9 @@ location.replace("")
           detailModal.style.display = "none";
         }
       }
+
+      
+
 
 
       function exportReportToExcel() {
