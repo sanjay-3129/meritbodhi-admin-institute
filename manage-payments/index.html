@@ -874,6 +874,7 @@
         data.collection('payments').where("instituteId", "==", modalInstituteId).orderBy("timestamp").get().then((allPaymentArray)=>{
                        let j=0;
                        let date1;
+                       $('#institutePaymentTable').empty();
                        allPaymentArray.forEach((paymentDetail)=>{
                            console.log("paymentDetail>>", paymentDetail.data());
                             date1 = new Date(paymentDetail.data()?.timestamp);
