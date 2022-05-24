@@ -226,20 +226,20 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="display: block;">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                             Monthly
+                                           
+                                            <label class="form-check-label" for="startDate">
+                                             Start Date
                                             </label>
                                         </div>
-                                        <input class="dateandtime" type="month" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
+                                        <input class="dateandtime" type="date" name="flexRadioDefault1" id="startDate" style="display: block;">
                                         <div class="form-check mt-2 mb-2">
-                                            <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: block;">
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                              Yearly
+                                            
+                                            <label class="form-check-label" for="endDate">
+                                              End Date
                                             </label>
                                           </div>
-                                          <input class="dateandtime1" type="text" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
-                                          <button type="button"  class="btn apply mt-2"> Apply</button>
+                                          <input class="dateandtime1" type="date" value=new Date() name="flexRadioDefault1" id="endDate" style="display: block;">
+                                          <button type="button" onclick="dateFilter()" class="btn apply mt-2"> Apply</button>
                                         </div>  
 
                                     </div>
@@ -281,7 +281,48 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>   
+                        
+                        <!-- Payment Table -->
+
+                        <div class="abc" >
+
+                            <div class="abcd">
+                                <div class="card">
+                                    <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Payment History  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                       <th class="border-0">S.no</th>
+
+                                                       <th class="border-0">Institute Name</th>
+                                                        <th class="border-0">Previous Balance</th>
+                                                        <th class="border-0">Payment Amount</th>
+                                                        <th class="border-0">Current Balance</th>
+                                                        <th class="border-0">Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="paymentTab">
+                                                   
+                                                </tbody>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th >
+                                                        <button class="btn btn-sm btn-primary " onclick="addMorePayments()">Add More Payments</button></th></tr>
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+
+
                     </div>
                 </div>
             </div> 
@@ -307,6 +348,10 @@
         console.log("institutePaymentAmount>>>", institutePaymentAmount);
         var meritbodhiPaymentAmount = 0;
         let i =0;
+        var date = new Date();
+        var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+        console.log("firstDay", firstDay)
+        var paymentArrayLength =0;
         function onLoadSetter(){
             localforage.getItem('fullAuth').then((e)=>{
                 console.log(e);
@@ -321,6 +366,8 @@
                     getInstituteDetails();
                 })
             });
+            document.getElementById('endDate').valueAsDate = new Date();
+
         }
         //Get pending amount
         const getInstituteDetails=()=>{
@@ -329,11 +376,16 @@
                 document.getElementById("pendingAmount").innerHTML = pendingAmount;
             })
         }
+        
         //getting institute details for the first time on load
         const initialGetDetails = ()=>{
-            data.collection('orders').where("instituteId", "==", instituteDetails.id).limit(3).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
+            console.log("Length At Start", paymentArrayLength);
+            institutePaymentAmount =0;
+            meritbodhiPaymentAmount=0;
+            data.collection('orders').where("instituteId", "==", instituteDetails.id).where("courseBoughtTimestamp", ">=", firstDay).limit(3).orderBy("courseBoughtTimestamp").get().then((allOrderArray)=>{
                        
                         let date1;
+                        
                         allOrderArray.forEach((orderDetail)=>{
                             institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
                             meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
@@ -357,6 +409,30 @@
 
                         document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
                         document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+                  
+                    data.collection('payments').where("instituteId", "==", instituteDetails.id).where("timestamp", ">=", firstDay).limit(2).orderBy("timestamp").startAt(paymentArrayLength).get().then((allPaymentArray)=>{
+                        // console.log(typeof(allPaymentArray));
+                        // console.log(allPaymentArray.docs().length());
+                        // paymentArrayLength = allPaymentArray
+                       let date1;
+                       allPaymentArray.forEach((paymentDetail)=>{
+                           console.log("paymentDetail>>", paymentDetail.data());
+                           date1 = new Date(paymentDetail.data()?.timestamp);
+                               $('#paymentTab').append(`<tr>
+                               <th scope="row">`+(paymentArrayLength+1)+`</th>
+                               <td>`+paymentDetail.data()?.instituteName+`</td>                     
+                               <td>`+paymentDetail.data()?.previousAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.paidAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.pendingAmount+`</td>                     
+                               <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>    
+                               </tr>`);
+                               paymentArrayLength++;
+                               
+
+                           })
+                     }).then(()=>{
+                        console.log("Length After First Call", paymentArrayLength);
+                     })
                     })
         }
         
@@ -366,6 +442,92 @@
             institutePaymentAmount =0;
             meritbodhiPaymentAmount=0;
             data.collection('orders').orderBy("courseBoughtTimestamp").where("instituteId", "==", instituteDetails.id).get().then((allOrderArray)=>{
+                let i=0;
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+                            meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                                $('#orderTab').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                        })
+                    }).then(()=>{
+                        document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+                        document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+})
+        }
+        const addMorePayments = ()=>{
+            // $('#paymentTab').empty();
+            console.log("Length while Addmore", paymentArrayLength);
+            data.collection('payments').where("instituteId", "==", instituteDetails.id).where("timestamp", ">=", firstDay).limit(2).orderBy("timestamp").startAt(paymentArrayLength).get().then((allPaymentArray)=>{
+                       let date1;
+                       let j=0;
+                       allPaymentArray.forEach((paymentDetail)=>{
+                           console.log("paymentDetail>>", paymentDetail.data());
+                           date1 = new Date(paymentDetail.data()?.timestamp);
+                               $('#paymentTab').append(`<tr>
+                               <th scope="row">`+(paymentArrayLength+1)+`</th>
+                               <td>`+paymentDetail.data()?.instituteName+`</td>                     
+                               <td>`+paymentDetail.data()?.previousAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.paidAmount+`</td>                     
+                               <td>`+paymentDetail.data()?.pendingAmount+`</td>                     
+                               <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>    
+                               </tr>`);
+                               paymentArrayLength++;
+                               j++;
+                           })
+                     }).then(()=>{
+                        console.log("Length After Final Call", paymentArrayLength);
+                        // document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+                        // document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+})
+        }
+
+
+        //  auth.onAuthStateChanged((user)=>{
+        //     if(user){
+               
+        //     }else{
+        //         location.replace('../login/');
+        //     }
+        // })
+
+         function loaderTriggerAndEnder(d) {
+            if (d) {
+                document.getElementById('loaderTrigger').click();
+            }
+            else{
+                document.getElementById('closeLoader').click();
+            }
+        }
+
+        function logout(){
+            auth.signOut().then(()=>{
+                localforage.clear().then(()=>{
+                    location.replace('../login/');
+                });
+            });
+
+        }
+ const dateFilter = ()=>{
+     let startDate = document.getElementById('startDate').value;
+     let endDate = document.getElementById('endDate').value;
+     let startDateTimestamp = new Date(startDate).getTime();
+     let endDateTimestamp = new Date(endDate).getTime();
+     console.log(startDateTimestamp,endDateTimestamp);
+ 
+     $('#orderTab').empty();
+            institutePaymentAmount =0;
+            meritbodhiPaymentAmount=0;
+            data.collection('orders').orderBy("courseBoughtTimestamp").where("instituteId", "==", instituteDetails.id).where("courseBoughtTimestamp", ">=", startDateTimestamp).where("courseBoughtTimestamp", "<=", endDateTimestamp).get().then((allOrderArray)=>{
                 let i=0;
                         let date1;
                         allOrderArray.forEach((orderDetail)=>{
@@ -390,35 +552,10 @@
 document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
 document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
 })
-        }
 
 
-         auth.onAuthStateChanged((user)=>{
-            if(user){
-               
-            }else{
-                location.replace('../login/');
-            }
-        })
-
-         function loaderTriggerAndEnder(d) {
-            if (d) {
-                document.getElementById('loaderTrigger').click();
-            }
-            else{
-                document.getElementById('closeLoader').click();
-            }
-        }
-
-        function logout(){
-            auth.signOut().then(()=>{
-                localforage.clear().then(()=>{
-                    location.replace('../login/');
-                });
-            });
-
-        }
  
+    }
         
        
     </script>

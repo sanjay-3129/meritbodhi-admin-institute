@@ -361,73 +361,75 @@
 
               <!-- rowend -->
 
-              <!-- <div class="row">
+              <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
-                    <div class="card-body">
-                      <h2 style="color: #5e72e4">Total Pending</h2>
+                      <div class="card-body">
+                          <h2 style="color: #5e72e4;">Total Balance </h2>
+                          <div class="metric-value d-inline-block">
+                              <h3 class="mb-1"id="pendingAmount">500 Rupees</h3>
+                          </div>
+                          <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                              <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                          </div>
+                      </div>
+                      <div id="sparkline-revenue4"></div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h2 style="color: #5e72e4;">For Institution</h2>
                       <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="courseCount">500 Rupees</h3>
+                              <h3 class="mb-1" id="institutePayment">000</h3>
                       </div>
                       <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
-                    </div>
-                    </div>
-                    <div id="sparkline-revenue"></div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                          <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                      </div>
+                      </div>
+                  
+              </div>
+          </div>
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
-                    <div class="card-body">
-                      <h2 style="color: #5e72e4">Institution</h2>
-                      <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="facultyCount">000</h3>
+                      <div class="card-body">
+                          <h2 style="color: #5e72e4;">For Meritbothi</h2>
+                          <div class="metric-value d-inline-block">
+                              <h3 class="mb-1" id="meritbodhiPayment">0.00</h3>
+                          </div>
+                          <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                              <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                          </div>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
-                    </div>
-                    </div>
-                    <div id="sparkline-revenue2"></div>
+                      <div id="sparkline-revenue3"></div>
                   </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h2 style="color: #5e72e4">Meritbothi</h2>
-                      <div class="metric-value d-inline-block">
-                        <h3 class="mb-1" id="studentCount">000</h3>
-                      </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+              </div>
+                
+                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-check mb-2">
+                               
+                                <label class="form-check-label" for="startDate">
+                                 Start Date
+                                </label>
+                            </div>
+                            <input class="dateandtime" type="date" name="flexRadioDefault1" id="startDate" style="display: block;">
+                            <div class="form-check mt-2 mb-2">
+                                
+                                <label class="form-check-label" for="endDate">
+                                  End Date
+                                </label>
+                              </div>
+                              <input class="dateandtime1" type="date" value=new Date() name="flexRadioDefault1" id="endDate" style="display: block;">
+                              <button type="button" onclick="dateFilter()" class="btn apply mt-2"> Apply</button>
+                            </div>  
+
+                        </div>
+                        
                     </div>
-                    </div>
-                    <div id="sparkline-revenue3"></div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="display: block;">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                         Monthly
-                        </label>  
-                      </div>
-                      <input class="dateandtime" type="month" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
-                      <div class="form-check mt-2 mb-2">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="display: block;">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Yearly
-                        </label>
-                      </div>
-                      <input class="dateandtime" type="text" name="flexRadioDefault1" id="flexRadioDefault1" style="display: block;">
-                      <button type="button" class="btn apply mt-2"> Apply</button>
-                    </div>  
-                    </div>
-                    <div id="sparkline-revenue4"></div>
-                  </div>
-                </div>
-              </div> -->
+                 </div>
+            </div>
 
               <!--recent table-->
               <div class="row">
@@ -442,7 +444,7 @@
                         align-items: center;
                       "
                     >
-                      Institute Payment Details
+                      Order History
                       <button
                         type="button"
                         id="btnExport"
@@ -575,6 +577,10 @@
       var students = [];
       var courses = [];
       var courseCountter = 0;
+      var totalPendingAmount=0;
+      var date = new Date();
+      var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+      console.log("firstDay", firstDay)
       auth.onAuthStateChanged((user) => {
         if (user) {
         } else {
@@ -582,67 +588,73 @@
         }
       });
       onLoadSetter = () => {
-        data
-          .collection("subCategories")
-          .get()
-          .then((cats) => {
-            cats.forEach((cat) => {
-              subCategories.push(cat.id);
-            });
-          })
-          .then(() => {
-            courseGetter(subCategories);
-            data
-              .collection("institute")
-              .get()
-              .then((ins) => {
-                ins.forEach((inst) => {
-                  institutes.push(inst.data());
-                });
-              })
-              .then(() => {
-                data
-                  .collection("faculty")
-                  .get()
-                  .then((facs) => {
-                    facs.forEach((fac) => {
-                      faculties.push(fac.data());
-                    });
-                  })
-                  .then(() => {
-                    data
-                      .collection("students")
-                      .get()
-                      .then((stds) => {
-                        stds.forEach((std) => {
-                          students.push(std.data());
-                        });
-                      })
-                      .then(() => {
-                        console.log(institutes);
-                        console.log(faculties);
-                        console.log(subCategories);
-                        console.log(courses);
-                        console.log(students.length);
-                        // document.getElementById("studentCount").innerHTML =
-                        //   students.length;
-                        // document.getElementById("facultyCount").innerHTML =
-                        //   faculties.length;
-                        // document.getElementById("instituteCount").innerHTML =
-                        //   institutes.length;
-                        // document.getElementById("courseCount").innerHTML =
-                        //   courseCountter;
-                      });
-                  });
-              });
-          });
+        document.getElementById('endDate').valueAsDate = new Date();
+        // data
+        //   .collection("subCategories")
+        //   .get()
+        //   .then((cats) => {
+        //     cats.forEach((cat) => {
+        //       subCategories.push(cat.id);
+        //     });
+        //   })
+        //   .then(() => {
+        //     courseGetter(subCategories);
+        //     data
+        //       .collection("institute")
+        //       .get()
+        //       .then((ins) => {
+        //         ins.forEach((inst) => {
+        //           institutes.push(inst.data());
+        //         });
+        //       })
+        //       .then(() => {
+        //         data
+        //           .collection("faculty")
+        //           .get()
+        //           .then((facs) => {
+        //             facs.forEach((fac) => {
+        //               faculties.push(fac.data());
+        //             });
+        //           })
+        //           .then(() => {
+        //             data
+        //               .collection("students")
+        //               .get()
+        //               .then((stds) => {
+        //                 stds.forEach((std) => {
+        //                   students.push(std.data());
+        //                 });
+        //               })
+        //               .then(() => {
+        //                 console.log(institutes);
+        //                 console.log(faculties);
+        //                 console.log(subCategories);
+        //                 console.log(courses);
+        //                 console.log(students.length);
+        //                 // document.getElementById("studentCount").innerHTML =
+        //                 //   students.length;
+        //                 // document.getElementById("facultyCount").innerHTML =
+        //                 //   faculties.length;
+        //                 // document.getElementById("instituteCount").innerHTML =
+        //                 //   institutes.length;
+        //                 // document.getElementById("courseCount").innerHTML =
+        //                 //   courseCountter;
+        //               });
+        //           });
+        //       });
+        //   });
         //Get institute details from firestore
         initialGetDetails();
       };
       const initialGetDetails = () => {
+        institutePaymentAmount =0;
+            meritbodhiPaymentAmount=0;
+        totalPendingAmount=0;
+
         data
           .collection("orders")
           .limit(3)
+          .where("courseBoughtTimestamp", ">=", firstDay)
           .orderBy("courseBoughtTimestamp")
           .get()
           .then((allOrderArray) => {
@@ -650,6 +662,8 @@
             let date1;
             let i = 0;
             allOrderArray.forEach((orderDetail) => {
+              institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+              meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
               console.log("orderDetail>>", orderDetail.data());
               date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
               $("#orderTableBody").append(
@@ -680,9 +694,17 @@
                               </tr>`
               );
               i++;
-              // }
-            });
-          });
+            })
+            
+            console.log("institutePaymentAmount>>>", institutePaymentAmount);
+            console.log("meritbodhiPaymentAmount>>>", meritbodhiPaymentAmount);
+          }).then(()=>{
+            
+            totalPendingAmount = parseInt(institutePaymentAmount )+ parseInt(meritbodhiPaymentAmount)
+            document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+            document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+            document.getElementById("pendingAmount").innerHTML = parseInt(totalPendingAmount);
+})
       };
 
       // Load All order details
@@ -690,6 +712,7 @@
         $("#orderTableBody").empty();
         institutePaymentAmount = 0;
         meritbodhiPaymentAmount = 0;
+        totalPendingAmount=0;
         data
           .collection("orders")
           .orderBy("courseBoughtTimestamp")
@@ -698,6 +721,9 @@
             let i = 0;
             let date1;
             allOrderArray.forEach((orderDetail) => {
+              
+              institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+              meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
               console.log("orderDetail>>", orderDetail.data());
               date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
               $("#orderTableBody").append(
@@ -728,8 +754,18 @@
                                 </tr>`
               );
               i++;
-            });
-          });
+            })
+            console.log("institutePaymentAmount>>>", institutePaymentAmount);
+            console.log("meritbodhiPaymentAmount>>>", meritbodhiPaymentAmount);
+            
+          }).then(()=>{
+            
+            totalPendingAmount = parseInt(institutePaymentAmount )+ parseInt(meritbodhiPaymentAmount)
+            document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+            document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+            document.getElementById("pendingAmount").innerHTML = parseInt(totalPendingAmount);
+
+})
       };
 
       courseGetter = (cats) => {
@@ -757,6 +793,48 @@
           });
         });
       };
+
+      const dateFilter = ()=>{
+     let startDate = document.getElementById('startDate').value;
+     let endDate = document.getElementById('endDate').value;
+     let startDateTimestamp = new Date(startDate).getTime();
+     let endDateTimestamp = new Date(endDate).getTime();
+     console.log(startDateTimestamp,endDateTimestamp);
+ 
+     $('#orderTableBody').empty();
+            institutePaymentAmount =0;
+            meritbodhiPaymentAmount=0;
+            totalPendingAmount=0;
+
+            data.collection('orders').orderBy("courseBoughtTimestamp").where("courseBoughtTimestamp", ">=", startDateTimestamp).where("courseBoughtTimestamp", "<=", endDateTimestamp).get().then((allOrderArray)=>{
+                let i=0;
+                        let date1;
+                        allOrderArray.forEach((orderDetail)=>{
+                            institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
+                            meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
+                            console.log("orderDetail>>", orderDetail.data());
+                             date1 = new Date(orderDetail.data()?.courseBoughtTimestamp);
+                                $('#orderTableBody').append(`<tr>
+                                <th scope="row">`+(i+1)+`</th>
+                                <td>`+orderDetail.data()?.courseName+`</td>                     
+                                <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.totalAmount+`</td>                     
+                                <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
+                                <td>`+orderDetail.data()?.status+`</td>                     
+                                </tr>`);
+                                i++;
+                        })
+                    }).then(()=>{
+                        document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+                        document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
+                        totalPendingAmount = parseInt(institutePaymentAmount )+ parseInt(meritbodhiPaymentAmount)
+})
+
+
+ 
+    }
+        
+       
 
       var modal = document.getElementById("myModal");
       var span = document.getElementsByClassName("close")[0];
