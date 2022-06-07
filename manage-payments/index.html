@@ -610,7 +610,7 @@
            </div> 
            <div class="abc" >
 
-            <div class="abcd1">
+            <div class="abcd1" >
                 <div class="card">
                     <h5 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">Order History of Institute  <button type="button" id="btnExport" onclick="exportReportToExcel(this)" class="btn export"> Export</button></h5>
                     <div class="card-body p-0">
@@ -632,10 +632,16 @@
                                     
                                   </tbody>
                                   <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                     <td colspan="9">
                                       <button
                                         onclick="addMoreOrder()"
-                                        class="btn btn-outline-light float-right"
+                                        class="btn btn-outline-light float-right btn-sm btn-primary"
                                       >
                                         Load All Orders
                                       </button>
@@ -739,6 +745,12 @@
                              
                           </tbody>
                           <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                               <th ><button class="btn btn-sm btn-primary " onclick="addMorePayments()">Load All Payments</button></th></tr>
                           </table>
                       </div>
