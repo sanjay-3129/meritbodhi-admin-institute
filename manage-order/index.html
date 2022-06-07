@@ -367,7 +367,7 @@
                       <div class="card-body">
                           <h2 style="color: #5e72e4;">Total Balance </h2>
                           <div class="metric-value d-inline-block">
-                              <h3 class="mb-1"id="pendingAmount">500 Rupees</h3>
+                              <h3 class="mb-1"id="pendingAmount">Loading...</h3>
                           </div>
                           <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                               <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
@@ -477,7 +477,7 @@
                                 onclick="addmore()"
                                 class="btn btn-outline-light float-right"
                               >
-                                View More
+                                View All Orders
                               </button>
                             </td>
                           </tr>
@@ -650,6 +650,7 @@
         institutePaymentAmount =0;
             meritbodhiPaymentAmount=0;
         totalPendingAmount=0;
+        console.log("Initial Call for loading orders")
 
         data
           .collection("orders")
@@ -662,6 +663,7 @@
             let date1;
             let i = 0;
             allOrderArray.forEach((orderDetail) => {
+              console.log("Orderssssss",orderDetail)
               institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
               meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
               console.log("orderDetail>>", orderDetail.data());
@@ -721,6 +723,7 @@
             let i = 0;
             let date1;
             allOrderArray.forEach((orderDetail) => {
+              console.log("Order Detail", orderDetail)
               
               institutePaymentAmount += parseInt(orderDetail.data().amountInstitute)
               meritbodhiPaymentAmount += parseInt(orderDetail.data().amountMeritbodhi)
@@ -818,6 +821,7 @@
                                 <th scope="row">`+(i+1)+`</th>
                                 <td>`+orderDetail.data()?.courseName+`</td>                     
                                 <td>`+orderDetail.data()?.studentName+`</td>                     
+                                <td>`+orderDetail.data()?.instituteName+`</td>                     
                                 <td>`+orderDetail.data()?.totalAmount+`</td>                     
                                 <td class="text-center">`+date1.toLocaleDateString() +' <small>' + date1.toLocaleTimeString() +`</small></td>                     
                                 <td>`+orderDetail.data()?.status+`</td>                     
@@ -825,9 +829,10 @@
                                 i++;
                         })
                     }).then(()=>{
+                      totalPendingAmount = parseInt(institutePaymentAmount )+ parseInt(meritbodhiPaymentAmount)
                         document.getElementById("institutePayment").innerHTML = institutePaymentAmount;
+                        document.getElementById("pendingAmount").innerHTML = parseInt(totalPendingAmount);
                         document.getElementById("meritbodhiPayment").innerHTML = meritbodhiPaymentAmount;
-                        totalPendingAmount = parseInt(institutePaymentAmount )+ parseInt(meritbodhiPaymentAmount)
 })
 
 

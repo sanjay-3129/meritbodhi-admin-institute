@@ -542,7 +542,7 @@
                 $('#infoTableBody').html('');
 
                 data.collection('admin').doc(uid).get().then((dataata) => {
-                    var newInstitutes = dataata.data().newInstitutes;
+                    var newInstitutes = dataata.data()?.newInstitutes;
                     if (newInstitutes.length === 0) {
                         var reqString = `
                         <td colspan="5"><div class="alert alert-warning" role="alert">

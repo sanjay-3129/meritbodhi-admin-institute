@@ -139,10 +139,10 @@
          </div>
          <!-- to do validation -->
          <div class="try">
-         <ul class="nav nav-tabs">
-                        <li class="nav-item">
+         <ul class="nav nav-tabs" style="display: flex; justify-content: space-evenly; align-items: center;">
+                        <!-- <li class="nav-item">
                           <a class="nav-link active" data-toggle="tab" href="#home">Student</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                           <a class="nav-link" data-toggle="tab" href="#menu1">Institute</a>
                         </li>
@@ -151,7 +151,7 @@
                         </li>
                        </ul>
         			 <div class="tab-content">
-                        <div class="tab-pane container active" id="home">
+                        <!-- <div class="tab-pane container active" id="home">
                             
                         <div class="form-inner">
                <form action="#" class="login">
@@ -173,9 +173,9 @@
                   	<i class="fab fa-facebook" style="color: blue;">&nbsp;</i>
                   	<a href="#" style="text-decoration: none; color: blue;">SignIn with Facebook</a>
                   </div></div>
-               </form></div></div>
+               </form></div></div> -->
 
-               <div class="tab-pane container" id="menu1">
+               <div class="tab-pane container active" id="menu1">
                	
                	<div class="form-inner">
                	<form id="institute-login-details" method="POST" class="signup">
@@ -186,9 +186,9 @@
                      <input type="password" name="ipass" placeholder="Password" required>
                   </div>
                   <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" name="ins_log_in" value="Institute Login">
-                     <button style="display: none;"></button>
+                     <!-- <div class="btn-layer"></div> -->
+                     <!-- <input type="submit" style="display: block;" name="ins_log_in" value="Institute Login"> -->
+                     <button type="submit" style="display: block; width: 100%; padding: 5px; background: #5e72e4; color: #fff;  border-radius: 5px;  border-color: #5e72e4; " name="ins_log_in" value="Institute Login">Institute Login</button>
                   </div>
                </form>
                </div></div>
@@ -205,9 +205,9 @@
                   </div>
                   
                   <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" name="fac_log_in" value="Faculty Login">
-                     <button style="display: none;"></button>
+                     <!-- <div class="btn-layer"></div> -->
+                     <!-- <input type="submit" name="fac_log_in" value="Faculty Login"> -->
+                     <button  type="submit" id="facLogin" style="display: block; width: 100%; padding: 5px; background: #5e72e4; color: #fff;  border-radius: 5px;  border-color: #5e72e4; "  name="fac_log_in" value="Faculty Login" style="display: block;">Faculty Login</button>
                   </div>
                </form>
                </div></div>
@@ -224,10 +224,11 @@
 
    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        var btns = document.querySelectorAll('.btn-layer');
-        for (var i = 0; i < btns.length; i++) {
-           btns[i].style.display="none";
-        }
+        // var btns = document.querySelectorAll('.btn-layer');
+        // for (var i = 0; i < btns.length; i++) {
+        //    btns[i].style.display="none";
+        // }
+            
         var uname=form.iuname.value
         let pass=form.ipass.value;
         auth.signInWithEmailAndPassword(uname,pass).then((a)=>{
@@ -275,6 +276,7 @@
                 
             }else{
                 showToast('You are not yet verified !!');
+                
             }
           })
             
