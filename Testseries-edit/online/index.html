@@ -527,25 +527,29 @@
                                 <a class="nav-link" href="../../faculty"><i
                                         class="fas fa-chalkboard-teacher"></i>Faculty</a>
 
-                            <li class="nav-item">
+                                <!-- <li class="nav-item">
                                 <a class="nav-link" href="../../notification"><i
-                                        class="fas fa-fw fa-bell"></i>Notifications</a>
+                                        class="fas fa-fw fa-bell"></i>Notifications</a> -->
 
-                            <li class="nav-item ">
+                                <!-- <li class="nav-item ">
                                 <a class="nav-link" href="../../archive"><i class="fas fa-archive"></i>Archieve</a>
 
                             <li class="nav-item ">
-                                <a class="nav-link" href="../../reviews"><i class="fas fa-star"></i>Reviews</a>
+                                <a class="nav-link" href="../../reviews"><i class="fas fa-star"></i>Reviews</a> -->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="../../payments"><i class="fas fa-credit-card"></i>Payments</a>
 
-                            <li class="nav-item">
+                                <!-- <li class="nav-item">
                                 <a class="nav-link" href="../../referal"><i class="fas fa-hands-helping"></i>My
-                                    Referal</a>
+                                    Referal</a> -->
+
 
                             <li class="nav-item">
                                 <a class="nav-link" href="../../settings"><i class="fas fa-cog"></i>Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Testseries"><i class="fas fa-question"></i>Test Series</a>
                             </li>
                             <li class="nav-item hi-sh-lg">
                                 <a class="nav-link" href="#" onclick="logout()"><i
@@ -569,7 +573,7 @@
                     <div class="card1">
 
                         <div style="display: flex; justify-content: space-between; ">
-                            <h4>Course Details</h4>
+                            <h4>Test Details</h4>
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v" style="cursor: pointer;"></i>
@@ -618,7 +622,7 @@
                                         <div class="modal-body">
                                             <div class="d-flex"
                                                 style="margin-top: .7rem; justify-content: space-between;">
-                                                <p>Select Course type..</p>
+                                                <p>Select Test type..</p>
                                                 <select name="coursePaymentType" id="coursePaymentType"
                                                     name="coursePaymentType" class="form-control"
                                                     onchange="showRelated(this.value)">
@@ -744,7 +748,7 @@
                         </div>
 
 
-                        <h3 class="coursei">Course&nbsp;&nbsp;Information</h3>
+                        <h3 class="coursei">Test&nbsp;&nbsp;Information</h3>
                         <div class="cardfirst">
                             <div class="thumb">
                                 <img src="../joker.jpg" class="thmimg" id="thumbImg">
@@ -856,14 +860,14 @@
                             </div> -->
 
                                 <div class="coursecat">
-                                    <h3>Course Category</h3>
+                                    <h3>Test Category</h3>
 
                                     <select class="form-control cours" disabled id="cc">
                                     </select>
                                 </div>
 
                                 <div class="coursecat">
-                                    <h3>Course Subcategory</h3>
+                                    <h3>Test Subcategory</h3>
 
                                     <select class="form-control cours3" disabled id="cs">
                                     </select>
@@ -877,7 +881,7 @@
                     </div>
 
                     <div class="card1">
-                        <h4>What Students Will Learn From This Course</h4>
+                        <h4>What Students Will Learn From This Test</h4>
 
                         <div class="content">
                             <form id="whatStudWilLearn">
@@ -1043,7 +1047,7 @@
                     <div class="card1" style="padding: 2rem;">
                         <!-- 3RD DIV TAG START -->
 
-                        <h3>Question</h3>
+                        <h3>Questions</h3>
                         <!-- <div class="d-flex">
                             <select class="form-control sectvideo typeclass" id="sectionsIdsss">
                                 <option value="default">---select---</option>
@@ -1090,16 +1094,20 @@
                                     <div class="tab-pane" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
                                         <div class="fortest" style="margin-top: 1rem;">
+                                            <div class="row" style="display: flex;    justify-content: center;
+                                            align-items: center;">
+                                                <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 1.5rem; background: red;
+                                                border: 1px solid #000;" id="quizAdding">Save</button>
+                                                <button class="btn btn-sm btn-primary addnewbtn"
+                                                    style="margin-left: 38.5rem;" onclick="add1question()">Add 1
+                                                    Question</button>
+                                                <button class="btn btn-sm btn-primary addnewbtn"
+                                                    style="margin-left: 1.5rem;">Add 5 Question</button>
+                                                <button class="btn btn-sm btn-primary addnewbtn"
+                                                    style="margin-left: 1.5rem;">Add 10 Question</button>
 
-                                            <button class="btn btn-sm btn-primary addnewbtn"
-                                                style="margin-left: 1.5rem;" id="quizAdding">Save</button>
-                                            <button class="btn btn-sm btn-primary addnewbtn"
-                                                style="margin-left: 38.5rem;" onclick="add1question()">Add 1
-                                                Question</button>
-                                            <button class="btn btn-sm btn-primary addnewbtn"
-                                                style="margin-left: 1.5rem;">Add 5 Question</button>
-                                            <button class="btn btn-sm btn-primary addnewbtn"
-                                                style="margin-left: 1.5rem;">Add 10 Question</button>
+                                            </div>
+
                                             <p id="loadingOfQuizSave" style="display:none;">Loading...</p>
                                             <table class="table table-bordered" id="table2">
                                                 <thead>

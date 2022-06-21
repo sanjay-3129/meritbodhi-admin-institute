@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="../../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../../assets/vendors/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="../../assets/vendors/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="../../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet"
+        href="../../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
     <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
@@ -39,13 +40,13 @@
             --webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
             animation: s3 1s infinite linear;
         }
-        
+
         @keyframes s3 {
             to {
                 transform: rotate(1turn)
             }
         }
-        
+
         #snackbar {
             visibility: hidden;
             min-width: 250px;
@@ -61,76 +62,80 @@
             bottom: 30px;
             font-size: 17px;
         }
-        
+
         #snackbar.show {
             visibility: visible;
             -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
-        
+
         @-webkit-keyframes fadein {
             from {
                 bottom: 0;
                 opacity: 0;
             }
+
             to {
                 bottom: 30px;
                 opacity: 1;
             }
         }
-        
+
         @keyframes fadein {
             from {
                 bottom: 0;
                 opacity: 0;
             }
+
             to {
                 bottom: 30px;
                 opacity: 1;
             }
         }
-        
+
         @-webkit-keyframes fadeout {
             from {
                 bottom: 30px;
                 opacity: 1;
             }
+
             to {
                 bottom: 0;
                 opacity: 0;
             }
         }
-        
+
         @keyframes fadeout {
             from {
                 bottom: 30px;
                 opacity: 1;
             }
+
             to {
                 bottom: 0;
                 opacity: 0;
             }
         }
-        
+
         .card-text {
             height: 2rem;
         }
-        
+
         .card-img-top {
             object-fit: cover;
             height: 150px;
         }
-        
+
         .uploadfilesection {
             margin-left: 14.5rem;
             margin-top: 20px;
         }
-        
+
         .course_contents .panel {
             padding: 0;
             width: 45rem;
         }
-        
+
         .course_contents .panel .panel-title {
             padding: 10px 20px;
             margin-bottom: 8px;
@@ -148,150 +153,170 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .sectvideo {
             width: 10%;
         }
-        
+
         .sectvideo1 {
             width: 10%;
             margin-left: 1rem;
         }
-        
+
         .mincol {
             width: 50%;
         }
-        
+
         .maxcol {
             width: 50%;
         }
-        
+
         .forminmax {
             display: flex;
             justify-content: space-evenly;
         }
-        
+
         .mulchoices {
             width: 13%;
         }
-        
+
         .what {
             display: flex;
             padding: 5px;
         }
-        
+
         .lft {
             max-width: 20%;
         }
-        
+
         .ryt {
             max-width: 21%;
             margin-left: 3rem;
         }
-        
+
         .modifythis {
             width: 12%;
             margin-top: -.5rem;
         }
-        
+
         .modifythis1 {
             width: 12%;
             margin-top: -.5rem;
             height: 40px;
         }
-        
+
         .totalamountplace {
             margin-left: 14.3rem;
             font-size: 18px;
         }
-        
+
         .neednone {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .neednonee {
             display: flex;
             justify-content: space-between;
         }
-        
+
         @media only screen and (max-width:1138px) {
             .course_contents .panel .panel-title {
                 width: 90%;
             }
+
             .vedio-title {
                 width: 30%;
                 font-size: 10rem;
             }
+
             .vedio-details {
                 width: 100%;
             }
+
             .course_contents .panel {
                 width: 20rem;
             }
+
             .uploadfilesection {
                 margin-left: 9.5rem;
             }
+
             .destest {
                 width: 20rem;
             }
+
             .fortest {
                 overflow-x: auto;
             }
+
             .addnewbtn {
                 margin-top: 1rem;
             }
+
             .typeclass {
                 width: 6.5rem;
             }
+
             .typeclass1 {
                 width: 5.5rem;
                 flex-direction: column;
             }
+
             .c1in {
                 width: 15rem;
             }
+
             .c2in {
                 width: 15rem;
                 margin-left: 1rem;
             }
+
             .tstyle {
                 width: 100%;
                 overflow-x: auto;
             }
+
             .createformbtn {
                 display: flex;
                 justify-content: space-between;
             }
+
             .what {
                 flex-direction: column;
                 padding: 1px;
             }
+
             .lft {
                 max-width: 80%;
             }
+
             .ryt {
                 max-width: 80%;
                 margin-left: 0px;
             }
+
             .modifythis {
                 width: 22%;
             }
+
             .modifythis1 {
                 width: 22%;
             }
+
             .mobmod {
                 width: 17%;
             }
+
             .ptagintotal {
                 width: 100%;
             }
         }
-        
+
         .course_contents .panel button.panel-title:focus {
             outline: 0
         }
-        
+
         .course_contents .panel .collapsible:after {
             content: "\f107";
             float: right;
@@ -299,62 +324,63 @@
             font-size: 10px;
             font-weight: 900;
         }
-        
+
         .course_contents .panel .active:after {
             content: "\f106";
         }
-        
+
         .course_contents .panel .panel-body {
             display: none;
         }
-        
+
         .course_contents .panel .panel-body .vedio-details {
             border-bottom: 1px solid #eeeeee;
             padding: 20px 25px;
         }
-        
+
         .course_contents .panel .panel-body .vedio-details img.logo {
             width: 18px;
             height: 20px;
             margin-top: -3px;
             margin-right: 5px;
         }
-        
+
         .course_contents .panel .panel-body .vedio-details span {
             font-size: 16px;
             color: #3d405c;
             transition: all 0.3s ease;
         }
-        
+
         .course_contents .panel .panel-body .vedio-details span.flt_rt {
             float: right
         }
-        
+
         .course_contents .panel .panel-body .vedio-details .flt_rt span.vedio-length {
             margin-left: 50px
         }
-        
+
         .course_contents .panel .panel-body .vedio-details:hover,
         .course_contents .panel .panel-body .vedio-details:hover span {
             color: #3d405c;
             transition: all 0.3s ease;
         }
-        
+
         .image1 {
             object-fit: cover;
             width: 100%;
             height: 350px;
         }
-        
+
         .cm {
             margin-left: 4.5rem;
             margin-top: .5rem;
         }
-        
+
         .createformbtn {
             margin-top: .5rem;
             margin-left: 5rem;
         }
+
         /*.course-edit .course-contents .row ul.course-content-overview {
     list-style-type: none;
     padding: 0;
@@ -388,7 +414,7 @@
 
 </head>
 
-<body onload="onLoadSetter()">                                    
+<body onload="onLoadSetter()">
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -399,14 +425,18 @@
         <div class="dashboard-header">
             <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
 
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i>
+                                <span>5</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
@@ -415,32 +445,48 @@
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../../assets/images/avatar-2.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Kishore</span>accepted
+                                                        your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../../assets/images/avatar-3.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Bharath </span>is now
+                                                        following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../../assets/images/avatar-4.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Sudhersun</span> is
+                                                        watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../../assets/images/avatar-5.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Sandy</span>accepted
+                                                        your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
@@ -455,15 +501,20 @@
                         </li>
 
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="../../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"
+                                    id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i
+                                        class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -481,7 +532,8 @@
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="../dashboard">Merit Bodhi</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -489,15 +541,16 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="../../dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
 
-                                <li class="nav-item">
-                                    <a class="nav-link " href="../../profile"><i class="fas fa-user"></i>Profile</a>
+                            <li class="nav-item">
+                                <a class="nav-link " href="../../profile"><i class="fas fa-user"></i>Profile</a>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="../../courses"><i class="fas fa-book"></i>Courses</a>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../../courses"><i class="fas fa-book"></i>Courses</a>
 
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="../../faculty"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
-
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../../faculty"><i
+                                        class="fas fa-chalkboard-teacher"></i>Faculty</a>
+                                <!-- 
                                             <li class="nav-item">
                                                 <a class="nav-link " href="../../notification"><i class="fas fa-fw fa-bell"></i>Notifications</a>
 
@@ -505,20 +558,28 @@
                                                     <a class="nav-link" href="../../archive"><i class="fas fa-archive"></i>Archieve</a>
 
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="../../reviews"><i class="fas fa-star"></i>Reviews</a>
+                                                        <a class="nav-link " href="../../reviews"><i class="fas fa-star"></i>Reviews</a> -->
 
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="../../payments"><i class="fas fa-credit-card"></i>Payments</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../payments"><i class="fas fa-credit-card"></i>Payments</a>
 
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="../../referal"><i class="fas fa-hands-helping"></i>My Referal</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Account-Details"><i class="fas fa-hands-helping"></i>Account
+                                    Details</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                                                <a class="nav-link" href="../../referal"><i class="fas fa-hands-helping"></i>My Referal</a> -->
 
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="../../settings"><i class="fas fa-cog"></i>Settings</a>
-                                                                </li>
-                                                                <li class="nav-item hi-sh-lg">
-                                                                    <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
-                                                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../settings"><i class="fas fa-cog"></i>Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Testseries"><i class="fas fa-question"></i>Test Series</a>
+                            </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i
+                                        class="fas fa-power-off"></i>Logout</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -538,17 +599,27 @@
 
                         <div style="display: flex; justify-content: space-between; ">
                             <h4>Course Details</h4>
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v" style="cursor: pointer;"></i>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown">
 
-                                <li id="liediit" class="edit-items"><a href="#" class="form-control form-control-alternative" style="border: none;box-shadow: none;" onclick="edbtn()">Edit Details <i class="fas fa-pen" style="margin-left: 6.5rem;"></i></a></li>
-                                <li class="edit-items"><a href="#" class=" form-control form-control-alternative" style="border: none;box-shadow: none;" onclick="addToArchive()">Add to Archive<i class="fas fa-archive"style="margin-left: 5.4rem;"></i></a></li>
-                                <li class="edit-items"><a href="#" class="form-control form-control-alternative" style="border: none;box-shadow: none;" onclick="deleteCourse()">Delete Course<i class="far fa-trash-alt"style="margin-left: 5.8rem;"></i></a></li>
+                                <li id="liediit" class="edit-items"><a href="#"
+                                        class="form-control form-control-alternative"
+                                        style="border: none;box-shadow: none;" onclick="edbtn()">Edit Details <i
+                                            class="fas fa-pen" style="margin-left: 6.5rem;"></i></a></li>
+                                <li class="edit-items"><a href="#" class=" form-control form-control-alternative"
+                                        style="border: none;box-shadow: none;" onclick="addToArchive()">Add to Archive<i
+                                            class="fas fa-archive" style="margin-left: 5.4rem;"></i></a></li>
+                                <li class="edit-items"><a href="#" class="form-control form-control-alternative"
+                                        style="border: none;box-shadow: none;" onclick="deleteCourse()">Delete Course<i
+                                            class="far fa-trash-alt" style="margin-left: 5.8rem;"></i></a></li>
 
-                                <li class="edit-items"><a href="#" class="form-control form-control-alternative" style="border: none;box-shadow: none;" onclick="pubCourse()">Publish Course<i class="fas fa-check"style="margin-left: 5.8rem;"></i></a></li>
+                                <li class="edit-items"><a href="#" class="form-control form-control-alternative"
+                                        style="border: none;box-shadow: none;" onclick="pubCourse()">Publish Course<i
+                                            class="fas fa-check" style="margin-left: 5.8rem;"></i></a></li>
                             </div>
                             </li>
 
@@ -558,61 +629,81 @@
 
                         <div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop11" id="paymentpopup" style="display:none">
-                          Launch static backdrop modal
-                        </button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#staticBackdrop11" id="paymentpopup" style="display:none">
+                                Launch static backdrop modal
+                            </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop11" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop11" data-backdrop="static" data-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog" style="max-width: 560px;">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Payment</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="d-flex" style="margin-top: .7rem; justify-content: space-between;">
+                                            <div class="d-flex"
+                                                style="margin-top: .7rem; justify-content: space-between;">
                                                 <p>Select payment type..</p>
-                                                <select name="coursePaymentType" id="coursePaymentType" name="coursePaymentType" class="form-control" onchange="showRelated(this.value)">
-                                        <option value="0">choose...</option>
-                                        <option value="1">NORMAL</option>
-                                        <option value="2">LIFE LONG</option>
-                                        <option value="3">FREE</option>
-                                      </select>
+                                                <select name="coursePaymentType" id="coursePaymentType"
+                                                    name="coursePaymentType" class="form-control"
+                                                    onchange="showRelated(this.value)">
+                                                    <option value="0">choose...</option>
+                                                    <option value="1">NORMAL</option>
+                                                    <option value="2">LIFE LONG</option>
+                                                    <option value="3">FREE</option>
+                                                </select>
                                             </div>
-                                            <div style="margin-top: .7rem; justify-content: space-between; display:none" id="notForFree">
+                                            <div style="margin-top: .7rem; justify-content: space-between; display:none"
+                                                id="notForFree">
                                                 <p>Enter Amount
-                                                    <small style="color:#5e72e4; font-size: 11px;"> (in Rupees)</small></p>
+                                                    <small style="color:#5e72e4; font-size: 11px;"> (in Rupees)</small>
+                                                </p>
 
-                                                <input type="number" name="first" id="coursePrice" style="width:55%" class="form-control paymentContainerInput mobmod">
+                                                <input type="number" name="first" id="coursePrice" style="width:55%"
+                                                    class="form-control paymentContainerInput mobmod">
                                             </div>
-                                            <div style="margin-top: .7rem; margin-left: 5rem; display:none" id="onlyForNormal">
-                                                <button id="addNewDiscountPeriod" type="button" class="btn btn-sm btn-primary" onclick="createNewDiscountPeriod('containerOfPayDis')"> Add New Discount Period</button>
+                                            <div style="margin-top: .7rem; margin-left: 5rem; display:none"
+                                                id="onlyForNormal">
+                                                <button id="addNewDiscountPeriod" type="button"
+                                                    class="btn btn-sm btn-primary"
+                                                    onclick="createNewDiscountPeriod('containerOfPayDis')"> Add New
+                                                    Discount Period</button>
                                             </div>
                                             <div id="containerOfPayDis">
                                                 <div class="d-flex" style="justify-content:space-between;">
                                                     <div style="margin-top: .7rem; display:none" class="onlyForNormal2">
                                                         <p>Enter Discount % Period
-                                                            <small style="color:#5e72e4; font-size: 11px;"> (in days)</small></p>
+                                                            <small style="color:#5e72e4; font-size: 11px;"> (in
+                                                                days)</small>
+                                                        </p>
 
-                                                        <input type="number" name="first" style="width:6rem" class="form-control payConInpPeriod paymentContainerInput mobmod">
+                                                        <input type="number" name="first" style="width:6rem"
+                                                            class="form-control payConInpPeriod paymentContainerInput mobmod">
                                                     </div>
 
                                                     <div style="margin-top: .7rem; display:none" class="notForFree2">
                                                         <p>Enter Discount %
-                                                            <small style="color:#5e72e4; font-size: 11px;"> (in percentage)</small></p>
+                                                            <small style="color:#5e72e4; font-size: 11px;"> (in
+                                                                percentage)</small>
+                                                        </p>
 
-                                                        <input type="number" name="first" style="width:6rem" class="form-control payConInpPercentage paymentContainerInput mobmod">
+                                                        <input type="number" name="first" style="width:6rem"
+                                                            class="form-control payConInpPercentage paymentContainerInput mobmod">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <div>
-                                                <button type="button" class="btn btn-sm btn-primary" onclick="publishCourse()">Publish</button>
-                                                <button type="button" class="btn btn-sm btn-primary" style="background-color:red;" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-sm btn-primary"
+                                                    onclick="publishCourse()">Publish</button>
+                                                <button type="button" class="btn btn-sm btn-primary"
+                                                    style="background-color:red;" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </div>
                                     </div>
@@ -707,10 +798,14 @@
                                 <div class="title">
                                     <div class="tit-tit">
                                         <h3>Title</h3>
-                                        <input type="text" id="tititi" value="Mobile Application" placeholder="Course Name" class="form-control needlongs" disabled></div>
+                                        <input type="text" id="tititi" value="Mobile Application"
+                                            placeholder="Course Name" class="form-control needlongs" disabled>
+                                    </div>
                                     <div style="margin-top:10px; width:100%">
                                         <h3 style="margin-top: .5rem;">Concept</h3>
-                                        <input type="text" id="concee" value="You learn basics of how to create mobile application and how to publish on PLAY STORE!!!" class="form-control needlong" placeholder="Main Concepts" disabled>
+                                        <input type="text" id="concee"
+                                            value="You learn basics of how to create mobile application and how to publish on PLAY STORE!!!"
+                                            class="form-control needlong" placeholder="Main Concepts" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -722,8 +817,8 @@
                                 <div class="multiselect" style="display:none" id="newFacContainer">
                                     <div class="selectBox" onclick="showCheckboxes(this)">
                                         <select name="faculty" id="faculty" name="newFacu" class="form-control">
-                                      <option id="defaultCategorylang">Select Faculty</option>
-                                    </select>
+                                            <option id="defaultCategorylang">Select Faculty</option>
+                                        </select>
                                         <div class="overSelect" id="overSelect"></div>
                                     </div>
                                     <div id="checkboxesFac" class="labelsContOfmulsel">
@@ -734,10 +829,11 @@
 
                             <div class="langu">
                                 <h3>Language</h3>
-                                <select id="newLang" name="newLang" class="form-control selecteneed" style="width:18rem" disabled>
-                                  <option>tamil</option>
-                                  <option>Eng</option>
-                              </select>
+                                <select id="newLang" name="newLang" class="form-control selecteneed" style="width:18rem"
+                                    disabled>
+                                    <option>tamil</option>
+                                    <option>Eng</option>
+                                </select>
 
                             </div>
                         </div>
@@ -745,25 +841,33 @@
                         <div class="descri">
                             <h3>Description</h3>
                             <div class="form-group focused">
-                                <textarea rows="4" id="dis" class="form-control form-control-alternative" placeholder="A few words about you ..." disabled></textarea>
+                                <textarea rows="4" id="dis" class="form-control form-control-alternative"
+                                    placeholder="A few words about you ..." disabled></textarea>
                             </div>
 
                             <div>
-                                <h3 style="margin-top: 25px;">Video Overview &nbsp; <i id="vidPre" class="fas fa-play" onclick="videopop(this)" style="cursor: pointer;"></i><i id="vidUpl" class="fas fa-upload" onclick="newVideoClick()" style="cursor: pointer; display:none"></i></h3>
-                                <input type="file" name="newVideoClickClick" id="newVideoClickClick" style="display:none;">
+                                <h3 style="margin-top: 25px;">Video Overview &nbsp; <i id="vidPre" class="fas fa-play"
+                                        onclick="videopop(this)" style="cursor: pointer;"></i><i id="vidUpl"
+                                        class="fas fa-upload" onclick="newVideoClick()"
+                                        style="cursor: pointer; display:none"></i></h3>
+                                <input type="file" name="newVideoClickClick" id="newVideoClickClick"
+                                    style="display:none;">
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="display: none;" id="videoplay">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal" style="display: none;" id="videoplay">
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Video Preview</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true" onclick="pausevidprev()">&times;</span>
-                                        </button>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true" onclick="pausevidprev()">&times;</span>
+                                                </button>
 
                                             </div>
                                             <div class="modal-body">
@@ -778,28 +882,28 @@
 
                             <div class="cousr">
 
-                                <div>
+                                <!-- <div>
                                     <h3>Course Nationality</h3>
 
                                     <select class="form-control cours" disabled id="cn">
-                                
-                              </select>
-                                </div>
+
+                                    </select>
+                                </div> -->
 
                                 <div class="coursecat">
                                     <h3>Course Category</h3>
 
                                     <select class="form-control cours" disabled id="cc">
-                                
-                              </select>
+
+                                    </select>
                                 </div>
 
                                 <div class="coursecat">
                                     <h3>Course Subcategory</h3>
 
                                     <select class="form-control cours3" disabled id="cs">
-                                
-                              </select>
+
+                                    </select>
                                 </div>
 
                             </div>
@@ -807,276 +911,282 @@
                             <!-- form end -->
                         </div>
                     </div>
+                    <div class="card1">
+                        <h4>What Students Will Learn From This Course</h4>
 
-            </div>
-            </form>
+                        <div class="content">
+                            <form id="whatStudWilLearn">
 
-            <script type="text/javascript">
-                function cvrimage() {
-                    document.getElementById('coverimage').click();
-                }
+                                <div class="what">
 
-                function edbtn() {
-                    var temp = document.getElementsByClassName('whatStudWilLearn');
-                    for (var i = 0; i < temp.length; i++) {
-                        temp[i].removeAttribute('disabled');
-                    }
-                    var temp = document.getElementsByClassName('requirementOfCrs');
-                    for (var i = 0; i < temp.length; i++) {
-                        temp[i].removeAttribute('disabled');
-                    }
-                    document.getElementById('avatars').setAttribute('class', 'image');
-                    document.getElementById('txtid').style.display = "block";
-                    document.getElementById('editbuttons').style.visibility = "visible";
-                    document.getElementById('tititi').removeAttribute("disabled");
-                    document.getElementById('concee').removeAttribute("disabled");
-                    document.getElementById('dis').removeAttribute("disabled");
-                    document.getElementById('exFacuShower').style.display = 'none';
-                    document.getElementById('newFacContainer').style.display = 'block';
-                    document.getElementById('newLang').removeAttribute('disabled');
-                    document.getElementById('footer-crsDetails-edit').style.visibility = 'visible';
-                    document.getElementById('vidPre').style.display = 'none';
-                    document.getElementById('vidUpl').style.display = 'block';
-                }
+                                    <input type="text"
+                                        class="form-control form-control-alternative lft whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="1. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="2. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="3. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="4. ______________" required
+                                        disabled>
+                                </div>
 
-                function cnbtn() {
-                    var temp = document.getElementsByClassName('whatStudWilLearn');
-                    for (var i = 0; i < temp.length; i++) {
-                        temp[i].setAttribute('disabled', true);
-                    }
-                    var temp = document.getElementsByClassName('requirementOfCrs');
-                    for (var i = 0; i < temp.length; i++) {
-                        temp[i].setAttribute('disabled', true);
-                    }
-                    document.getElementById('avatars').setAttribute('class', 'image1');
-                    document.getElementById('txtid').style.display = "none";
-                    document.getElementById('editbuttons').style.visibility = "hidden";
-                    document.getElementById('tititi').setAttribute("disabled", true);
-                    document.getElementById('concee').setAttribute("disabled", true);
-                    document.getElementById('dis').setAttribute("disabled", true);
-                    document.getElementById('exFacuShower').style.display = 'block';
-                    document.getElementById('newFacContainer').style.display = 'none';
-                    document.getElementById('newLang').setAttribute('disabled', true);
-                    document.getElementById('footer-crsDetails-edit').style.visibility = 'hidden';
-                    document.getElementById('vidPre').style.display = 'block';
-                    document.getElementById('vidUpl').style.display = 'none';
-                }
-            </script>
+                                <div class="what">
+                                    <input type="text"
+                                        class="form-control form-control-alternative lft whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="5. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="6. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="7. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="8. ______________" required
+                                        disabled>
+                                </div>
 
-            <div class="card1">
-                <h4>What Students Will Learn From This Course</h4>
+                                <div class="what">
+                                    <input type="text"
+                                        class="form-control form-control-alternative lft whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="9. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt whatStudWilLearn"
+                                        maxlength="25" pattern=".{25,}" placeholder="10. ______________" required
+                                        disabled>
 
-                <div class="content">
-                    <form id="whatStudWilLearn">
+                                </div>
 
-                        <div class="what">
-
-                            <input type="text" class="form-control form-control-alternative lft whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="1. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="2. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="3. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="4. ______________" required disabled>
-                        </div>
-
-                        <div class="what">
-                            <input type="text" class="form-control form-control-alternative lft whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="5. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="6. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="7. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="8. ______________" required disabled>
-                        </div>
-
-                        <div class="what">
-                            <input type="text" class="form-control form-control-alternative lft whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="9. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt whatStudWilLearn" maxlength="25" pattern=".{25,}" placeholder="10. ______________" required disabled>
-
-                        </div>
-
-                    </form>
-                </div>
-
-
-            </div>
-
-            <!-- End of 2nd offf -->
-
-            <div class="card1">
-                <h4>Requirements</h4>
-
-                <div class="content">
-                    <form id="requirementOfCrs">
-
-
-
-                        <div class="what">
-
-                            <input type="text" class="form-control form-control-alternative lft requirementOfCrs" maxlength="25" pattern=".{25,}" placeholder="1. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt requirementOfCrs" maxlength="25" pattern=".{25,}" placeholder="2. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt requirementOfCrs" maxlength="25" pattern=".{25,}" placeholder="3. ______________" required disabled>
-                            <input type="text" class="form-control form-control-alternative ryt requirementOfCrs" maxlength="25" pattern=".{25,}" placeholder="4. ______________" required disabled>
-                        </div>
-
-                        <div class="what">
-                            <input type="text" class="form-control form-control-alternative lft requirementOfCrs" maxlength="25" pattern=".{25,}" placeholder="5. ______________" required disabled>
-
+                            </form>
                         </div>
 
 
+                    </div>
 
-                        <hr>
+                    <!-- End of 2nd offf -->
 
-                        <div style="text-align: right; margin-bottom: -10px; margin-top: 10px; visibility: hidden;" id="footer-crsDetails-edit">
-                            <button type="button" class="btn btn-sm btn-primary" id="updateCourse">Save Changes</button>
-                            <button type="button" class="btn btn-sm btn-primary" style="background-color: #dc3545;" onclick="cnbtn()">Cancel</button>
+                    <div class="card1">
+                        <h4>Requirements</h4>
+
+                        <div class="content">
+                            <form id="requirementOfCrs">
+
+
+
+                                <div class="what">
+
+                                    <input type="text"
+                                        class="form-control form-control-alternative lft requirementOfCrs"
+                                        maxlength="25" pattern=".{25,}" placeholder="1. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt requirementOfCrs"
+                                        maxlength="25" pattern=".{25,}" placeholder="2. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt requirementOfCrs"
+                                        maxlength="25" pattern=".{25,}" placeholder="3. ______________" required
+                                        disabled>
+                                    <input type="text"
+                                        class="form-control form-control-alternative ryt requirementOfCrs"
+                                        maxlength="25" pattern=".{25,}" placeholder="4. ______________" required
+                                        disabled>
+                                </div>
+
+                                <div class="what">
+                                    <input type="text"
+                                        class="form-control form-control-alternative lft requirementOfCrs"
+                                        maxlength="25" pattern=".{25,}" placeholder="5. ______________" required
+                                        disabled>
+
+                                </div>
+
+
+
+                                <hr>
+
+                                <div style="text-align: right; margin-bottom: -10px; margin-top: 10px; visibility: hidden;"
+                                    id="footer-crsDetails-edit">
+                                    <button type="button" class="btn btn-sm btn-primary" id="updateCourse">Save
+                                        Changes</button>
+                                    <button type="button" class="btn btn-sm btn-primary"
+                                        style="background-color: #dc3545;" onclick="cnbtn()">Cancel</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
 
 
-            </div>
+                    </div>
 
-            <!-- CARD-2 START -->
+                    <!-- CARD-2 START -->
 
-            <div class="card1">
-                <h3>Meeting Details</h3>
-                <button type="button" class="btn btn-sm btn-primary cm" id="createbtnid" onclick="createbtn()">
-                         Create Meeting </button>
+                    <div class="card1">
+                        <h3>Meeting Details</h3>
+                        <button type="button" class="btn btn-sm btn-primary cm" id="createbtnid" onclick="createbtn()">
+                            Create Meeting </button>
 
-                <div class="tstyle" id=historytbl>
+                        <div class="tstyle" id=historytbl>
 
-                    <table class="table table-bordered tstyle">
-                        <thead>
-                            <tr>
-                                <th scope="col">S.No</th>
-                                <th scope="col">Meeting Name</th>
-                                <th scope="col">Date & Time</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="meetingsList">
-                        </tbody>
-                    </table>
+                            <table class="table table-bordered tstyle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Meeting Name</th>
+                                        <th scope="col">Date & Time</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="meetingsList">
+                                </tbody>
+                            </table>
 
 
-                </div>
-                <div style="display:none; padding: .9rem;" id="creatmeetingform">
-                    <div class="card">
-                        <div class="card-header" style="background-color: #0d6efd; color: #fff; font-size: 18px; text-align: center;" id="header-form-ce">
-                            Create a New Meeting !!!
                         </div>
-                        <div class="card-body d-flex justify-content-center">
-                            <form id="meetingform">
-                                <div>
-                                    <table id="passtable">
-                                        <tr style="display: none;" id="meetidrow">
-                                            <th>Meeting Id </th>
-                                            <td>: <input type="text" name="meetid" id="meetid" style="width: 175px;" readonly></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Meeting Name </th>
-                                            <td>: <input type="text" name="meetname" id="meetname" style="width: 175px;" required></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Date </th>
-                                            <td>: <input type="Date" name="date" id="date" style="width: 175px;" required></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Time </th>
-                                            <td>: <input type="Time" name="time" id="time" style="width: 175px;" required>
+                        <div style="display:none; padding: .9rem;" id="creatmeetingform">
+                            <div class="card">
+                                <div class="card-header"
+                                    style="background-color: #0d6efd; color: #fff; font-size: 18px; text-align: center;"
+                                    id="header-form-ce">
+                                    Create a New Meeting !!!
+                                </div>
+                                <div class="card-body d-flex justify-content-center">
+                                    <form id="meetingform">
+                                        <div>
+                                            <table id="passtable">
+                                                <tr style="display: none;" id="meetidrow">
+                                                    <th>Meeting Id </th>
+                                                    <td>: <input type="text" name="meetid" id="meetid"
+                                                            style="width: 175px;" readonly></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Meeting Name </th>
+                                                    <td>: <input type="text" name="meetname" id="meetname"
+                                                            style="width: 175px;" required></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date </th>
+                                                    <td>: <input type="Date" name="date" id="date" style="width: 175px;"
+                                                            required></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Time </th>
+                                                    <td>: <input type="Time" name="time" id="time" style="width: 175px;"
+                                                            required>
                                                 <tr>
                                                     <th>Duration </th>
-                                                    <td>: <input type="text" name="dur" id="dur" placeholder="HH:MM:SS" style="width: 175px;" required></td>
+                                                    <td>: <input type="text" name="dur" id="dur" placeholder="HH:MM:SS"
+                                                            style="width: 175px;" required></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Password </th>
-                                                    <td>: <input type="text" name="pass" id="pass" placeholder="Make me a Strong" style="width: 175px;" required></td>
+                                                    <td>: <input type="text" name="pass" id="pass"
+                                                            placeholder="Make me a Strong" style="width: 175px;"
+                                                            required></td>
                                                 </tr>
-                                    </table>
+                                            </table>
+                                        </div>
                                 </div>
-                        </div>
-                        <div class="card-footer text-muted d-flex justify-content-center">
-                            <button id="btnofcrtandedit" type="button" class="btn btn-sm btn-primary" onclick="meetingcreate()">Create</button> &nbsp; &nbsp;
-                            <button type="reset" class="btn btn-sm btn-primary" style="background-color: red;" onclick="formToTable()">Cancel</button>
-                        </div>
-                        </form>
-                    </div>
-
-
-                </div>
-                <!-- create meeting form -->
-
-
-
+                                <div class="card-footer text-muted d-flex justify-content-center">
+                                    <button id="btnofcrtandedit" type="button" class="btn btn-sm btn-primary"
+                                        onclick="meetingcreate()">Create</button> &nbsp; &nbsp;
+                                    <button type="reset" class="btn btn-sm btn-primary" style="background-color: red;"
+                                        onclick="formToTable()">Cancel</button>
+                                </div>
+                </form>
             </div>
 
 
-            <!-- popup -->
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infopop" id="btnpop" style="display: none;">
-  Hello
-</button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="infopop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="infopopLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="infopopLabel">Meeting Info</h5>
-
-                        </div>
-                        <div class="modal-body" style="display:flex; justify-content: center;">
-
-                            <div>
-                                <table id="infotable">
-                                    <tr>
-                                        <th>S.No </th>
-                                        <td>: 1</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Meeting Name </th>
-                                        <td>: Java </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Meeting ID </th>
-                                        <td>: 121</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date </th>
-                                        <td>: 12-02-2020</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Time </th>
-                                        <td>: 04:08:33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Password </th>
-                                        <td>: h34hm@54%uu</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Duration </th>
-                                        <td>: hh:mm:ss</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Status </th>
-                                        <td>: <i class="fas fa-clock"></i> Pending</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-
-                        <div class="modal-footer d-flex justify-content-center" style="margin-left:4rem;">
-                            <button type="button" class="btn btn-sm btn-primary">Start Meeting</button>
-                            <button type="button" class="btn btn-sm btn-primary" style="background-color: red;" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- popup -->
-
-
-            <!-- create meeting form -->
         </div>
+        <!-- create meeting form -->
+
+
+
+    </div>
+
+
+    <!-- popup -->
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infopop" id="btnpop"
+        style="display: none;">
+        Hello
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infopop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="infopopLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infopopLabel">Meeting Info</h5>
+
+                </div>
+                <div class="modal-body" style="display:flex; justify-content: center;">
+
+                    <div>
+                        <table id="infotable">
+                            <tr>
+                                <th>S.No </th>
+                                <td>: 1</td>
+                            </tr>
+                            <tr>
+                                <th>Meeting Name </th>
+                                <td>: Java </td>
+                            </tr>
+                            <tr>
+                                <th>Meeting ID </th>
+                                <td>: 121</td>
+                            </tr>
+                            <tr>
+                                <th>Date </th>
+                                <td>: 12-02-2020</td>
+                            </tr>
+                            <tr>
+                                <th>Time </th>
+                                <td>: 04:08:33</td>
+                            </tr>
+                            <tr>
+                                <th>Password </th>
+                                <td>: h34hm@54%uu</td>
+                            </tr>
+                            <tr>
+                                <th>Duration </th>
+                                <td>: hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <th>Status </th>
+                                <td>: <i class="fas fa-clock"></i> Pending</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer d-flex justify-content-center" style="margin-left:4rem;">
+                    <button type="button" class="btn btn-sm btn-primary">Start Meeting</button>
+                    <button type="button" class="btn btn-sm btn-primary" style="background-color: red;"
+                        data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
+
+
+    <!-- create meeting form -->
+    </div>
     </div>
     </div>
     </div>
@@ -1086,18 +1196,20 @@
     </div>
     <!-- D-WRAP-DIV -->
     <div id="snackbar"></div>
-    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal" style="display: none;">
+    <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModal"
+        style="display: none;">
     </button>
 
     <!-- Modal -->
-    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loaderModalTitle" aria-hidden="true">
+    <div class="modal" id="loaderModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="loaderModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
             <div class="modal-content temp-loader">
                 <div class="modal-header" style="display: none;">
                     <h5 class="modal-title" id="loaderModalTitle">Modal title</h5>
                     <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex">
@@ -1166,7 +1278,7 @@
             document.getElementById('vidPrevShowerV').setAttribute('src', w)
             document.getElementById('videoplay').click();
         }
-        document.getElementById('coverimage').addEventListener('change', function() {
+        document.getElementById('coverimage').addEventListener('change', function () {
             if (event.target.files.length == 0) {
                 return;
             }
@@ -1174,7 +1286,7 @@
             $('#avatars').attr("src", iurl);
         });
 
-        document.getElementById('thumbImgEdit').addEventListener('change', function() {
+        document.getElementById('thumbImgEdit').addEventListener('change', function () {
             if (event.target.files.length == 0) {
                 return;
             }
@@ -1281,7 +1393,7 @@
             var x = document.getElementById("snackbar");
             x.innerHTML = msg;
             x.className = "show";
-            setTimeout(function() {
+            setTimeout(function () {
                 x.className = x.className.replace("show", "");
             }, 3000);
         }
@@ -1423,10 +1535,10 @@
                 data: fd,
                 processData: false,
                 contentType: false,
-                error: function() {
+                error: function () {
                     alert("Upload Failed, Try Again !!!");
                 },
-                success: function(vall) {
+                success: function (vall) {
                     var newTitle = $('#tititi').val();
                     var newConcept = $('#concee').val();
                     var newDescription = $('#dis').val();
@@ -1477,7 +1589,7 @@
                     data: {
                         meetid: meets[0]
                     },
-                    success: function(htt) {
+                    success: function (htt) {
                         var tempArray = [];
 
                         existingMeets.forEach((argData) => {
@@ -1496,9 +1608,9 @@
                             showToast('Meeting deleted !!!');
                         })
                     },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        alert("Status: " + textStatus); 
-                        alert("Error: " + errorThrown); 
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Status: " + textStatus);
+                        alert("Error: " + errorThrown);
                     }
                 });
             }
@@ -1510,16 +1622,16 @@
             meetArray.forEach((arg) => {
                 i++;
                 meetingsString += `<tr class="design">
-                  <th scope="row">` + i + `</th>
-                  <td class="meetingnameClass">` + arg.meetingName + `</td>
-                  <td class="meetingtimedateClass">` + arg.meetingDate + ` | ` + arg.meetingTime + `</td>
-                  <td>` + arg.meetingStatus + `</td>
-                  <td style="display:none" class="meetingpasswordClass">` + arg.meetingPassword + `</td>
-                  <td style="display:none"
-                      class="meetingdurationClass">` + arg.meetingDuration + `</td>
-                  <td><button class="btn btn-sm btn-info" style="background-color:#5e72e4; border-radius:5px;" data-meet-id="` + arg.meetingId + `" data-index-meet="` + i + `" onclick="viewAndEdit(this)">View & Edit</button><button style="margin-left:5px; border-radius:5px;" class="btn btn-sm btn-success" data-index-meet="` + i + `" data-meet-id="` + arg.meetingId + `" onclick="startmeet(this)">Start</button><button 
-                  style="margin-left:5px; border-radius:5px;" class="btn btn-sm btn-danger" data-meet-id="` + arg.meetingId + `?***?` + arg.meetingName + `" onclick="candelete(this)">Delete</button></td>
-                </tr>`;
+                          <th scope="row">` + i + `</th>
+                          <td class="meetingnameClass">` + arg.meetingName + `</td>
+                          <td class="meetingtimedateClass">` + arg.meetingDate + ` | ` + arg.meetingTime + `</td>
+                          <td>` + arg.meetingStatus + `</td>
+                          <td style="display:none" class="meetingpasswordClass">` + arg.meetingPassword + `</td>
+                          <td style="display:none"
+                              class="meetingdurationClass">` + arg.meetingDuration + `</td>
+                          <td><button class="btn btn-sm btn-info" style="background-color:#5e72e4; border-radius:5px;" data-meet-id="` + arg.meetingId + `" data-index-meet="` + i + `" onclick="viewAndEdit(this)">View & Edit</button><button style="margin-left:5px; border-radius:5px;" class="btn btn-sm btn-success" data-index-meet="` + i + `" data-meet-id="` + arg.meetingId + `" onclick="startmeet(this)">Start</button><button 
+                          style="margin-left:5px; border-radius:5px;" class="btn btn-sm btn-danger" data-meet-id="` + arg.meetingId + `?***?` + arg.meetingName + `" onclick="candelete(this)">Delete</button></td>
+                        </tr>`;
             })
 
             $('#meetingsList').html(meetingsString);
@@ -1534,7 +1646,7 @@
             // console.log('meetingPassword', pass);
             // console.log('meetingEmail', instituteDetails.email);
             // console.log('meetingHostName', instituteDetails.instituteName);
-            
+
             sessionStorage.setItem('meetingId', idd);
             sessionStorage.setItem('meetingPassword', pass);
             sessionStorage.setItem('meetingEmail', instituteDetails.email);
@@ -1565,7 +1677,7 @@
                 data: fd,
                 processData: false,
                 contentType: false,
-                success: function(meetId) {
+                success: function (meetId) {
                     data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).get().then((snapshot) => {
                         var tempMeet = snapshot.data().meetings;
 
@@ -1618,7 +1730,7 @@
                 data: fd,
                 processData: false,
                 contentType: false,
-                success: function(tyt) {
+                success: function (tyt) {
                     if (String(tyt) == 'success') {
                         for (var i = 0; i < existingMeets.length; i++) {
                             if (existingMeets[i].meetingId == meetid) {
@@ -1703,7 +1815,7 @@
                         data: {
                             meetid: meetids
                         },
-                        success: function(htt) {
+                        success: function (htt) {
                             setTimeout(() => {
                                 data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).collection('reviews').get().then((artrtrtrrt) => {
                                     if (artrtrtrrt.docs.length > 0) {
@@ -1723,7 +1835,7 @@
                                             data: {
                                                 fileNames: s3DeleteFileNames
                                             },
-                                            success: function(valll) {
+                                            success: function (valll) {
                                                 var tttArray = [];
                                                 instituteDetails.courseIds.forEach((insids) => {
                                                     if (insids != ids[0] + '?***?' + ids[1]) {
@@ -1870,20 +1982,20 @@
 
         function createNewDiscountPeriod(cont) {
             $("#" + cont).append(` <div class="d-flex" style="justify-content:space-between;">
-                                <div  style="margin-top: .7rem; display:block" class="onlyForNormal2">
-                                    <p>Enter Discount % Period
-                                     <small style="color:#5e72e4; font-size: 11px;"> (in days)</small></p>
-
-                                     <input type="number" name="first" style="width:6rem" class="form-control payConInpPeriod paymentContainerInput mobmod" >
-                                </div>
-
-                                <div  style="margin-top: .7rem; display:block" class="notForFree2">
-                                    <p>Enter Discount %
-                                     <small style="color:#5e72e4; font-size: 11px;"> (in percentage)</small></p>
-
-                                     <input type="number" name="first" style="width:6rem" class="form-control payConInpPercentage paymentContainerInput mobmod" >
-                                </div>
-`)
+                                        <div  style="margin-top: .7rem; display:block" class="onlyForNormal2">
+                                            <p>Enter Discount % Period
+                                             <small style="color:#5e72e4; font-size: 11px;"> (in days)</small></p>
+        
+                                             <input type="number" name="first" style="width:6rem" class="form-control payConInpPeriod paymentContainerInput mobmod" >
+                                        </div>
+        
+                                        <div  style="margin-top: .7rem; display:block" class="notForFree2">
+                                            <p>Enter Discount %
+                                             <small style="color:#5e72e4; font-size: 11px;"> (in percentage)</small></p>
+        
+                                             <input type="number" name="first" style="width:6rem" class="form-control payConInpPercentage paymentContainerInput mobmod" >
+                                        </div>
+        `)
 
         }
 
@@ -1891,13 +2003,69 @@
             document.getElementById('vidPrevShowerV').pause();
         }
         function logout() {
-                auth.signOut().then(() => {
-                    localforage.clear();
+            auth.signOut().then(() => {
+                localforage.clear();
 
-                    location.replace("../../login/");
-                });
-            }
+                location.replace("../../login/");
+            });
+        }
     </script>
+
+    </div>
+    </form>
+
+    <script type="text/javascript">
+        function cvrimage() {
+            document.getElementById('coverimage').click();
+        }
+
+        function edbtn() {
+            var temp = document.getElementsByClassName('whatStudWilLearn');
+            for (var i = 0; i < temp.length; i++) {
+                temp[i].removeAttribute('disabled');
+            }
+            var temp = document.getElementsByClassName('requirementOfCrs');
+            for (var i = 0; i < temp.length; i++) {
+                temp[i].removeAttribute('disabled');
+            }
+            document.getElementById('avatars').setAttribute('class', 'image');
+            document.getElementById('txtid').style.display = "block";
+            document.getElementById('editbuttons').style.visibility = "visible";
+            document.getElementById('tititi').removeAttribute("disabled");
+            document.getElementById('concee').removeAttribute("disabled");
+            document.getElementById('dis').removeAttribute("disabled");
+            document.getElementById('exFacuShower').style.display = 'none';
+            document.getElementById('newFacContainer').style.display = 'block';
+            document.getElementById('newLang').removeAttribute('disabled');
+            document.getElementById('footer-crsDetails-edit').style.visibility = 'visible';
+            document.getElementById('vidPre').style.display = 'none';
+            document.getElementById('vidUpl').style.display = 'block';
+        }
+
+        function cnbtn() {
+            var temp = document.getElementsByClassName('whatStudWilLearn');
+            for (var i = 0; i < temp.length; i++) {
+                temp[i].setAttribute('disabled', true);
+            }
+            var temp = document.getElementsByClassName('requirementOfCrs');
+            for (var i = 0; i < temp.length; i++) {
+                temp[i].setAttribute('disabled', true);
+            }
+            document.getElementById('avatars').setAttribute('class', 'image1');
+            document.getElementById('txtid').style.display = "none";
+            document.getElementById('editbuttons').style.visibility = "hidden";
+            document.getElementById('tititi').setAttribute("disabled", true);
+            document.getElementById('concee').setAttribute("disabled", true);
+            document.getElementById('dis').setAttribute("disabled", true);
+            document.getElementById('exFacuShower').style.display = 'block';
+            document.getElementById('newFacContainer').style.display = 'none';
+            document.getElementById('newLang').setAttribute('disabled', true);
+            document.getElementById('footer-crsDetails-edit').style.visibility = 'hidden';
+            document.getElementById('vidPre').style.display = 'block';
+            document.getElementById('vidUpl').style.display = 'none';
+        }
+    </script>
+
 
 </body>
 <!-- primary color : #5e72e4 -->

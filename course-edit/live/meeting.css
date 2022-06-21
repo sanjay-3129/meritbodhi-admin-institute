@@ -1,189 +1,224 @@
-.card1{
-    background-color: #fff;
-    height: auto;
-    padding: 1rem;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    border-radius: 2px;
+.card1 {
+  background-color: #fff;
+  height: auto;
+  padding: 1rem;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  border-radius: 2px;
 }
 
 
 
-.thmimg{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-top: 30px;
-    object-fit: cover;
-}
-.form-control:hover{
-    color: #5e72e4;
-}
-.form-control-alternative:hover{
-    color: #5e72e4;
+.thmimg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 30px;
+  object-fit: cover;
 }
 
-.nav-user-img:hover{
-    color: #5e72e4;
+.form-control:hover {
+  color: #5e72e4;
+}
+
+.form-control-alternative:hover {
+  color: #5e72e4;
+}
+
+.nav-user-img:hover {
+  color: #5e72e4;
 }
 
 .cont {
-    position: relative;
-    width: 100%;
-  }
-  
-  .image {
-    opacity: 1;
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    height: 350px;
-    transition: .5s ease;
-    backface-visibility: hidden;
-  }
-  
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  .cont:hover .image {
-    opacity: 0.6;
-  }
-  
-  .cont:hover .middle {
-    opacity: 1;
-  }
-  
-  .text {
-    border:none;
-    font-size: 28px;
-    color: #fff;
-  }
-  .cardfirst{
-    display: flex; margin-left: 30px;
-  }
-  .title{
-    margin-left: 2.5rem;
-    margin-top: 20px ;
-
-
-  }
-  .tit-tit{
-    width: 20rem;
-  }
-  .tit{
-    margin-left: -330px;
-    margin-top: 10px;
-    width: 100%;
-  }
-  .boxs{
-    margin-top: 80px; margin-left: 160px; 
-  }
-  .coursei{
-    margin-top: 30px; margin-left: 30px;
-    width: 50%;
-  }
-  
-  .facu{
-    margin-left: 13.5rem;  display: flex; 
-  }
-  .langu{
-    margin-left: 55px;
-  }
-  .langus{
-    width: 200%; cursor: pointer;
-  }
-  .descri{
-    margin-left: 13.5rem; margin-top: 20px;
-  }
-  .facus{
-    width: 85%; cursor: pointer;
-  }
-  .cour{
-    display: flex; justify-content: space-around; margin-left: -55px; margin-top: 25px;
-  }
-  .cours{
-    width: 120%; cursor: pointer;
-  }
-  .cours3{
-    width: 100%; cursor: pointer;
-  }
-  .cousr{
-    display: flex; justify-content: space-around;
-    margin-left: -54px;
-  }
-
-  .headerh3{
-    margin-left: 30px;
-    margin-top: 2rem;
-
-  }
-
-
-  .course-edit .course-contents .row ul.course-content-overview {
-    list-style-type: none;
-    padding: 0;
-    margin: 15px 0 0;
-    padding-left: 20px;
-    border-left: 1px solid #3452ff;
+  position: relative;
+  width: 100%;
 }
+
+.image {
+  opacity: 1;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cont:hover .image {
+  opacity: 0.6;
+}
+
+.cont:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  border: none;
+  font-size: 28px;
+  color: #fff;
+}
+
+.cardfirst {
+  display: flex;
+  margin-left: 30px;
+}
+
+.title {
+  margin-left: 2.5rem;
+  margin-top: 20px;
+
+
+}
+
+.tit-tit {
+  width: 20rem;
+}
+
+.tit {
+  margin-left: -330px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.boxs {
+  margin-top: 80px;
+  margin-left: 160px;
+}
+
+.coursei {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 50%;
+}
+
+.facu {
+  margin-left: 13.5rem;
+  display: flex;
+}
+
+.langu {
+  margin-left: 55px;
+}
+
+.langus {
+  width: 200%;
+  cursor: pointer;
+}
+
+.descri {
+  margin-left: 13.5rem;
+  margin-top: 20px;
+}
+
+.facus {
+  width: 85%;
+  cursor: pointer;
+}
+
+.cour {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -55px;
+  margin-top: 25px;
+}
+
+.cours {
+  width: 120%;
+  cursor: pointer;
+}
+
+.cours3 {
+  width: 100%;
+  cursor: pointer;
+}
+
+.cousr {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -210px;
+}
+
+.headerh3 {
+  margin-left: 30px;
+  margin-top: 2rem;
+
+}
+
+
+.course-edit .course-contents .row ul.course-content-overview {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0 0;
+  padding-left: 20px;
+  border-left: 1px solid #3452ff;
+}
+
 .course-edit .course-contents .row ul.course-content-overview li {
-    font-size: 20px;
-    font-weight: 400;
-    color: #3452FF;
-    padding: 0;
-    position: relative;
-}
-.course-edit .course-contents .row ul.course-content-overview li::before {
-    position: absolute;
-    content: "";
-    top: 15px;
-    left: -20px;
-    width: 15px;
-    height: 2px;
-    background-color: #3452FF;
-}
-.course-edit .course-contents .row ul.course-content-overview li p {
-    font-size: 14px;
-    color:  #6c757d;
-}
-.eachtext
-{
-  width:40rem;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3452FF;
+  padding: 0;
+  position: relative;
 }
 
-.overandsection
-{
+.course-edit .course-contents .row ul.course-content-overview li::before {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: -20px;
+  width: 15px;
+  height: 2px;
+  background-color: #3452FF;
+}
+
+.course-edit .course-contents .row ul.course-content-overview li p {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.eachtext {
+  width: 40rem;
+}
+
+.overandsection {
   display: flex;
   justify-content: space-between;
 
 }
-.addsecbtn{
+
+.addsecbtn {
   margin-left: 3.5rem;
 }
-.addsecbtninside{
+
+.addsecbtninside {
   margin-top: -1.5rem;
   padding: .5rem;
-  
+
   color: #fff;
   width: 17%;
 }
 
-.needlong{
+.needlong {
   width: 48rem;
 }
-.needlongs{
+
+.needlongs {
   width: 48rem;
 }
-.selectneed{
+
+.selectneed {
   width: 40rem;
 }
 
@@ -194,7 +229,7 @@
 
 /*LAST ONE CSS END*/
 
-  /*SECTIONOVERIEW-CSS*/
+/*SECTIONOVERIEW-CSS*/
 
 @media (min-width: 544px) {
   .box {
@@ -216,30 +251,30 @@
 
 .directory-list li {
   list-style: none;
-  
+
   font-size: 16px;
 }
 
-.sectionstyle{
+.sectionstyle {
   margin-left: -2rem;
 
 }
 
 .directory-list a {
   border-bottom: 1px solid transparent;
-  
+
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .directory-list a:hover {
-  
+
   color: #000;
 }
 
 .directory-list .folder,
-.directory-list .folder > a {
-  
+.directory-list .folder>a {
+
   font-weight: bold;
 }
 
@@ -267,93 +302,123 @@
   background-position: center top;
   background-size: 75% auto;
 }
-.thumb{
+
+.thumb {
   margin-top: -2rem;
 }
 
 /*SECTIONOVERIEW-CSS*/
 
-  @media only screen and (max-width:1138px)
-{
-    .cardfirst{
+@media only screen and (max-width:1138px) {
+  .cardfirst {
     flex-direction: column;
-     margin-left: 1px;
-    }
-    .title{
-        flex-direction: column;
-        justify-content: space-between;
-        margin-left: .2rem;
-        margin-top: -2rem;
-    }
-    .boxs{
+    margin-left: 1px;
+  }
 
-        margin-top: 1px;
-        margin-left: 1px;
-    }
-    .tit{
-        margin-left: 1px;
-    }
-    .coursei{
-        margin-top: 10px; margin-left: 3.5rem;
-              }
-      .cons{
-        margin-top: 10px;
-        margin-left: 1px;
-      }
-      .thumb{
-        margin-left: 4.5rem;
-      }
-      .facu{
-        margin-left: 1px; margin-top: 1rem; flex-direction: column;
-      }
-      .langu{
-        margin-top: 10px;
-        margin-left: 1px;
-    }
-    .langus{
-    width: 100%; cursor: pointer;
-    }
-    .descri{
-    margin-left: 1px; margin-top: 10px;
-    }
-    .facus{
-    width: 100%; cursor: pointer;
-    }
-    .cousr{
-        flex-direction: column;
-        margin-left: 1px;
-    }
-    .cour{
-    flex-direction: column; margin-left: 1px; margin-top: 10px;
-    }
-     .cours{
-    width: 100%; cursor: pointer;
-      }
-      .cours3{
-        width: 100%; cursor: pointer;
-      }
+  .title {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: .2rem;
+    margin-top: -2rem;
+  }
 
-      .eachtext{
-        width:20rem;
-      }
-      .overandsection{
-        flex-direction: column;
-      }
-      
-      .flt_rt{
-        display: none;
-      }
-      .vedio-length{
-        display: none;
-      }
-      .needlong{
-        width: 100%;
-      }
-      .needlongs{
-        width: 18rem;
-      }
-      .coursecat{
-        margin-top: 1rem;
-      }
+  .boxs {
+
+    margin-top: 1px;
+    margin-left: 1px;
+  }
+
+  .tit {
+    margin-left: 1px;
+  }
+
+  .coursei {
+    margin-top: 10px;
+    margin-left: 3.5rem;
+  }
+
+  .cons {
+    margin-top: 10px;
+    margin-left: 1px;
+  }
+
+  .thumb {
+    margin-left: 4.5rem;
+  }
+
+  .facu {
+    margin-left: 1px;
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  .langu {
+    margin-top: 10px;
+    margin-left: 1px;
+  }
+
+  .langus {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .descri {
+    margin-left: 1px;
+    margin-top: 10px;
+  }
+
+  .facus {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .cousr {
+    flex-direction: column;
+    margin-left: 1px;
+  }
+
+  .cour {
+    flex-direction: column;
+    margin-left: 1px;
+    margin-top: 10px;
+  }
+
+  .cours {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .cours3 {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .eachtext {
+    width: 20rem;
+  }
+
+  .overandsection {
+    flex-direction: column;
+  }
+
+  .flt_rt {
+    display: none;
+  }
+
+  .vedio-length {
+    display: none;
+  }
+
+  .needlong {
+    width: 100%;
+  }
+
+  .needlongs {
+    width: 18rem;
+  }
+
+  .coursecat {
+    margin-top: 1rem;
+  }
 
 }
