@@ -28,7 +28,7 @@
     <title>Meritbothi | Courses Institute</title>
     <!-- cdns for custom multi select -->
     <script src="mulsel.js"></script>
-    <link rel="stylesheet" type="text/css" href="mulsel.css">
+    <link rel="stylesheet" type="text/css" href="/course-edit/live/mulsel.css">
     <!-- <link rel="stylesheet"  href="coursesnew.css"> -->
     <style>
 
@@ -608,7 +608,7 @@
                                                                     <a class="nav-link" href="../settings"><i class="fas fa-cog"></i>Settings</a>
                                                                 </li>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="../Testseries/"><i class="fas fa-cog"></i>Test Series</a>
+                                                                    <a class="nav-link" href="../Testseries"><i class="fas fa-cog"></i>Test Series</a>
                                                                 </li>
                                                                 <li class="nav-item hi-sh-lg">
                                                                     <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
@@ -628,8 +628,12 @@
             <form id="overallForm">
                 <div class="dashboard-ecommerce">
 
+                 
+
                     <div id="newdd">
+                        <h3>Test Series</h3>
                         <div class="d-flex addbottom" style="position: relative;">
+
 
                             <select class="btn btn-sm btn-grey selectbtn" id="types-switcher" onchange="typeSorter(this)">
                        <option value="All">All</option>
@@ -690,16 +694,16 @@
                                         <div class="tit" style="width: 20rem;">
                                             <h3>Title</h3><input type="text" name="t_name" class="form-control titi" placeholder="Course Title">
                                         </div>
-                                        <div class="cons">
+                                        <!-- <div class="cons">
                                             <h3 style="margin-top: .5rem; margin-left: 2rem;">Concept</h3>
                                             <input type="text" name="concept" class="form-control cours" style="width:150%; margin-left:2rem" placeholder="Course Concepts">
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
 
                             <div class="facu">
-                                <div>
+                                <!-- <div>
                                     <h3>Faculties Handling this course</h3>
                                     <div class="d-flex">
                                         <div class="multiselect">
@@ -713,8 +717,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="langu">
+                                </div> -->
+                                <!-- <div class="langu">
                                     <h3>Language</h3>
                                     <div class="d-flex">
                                         <select name="language" id="language" class="form-control langus" style="width:200px">
@@ -725,7 +729,7 @@
 
                                         <i class="fas fa-plus-square labtn" style="display:none;"></i>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="descri">
@@ -734,13 +738,13 @@
                                     <textarea rows="4" class="form-control form-control-alternative" name="crsDesc" placeholder="A few words about this course ..."></textarea>
                                 </div>
 
-                                <div>
-                                    <!-- style="margin-top: 25px;" -->
+                                <!-- <div>
                                     <h3>Introduction Video &nbsp; </h3>
                                     <input type="file" class="inpuu" name="crsIntr">
-                                </div>
-
-                                <div class="cousr">
+                                </div> -->
+                                <!-- style="margin-top: 25px;" -->
+                                
+                                <!-- <div class="cousr">
 
                                     <div>
                                         <h3>Course Mode</h3>
@@ -748,13 +752,12 @@
                                             <select class="form-control cours" name="crsType">
                                             
                                             <option value="Online">Online</option>
-                                            <option value="Live">Live</option>
-                                            <option value="One to One">One to One</option>
+                                            
                                           </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
                                         </div>
                                     </div>
 
-                                    <!-- <div class="ccat">
+                                    <div class="ccat">
                                         <h3 class="cnal">Course Nationality</h3>
                                         <div class="d-flex clsa">
                                             <select class="form-control cours11" name="crsNationality">
@@ -763,8 +766,10 @@
                                             <option value="International">International</option>
                                           </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
                                         </div>
-                                    </div> -->
-                                </div>
+                                    </div>
+                                </div> -->
+                                <!-- <option value="Live">Live</option>
+                                            <option value="One to One">One to One</option> -->
 
                                 <div class="cousr111">
 
@@ -801,7 +806,7 @@
                                     </div>
                                 </div>
 
-                                <div style="margin-top: 1rem;" id="selb11">
+                                <!-- <div style="margin-top: 1rem;" id="selb11">
                                     <h3>Is there any Assessment in this course ?</h3>
                                     <div style="width: 10%;">
                                         <select class="form-control typeclass" id="selb1" name="selb1">
@@ -809,7 +814,7 @@
                                         <option value="No">No</option>
                                     </select>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <hr>
                                 <br>
@@ -2004,7 +2009,7 @@
             function redirecterToCourseEdit(l) {
                 if (l.getAttribute('card-type') == 'Online') {
                     sessionStorage.setItem('course-edit-crs-id-online', l.getAttribute('card-id'));
-                    location.replace('../course-edit/online/');
+                    location.replace('../Testseries-edit/online/');
                 }
                 if (l.getAttribute('card-type') == 'Live') {
                     sessionStorage.setItem('course-edit-crs-id-live', l.getAttribute('card-id'));
