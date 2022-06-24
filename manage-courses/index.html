@@ -628,7 +628,7 @@
     </style>
 </head>
 
-<body>
+<body onload="initialLoad()">
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -1111,7 +1111,7 @@
                                       <th scope="col">Mode</th>
                                       <th scope="col">Category</th>
                                       <th scope="col">Sub-Category</th>
-                                      <th scope="col">No of Sections</th>
+                                      <th scope="col">Sections</th>
                                       <th scope="col" class="styles">Action</th>
                                     </tr>
                                   </thead>
@@ -1527,12 +1527,15 @@
 
         var uid='';
         console.log('Userjs');
+
+        const initialLoad = ()=>{
+
         auth.onAuthStateChanged((user)=>{
             if(user){
+                loaderTriggerAndEnder(true);
                 console.log('User', user.uid);
                 uid=user.uid;
                 // existingCourseSetter();
-                loaderTriggerAndEnder(true);
             var i =1;
             data.collection('subCategories').get().then((subCategories) => {
                 subCategories.forEach((cats)=>{
@@ -1560,10 +1563,10 @@
             // fuccccc();
             loaderTriggerAndEnder(true);
             var i=1;
-            $('#reqCoursesList').html('');
+            $('#reqCoursesList').empty();
             data.collection('admin').doc(uid).get().then((adminData) => {
-                exisCrs = adminData.data().newCourses;
-            adminData.data().newCourses.forEach((doccc)=>{
+                exisCrs = adminData.data()?.newCourses;
+            adminData.data()?.newCourses.forEach((doccc)=>{
                 var splitted=doccc.split('?***?');
                 data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
                     console.log('course data >>>', course.data());
@@ -1572,6 +1575,8 @@
                               <td>`+course.data().courseName+`</td>
                               <td>`+course.data().faculties.length+`</td>
                               <td>`+course.data().types+`</td>
+                              <td>`+course.data().category+`</td>
+                              <td>`+course.data().subcategory+`</td>
                               <td>${course.data().sections.length} - sections</td>
                               <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+doccc+`" onclick="viewmore(this)">View</button></td>
                             </tr>`);
@@ -1589,6 +1594,8 @@
                 location.replace('../admin-login/');
             }
         })
+    }
+
         var allCrsData = [];
         var indexing = 0;
         var exisCrs = [];
@@ -1634,6 +1641,8 @@
                               <td>`+ kjhgffgh.data().courseName + `</td>
                               <td>`+ kjhgffgh.data().faculties.length + `</td>
                               <td>`+ kjhgffgh.data().types + `</td>
+                              <td>`+ kjhgffgh.data().category + `</td>
+                              <td>`+ kjhgffgh.data().subcategory + `</td>
                               <td>${kjhgffgh.data().sections.length} - sections</td>
                               <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + doccc + `" onclick="viewmore(this)">View</button></td>
                             </tr>`);
