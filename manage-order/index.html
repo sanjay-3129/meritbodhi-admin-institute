@@ -471,7 +471,7 @@
                             </tr>
                           </thead>
                           <tbody id="orderTableBody"></tbody>
-                          <tr>
+                          <!-- <tr>
                             <td colspan="9">
                               <button
                                 onclick="addmore()"
@@ -480,7 +480,7 @@
                                 View All Orders
                               </button>
                             </td>
-                          </tr>
+                          </tr> -->
                         </table>
                       </div>
                     </div>
@@ -803,7 +803,10 @@
      let startDateTimestamp = new Date(startDate).getTime();
      let endDateTimestamp = new Date(endDate).getTime();
      console.log(startDateTimestamp,endDateTimestamp);
- 
+     if(startDate> endDate){
+      alert("Start Date Can not be Greater than End Date");
+      return;
+     }
      $('#orderTableBody').empty();
             institutePaymentAmount =0;
             meritbodhiPaymentAmount=0;

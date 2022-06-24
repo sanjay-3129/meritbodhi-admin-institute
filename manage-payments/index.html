@@ -631,7 +631,7 @@
                                 <tbody id="instituteOrderTable">
                                     
                                   </tbody>
-                                  <tr>
+                                  <!-- <tr>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -646,7 +646,7 @@
                                         Load All Orders
                                       </button>
                                     </td>
-                                  </tr>
+                                  </tr> -->
                             </table>
                         </div>
                     </div>
@@ -867,6 +867,10 @@
      let startDateTimestamp = new Date(startDate).getTime();
      let endDateTimestamp = new Date(endDate).getTime();
      console.log(startDateTimestamp,endDateTimestamp);
+     if(startDateTimestamp> endDateTimestamp){
+      alert("Start Date Can not be Greater than End Date");
+      return;
+     }
  
      $('#instituteOrderTable').empty();
             // institutePaymentAmount =0;
@@ -903,6 +907,12 @@
      let startDateTimestamp = new Date(startDate).getTime();
      let endDateTimestamp = new Date(endDate).getTime();
      console.log(startDateTimestamp,endDateTimestamp);
+     if(startDateTimestamp> endDateTimestamp){
+      alert("Start Date Can not be Greater than End Date");
+      return;
+     }
+     
+
      $('#institutePaymentTable').empty();
      // institutePaymentAmount =0;
      // meritbodhiPaymentAmount=0;

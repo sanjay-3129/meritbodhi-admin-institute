@@ -1109,7 +1109,9 @@
                                       <th scope="col">Course Title</th>
                                       <th scope="col">Faculty</th>
                                       <th scope="col">Mode</th>
-                                      <th scope="col">Sections</th>
+                                      <th scope="col">Category</th>
+                                      <th scope="col">Sub-Category</th>
+                                      <th scope="col">No of Sections</th>
                                       <th scope="col" class="styles">Action</th>
                                     </tr>
                                   </thead>
@@ -1564,7 +1566,7 @@
             adminData.data().newCourses.forEach((doccc)=>{
                 var splitted=doccc.split('?***?');
                 data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
-                    console.log('cour', course.data());
+                    console.log('course data >>>', course.data());
                     $('#reqCoursesList').append(`<tr indexing = "`+indexing+`">
                               <th scope="row">`+i+`</th>
                               <td>`+course.data().courseName+`</td>
