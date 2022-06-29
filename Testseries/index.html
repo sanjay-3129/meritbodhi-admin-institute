@@ -784,10 +784,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="file" name="fileupload" style="display: none;" id="newuppp">
+                            <input type="file" name="fileupload" style="display: block;" id="newuppp">
                             <div class="cardfirst">
                                 <!--style="display: flex; justify-content: space-between;" -->
-                                <div class="thumb"><img src="download.jfif" class="thmimg" id="thumbImg"><br><br>
+                                <div class="thumb">
+                                    <img src="download.jfif" class="thmimg" id="thumbImg"><br><br>
                                     <button type="button" class="btn btn-sm btn-primary" style="margin-left: 4.5rem;"
                                         onclick="imgupppp1()">Edit</button>
                                 </div>
@@ -863,19 +864,18 @@
                                             
                                           </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
                                         </div>
-                                    </div>
-
+                                    </div>-->
                                     <div class="ccat">
-                                        <h3 class="cnal">Course Nationality</h3>
-                                        <div class="d-flex clsa">
+                                        <!-- <h3 class="cnal">Course Nationality</h3> -->
+                                        <!-- <div class="d-flex clsa">
                                             <select class="form-control cours11" name="crsNationality">
                                             <option value="default" selected>---select---</option>
                                             <option value="National">National</option>
                                             <option value="International">International</option>
                                           </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                        </div> -->
+                                    <!-- </div> -->
+                                </div>
                                 <!-- <option value="Live">Live</option>
                                             <option value="One to One">One to One</option> -->
 
@@ -930,7 +930,7 @@
                                 <hr>
                                 <br>
                                 <div style="text-align: right;">
-                                    <button type="button" class="btn btn-sm btn-primary" id="createCourse">Create
+                                    <button type="button" class="btn btn-sm btn-primary" id="createTest">Create
                                         Test</button>
                                     <a href="#courses"><button type="button" class="btn btn-sm btn-primary"
                                             style="background-color: #dc3545;" onclick="creationcancelbtn()">
@@ -1224,6 +1224,22 @@
                 })
 
             });
+
+            var type = "National";
+            var mcats = '<option value="default" selected>---select---</option>';
+            form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
+
+            if (type == 'National') {
+                console.log("NoRefresh")
+                
+                for (var i = 0; i < nationalMainC.length; i++) {
+                    mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
+                }
+                form.maincat.innerHTML = mcats;
+            }
+            else{
+                console.log("Refresh Page")
+            }
         }
 
         function showToast(msg) {
@@ -1265,23 +1281,24 @@
             loaderTriggerAndEnder(false);
         }
 
-        form.crsNationality.addEventListener('change', () => {
-            var type = form.crsNationality.value;
-            var mcats = '<option value="default" selected>---select---</option>';
-            form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
+        // form.crsNationality.addEventListener('change', () => {
+        //     var type = "National";
+        //     var mcats = '<option value="default" selected>---select---</option>';
+        //     form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
 
-            if (type == 'National') {
-                for (var i = 0; i < nationalMainC.length; i++) {
-                    mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
-                }
-                form.maincat.innerHTML = mcats;
-            } else {
-                for (var i = 0; i < interNationalMainC.length; i++) {
-                    mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
-                }
-                form.maincat.innerHTML = mcats;
-            }
-        })
+        //     if (type == 'National') {
+        //         for (var i = 0; i < nationalMainC.length; i++) {
+        //             mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
+        //         }
+        //         form.maincat.innerHTML = mcats;
+        //     }
+        //     //  else {
+        //     //     for (var i = 0; i < interNationalMainC.length; i++) {
+        //     //         mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
+        //     //     }
+        //     //     form.maincat.innerHTML = mcats;
+        //     // }
+        // })
 
         form.maincat.addEventListener('change', (a) => {
             var mainCategory = form.maincat.value;
@@ -1295,277 +1312,19 @@
             form.subcat.innerHTML = scats;
         })
 
-        $('#createCourse').on('click', function () {
+        // $('#createTest').on("click",()=>{
+            
+        //     console.log("Course Created\n",instituteDetails);
+        // })
+        $('#createTest').on('click', function () {
             loaderTriggerAndEnder(true);
             var newSubCatId = '',
-                courseIIId = '';
+                testId = '';
             var cid = '';
-            var facids = document.getElementById('facidssss').innerHTML.split(',');
-            var facnames = document.getElementById('facidssss').getAttribute('faculty-names').split(',');
-            var facArray = [];
             var inc = 0;
-            console.log(facids);
-            facids.forEach((idddd) => {
-                console.log(idddd);
-                facArray.push(idddd + "?***?" + facnames[inc]);
-                inc++;
-            })
 
-            if (form.crsType.value == 'Online') {
-                //course adding with nw subCategory
-                if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-                    data.collection('subCategories').add({
-                        id: '',
-                        noOfCourses: 1,
-                        subcategory: form.newsolosubcat.value.toLowerCase()
-                    }).then((docid) => {
-                        newSubCatId = docid.id;
-                        data.collection('subCategories').doc(newSubCatId).update({
-                            id: newSubCatId
-                        }).then((arg) => {
-                            let fd = new FormData(document.querySelector('#overallForm'));
-                            const user = firebase.auth().currentUser;
-                            fd.append('uid', user.uid);
-
-                            $.ajax({
-                                url: 'matUp.php',
-                                type: 'post',
-                                data: fd,
-                                processData: false,
-                                contentType: false,
-                                error: function () {
-                                    alert("Upload Failed, Try Again !!!");
-                                },
-                                success: function (vall) {
-                                    var urls = String(vall).split('?***?');
-
-                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                        category: form.maincat.value,
-                                        courseName: form.t_name.value,
-                                        coverImg: urls[0].substring(52),
-                                        faculties: facArray,
-                                        id: '',
-                                        subcategoryId: '',
-                                        instituteName: nameAproA[0],
-                                        instituteRef: instituteDetails.id,
-                                        introVideo: urls[2].substring(52),
-                                        lang: form.language.value,
-                                        lastUpdated: String(new Date().getTime()),
-                                        noOfStudents: 0,
-                                        concept: form.concept.value,
-                                        description: form.crsDesc.value,
-                                        progess: 20,
-                                        region: form.crsNationality.value,
-                                        requirements: [],
-                                        whatYouWillLearn: [],
-                                        totalRating: 3,
-                                        publish: {
-                                            originalPrice: 0,
-                                            offers: [],
-                                            tax: {
-                                                CGST: 0,
-                                                IGST: 0,
-                                                SGST: 0,
-                                                UGST: 0
-                                            }
-                                        },
-                                        sections: [],
-                                        status: "Not Published",
-                                        subcategory: form.subcat.value,
-                                        thumbnail: urls[1].substring(52),
-                                        types: form.crsType.value,
-                                        rejectMessage: ""
-                                    }).then((docid) => {
-                                        cid = newSubCatId + '?***?' + docid.id;
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                            id: docid.id,
-                                            subcategoryId: newSubCatId
-                                        }).then((arg) => {
-                                            instituteDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                            instituteDetails.noOfCourses++;
-                                            localforage.setItem('instituteDetails', instituteDetails);
-                                            data.collection('institute').doc(instituteDetails.id).update({
-                                                noOfCourses: instituteDetails.noOfCourses,
-                                                courseIds: instituteDetails.courseIds
-                                            }).then(() => {
-
-                                                var catDetails1 = [];
-                                                var index = 0;
-                                                var indexFound = 0;
-                                                var arrayFound = [];
-                                                data.collection('category').doc('categories').get().then((arg) => {
-                                                    catDetails1 = arg.data().catDetails;
-                                                    catDetails1.forEach((vall) => {
-                                                        if (vall.categoryName == form.maincat.value) {
-                                                            arrayFound = vall;
-                                                            indexFound = index;
-                                                        }
-                                                        index++;
-                                                    })
-
-                                                    arrayFound.noOfCourses += 1;
-                                                    arrayFound.isVerified = false;
-                                                    arrayFound.subcategoryList.push({
-                                                        subCategoryId: newSubCatId,
-                                                        subCategoryName: form.newsolosubcat.value.toLowerCase()
-                                                    });
-
-                                                    catDetails1[indexFound] = arrayFound;
-
-                                                    data.collection('category').doc('categories').update({
-                                                        catDetails: catDetails1
-                                                    }).then(() => {
-                                                        var count = 0;
-                                                        facArray.forEach((one) => {
-                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                var array1 = datatata.data().courseIds;
-                                                                array1.push(cid);
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                    courseIds: array1
-                                                                }).then(() => {
-                                                                    count++;
-                                                                    if (count == facArray.length) {
-                                                                        loaderTriggerAndEnder(false);
-                                                                        location.replace('');
-                                                                    }
-                                                                });
-                                                            })
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    }).catch((e) => {
-                                        showToast(e.message);
-                                    });
-                                }
-                            });
-                        })
-                    })
-                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
-                    data.collection('subCategories').add({
-                        id: '',
-                        noOfCourses: 1,
-                        subcategory: form.newsubcat.value.toLowerCase()
-                    }).then((docid) => {
-                        newSubCatId = docid.id;
-                        data.collection('subCategories').doc(newSubCatId).update({
-                            id: newSubCatId
-                        }).then((arg) => {
-                            let fd = new FormData(document.querySelector('#overallForm'));
-                            const user = firebase.auth().currentUser;
-                            fd.append('uid', user.uid);
-
-                            $.ajax({
-                                url: 'matUp.php',
-                                type: 'post',
-                                data: fd,
-                                processData: false,
-                                contentType: false,
-                                error: function () {
-                                    alert("Upload Failed, Try Again !!!");
-                                },
-                                success: function (vall) {
-                                    var urls = String(vall).split('?***?');
-
-                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                        category: form.maincat.value,
-                                        courseName: form.t_name.value,
-                                        coverImg: urls[0].substring(52),
-                                        faculties: facArray,
-                                        id: '',
-                                        subcategoryId: '',
-                                        instituteName: nameAproA[0],
-                                        instituteRef: instituteDetails.id,
-                                        introVideo: urls[2].substring(52),
-                                        lang: form.language.value,
-                                        lastUpdated: String(new Date().getTime()),
-                                        noOfStudents: 0,
-                                        concept: form.concept.value,
-                                        description: form.crsDesc.value,
-                                        progess: 20,
-                                        region: form.crsNationality.value,
-                                        requirements: [],
-                                        whatYouWillLearn: [],
-                                        publish: {
-                                            originalPrice: 0,
-                                            offers: [],
-                                            tax: {
-                                                CGST: 0,
-                                                IGST: 0,
-                                                SGST: 0,
-                                                UGST: 0
-                                            }
-                                        },
-                                        totalRating: 2.5,
-                                        sections: [],
-                                        status: "Not Published",
-                                        subcategory: form.subcat.value,
-                                        thumbnail: urls[1].substring(52),
-                                        types: form.crsType.value
-                                    }).then((docid) => {
-                                        cid = newSubCatId + '?***?' + docid.id;
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                            id: docid.id,
-                                            subcategoryId: newSubCatId
-                                        }).then((arg) => {
-                                            instituteDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                            localforage.setItem('instituteDetails', instituteDetails);
-                                            data.collection('institute').doc(instituteDetails.id).update({
-                                                courseIds: instituteDetails.courseIds
-                                            }).then(() => {
-
-                                                var catDetails1 = [];
-
-                                                data.collection('category').doc('categories').get().then((arg) => {
-                                                    catDetails1 = arg.data().catDetails;
-                                                    var newArray = {
-                                                        categoryName: form.newmaincat.value.toLowerCase(),
-                                                        isVerified: false,
-                                                        noOfCourses: 1,
-                                                        subcategoryList: [{
-                                                            subCategoryName: form.newsubcat.value.toLowerCase(),
-                                                            subCategoryId: newSubCatId
-                                                        }],
-                                                        subcollection: form.newmaincat.value.toLowerCase(),
-                                                        type: form.crsNationality.value
-                                                    };
-
-                                                    catDetails1.push(newArray);
-
-                                                    data.collection('category').doc('categories').update({
-                                                        catDetails: catDetails1
-                                                    }).then(() => {
-                                                        var count = 0;
-                                                        facArray.forEach((one) => {
-                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                var array1 = datatata.data().courseIds;
-                                                                array1.push(cid);
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                    courseIds: array1
-                                                                }).then(() => {
-                                                                    count++;
-                                                                    if (count == facArray.length) {
-                                                                        loaderTriggerAndEnder(false);
-                                                                        location.replace('');
-                                                                    }
-                                                                });
-                                                            })
-                                                        })
-                                                    })
-
-                                                })
-                                            })
-                                        })
-                                    }).catch((e) => {
-                                        showToast(e.message);
-                                    });
-                                }
-                            });
-                        })
-                    })
-                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-                    //normal course adding
+                 if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
+                    //normal test adding
                     let fd = new FormData(document.querySelector('#overallForm'));
                     const user = firebase.auth().currentUser;
                     fd.append('uid', user.uid);
@@ -1581,520 +1340,112 @@
                             alert("Upload Failed, Try Again !!!");
                         },
                         success: function (vall) {
+   
+                            console.log("Value>>>",vall)
                             var urls = String(vall).split('?***?');
                             sub_CategoryId = '';
 
-                            subCategories.forEach((arg) => {
-                                arg.forEach((argg) => {
-                                    if (form.subcat.value == argg.subCategoryName) {
-                                        sub_CategoryId = argg.subCategoryId;
-                                    }
-                                })
-                            });
+                            // subCategories.forEach((arg) => {
+                            //     arg.forEach((argg) => {
+                            //         if (form.subcat.value == argg.subCategoryName) {
+                            //             sub_CategoryId = argg.subCategoryId;
+                            //         }
+                            //     })
+                            // });
+                            // data.collection('subCategories').doc(sub_CategoryId).collection('testseries').add({
+                            //     category: form.maincat.value,
+                            //     testName: form.t_name.value,
+                            //     coverImg: urls[0].substring(52),
+                            //     id: '',
+                            //     subcategoryId: '',
+                            //     instituteName: nameAproA[0],
+                            //     instituteId: instituteDetails.id,
+                            //     lastUpdated: String(new Date().getTime()),
+                            //     noOfStudents: 0,
+                            //     description: form.crsDesc.value,
+                            //     progess: 20,
+                            //     requirements: [],
+                            //     whatYouWillLearn: [],
+                            //     publish: {
+                            //         originalPrice: 0,
+                            //         offers: [],
+                            //         tax: {
+                            //             CGST: 0,
+                            //             IGST: 0,
+                            //             SGST: 0,
+                            //             UGST: 0
+                            //         }
+                            //     },
+                            //     totalRating: 2.5,
+                            //     questions: [],
+                            //     status: "Not Published",
+                            //     subcategory: form.subcat.value,
+                            //     thumbnail: urls[1].substring(52),
+                            //     // types: form.crsType.value
+                //             }).then((docid) => {
+                //                 testId = docid.id;
+                //                 cid = sub_CategoryId + '?***?' + docid.id;
+                //                 data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(docid.id).update({
+                //                     id: docid.id,
+                //                     subcategoryId: sub_CategoryId
+                //                 }).then((arg) => {
+                //                     instituteDetails.testIds.push(sub_CategoryId + '?***?' + docid.id);
+                //                     instituteDetails.noOfTests++;
+                //                     localforage.setItem('instituteDetails', instituteDetails);
+                //                     data.collection('institute').doc(instituteDetails.id).update({
+                //                         testIds: instituteDetails.testIds,
+                //                         noOfTests:instituteDetails.noOfTests
+                //                     }).then(() => {
+                //                         data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
+                //                             data.collection('subCategories').doc(sub_CategoryId).update({
+                //                                 noOfTests: b1.data().noOfTests + 1
+                //                             }).then(() => {
+                //                                 data.collection('category').doc('categories').get().then((b2) => {
+                //                                     var ttemp = b2.data().catDetails;
+                //                                     var arrayFound = [];
+                //                                     var indexFound = 0;
+                //                                     var index = 0;
 
-                            data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
-                                category: form.maincat.value,
-                                courseName: form.t_name.value,
-                                coverImg: urls[0].substring(52),
-                                faculties: facArray,
-                                id: '',
-                                subcategoryId: '',
-                                instituteName: nameAproA[0],
-                                instituteId: instituteDetails.id,
-                                introVideo: urls[2].substring(52),
-                                lang: form.language.value,
-                                lastUpdated: String(new Date().getTime()),
-                                noOfStudents: 0,
-                                concept: form.concept.value,
-                                description: form.crsDesc.value,
-                                progess: 20,
-                                region: form.crsNationality.value,
-                                assessments: form.selb1.value,
-                                requirements: [],
-                                whatYouWillLearn: [],
-                                publish: {
-                                    originalPrice: 0,
-                                    offers: [],
-                                    tax: {
-                                        CGST: 0,
-                                        IGST: 0,
-                                        SGST: 0,
-                                        UGST: 0
-                                    }
-                                },
-                                totalRating: 2.5,
-                                sections: [],
-                                status: "Not Published",
-                                subcategory: form.subcat.value,
-                                thumbnail: urls[1].substring(52),
-                                types: form.crsType.value
-                            }).then((docid) => {
-                                courseIIId = docid.id;
-                                cid = sub_CategoryId + '?***?' + docid.id;
-                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
-                                    id: docid.id,
-                                    subcategoryId: sub_CategoryId
-                                }).then((arg) => {
-                                    instituteDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
-                                    localforage.setItem('instituteDetails', instituteDetails);
-                                    data.collection('institute').doc(instituteDetails.id).update({
-                                        courseIds: instituteDetails.courseIds
-                                    }).then(() => {
-                                        var count = 0;
-                                        facArray.forEach((one) => {
-                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                var array1 = datatata.data().courseIds;
-                                                array1.push(cid);
-                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                    courseIds: array1
-                                                }).then(() => {
-                                                    count++;
-                                                    if (count == facArray.length) {
-                                                        data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
-                                                            data.collection('subCategories').doc(sub_CategoryId).update({
-                                                                noOfCourses: b1.data().noOfCourses + 1
-                                                            }).then(() => {
-                                                                data.collection('category').doc('categories').get().then((b2) => {
-                                                                    var ttemp = b2.data().catDetails;
-                                                                    var arrayFound = [];
-                                                                    var indexFound = 0;
-                                                                    var index = 0;
+                //                                     ttemp.forEach((vall) => {
+                //                                         if (vall.categoryName == form.maincat.value) {
+                //                                             arrayFound = vall;
+                //                                             indexFound = index;
+                //                                         }
+                //                                         index++;
+                //                                     })
 
-                                                                    ttemp.forEach((vall) => {
-                                                                        if (vall.categoryName == form.maincat.value) {
-                                                                            arrayFound = vall;
-                                                                            indexFound = index;
-                                                                        }
-                                                                        index++;
-                                                                    })
+                //                                     arrayFound.noOfTests += 1;
+                //                                     ttemp[indexFound] = arrayFound;
 
-                                                                    arrayFound.noOfCourses += 1;
+                //                                     data.collection('category').doc('categories').update({
+                //                                         catDetails: ttemp
+                //                                     }).then(() => {
+                //                                         data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(testId).collection('reviews').doc('reviews').set({
+                //                                             reviews: []
+                //                                         }).then(() => {
+                //                                             loaderTriggerAndEnder(false);
+                //                                             location.replace('');
+                //                                         })
+                //                                     })
+                //                                 })
+                //                             })
+                //                         })
 
-                                                                    ttemp[indexFound] = arrayFound;
-
-                                                                    data.collection('category').doc('categories').update({
-                                                                        catDetails: ttemp
-                                                                    }).then(() => {
-                                                                        data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(courseIIId).collection('reviews').doc('reviews').set({
-                                                                            reviews: []
-                                                                        }).then(() => {
-                                                                            loaderTriggerAndEnder(false);
-                                                                            location.replace('');
-                                                                        })
-                                                                    })
-                                                                })
-                                                            })
-                                                        })
-                                                    }
-                                                });
-                                            })
-                                        })
-
-                                    })
-                                })
-                            }).catch((e) => {
-                                showToast(e.message);
-                            });
-                        }
-                    });
-                } else {
-                    showToast('Error has happened: please wait, while Refreshing page !!!');
-                    location.replace('');
-                }
-            } else {
-                //course adding with nw subCategory
-
-                if (form.newsolosubcat.value != '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-
-                    data.collection('subCategories').add({
-                        id: '',
-                        noOfCourses: 1,
-                        subcategory: form.newsolosubcat.value.toLowerCase()
-                    }).then((docid) => {
-                        newSubCatId = docid.id;
-                        data.collection('subCategories').doc(newSubCatId).update({
-                            id: newSubCatId
-                        }).then((arg) => {
-                            let fd = new FormData(document.querySelector('#overallForm'));
-                            const user = firebase.auth().currentUser;
-                            fd.append('uid', user.uid);
-
-                            $.ajax({
-                                url: 'matUp.php',
-                                type: 'post',
-                                data: fd,
-                                processData: false,
-                                contentType: false,
-                                error: function () {
-                                    alert("Upload Failed, Try Again !!!");
-                                },
-                                success: function (vall) {
-                                    var urls = String(vall).split('?***?');
-
-                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                        category: form.maincat.value,
-                                        courseName: form.t_name.value,
-                                        coverImg: urls[0].substring(52),
-                                        faculties: facArray,
-                                        id: '',
-                                        subcategoryId: '',
-                                        instituteName: nameAproA[0],
-                                        instituteRef: instituteDetails.id,
-                                        introVideo: urls[2].substring(52),
-                                        lang: form.language.value,
-                                        lastUpdated: String(new Date().getTime()),
-                                        noOfStudents: 0,
-                                        concept: form.concept.value,
-                                        description: form.crsDesc.value,
-                                        progess: 50,
-                                        region: form.crsNationality.value,
-                                        requirements: [],
-                                        whatYouWillLearn: [],
-                                        publish: {
-                                            originalPrice: 0,
-                                            offers: [],
-                                            tax: {
-                                                CGST: 0,
-                                                IGST: 0,
-                                                SGST: 0,
-                                                UGST: 0
-                                            }
-                                        },
-                                        meetings: [],
-                                        sections: [],
-                                        totalRating: 2.5,
-                                        status: "Not Published",
-                                        subcategory: form.subcat.value,
-                                        thumbnail: urls[1].substring(52),
-                                        types: form.crsType.value
-                                    }).then((docid) => {
-                                        cid = newSubCatId + '?***?' + docid.id;
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                            id: docid.id,
-                                            subcategoryId: newSubCatId
-                                        }).then((arg) => {
-                                            instituteDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                            localforage.setItem('instituteDetails', instituteDetails);
-                                            data.collection('institute').doc(instituteDetails.id).update({
-                                                courseIds: instituteDetails.courseIds
-                                            }).then(() => {
-                                                var catDetails1 = [];
-                                                var index = 0;
-                                                var indexFound = 0;
-                                                var arrayFound = [];
-                                                data.collection('category').doc('categories').get().then((arg) => {
-                                                    catDetails1 = arg.data().catDetails;
-                                                    catDetails1.forEach((vall) => {
-                                                        if (vall.categoryName == form.maincat.value) {
-                                                            arrayFound = vall;
-                                                            indexFound = index;
-                                                        }
-                                                        index++;
-                                                    })
-
-                                                    arrayFound.noOfCourses += 1;
-                                                    arrayFound.isVerified = false;
-                                                    arrayFound.subcategoryList.push({
-                                                        subCategoryId: newSubCatId,
-                                                        subCategoryName: form.newsolosubcat.value.toLowerCase()
-                                                    });
-
-                                                    catDetails1[indexFound] = arrayFound;
-
-                                                    data.collection('category').doc('categories').update({
-                                                        catDetails: catDetails1
-                                                    }).then(() => {
-                                                        var count = 0;
-                                                        facArray.forEach((one) => {
-                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                var array1 = datatata.data().courseIds;
-                                                                array1.push(cid);
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                    courseIds: array1
-                                                                }).then(() => {
-                                                                    count++;
-                                                                    if (count == facArray.length) {
-                                                                        loaderTriggerAndEnder(false);
-                                                                        location.replace('');
-                                                                    }
-                                                                });
-                                                            })
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    }).catch((e) => {
-                                        showToast(e.message);
-                                    });
-                                }
-                            });
-                        })
-                    })
-                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value != '' && form.newsubcat.value != '')) {
-                    data.collection('subCategories').add({
-                        id: '',
-                        noOfCourses: 1,
-                        subcategory: form.newsubcat.value.toLowerCase()
-                    }).then((docid) => {
-                        newSubCatId = docid.id;
-                        data.collection('subCategories').doc(newSubCatId).update({
-                            id: newSubCatId
-                        }).then((arg) => {
-                            let fd = new FormData(document.querySelector('#overallForm'));
-                            const user = firebase.auth().currentUser;
-                            fd.append('uid', user.uid);
-
-                            $.ajax({
-                                url: 'matUp.php',
-                                type: 'post',
-                                data: fd,
-                                processData: false,
-                                contentType: false,
-                                error: function () {
-                                    alert("Upload Failed, Try Again !!!");
-                                },
-                                success: function (vall) {
-                                    var urls = String(vall).split('?***?');
-
-                                    data.collection('subCategories').doc(newSubCatId).collection('courses').add({
-                                        category: form.maincat.value,
-                                        courseName: form.t_name.value,
-                                        coverImg: urls[0].substring(52),
-                                        faculties: facArray,
-                                        id: '',
-                                        subcategoryId: '',
-                                        instituteName: nameAproA[0],
-                                        instituteRef: instituteDetails.id,
-                                        introVideo: urls[2].substring(52),
-                                        lang: form.language.value,
-                                        lastUpdated: String(new Date().getTime()),
-                                        noOfStudents: 0,
-                                        concept: form.concept.value,
-                                        description: form.crsDesc.value,
-                                        progess: 50,
-                                        region: form.crsNationality.value,
-                                        requirements: [],
-                                        whatYouWillLearn: [],
-                                        publish: {
-                                            originalPrice: 0,
-                                            offers: [],
-                                            tax: {
-                                                CGST: 0,
-                                                IGST: 0,
-                                                SGST: 0,
-                                                UGST: 0
-                                            }
-                                        },
-                                        totalRating: 2.5,
-                                        meetings: [],
-                                        sections: [],
-                                        status: "Not Published",
-                                        subcategory: form.subcat.value,
-                                        thumbnail: urls[1].substring(52),
-                                        types: form.crsType.value
-                                    }).then((docid) => {
-                                        cid = newSubCatId + '?***?' + docid.id;
-                                        data.collection('subCategories').doc(newSubCatId).collection('courses').doc(docid.id).update({
-                                            id: docid.id,
-                                            subcategoryId: newSubCatId
-                                        }).then((arg) => {
-                                            instituteDetails.courseIds.push(newSubCatId + '?***?' + docid.id);
-                                            localforage.setItem('instituteDetails', instituteDetails);
-                                            data.collection('institute').doc(instituteDetails.id).update({
-                                                courseIds: instituteDetails.courseIds
-                                            }).then(() => {
-
-                                                var catDetails1 = [];
-
-                                                data.collection('category').doc('categories').get().then((arg) => {
-                                                    catDetails1 = arg.data().catDetails;
-                                                    var newArray = {
-                                                        categoryName: form.newmaincat.value.toLowerCase(),
-                                                        isVerified: false,
-                                                        noOfCourses: 1,
-                                                        subcategoryList: [{
-                                                            subCategoryName: form.newsubcat.value.toLowerCase(),
-                                                            subCategoryId: newSubCatId
-                                                        }],
-                                                        subcollection: form.newmaincat.value.toLowerCase(),
-                                                        type: form.crsNationality.value
-                                                    };
-
-                                                    catDetails1.push(newArray);
-
-                                                    data.collection('category').doc('categories').update({
-                                                        catDetails: catDetails1
-                                                    }).then(() => {
-                                                        var count = 0;
-                                                        facArray.forEach((one) => {
-                                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                                var array1 = datatata.data().courseIds;
-                                                                array1.push(cid);
-                                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                                    courseIds: array1
-                                                                }).then(() => {
-                                                                    count++;
-                                                                    if (count == facArray.length) {
-                                                                        loaderTriggerAndEnder(false);
-                                                                        location.replace('');
-                                                                    }
-                                                                });
-                                                            })
-                                                        })
-                                                    })
-
-                                                })
-                                            })
-                                        })
-                                    }).catch((e) => {
-                                        showToast(e.message);
-                                    });
-                                }
-                            });
-                        })
-                    })
-                } else if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
-                    //normal course adding
-                    let fd = new FormData(document.querySelector('#overallForm'));
-                    const user = firebase.auth().currentUser;
-                    fd.append('uid', user.uid);
-                    var sub_CategoryId = '';
-
-                    $.ajax({
-                        url: 'matUp.php',
-                        type: 'post',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        error: function () {
-                            alert("Upload Failed, Try Again !!!");
-                        },
-                        success: function (vall) {
-                            var urls = String(vall).split('?***?');
-                            sub_CategoryId = '';
-
-                            subCategories.forEach((arg) => {
-                                arg.forEach((argg) => {
-                                    if (form.subcat.value == argg.subCategoryName) {
-                                        sub_CategoryId = argg.subCategoryId;
-                                    }
-                                })
-                            });
-
-                            data.collection('subCategories').doc(sub_CategoryId).collection('courses').add({
-                                category: form.maincat.value,
-                                courseName: form.t_name.value,
-                                coverImg: urls[0].substring(52),
-                                faculties: facArray,
-                                id: '',
-                                subcategoryId: '',
-                                instituteName: nameAproA[0],
-                                instituteId: instituteDetails.id,
-                                introVideo: urls[2].substring(52),
-                                lang: form.language.value,
-                                lastUpdated: String(new Date().getTime()),
-                                noOfStudents: 0,
-                                concept: form.concept.value,
-                                description: form.crsDesc.value,
-                                progess: 50,
-                                region: form.crsNationality.value,
-                                assessments: form.selb1.value,
-                                requirements: [],
-                                whatYouWillLearn: [],
-                                publish: {
-                                    originalPrice: 0,
-                                    offers: [],
-                                    tax: {
-                                        CGST: 0,
-                                        IGST: 0,
-                                        SGST: 0,
-                                        UGST: 0
-                                    }
-                                },
-                                totalRating: 2.5,
-                                meetings: [],
-                                sections: [],
-                                status: "Not Published",
-                                subcategory: form.subcat.value,
-                                thumbnail: urls[1].substring(52),
-                                types: form.crsType.value
-                            }).then((docid) => {
-                                courseIIId = docid.id;
-                                cid = sub_CategoryId + '?***?' + docid.id;
-                                data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(docid.id).update({
-                                    id: docid.id,
-                                    subcategoryId: sub_CategoryId
-                                }).then((arg) => {
-                                    instituteDetails.courseIds.push(sub_CategoryId + '?***?' + docid.id);
-                                    localforage.setItem('instituteDetails', instituteDetails);
-                                    data.collection('institute').doc(instituteDetails.id).update({
-                                        courseIds: instituteDetails.courseIds
-                                    }).then(() => {
-                                        var count = 0;
-                                        facArray.forEach((one) => {
-                                            data.collection('faculty').doc(one.split('?***?')[0]).get().then((datatata) => {
-                                                var array1 = datatata.data().courseIds;
-                                                array1.push(cid);
-                                                data.collection('faculty').doc(one.split('?***?')[0]).update({
-                                                    courseIds: array1
-                                                }).then(() => {
-                                                    count++;
-                                                    if (count == facArray.length) {
-                                                        data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
-                                                            data.collection('subCategories').doc(sub_CategoryId).update({
-                                                                noOfCourses: b1.data().noOfCourses + 1
-                                                            }).then(() => {
-                                                                data.collection('category').doc('categories').get().then((b2) => {
-                                                                    var ttemp = b2.data().catDetails;
-                                                                    var arrayFound = [];
-                                                                    var indexFound = 0;
-                                                                    var index = 0;
-
-                                                                    ttemp.forEach((vall) => {
-                                                                        if (vall.categoryName == form.maincat.value) {
-                                                                            arrayFound = vall;
-                                                                            indexFound = index;
-                                                                        }
-                                                                        index++;
-                                                                    })
-
-                                                                    arrayFound.noOfCourses += 1;
-
-                                                                    ttemp[indexFound] = arrayFound;
-
-                                                                    data.collection('category').doc('categories').update({
-                                                                        catDetails: ttemp
-                                                                    }).then(() => {
-                                                                        data.collection('subCategories').doc(sub_CategoryId).collection('courses').doc(courseIIId).collection('reviews').doc('reviews').set({
-                                                                            reviews: []
-                                                                        }).then(() => {
-                                                                            loaderTriggerAndEnder(false);
-                                                                            location.replace('');
-                                                                        })
-                                                                    })
-                                                                })
-                                                            })
-                                                        })
-                                                    }
-                                                });
-                                            })
-                                        })
-
-                                    })
-                                })
-                            }).catch((e) => {
-                                showToast(e.message);
-                            });
-                        }
-                    });
-                } else {
-                    showToast('Error has happened: please wait, while Refreshing page !!!');
-                    location.replace('');
-                }
+                //                     })
+                //                 })
+                //             }).catch((e) => {
+                //                 showToast(e.message);
+                //             });
+                //         }
+                //     });
+                // } else {
+                //     showToast('Error has happened: please wait, while Refreshing page !!!');
+                //     location.replace('');
             }
         });
-
+    }
+});
+       
         function typeSorter(j) {
             var allCardClass = document.querySelectorAll('.nallaClass');
             if (j.value == 'All') {
