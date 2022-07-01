@@ -1201,8 +1201,10 @@
             var courseids = "";
             var courseCards = '';
             localforage.getItem('instituteDetails').then((g) => {
+                console.log("instituteDetails", g)
                 testids = g.testIds;
-                if(testids !=undefined && testids >0){
+                console.log("testids",testids.length)
+                if(testids !=undefined && testids.length >0){
                 testids.forEach((arg) => {
                     var tidsSplit = arg.split('?***?');
 
