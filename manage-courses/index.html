@@ -1541,7 +1541,7 @@
                 subCategories.forEach((cats)=>{
                  data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
                      courses.forEach((course)=>{
-                         if (course.data().status=="Verified") {                            
+                         if (course.data()?.status=="Verified") {                            
                             $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
                                     <th scope="row">`+i+`</th>
                                     <td>`+course.data().courseName+`</td>
@@ -1831,6 +1831,7 @@
             })
         }
         function blockCourse() {
+            console.log("C0urse Blocked");
             var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
             data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
                 rejectMessage: msg,

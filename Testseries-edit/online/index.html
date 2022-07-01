@@ -2925,68 +2925,68 @@
 
                 var ids = sessionStorage.getItem('course-edit-crs-id-online').split('?***?');
 
-                data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).get().then((dataaa) => {
+                data.collection('subCategories').doc(ids[0]).collection('testseries').doc(ids[1]).get().then((dataaa) => {
                     var allData = dataaa.data();
-                    var selFacIds = [];
-                    allData.faculties.forEach((faculty) => {
-                        selFacIds.push(faculty.split('?***?')[0]);
-                    })
-                    var languages = ['Tamil', 'English', 'Hindi'];
+                    // var selFacIds = [];
+                    // allData.faculties.forEach((faculty) => {
+                        // selFacIds.push(faculty.split('?***?')[0]);
+                    // })
+                    // var languages = ['Tamil', 'English', 'Hindi'];
                     var facNames = '';
 
-                    instituteDetails.facultyIds.forEach((dat) => {
-                        data.collection('faculty').doc(dat).get().then((snapshot) => {
-                            if (snapshot.data().status == 'Verified') {
-                                if (selFacIds.includes(dat)) {
-                                    existingFacIds.push(dat);
-                                    facOption = "<label><input type='checkbox' name='faculties' value='" + dat + '?***?' + snapshot.data().name + "' onclick='checkOptions(this)' checked>" + snapshot.data().name + "</input> </label>";
-                                    $('#checkboxesFac').append(facOption);
-                                    facNames += snapshot.data().name + ',';
-                                    $('#exFacuShower').val(facNames.substring(0, facNames.length - 1));
-                                    $('#defaultCategorylang').html(facNames.substring(0, facNames.length - 1));
-                                } else {
-                                    facOption = "<label><input type='checkbox' name='faculties' value='" + dat + '?***?' + snapshot.data().name + "' onclick='checkOptions(this)'>" + snapshot.data().name + "</input> </label>";
-                                    $('#checkboxesFac').append(facOption);
-                                }
-                            }
-                        })
-                    })
+                    // instituteDetails.facultyIds.forEach((dat) => {
+                    //     data.collection('faculty').doc(dat).get().then((snapshot) => {
+                    //         if (snapshot.data().status == 'Verified') {
+                    //             if (selFacIds.includes(dat)) {
+                    //                 existingFacIds.push(dat);
+                    //                 facOption = "<label><input type='checkbox' name='faculties' value='" + dat + '?***?' + snapshot.data().name + "' onclick='checkOptions(this)' checked>" + snapshot.data().name + "</input> </label>";
+                    //                 $('#checkboxesFac').append(facOption);
+                    //                 facNames += snapshot.data().name + ',';
+                    //                 $('#exFacuShower').val(facNames.substring(0, facNames.length - 1));
+                    //                 $('#defaultCategorylang').html(facNames.substring(0, facNames.length - 1));
+                    //             } else {
+                    //                 facOption = "<label><input type='checkbox' name='faculties' value='" + dat + '?***?' + snapshot.data().name + "' onclick='checkOptions(this)'>" + snapshot.data().name + "</input> </label>";
+                    //                 $('#checkboxesFac').append(facOption);
+                    //             }
+                    //         }
+                    //     })
+                    // })
 
-                    $('#firstTitle').html(allData.courseName);
-                    $('#tititi').val(allData.courseName);
+                    $('#firstTitle').html(allData.testName);
+                    $('#tititi').val(allData.testName);
                     $('#avatars').attr('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + allData.coverImg + '?dummy=' + String(Math.floor(Math.random() * 100000)));
                     existingCI = allData.coverImg;
                     $('#thumbImg').attr('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + allData.thumbnail + '?dummy=' + String(Math.floor(Math.random() * 100000)));
                     existingTN = allData.thumbnail;
-                    $('#concee').val(allData.concept);
+                    // $('#concee').val(allData.concept);
 
-                    var langOption = '';
+                    // var langOption = '';
                     existingStatus = allData.status;
                     existingProgress = allData.progess;
 
-                    languages.forEach((langs) => {
-                        if (langs == allData.lang) {
-                            langOption += '<option value="' + langs + '" selected>' + langs + '</option>';
-                        } else {
-                            langOption += '<option value="' + langs + '">' + langs + '</option>';
-                        }
-                    })
+                    // languages.forEach((langs) => {
+                        // if (langs == allData.lang) {
+                            // langOption += '<option value="' + langs + '" selected>' + langs + '</option>';
+                        // } else {
+                            // langOption += '<option value="' + langs + '">' + langs + '</option>';
+                        // }
+                    // })
 
-                    $('#newLang').html(langOption);
+                    // $('#newLang').html(langOption);
 
                     $('#dis').html(allData.description);
 
-                    $('#vidPre').attr('thisVidLi', allData.introVideo);
-                    existingIV = allData.introVideo;
-                    if (allData.region == 'National') {
-                        $('#cn').html('<option value="National" selected>National</option>');
+                    // $('#vidPre').attr('thisVidLi', allData.introVideo);
+                    // existingIV = allData.introVideo;
+                    // if (allData.region == 'National') {
+                        // $('#cn').html('<option value="National" selected>National</option>');
                         $('#cc').html('<option value="" selected>' + allData.category.toUpperCase() + '</option>');
                         $('#cs').html('<option value="" selected>' + allData.subcategory.toUpperCase() + '</option>');
-                    } else {
-                        $('#cn').html('<option value="International" selected>International</option>');
-                        $('#cc').html('<option value="" selected>' + allData.category.toUpperCase() + '</option>');
-                        $('#cs').html('<option value="" selected>' + allData.subcategory.toUpperCase() + '</option>');
-                    }
+                    // } else {
+                        // $('#cn').html('<option value="International" selected>International</option>');
+                        // $('#cc').html('<option value="" selected>' + allData.category.toUpperCase() + '</option>');
+                        // $('#cs').html('<option value="" selected>' + allData.subcategory.toUpperCase() + '</option>');
+                    // }
 
                     var elms = document.getElementsByClassName('whatStudWilLearn')
                     for (var i = 0; i < allData.whatYouWillLearn.length; i++) {
@@ -3002,7 +3002,8 @@
                         }
                     }
 
-                    getSections(allData.sections);
+                    // getSections(allData.sections);
+                    // getSections(allData.questions);
                 })
             })
 
@@ -3015,73 +3016,74 @@
         var topicsArrayId = [];
         var topicsCountArray = [];
 
-        function getSections(array) {
-            var ids = sessionStorage.getItem('course-edit-crs-id-online').split('?***?');
+        // function getSections(array) {
+        //     var ids = sessionStorage.getItem('course-edit-crs-id-online').split('?***?');
 
-            array.forEach((secId) => {
-                data.collection('sections').doc(secId).get().then((gfgf) => {
-                    data.collection('sections').doc(secId).collection('topics').orderBy('topicName', 'desc').get().then((snapshot) => {
-                        var fff = 0;
-                        topicsArrayId[secId] = [];
+        //     array.forEach((secId) => {
+        //         data.collection('sections').doc(secId).get().then((gfgf) => {
+        //             data.collection('sections').doc(secId).collection('topics').orderBy('topicName', 'desc').get().then((snapshot) => {
+        //                 var fff = 0;
+        //                 topicsArrayId[secId] = [];
 
-                        snapshot.docs.forEach((doc) => {
-                            if (fff == 0) {
-                                var appendString = `<div class="panel"><button type="button" class="fas panel-title collapsible" aria-hidden="true" onclick="showHidePanelBody(this)" >` + gfgf.data().sectionName.split(': ')[1] + `</button>
-                                    <div class="panel-body" style="display: none;">
-                                    <div class="addsecbtninside" id="`+ secId + `">
-                                    <button class="btn btn-sm btn-grey" data-sec-id="`+ secId + `" data-sec-name="` + gfgf.data().sectionName + `" style="background-color:none;color:#5e72e4; border-radius: 5px; margin-left: .3rem; margin-top:1.5rem; margin-bottom:-.5rem;" onclick="addnwbtn(this)">
-                                    <i class="fas fa-plus">
-                                    </i> Add Topic</button></div>
-                                   </div></div>`;
-                                $('#sectionsAppend').append(appendString);
+        //                 snapshot.docs.forEach((doc) => {
+        //                     if (fff == 0) {
+        //                         var appendString = `<div class="panel"><button type="button" class="fas panel-title collapsible" aria-hidden="true" onclick="showHidePanelBody(this)" >` + gfgf.data().sectionName.split(': ')[1] + `</button>
+        //                             <div class="panel-body" style="display: none;">
+        //                             <div class="addsecbtninside" id="`+ secId + `">
+        //                             <button class="btn btn-sm btn-grey" data-sec-id="`+ secId + `" data-sec-name="` + gfgf.data().sectionName + `" style="background-color:none;color:#5e72e4; border-radius: 5px; margin-left: .3rem; margin-top:1.5rem; margin-bottom:-.5rem;" onclick="addnwbtn(this)">
+        //                             <i class="fas fa-plus">
+        //                             </i> Add Topic</button></div>
+        //                            </div></div>`;
+        //                         $('#sectionsAppend').append(appendString);
 
-                                topicsCountArray[gfgf.data().sectionName] = [];
+        //                         topicsCountArray[gfgf.data().sectionName] = [];
 
-                                $('#sectionsIdsss').append('<option value="' + secId + '">' + gfgf.data().sectionName.split(': ')[1] + '</option>');
-                                fff = 1;
-                                secCount += 1;
-                            }
-                            if (fff == 1) {
-                                var appendString = `
-                                    <div class="vedio-details">
-                                    <i class="fas fa-book"> </i>
-                                    <span class="vedio-title">`+ doc.data().topicName + `</span>
-                                    <span class="flt_rt"><i class="fas fa-play" onclick="videopop(this)" thisVidLi="`+ doc.data().video + `" style="cursor: pointer;"></i>
-                                    <span class="vedio-length" ><i class="fas fa-pen" data-id="`+ secId + '?***?' + doc.data().id + '?***?' + doc.data().topicName + '?***?' + doc.data().topicDesc + '?***?' + doc.data().video + '?***?' + gfgf.data().sectionName + `" style="cursor: pointer;" onclick="updateIt(this)"></i></span>
-                                    <span class="vedio-length"><i class="fas fa-trash" data-id="`+ secId + '?***?' + doc.data().id + '?***?' + doc.data().topicName + `" style="cursor: pointer;" onclick="deleteTopic(this)"></i></span></span>
-                                    </div>
-                                    `;
+        //                         $('#sectionsIdsss').append('<option value="' + secId + '">' + gfgf.data().sectionName.split(': ')[1] + '</option>');
+        //                         fff = 1;
+        //                         secCount += 1;
+        //                     }
+        //                     if (fff == 1) {
+        //                         var appendString = `
+        //                             <div class="vedio-details">
+        //                             <i class="fas fa-book"> </i>
+        //                             <span class="vedio-title">`+ doc.data().topicName + `</span>
+        //                             <span class="flt_rt"><i class="fas fa-play" onclick="videopop(this)" thisVidLi="`+ doc.data().video + `" style="cursor: pointer;"></i>
+        //                             <span class="vedio-length" ><i class="fas fa-pen" data-id="`+ secId + '?***?' + doc.data().id + '?***?' + doc.data().topicName + '?***?' + doc.data().topicDesc + '?***?' + doc.data().video + '?***?' + gfgf.data().sectionName + `" style="cursor: pointer;" onclick="updateIt(this)"></i></span>
+        //                             <span class="vedio-length"><i class="fas fa-trash" data-id="`+ secId + '?***?' + doc.data().id + '?***?' + doc.data().topicName + `" style="cursor: pointer;" onclick="deleteTopic(this)"></i></span></span>
+        //                             </div>
+        //                             `;
 
-                                $('#' + secId).after(appendString);
-                                topicsArrayId[secId].push('<option value="' + doc.data().id + '">' + doc.data().topicName + '</option>');
-                                topicsCountArray[gfgf.data().sectionName].push(0);
-                                overallDuration = overallDuration + doc.data().videoLength;
+        //                         $('#' + secId).after(appendString);
+        //                         topicsArrayId[secId].push('<option value="' + doc.data().id + '">' + doc.data().topicName + '</option>');
+        //                         topicsCountArray[gfgf.data().sectionName].push(0);
+        //                         overallDuration = overallDuration + doc.data().videoLength;
 
-                                videoCount += 1;
-                            }
-                        })
-                    })
-                })
+        //                         videoCount += 1;
+        //                     }
+        //                 })
+        //             })
+        //         })
 
-            })
+        //     })
 
-            setTimeout(() => {
-                $('#seccount').html(secCount + ' Sections');
-                $('#vidcount').html(videoCount + ' Videos');
-                $('#overallDuration').html(convertHMS(overallDuration));
-                loaderTriggerAndEnder(false);
-            }, 4000);
-        }
+        //     setTimeout(() => {
+        //         $('#seccount').html(secCount + ' Sections');
+        //         $('#vidcount').html(videoCount + ' Videos');
+        //         $('#overallDuration').html(convertHMS(overallDuration));
+        //         loaderTriggerAndEnder(false);
+        //     }, 4000);
+        // }
 
-        function convertHMS(value) {
-            const sec = value;
-            let hours = Math.floor(sec / 3600);
-            let minutes = Math.floor((sec - (hours * 3600)) / 60);
+        
+        // function convertHMS(value) {
+        //     const sec = value;
+        //     let hours = Math.floor(sec / 3600);
+        //     let minutes = Math.floor((sec - (hours * 3600)) / 60);
 
-            if (minutes < 10) { minutes = "0" + minutes; }
+        //     if (minutes < 10) { minutes = "0" + minutes; }
 
-            return hours + ' Hours and ' + minutes + ' Minutes';
-        }
+        //     return hours + ' Hours and ' + minutes + ' Minutes';
+        // }
 
         function logout() {
             auth.signOut().then(() => {
@@ -3491,7 +3493,7 @@
 
                     if (facArray[0] != '') {
                         data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                            courseName: newTitle,
+                            testName: newTitle,
                             concept: newConcept,
                             description: newDescription,
                             lang: newLanguage,
@@ -3505,7 +3507,7 @@
                         })
                     } else {
                         data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                            courseName: newTitle,
+                            testName: newTitle,
                             concept: newConcept,
                             description: newDescription,
                             lang: newLanguage,

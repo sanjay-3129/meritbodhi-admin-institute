@@ -1196,24 +1196,28 @@
             });
 
 
+            //  cLeE3jVSZguUx1LMPYkF?***?9veUfiGYRcgwby5umyc3
+
             var courseids = "";
             var courseCards = '';
             localforage.getItem('instituteDetails').then((g) => {
-                courseids = g.courseIds;
-                courseids.forEach((arg) => {
-                    var cidsSplit = arg.split('?***?');
+                testids = g.testIds;
+                testids.forEach((arg) => {
+                    var tidsSplit = arg.split('?***?');
 
-                    data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
+                    data.collection('subCategories').doc(tidsSplit[0]).collection('testseries').doc(tidsSplit[1]).get().then((data) => {
                         var ddd = data.data();
+
+                        console.log("ddd", ddd)
                         document.getElementById('loaderr-3').style.display = "none";
                         if (ddd.status == 'Not Published' || ddd.status == 'Not Verified') {
                             courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px; margin-left: 20px" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
+                                ddd.id + '" onclick="redirecterTestEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.testName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
 
                             $('#coursecardall').append(courseCards);
                         } else if (ddd.status == 'Verified') {
                             courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px;" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
+                                ddd.id + '" onclick="redirecterTestEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
 
 
                             $('#coursecardall').append(courseCards);
@@ -1240,6 +1244,10 @@
             else{
                 console.log("Refresh Page")
             }
+        
+            console.log("instituteDetails", instituteDetails)
+
+
         }
 
         function showToast(msg) {
@@ -1281,24 +1289,6 @@
             loaderTriggerAndEnder(false);
         }
 
-        // form.crsNationality.addEventListener('change', () => {
-        //     var type = "National";
-        //     var mcats = '<option value="default" selected>---select---</option>';
-        //     form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
-
-        //     if (type == 'National') {
-        //         for (var i = 0; i < nationalMainC.length; i++) {
-        //             mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
-        //         }
-        //         form.maincat.innerHTML = mcats;
-        //     }
-        //     //  else {
-        //     //     for (var i = 0; i < interNationalMainC.length; i++) {
-        //     //         mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
-        //     //     }
-        //     //     form.maincat.innerHTML = mcats;
-        //     // }
-        // })
 
         form.maincat.addEventListener('change', (a) => {
             var mainCategory = form.maincat.value;
@@ -1312,10 +1302,6 @@
             form.subcat.innerHTML = scats;
         })
 
-        // $('#createTest').on("click",()=>{
-            
-        //     console.log("Course Created\n",instituteDetails);
-        // })
         $('#createTest').on('click', function () {
             loaderTriggerAndEnder(true);
             var newSubCatId = '',
@@ -1330,121 +1316,121 @@
                     fd.append('uid', user.uid);
                     var sub_CategoryId = '';
 
-                    $.ajax({
-                        url: 'matUp.php',
-                        type: 'post',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        error: function () {
-                            alert("Upload Failed, Try Again !!!");
-                        },
-                        success: function (vall) {
+                    // $.ajax({
+                    //     url: 'matUp.php',
+                    //     type: 'post',
+                    //     data: fd,
+                    //     processData: false,
+                    //     contentType: false,
+                    //     error: function () {
+                    //         alert("Upload Failed, Try Again !!!");
+                    //     },
+                        // success: function (vall) {
    
-                            console.log("Value>>>",vall)
-                            var urls = String(vall).split('?***?');
+                            // console.log("Value>>>",vall)
+                            // var urls = String(vall).split('?***?');
                             sub_CategoryId = '';
 
-                            // subCategories.forEach((arg) => {
-                            //     arg.forEach((argg) => {
-                            //         if (form.subcat.value == argg.subCategoryName) {
-                            //             sub_CategoryId = argg.subCategoryId;
-                            //         }
-                            //     })
-                            // });
-                            // data.collection('subCategories').doc(sub_CategoryId).collection('testseries').add({
-                            //     category: form.maincat.value,
-                            //     testName: form.t_name.value,
-                            //     coverImg: urls[0].substring(52),
-                            //     id: '',
-                            //     subcategoryId: '',
-                            //     instituteName: nameAproA[0],
-                            //     instituteId: instituteDetails.id,
-                            //     lastUpdated: String(new Date().getTime()),
-                            //     noOfStudents: 0,
-                            //     description: form.crsDesc.value,
-                            //     progess: 20,
-                            //     requirements: [],
-                            //     whatYouWillLearn: [],
-                            //     publish: {
-                            //         originalPrice: 0,
-                            //         offers: [],
-                            //         tax: {
-                            //             CGST: 0,
-                            //             IGST: 0,
-                            //             SGST: 0,
-                            //             UGST: 0
-                            //         }
-                            //     },
-                            //     totalRating: 2.5,
-                            //     questions: [],
-                            //     status: "Not Published",
-                            //     subcategory: form.subcat.value,
-                            //     thumbnail: urls[1].substring(52),
-                            //     // types: form.crsType.value
-                //             }).then((docid) => {
-                //                 testId = docid.id;
-                //                 cid = sub_CategoryId + '?***?' + docid.id;
-                //                 data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(docid.id).update({
-                //                     id: docid.id,
-                //                     subcategoryId: sub_CategoryId
-                //                 }).then((arg) => {
-                //                     instituteDetails.testIds.push(sub_CategoryId + '?***?' + docid.id);
-                //                     instituteDetails.noOfTests++;
-                //                     localforage.setItem('instituteDetails', instituteDetails);
-                //                     data.collection('institute').doc(instituteDetails.id).update({
-                //                         testIds: instituteDetails.testIds,
-                //                         noOfTests:instituteDetails.noOfTests
-                //                     }).then(() => {
-                //                         data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
-                //                             data.collection('subCategories').doc(sub_CategoryId).update({
-                //                                 noOfTests: b1.data().noOfTests + 1
-                //                             }).then(() => {
-                //                                 data.collection('category').doc('categories').get().then((b2) => {
-                //                                     var ttemp = b2.data().catDetails;
-                //                                     var arrayFound = [];
-                //                                     var indexFound = 0;
-                //                                     var index = 0;
+                            subCategories.forEach((arg) => {
+                                arg.forEach((argg) => {
+                                    if (form.subcat.value == argg.subCategoryName) {
+                                        sub_CategoryId = argg.subCategoryId;
+                                    }
+                                })
+                            });
+                            data.collection('subCategories').doc(sub_CategoryId).collection('testseries').add({
+                                category: form.maincat.value,
+                                testName: form.t_name.value,
+                                coverImg: "",
+                                id: '',
+                                subcategoryId: '',
+                                instituteName: nameAproA[0],
+                                instituteId: instituteDetails.id,
+                                lastUpdated: String(new Date().getTime()),
+                                noOfStudents: 0,
+                                description: form.crsDesc.value,
+                                progess: 20,
+                                requirements: [],
+                                whatYouWillLearn: [],
+                                publish: {
+                                    originalPrice: 0,
+                                    offers: [],
+                                    tax: {
+                                        CGST: 0,
+                                        IGST: 0,
+                                        SGST: 0,
+                                        UGST: 0
+                                    }
+                                },
+                                totalRating: 2.5,
+                                questions: [],
+                                status: "Not Published",
+                                subcategory: form.subcat.value,
+                                thumbnail: "",
+                                // types: form.crsType.value
+                            }).then((docid) => {
+                                testId = docid.id;
+                                cid = sub_CategoryId + '?***?' + docid.id;
+                                data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(docid.id).update({
+                                    id: docid.id,
+                                    subcategoryId: sub_CategoryId
+                                }).then((arg) => {
+                                    instituteDetails.testIds.push(sub_CategoryId + '?***?' + docid.id);
+                                    instituteDetails.noOfTests++;
+                                    localforage.setItem('instituteDetails', instituteDetails);
+                                    data.collection('institute').doc(instituteDetails.id).update({
+                                        testIds: instituteDetails.testIds,
+                                        noOfTests:instituteDetails.noOfTests
+                                    }).then(() => {
+                                        data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
+                                            data.collection('subCategories').doc(sub_CategoryId).update({
+                                                noOfTests: b1.data().noOfTests + 1
+                                            }).then(() => {
+                                                data.collection('category').doc('categories').get().then((b2) => {
+                                                    var ttemp = b2.data().catDetails;
+                                                    var arrayFound = [];
+                                                    var indexFound = 0;
+                                                    var index = 0;
 
-                //                                     ttemp.forEach((vall) => {
-                //                                         if (vall.categoryName == form.maincat.value) {
-                //                                             arrayFound = vall;
-                //                                             indexFound = index;
-                //                                         }
-                //                                         index++;
-                //                                     })
+                                                    ttemp.forEach((vall) => {
+                                                        if (vall.categoryName == form.maincat.value) {
+                                                            arrayFound = vall;
+                                                            indexFound = index;
+                                                        }
+                                                        index++;
+                                                    })
 
-                //                                     arrayFound.noOfTests += 1;
-                //                                     ttemp[indexFound] = arrayFound;
+                                                    arrayFound.noOfTests += 1;
+                                                    ttemp[indexFound] = arrayFound;
 
-                //                                     data.collection('category').doc('categories').update({
-                //                                         catDetails: ttemp
-                //                                     }).then(() => {
-                //                                         data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(testId).collection('reviews').doc('reviews').set({
-                //                                             reviews: []
-                //                                         }).then(() => {
-                //                                             loaderTriggerAndEnder(false);
-                //                                             location.replace('');
-                //                                         })
-                //                                     })
-                //                                 })
-                //                             })
-                //                         })
+                                                    data.collection('category').doc('categories').update({
+                                                        catDetails: ttemp
+                                                    }).then(() => {
+                                                        data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(testId).collection('reviews').doc('reviews').set({
+                                                            reviews: []
+                                                        }).then(() => {
+                                                            loaderTriggerAndEnder(false);
+                                                            location.replace('');
+                                                        })
+                                                    })
+                                                })
+                                            })
+                                        })
 
-                //                     })
-                //                 })
-                //             }).catch((e) => {
-                //                 showToast(e.message);
-                //             });
-                //         }
-                //     });
+                                    })
+                                })
+                            }).catch((e) => {
+                                showToast(e.message);
+                            });
+                        }
+                    });
                 // } else {
                 //     showToast('Error has happened: please wait, while Refreshing page !!!');
                 //     location.replace('');
-            }
-        });
-    }
-});
+            // }
+        // });
+    // }
+// });
        
         function typeSorter(j) {
             var allCardClass = document.querySelectorAll('.nallaClass');
@@ -1484,15 +1470,9 @@
             }
         }
 
-        function redirecterToCourseEdit(l) {
-            if (l.getAttribute('card-type') == 'Online') {
+        function redirecterTestEdit(l) {
                 sessionStorage.setItem('course-edit-crs-id-online', l.getAttribute('card-id'));
                 location.replace('../Testseries-edit/online/');
-            }
-            if (l.getAttribute('card-type') == 'Live') {
-                sessionStorage.setItem('course-edit-crs-id-live', l.getAttribute('card-id'));
-                location.replace('../course-edit/live/');
-            }
         }
     </script>
     <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>

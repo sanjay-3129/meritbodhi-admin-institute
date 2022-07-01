@@ -2,7 +2,8 @@
 // require '/var/www/html/admin/php/Connection.php';
 // // require '../php/Connection.php';
 // use Aws\S3\ObjectUploader;
-
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
 $bucketName = 'secure--storage';
 
