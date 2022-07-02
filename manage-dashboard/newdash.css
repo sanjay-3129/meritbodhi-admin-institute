@@ -54,7 +54,7 @@
 	background-color:white;
 	overflow-x: hidden;
 	transition: 0.5s;
-	padding-top: 60px;
+	padding-top: 80px;
 	margin-top: 40px;
 	font-size: 20px;
 	
@@ -80,7 +80,8 @@
 	top: -20px;
     right: 8px;
 	font-size: 36px;
-	margin-left: 50px;
+	margin-top: 40px;
+	margin-left: 0px;
   }
 
 .fa-chart-pie,.fa-university,.fa-chalkboard-teacher,.fa-book,.fa-sort-amount-down,.fa-credit-card,.fa-flag,.fa-question-circle,.fa-plus-square,.fa-power-off {
