@@ -1029,7 +1029,7 @@
                         <!-- <button class="btn btn-sm btn-primary" style="background-color:red" id="blockBtnOfCourse"
                             onclick="blockCourse()">Block</button> -->
                         <!-- <button class="btn btn-sm btn-primary"  style="background-color:red" id="blockBtnOfCourse">Block</button> -->
-                        <button type="button" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal" style="background-color:red" data-target="#myModal">Block</button>
+                        <button type="button" onclick="blockCourse()" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal" style="background-color:red" data-target="#myModal">Block</button>
                     </div>
                     <div class="container">
                
@@ -1875,6 +1875,7 @@
         function blockCourse() {
             console.log("C0urse Blocked");
             var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
+            var msg = document.getElementById("rejectTAmsg").value
             data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
                 rejectMessage: msg,
                 status: 'Blocked'
