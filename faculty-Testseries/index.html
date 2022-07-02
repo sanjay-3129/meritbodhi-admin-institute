@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../assets/libs/css/newprofile.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <link rel="icon" href="../assets/images/header-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="../js/connect.js"></script>
+    <link rel="stylesheet" type="text/css" href="newdash.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
+    <title>Meritbothi | Dashboard Faculty</title>
+    <!-- cdns for custom multi select -->
+    <style>
+        .cardstyle {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: -1rem;
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .card {
+            cursor: pointer;
+            min-width: 230px;
+            margin-top: -10px;
+        }
+
+        .card:hover {
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .cardstyle {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            .cardstyle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 786px) {
+            .cardstyle {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        .ci {
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+
+        .card1 {
+            background-color: #fff;
+            height: auto;
+            padding: 1rem;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            border-radius: 2px;
+        }
+
+
+        .thmimg {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 30px;
+            object-fit: cover;
+        }
+
+        .form-control:hover {
+            color: #5e72e4;
+        }
+
+        .form-control-alternative:hover {
+            color: #5e72e4;
+        }
+
+        .nav-user-img:hover {
+            color: #5e72e4;
+        }
+
+        .cont {
+            position: relative;
+            width: 100%;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 350px;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .cont:hover .image {
+            opacity: 0.6;
+        }
+
+        .cont:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            border: none;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .cardfirst {
+            display: flex;
+            margin-left: 30px;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tit {
+            margin-left: -306px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .box {
+            margin-top: 80px;
+            margin-left: 160px;
+        }
+
+        .coursei {
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 50%;
+        }
+
+        .facu {
+            margin-left: 13.5rem;
+            margin-top: -50px;
+            display: flex;
+        }
+
+        .langu {
+            margin-left: 5rem;
+        }
+
+        .langus {
+            width: 14rem;
+            cursor: pointer;
+        }
+
+        .labtn {
+            margin-left: 1rem;
+            margin-top: .6rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .labtn:hover {
+            color: #5e72e4;
+        }
+
+        .descri {
+            margin-left: 13.5rem;
+            margin-top: 20px;
+        }
+
+        .facus {
+
+            width: 83%;
+            cursor: pointer;
+        }
+
+        .titi {
+            width: 14rem;
+        }
+
+        .cour {
+            display: flex;
+            justify-content: space-around;
+            margin-left: -55px;
+            margin-top: 25px;
+        }
+
+        .cours {
+            width: 15rem;
+        }
+
+        .cours11 {
+            width: 15rem;
+        }
+
+        .coursddd {
+            width: 15rem;
+        }
+
+        .ccat {
+            margin-right: 9.5rem;
+        }
+
+        .ccat11 {
+            margin-right: 9.5rem;
+        }
+
+        .cours3 {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .cousr {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .cousr111 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .cl {
+            margin-left: 1.5rem;
+        }
+
+        .plbtn {
+            margin-left: 1rem;
+            margin-top: .6rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .plbtn:hover {
+            color: #5e72e4;
+        }
+
+        .plbtn11 {
+            margin-left: 1rem;
+            margin-top: .6rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .plbtn11:hover {
+            color: #5e72e4;
+        }
+
+        .vup {
+            cursor: pointer;
+        }
+
+        .vup:hover {
+            color: #5e72e4;
+        }
+
+        .inpuu {
+            width: 30%;
+            border: none;
+        }
+
+        .inpuu:hover {
+            color: #5e72e4;
+        }
+
+        .selectbtn {
+            width: 10%;
+            height: 35px;
+            margin-top: 31.5px;
+            margin-left: 2.1rem;
+        }
+
+        /* .addibtn{
+    margin-top: 2.6rem;
+    width: 10%;
+    margin-left:4.5rem;
+    height: 35.5px;
+  } */
+
+
+        /*MODEL CSS*/
+
+
+
+
+        /*MEDIA QUERY*/
+
+        @media only screen and (max-width:1138px) {
+            .cardfirst {
+                flex-direction: column;
+                margin-left: 1px;
+            }
+
+            .title {
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .box {
+
+                margin-top: 1px;
+                margin-left: 1px;
+            }
+
+            .tit {
+                margin-left: 1px;
+            }
+
+            .coursei {
+                margin-top: 10px;
+                margin-left: 3.5rem;
+            }
+
+            .cons {
+                margin-top: 10px;
+                margin-left: -2rem;
+                width: 52%;
+            }
+
+            .thumb {
+                margin-left: 4.5rem;
+            }
+
+            .facu {
+                margin-left: 1px;
+                margin-top: 10px;
+                flex-direction: column;
+            }
+
+            .langu {
+                margin-top: 10px;
+                margin-left: 1px;
+            }
+
+            .langus {
+                width: 79%;
+                cursor: pointer;
+            }
+
+            .descri {
+                margin-left: 1px;
+                margin-top: 10px;
+            }
+
+            .facus {
+                width: 79%;
+
+                cursor: pointer;
+            }
+
+            .inpuu {
+                width: 100%;
+            }
+
+            .cnal {
+                width: 20rem;
+                margin-top: 10px;
+            }
+
+            .cousr {
+                flex-direction: column;
+                margin-left: 1px;
+            }
+
+            .cour {
+                flex-direction: column;
+                margin-left: 1px;
+                margin-top: 10px;
+            }
+
+            .cours11 {
+                width: 15rem;
+                cursor: pointer;
+            }
+
+            .cours3 {
+                width: 100%;
+                cursor: pointer;
+            }
+
+            .clsa {
+                flex-direction: column;
+            }
+
+            .cousr111 {
+                flex-direction: column;
+            }
+
+            .newhh {
+                width: 20rem;
+                margin-top: 10px;
+            }
+
+            .coursddd {
+                width: 15rem;
+            }
+
+            .titi {
+                width: 14rem;
+            }
+
+            .selectbtn {
+                width: 25%;
+            }
+
+            .addibtn {
+                width: 25%;
+            }
+        }
+
+        .spinner-3 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: conic-gradient(#0000 10%, #5e72e4);
+            --webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+            animation: s3 1s infinite linear;
+        }
+
+        @keyframes s3 {
+            to {
+                transform: rotate(1turn)
+            }
+        }
+
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        .card-text {
+            height: 2rem;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 150px;
+        }
+    </style>
+
+</head>
+
+<body onload="onLoadSetter()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar topbar-rr navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">Meritbothi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span>5</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle" id="smallProfileImage"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="iName">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" onclick="logout()" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="">Merit Bodhi</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="../faculty-dashboard"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                            </li>      
+                            <li class="nav-item">
+                                <a class="nav-link " href="../faculty-profile" ><i class="fas fa-user"></i>Profile</a>
+                            </li>  
+                            <li class="nav-item">
+                                <a class="nav-link " href="../faculty-courses"><i class="fas fa-book"></i>Courses</a>
+                            </li>  
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-requests"><i class="fas fa-envelope"></i>Requests</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="../faculty-notification" ><i class="fas fa-fw fa-bell"></i>Notifications</a> -->
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../faculty-archive" ><i class="fas fa-archive"></i>Archieve</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="../faculty-reviews" ><i class="fas fa-star"></i>Reviews</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="../faculty-payments" ><i class="fas fa-credit-card"></i>Payments</a>    -->
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-referal" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../faculty-settings" ><i class="fas fa-cog"></i>Settings</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="../faculty-Testseries"><i class="fas fa-question"></i>Test Series</a>
+                                </li>
+                            <li class="nav-item hi-sh-lg">
+                                <a class="nav-link" href="#" onclick="logout()"><i class="fas fa-power-off"></i>Logout</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        
+
+                                <div class="dashboard-wrapper">
+                                    <form id="overallForm">
+                                        <div class="dashboard-ecommerce">
+                        
+                        
+                        
+                                            <div id="newdd">
+                                                <h3>Test Series</h3>
+                                                <div class="d-flex addbottom" style="position: relative;">
+                        
+                        
+                                                    <select class="btn btn-sm btn-grey selectbtn" id="types-switcher"
+                                                        onchange="typeSorter(this)">
+                                                        <option value="All">All</option>
+                                                        <option value="Online">Online</option>
+                                                        <option value="One to One">One to One</option>
+                                                        <option value="Live">Live</option>
+                                                    </select>
+                        
+                                                    <button style="position: absolute;
+                                                    top: 49%;
+                                                    left: 18%;" type="button" id="add" class="btn btn-sm btn-primary addibtn"
+                                                        onclick="ifyouclick()">
+                                                        Add New</button>
+                                                </div>
+                                            </div>
+                        
+                                            <main class="cardstyle row" id="coursecardall" style="display: flex;">
+                        
+                                            </main>
+                                            <div class='d-flex justify-content-center'>
+                                                <div class="spinner-3" id="loaderr-3">
+                        
+                                                </div>
+                                            </div>
+                        
+                                            <!-- CARD HIDDEN & FORM BLOCK -->
+                        
+                                            <script>
+                                            </script>
+                        
+                                            <!-- CARD HIDDEN & FORM BLOCK -->
+                                            <!-- Form -->
+                                            <div style="display:none" id="addnewcourse1">
+                                                <div class="card1">
+                                                    <div style="display: flex; justify-content: space-between; ">
+                                                        <h4>New Test</h4>
+                                                    </div>
+                        
+                                                    <div class="cont">
+                                                        <img src="download.jfif" alt="Avatar" class="image" id="coverImg" style="width:100%">
+                                                        <div class="middle">
+                                                            <div class="text">
+                        
+                                                                <i class="fas fa-upload" onclick="imgupppp()" style="cursor: pointer;"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="file" name="fileupload" style="display: block;" id="newuppp">
+                                                    <div class="cardfirst">
+                                                        <!--style="display: flex; justify-content: space-between;" -->
+                                                        <div class="thumb">
+                                                            <img src="download.jfif" class="thmimg" id="thumbImg"><br><br>
+                                                            <button type="button" class="btn btn-sm btn-primary" style="margin-left: 4.5rem;"
+                                                                onclick="imgupppp1()">Edit</button>
+                                                        </div>
+                                                        <input type="file" name="fileupload1" style="display: none;" id="newuppp1">
+                                                        <!-- form start -->
+                        
+                                                        <h3 class="ci">Test Information</h3>
+                                                        <div class="box">
+                                                            <div class="title">
+                                                                <div class="tit" style="width: 20rem;">
+                                                                    <h3>Title</h3><input type="text" name="t_name" class="form-control titi"
+                                                                        placeholder="Course Title">
+                                                                </div>
+                                                                <!-- <div class="cons">
+                                                                    <h3 style="margin-top: .5rem; margin-left: 2rem;">Concept</h3>
+                                                                    <input type="text" name="concept" class="form-control cours" style="width:150%; margin-left:2rem" placeholder="Course Concepts">
+                                                                </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                        
+                                                    <div class="facu">
+                                                        <!-- <div>
+                                                            <h3>Faculties Handling this course</h3>
+                                                            <div class="d-flex">
+                                                                <div class="multiselect">
+                                                                    <div class="selectBox" onclick="showCheckboxes(this)">
+                                                                        <select name="faculty" id="faculty" class="form-control facus">
+                                                                  <option id="defaultCategorylang">Select Faculty</option>
+                                                                </select>
+                                                                        <div class="overSelect" id="overSelect"></div>
+                                                                    </div>
+                                                                    <div id="checkboxesFac" class="labelsContOfmulsel">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <div class="langu">
+                                                            <h3>Language</h3>
+                                                            <div class="d-flex">
+                                                                <select name="language" id="language" class="form-control langus" style="width:200px">
+                                                                      <option>Select Languages</option>
+                                                                      <option value="Tamil">Tamil</option>
+                                                                      <option value="English">English</option>
+                                                                    </select>
+                        
+                                                                <i class="fas fa-plus-square labtn" style="display:none;"></i>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                        
+                                                    <div class="descri">
+                                                        <h3>Description</h3>
+                                                        <div class="form-group focused">
+                                                            <textarea rows="4" class="form-control form-control-alternative" name="crsDesc"
+                                                                placeholder="A few words about this course ..."></textarea>
+                                                        </div>
+                        
+                                                        <!-- <div>
+                                                            <h3>Introduction Video &nbsp; </h3>
+                                                            <input type="file" class="inpuu" name="crsIntr">
+                                                        </div> -->
+                                                        <!-- style="margin-top: 25px;" -->
+                        
+                                                        <!-- <div class="cousr">
+                        
+                                                            <div>
+                                                                <h3>Course Mode</h3>
+                                                                <div class="d-flex">
+                                                                    <select class="form-control cours" name="crsType">
+                                                                    
+                                                                    <option value="Online">Online</option>
+                                                                    
+                                                                  </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
+                                                                </div>
+                                                            </div>-->
+                                                            <div class="ccat">
+                                                                <!-- <h3 class="cnal">Course Nationality</h3> -->
+                                                                <!-- <div class="d-flex clsa">
+                                                                    <select class="form-control cours11" name="crsNationality">
+                                                                    <option value="default" selected>---select---</option>
+                                                                    <option value="National">National</option>
+                                                                    <option value="International">International</option>
+                                                                  </select><i class="fas fa-plus-square plbtn" style="display:none;"></i>
+                                                                </div> -->
+                                                            <!-- </div> -->
+                                                        </div>
+                                                        <!-- <option value="Live">Live</option>
+                                                                    <option value="One to One">One to One</option> -->
+                        
+                                                        <div class="cousr111">
+                        
+                                                            <div>
+                                                                <h3>Test Category</h3>
+                                                                <div class="d-flex">
+                                                                    <select class="form-control cours11" name="maincat">
+                                                                        <option value="0">Select</option>
+                                                                        <option value="1">Audi</option>
+                                                                        <option value="2">BMW</option>
+                                                                        <option value="3">Citroen</option>
+                                                                        <option value="4">Ford</option>
+                                                                        <option value="5">Honda</option>
+                                                                    </select><i class="fas fa-plus-square plbtn" onclick="ccatonclick()"
+                                                                        style="display:none"></i>
+                                                                </div>
+                                                            </div>
+                        
+                                                            <div class="ccat11">
+                                                                <h3 class="newhh">Test Subcategory</h3>
+                                                                <div class="d-flex">
+                                                                    <div>
+                                                                        <select class="form-control coursddd" name="subcat">
+                                                                            <option value="0">Select</option>
+                                                                            <option value="1">Audi</option>
+                                                                            <option value="2">BMW</option>
+                                                                            <option value="3">Citroen</option>
+                                                                            <option value="4">Ford</option>
+                                                                            <option value="5">Honda</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div>
+                                                                        <i class="fas fa-plus-square plbtn11" onclick="helloworldclick()"
+                                                                            style="display:none"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                        
+                                                        <!-- <div style="margin-top: 1rem;" id="selb11">
+                                                            <h3>Is there any Assessment in this course ?</h3>
+                                                            <div style="width: 10%;">
+                                                                <select class="form-control typeclass" id="selb1" name="selb1">
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No">No</option>
+                                                            </select>
+                                                            </div>
+                                                        </div> -->
+                        
+                                                        <hr>
+                                                        <br>
+                                                        <div style="text-align: right;">
+                                                            <button type="button" class="btn btn-sm btn-primary" id="createTest">Create
+                                                                Test</button>
+                                                            <a href="#courses"><button type="button" class="btn btn-sm btn-primary"
+                                                                    style="background-color: #dc3545;" onclick="creationcancelbtn()">
+                                                                    Cancel</button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- COURSE CATEGORY POPUP -->
+                                                <div id="facidssss" style="display:none;"></div>
+                        
+                                                <div>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#mainCatCmodal" style="display:none;" id="coursecategorypopup">
+                                                        Launch demo modal
+                                                    </button>
+                        
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="mainCatCmodal" tabindex="-1"
+                                                        aria-labelledby="mainCatCmodalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="mainCatCmodalLabel">Test Category</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="d-flex" style="justify-content:center;">
+                                                                        <table style="text-align:center;">
+                                                                            <div>
+                                                                                <tr>
+                                                                                    <td>Main Category :</td>
+                                                                                    <td><input type="text" name="newmaincat"
+                                                                                            class="form-control" placeholder="Main Category">
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </div>
+                                                                            <div>
+                                                                                <tr>
+                                                                                    <td>Sub Category :</td>
+                                                                                    <td><input type="text" name="newsubcat" class="form-control"
+                                                                                            placeholder="Sub Category"></td>
+                                                                                </tr>
+                                                                            </div>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-sm btn-primary" style="background-color:red; 
+                                                margin-right: -1rem; margin-top:.2rem" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-sm btn-primary"
+                                                                        style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal"
+                                                                        onclick="setNewMainCategory()">Create</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- COURSE CATEGORY POPUP -->
+                        
+                                                <!-- COURSE SUBCATEGORY POPUP -->
+                        
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subCatCmodal"
+                                                    style="display:none;" id="helloworldd">
+                                                    Launch demo modal
+                                                </button>
+                        
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="subCatCmodal" tabindex="-1" aria-labelledby="subCatCmodalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="subCatCmodalLabel">Test Sub Category</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="d-flex" style="justify-content:center;">
+                                                                    <table style="text-align:center;">
+                                                                        <div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <tr>
+                                                                                <td>Sub Category :</td>
+                                                                                <td><input type="text" name="newsolosubcat" class="form-control"
+                                                                                        placeholder="Sub Category"></td>
+                                                                            </tr>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-sm btn-primary" style="background-color:red; 
+                                                margin-right: -1rem; margin-top:.2rem" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-sm btn-primary"
+                                                                        style="margin-left: 2rem; margin-top: .1rem;" data-dismiss="modal"
+                                                                        onclick="newsolosubcatset()">Create</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                        
+                        
+                                                    <!-- COURSE SUBCATEGORY POPUP -->
+                        
+                        
+                                                    <script>
+                                                        function creationcancelbtn() {
+                        
+                                                            document.getElementById('coursecardall').style.display = "grid";
+                                                            document.getElementById('addnewcourse1').style.display = "none";
+                                                            document.getElementById('newdd').style.display = "block";
+                                                        }
+                                                    </script>
+                                                    <script type="text/javascript">
+                                                        function ccatonclick() {
+                                                            document.getElementById('coursecategorypopup').click();
+                                                        }
+                                                    </script>
+                        
+                                                    <script type="text/javascript">
+                                                        function helloworldclick() {
+                                                            document.getElementById('helloworldd').click();
+                                                        }
+                                                    </script>
+                                                    <!-- Form -->
+                        
+                                                    <!-- Button trigger modal -->
+                        
+                        
+                        
+                                                </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end wrapper  -->
+                            <!-- ============================================================== -->
+                            </div>
+                            <div id="snackbar"></div>
+                            <button type="button" id="loaderTrigger" class="btn btn-primary" data-toggle="modal" data-target="#loaderModalload"
+                                style="display: none;">
+                            </button>
+                        
+                            <!-- Modal -->
+                            <div class="modal" id="loaderModalload" data-backdrop="static" tabindex="-1" role="dialog"
+                                aria-labelledby="loaderModalTitleload" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+                                    <div class="modal-content temp-loader">
+                                        <div class="modal-header" style="display: none;">
+                                            <h5 class="modal-title" id="loaderModalTitleload">Modal title</h5>
+                                            <button id="closeLoader" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <img style="height:50px" src="../assets/images/loader.gif">
+                                                </div>
+                                                <div style="margin-top: 0.7rem; font-size:1.25rem"><strong>Loading...</strong></div>
+                                            </div>
+                                        </div>
+                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <script>
+                                var form = document.getElementById('overallForm');
+                        
+                                var instituteDetails = [];
+                                localforage.getItem('instituteDetails').then((a) => {
+                                    instituteDetails = a;
+                        
+                                })
+                                var mainCategories = [];
+                                localforage.getItem('mainCategories').then((b) => {
+                                    mainCategories = b;
+                                })
+                                var subCategories = [];
+                                localforage.getItem('subCategories').then((c) => {
+                                    subCategories = c;
+                                })
+                                var nationalMainC = [];
+                                localforage.getItem('nationalMainC').then((d) => {
+                                    nationalMainC = d;
+                                })
+                                var interNationalMainC = [];
+                                localforage.getItem('interNationalMainC').then((e) => {
+                                    interNationalMainC = e;
+                                })
+                        
+                                function newsolosubcatset() {
+                                    var subCatval = form.newsolosubcat.value.toLowerCase();
+                                    var option = '<option value="' + subCatval + '">' + subCatval.toUpperCase() + '</option>';
+                                    form.subcat.innerHTML = option;
+                                }
+                        
+                                function setNewMainCategory() {
+                                    var newmaincat = form.newmaincat.value.toLowerCase();
+                                    var newsubcat = form.newsubcat.value.toLowerCase();
+                                    var option = '<option value="' + newmaincat + '">' + newmaincat.toUpperCase() + '</option>';
+                                    var option1 = '<option value="' + newsubcat + '">' + newsubcat.toUpperCase() + '</option>';
+                                    form.maincat.innerHTML = option;
+                                    form.subcat.innerHTML = option1;
+                                }
+                        
+                                auth.onAuthStateChanged((user) => {
+                                    if (user) {
+                        
+                                    } else {
+                                        location.replace('../login/');
+                                    }
+                                })
+                                //Cover image preview
+                                function imgupppp() {
+                                    document.getElementById('newuppp').click();
+                                }
+                                form.fileupload.addEventListener('change', function () {
+                                    if (event.target.files.length == 0) {
+                                        return;
+                                    }
+                                    var iurl = URL.createObjectURL(event.target.files[0]);
+                                    $('#coverImg').attr("src", iurl);
+                                });
+                                //ThumbNail image preview
+                                function imgupppp1() {
+                                    document.getElementById('newuppp1').click();
+                                }
+                        
+                                function loaderTriggerAndEnder(d) {
+                                    if (d) {
+                                        document.getElementById('loaderTrigger').click();
+                                    } else {
+                                        document.getElementById('closeLoader').click();
+                                    }
+                                }
+                                form.fileupload1.addEventListener('change', function () {
+                                    if (event.target.files.length == 0) {
+                                        return;
+                                    }
+                                    var iurl = URL.createObjectURL(event.target.files[0]);
+                                    $('#thumbImg').attr("src", iurl);
+                                });
+                        
+                                var nameApro = '';
+                                localforage.getItem('fullAuth').then((e) => {
+                                    nameApro = e;
+                                });
+                                var nameAproA = nameApro.split('-*de*-');
+                        
+                                function onLoadSetter() {
+                        
+                                    localforage.getItem('fullAuth').then((e) => {
+                                        nameApro = e;
+                                        nameAproA = nameApro.split('-*de*-');
+                                        document.getElementById('iName').innerHTML = nameAproA[0];
+                                        document.getElementById('smallProfileImage').setAttribute('src', 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + nameAproA[1]);
+                                    });
+                        
+                        
+                                    //  cLeE3jVSZguUx1LMPYkF?***?9veUfiGYRcgwby5umyc3
+                        
+                                    var courseids = "";
+                                    var courseCards = '';
+                                    localforage.getItem('instituteDetails').then((g) => {
+                                        testids = g.testIds;
+                                        testids.forEach((arg) => {
+                                            var tidsSplit = arg.split('?***?');
+                        
+                                            data.collection('subCategories').doc(tidsSplit[0]).collection('testseries').doc(tidsSplit[1]).get().then((data) => {
+                                                var ddd = data.data();
+                        
+                                                console.log("ddd", ddd)
+                                                document.getElementById('loaderr-3').style.display = "none";
+                                                if (ddd.status == 'Not Published' || ddd.status == 'Not Verified') {
+                                                    courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px; margin-left: 20px" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                                        ddd.id + '" onclick="redirecterTestEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.testName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
+                        
+                                                    $('#coursecardall').append(courseCards);
+                                                } else if (ddd.status == 'Verified') {
+                                                    courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px;" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
+                                                        ddd.id + '" onclick="redirecterTestEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
+                        
+                        
+                                                    $('#coursecardall').append(courseCards);
+                                                }
+                                            }).catch((e) => {
+                                                showToast(e.message);
+                                            })
+                                        })
+                        
+                                    });
+                        
+                                    var type = "National";
+                                    var mcats = '<option value="default" selected>---select---</option>';
+                                    form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
+                        
+                                    if (type == 'National') {
+                                        console.log("NoRefresh")
+                                        
+                                        for (var i = 0; i < nationalMainC.length; i++) {
+                                            mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
+                                        }
+                                        form.maincat.innerHTML = mcats;
+                                    }
+                                    else{
+                                        console.log("Refresh Page")
+                                    }
+                                
+                                    console.log("instituteDetails", instituteDetails)
+                        
+                        
+                                }
+                        
+                                function showToast(msg) {
+                                    var x = document.getElementById("snackbar");
+                                    x.innerHTML = msg;
+                                    x.className = "show";
+                                    setTimeout(function () {
+                                        x.className = x.className.replace("show", "");
+                                    }, 3000);
+                                }
+                        
+                                function logout() {
+                                    auth.signOut().then(() => {
+                                        localforage.clear();
+                                        location.replace('../login/');
+                                    });
+                                }
+                        
+                                function ifyouclick() {
+                                    document.getElementById('coursecardall').style.display = "none";
+                                    document.getElementById('addnewcourse1').style.display = "block";
+                                    document.getElementById('newdd').style.display = "none";
+                        
+                                    loaderTriggerAndEnder(true);
+                        
+                                    //main and sub categories set
+                                    var mainCArray = [];
+                                    var subCArray = [];
+                        
+                                    instituteDetails.facultyIds.forEach((facs) => {
+                                        data.collection('faculty').doc(facs).get().then((snap) => {
+                                            if (snap.data().status == 'Verified') {
+                                                var facOption = '<label><input type="checkbox" name="faculties" value="' + snap.data().id + '?***?' + snap.data().name + '" onclick="checkOptions(this)">' + snap.data().name + '</input></label>';
+                                                $('#checkboxesFac').append(facOption);
+                                            }
+                                        })
+                                    })
+                        
+                                    loaderTriggerAndEnder(false);
+                                }
+                        
+                        
+                                form.maincat.addEventListener('change', (a) => {
+                                    var mainCategory = form.maincat.value;
+                                    var subCategoryIndex = mainCategories.indexOf(mainCategory);
+                                    var subCategoryArray = subCategories[subCategoryIndex];
+                                    var scats = '<option value="default" selected>---select---</option>';
+                        
+                                    subCategoryArray.forEach((arr) => {
+                                        scats += '<option value="' + arr.subCategoryName + '">' + arr.subCategoryName.toUpperCase() + '</option>'
+                                    });
+                                    form.subcat.innerHTML = scats;
+                                })
+                        
+                                $('#createTest').on('click', function () {
+                                    loaderTriggerAndEnder(true);
+                                    var newSubCatId = '',
+                                        testId = '';
+                                    var cid = '';
+                                    var inc = 0;
+                        
+                                         if (form.newsolosubcat.value == '' && (form.newmaincat.value == '' && form.newsubcat.value == '')) {
+                                            //normal test adding
+                                            let fd = new FormData(document.querySelector('#overallForm'));
+                                            const user = firebase.auth().currentUser;
+                                            fd.append('uid', user.uid);
+                                            var sub_CategoryId = '';
+                        
+                                            // $.ajax({
+                                            //     url: 'matUp.php',
+                                            //     type: 'post',
+                                            //     data: fd,
+                                            //     processData: false,
+                                            //     contentType: false,
+                                            //     error: function () {
+                                            //         alert("Upload Failed, Try Again !!!");
+                                            //     },
+                                                // success: function (vall) {
+                           
+                                                    // console.log("Value>>>",vall)
+                                                    // var urls = String(vall).split('?***?');
+                                                    sub_CategoryId = '';
+                        
+                                                    subCategories.forEach((arg) => {
+                                                        arg.forEach((argg) => {
+                                                            if (form.subcat.value == argg.subCategoryName) {
+                                                                sub_CategoryId = argg.subCategoryId;
+                                                            }
+                                                        })
+                                                    });
+                                                    data.collection('subCategories').doc(sub_CategoryId).collection('testseries').add({
+                                                        category: form.maincat.value,
+                                                        testName: form.t_name.value,
+                                                        coverImg: "",
+                                                        id: '',
+                                                        subcategoryId: '',
+                                                        instituteName: nameAproA[0],
+                                                        instituteId: instituteDetails.id,
+                                                        lastUpdated: String(new Date().getTime()),
+                                                        noOfStudents: 0,
+                                                        description: form.crsDesc.value,
+                                                        progess: 20,
+                                                        requirements: [],
+                                                        whatYouWillLearn: [],
+                                                        publish: {
+                                                            originalPrice: 0,
+                                                            offers: [],
+                                                            tax: {
+                                                                CGST: 0,
+                                                                IGST: 0,
+                                                                SGST: 0,
+                                                                UGST: 0
+                                                            }
+                                                        },
+                                                        totalRating: 2.5,
+                                                        questions: [],
+                                                        status: "Not Published",
+                                                        subcategory: form.subcat.value,
+                                                        thumbnail: "",
+                                                        // types: form.crsType.value
+                                                    }).then((docid) => {
+                                                        testId = docid.id;
+                                                        cid = sub_CategoryId + '?***?' + docid.id;
+                                                        data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(docid.id).update({
+                                                            id: docid.id,
+                                                            subcategoryId: sub_CategoryId
+                                                        }).then((arg) => {
+                                                            instituteDetails.testIds.push(sub_CategoryId + '?***?' + docid.id);
+                                                            instituteDetails.noOfTests++;
+                                                            localforage.setItem('instituteDetails', instituteDetails);
+                                                            data.collection('institute').doc(instituteDetails.id).update({
+                                                                testIds: instituteDetails.testIds,
+                                                                noOfTests:instituteDetails.noOfTests
+                                                            }).then(() => {
+                                                                data.collection('subCategories').doc(sub_CategoryId).get().then((b1) => {
+                                                                    data.collection('subCategories').doc(sub_CategoryId).update({
+                                                                        noOfTests: b1.data().noOfTests + 1
+                                                                    }).then(() => {
+                                                                        data.collection('category').doc('categories').get().then((b2) => {
+                                                                            var ttemp = b2.data().catDetails;
+                                                                            var arrayFound = [];
+                                                                            var indexFound = 0;
+                                                                            var index = 0;
+                        
+                                                                            ttemp.forEach((vall) => {
+                                                                                if (vall.categoryName == form.maincat.value) {
+                                                                                    arrayFound = vall;
+                                                                                    indexFound = index;
+                                                                                }
+                                                                                index++;
+                                                                            })
+                        
+                                                                            arrayFound.noOfTests += 1;
+                                                                            ttemp[indexFound] = arrayFound;
+                        
+                                                                            data.collection('category').doc('categories').update({
+                                                                                catDetails: ttemp
+                                                                            }).then(() => {
+                                                                                data.collection('subCategories').doc(sub_CategoryId).collection('testseries').doc(testId).collection('reviews').doc('reviews').set({
+                                                                                    reviews: []
+                                                                                }).then(() => {
+                                                                                    loaderTriggerAndEnder(false);
+                                                                                    location.replace('');
+                                                                                })
+                                                                            })
+                                                                        })
+                                                                    })
+                                                                })
+                        
+                                                            })
+                                                        })
+                                                    }).catch((e) => {
+                                                        showToast(e.message);
+                                                    });
+                                                }
+                                            });
+                                        // } else {
+                                        //     showToast('Error has happened: please wait, while Refreshing page !!!');
+                                        //     location.replace('');
+                                    // }
+                                // });
+                            // }
+                        // });
+                               
+                                function typeSorter(j) {
+                                    var allCardClass = document.querySelectorAll('.nallaClass');
+                                    if (j.value == 'All') {
+                                        for (var i = 0; i < allCardClass.length; i++) {
+                                            allCardClass[i].style.display = "block";
+                                        }
+                                    } else if (j.value == 'Online') {
+                                        for (var i = 0; i < allCardClass.length; i++) {
+                                            var type = allCardClass[i].getAttribute('card-type');
+                                            if (type == 'Online') {
+                                                allCardClass[i].style.display = "block";
+                                            } else {
+                                                allCardClass[i].style.display = 'none';
+                                            }
+                                        }
+                                    } else if (j.value == 'One to One') {
+                                        for (var i = 0; i < allCardClass.length; i++) {
+                                            var type = allCardClass[i].getAttribute('card-type');
+                                            if (type == 'One to One') {
+                                                allCardClass[i].style.display = "block";
+                                            } else {
+                                                allCardClass[i].style.display = 'none';
+                                            }
+                                        }
+                                    } else if (j.value == 'Live') {
+                                        for (var i = 0; i < allCardClass.length; i++) {
+                                            var type = allCardClass[i].getAttribute('card-type');
+                                            if (type == 'Live') {
+                                                allCardClass[i].style.display = "block";
+                                            } else {
+                                                allCardClass[i].style.display = 'none';
+                                            }
+                                        }
+                                    } else {
+                        
+                                    }
+                                }
+                        
+                                function redirecterTestEdit(l) {
+                                        sessionStorage.setItem('course-edit-crs-id-online', l.getAttribute('card-id'));
+                                        location.replace('../Testseries-edit/online/');
+                                }
+                            </script>
+                            <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+                        
+                            <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+                        
+                            <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+                        
+    
+</body>
+<!-- primary color : #5e72e4 -->
+</html>

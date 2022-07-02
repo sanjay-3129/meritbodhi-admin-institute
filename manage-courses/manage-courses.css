@@ -23,6 +23,11 @@
 	margin-top: 1rem;
 }
 
+.modifybtn1{
+	margin-left: 1rem;
+	margin-top: 2rem;	
+}
+
 .styles{
 	width: 10%;
 }
@@ -69,46 +74,60 @@
 	margin-top: 3rem;
 	display: flex;
 	justify-content: space-around;
+	position: relative;
 }
 
 .title{
 	max-width: 25%;
+	position: absolute;
+	left: 1%;
 }
 
 .concept{
 	max-width: 46%;
+	position: absolute;
+	left: 34%;
 }
 
 .faculty{
 	max-width: 20%;
+	position: absolute;
+	left: 60%;
 }
 
 .description{
 	margin-left: .8rem;
-	margin-top: 2rem;
+	margin-top: 10rem;
 }
 
 .contentclass1{
 	margin-top: 2rem;
 	display: flex;
 	justify-content: space-around;
+	/* position: relative; */
 }
 
 .lang{
 	display: flex;
 	width: 30%;
 	margin-left: 1rem;
-}
+	/* position: absolute;
+	/* left: 0%; */
+ }
 
 .introvideo{
 	display: flex;
 	margin-left: 6rem;
 	width: 40%;
+	/* position: absolute;
+	left: 29%; */
 }
 
 .mode{
 	display: flex;
 	width: 30%;
+	/* position: absolute;
+	left: 60%%; */
 }
 
 

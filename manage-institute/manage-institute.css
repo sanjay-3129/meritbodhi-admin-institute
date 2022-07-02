@@ -24,6 +24,7 @@
 	margin: 1.5rem;
 	border-radius: 5px;
 	display: none;
+	position: relative;
 }
 
 .divtagnew
@@ -33,6 +34,7 @@
 	margin: 1.5rem;
 	border-radius: 5px;
 	display: none;
+	position: relative;
 }
 
 .imagestyle
@@ -105,17 +107,22 @@
 	display: flex;
 	justify-content: space-between;
 	margin-top: -2rem;
-	width: 80%;
-	margin-left: 20.2rem;
+	width: 78%;
+	/* margin-left: 20.2rem; */
+	position: absolute;
+    left: 21%;
 }
 
 .formflexclass1new{
 	display: flex;
-	justify-content: space-between;
-	margin-top: -5rem;
-	width: 56.2%;
-	margin-left: 20rem;
+    justify-content: space-between;
+    margin-top: -5rem;
+    width: 51%;
+    margin-left: 20rem;
+    position: absolute;
+    left: 55px;
 }
+
 .instname1{
 	/*margin-top: .2rem;*/
 	font-size: 16px;
@@ -137,7 +144,7 @@
 .institueemail1new{
 	width: 55%;
 	
-	margin-left: 20rem;
+	margin-left: 23.2rem;
 	margin-top: 2rem;
 }
 
@@ -348,13 +355,13 @@
   }
   
   .sidebar a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 16px;
-	color: #808080;
-	display: block;
-	transition: 0.3s;
-	margin-left: 26px;
+	padding: 8px 8px 6px 7px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #808080;
+    display: block;
+    transition: 0.3s;
+    margin-left: 60px;
   }
   
   .sidebar a:hover {
@@ -362,11 +369,11 @@
   }
   
   .sidebar .closebtn  {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
+    position: absolute;
+    top: -20px;
+    right: 8px;
+    font-size: 35px;
+    margin-top: 35px;
   }
 
 
@@ -391,10 +398,14 @@
 	transition: margin-left .5s;
 	padding: 16px;
   }
-  .closebtn:hover {
+  /* .closebtn:hover {
 	  background-color: whitesmoke;
-  }
+  } */
   .closebtn {
 	  margin-top: 24px;
 	  
   }
+
+  .nav-item:hover {
+	background-color: #f2f2f2;
+  } 
