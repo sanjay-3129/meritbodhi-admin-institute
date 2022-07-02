@@ -22,6 +22,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
     <script src="../../js/connect.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.js"></script>
     <link rel="stylesheet" href="../mulsel.css">
@@ -2343,11 +2344,11 @@
 
                                                 </tbody>
                                             </table>
-                                            <div class="card" id="cd1" style="display:none;">
+                                            <!-- <div class="card" id="cd1" style="display:none;">
 
                                                 <div class="card-body p-0">
                                                     <div class="table-responsive">
-                                                        <table id="table2" class="table">
+                                                         <table id="table2" class="table">
                                                             <thead class="bg-light">
                                                                 <tr class="border-0">
                                                                     <th scope="col">Enter Designation</th>
@@ -2374,15 +2375,13 @@
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
-                                                        </table>
+                                                        </table> 
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
 
                                         </div>
-
-
                                     </div>
 
 
@@ -2434,11 +2433,11 @@
                                         </tbody>
                                     </table> -->
 
-                                    <div class="card" id="cd1" style="display:none;">
+                                    <!-- <div class="card" id="cd1" style="display:none;">
 
                                         <div class="card-body p-0">
                                             <div class="table-responsive">
-                                                <table id="table1" class="table">
+                                                <!- <table id="table1" class="table">
                                                     <thead class="bg-light">
                                                         <tr class="border-0">
                                                             <th scope="col">Enter Designation</th>
@@ -2463,71 +2462,68 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table> 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
                                     <script>
                                         function add1question() {
                                             $("questiontablebody").append(`
                                              
-
-
-                                            
-                                        `)
-                                        }
+                                        // `)
+                                        // }
 
 
 
-                                        function addneww() {
-                                            document.getElementById('addd').click();
-                                        }
+                                        // function addneww() {
+                                        //     document.getElementById('addd').click();
+                                        // }
 
-                                        function adRowsTable(id) {
-                                            var table = document.getElementById(id);
-                                            var me = this;
-                                            if (document.getElementById(id)) {
-                                                var row1 = table.rows[1].outerHTML;
+                                        // function adRowsTable(id) {
+                                        //     var table = document.getElementById(id);
+                                        //     var me = this;
+                                        //     if (document.getElementById(id)) {
+                                        //         var row1 = table.rows[1].outerHTML;
 
-                                                //adds index-id in cols with class .tbl_id
-                                                function setIds() {
-                                                    var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
-                                                    for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
-                                                }
+                                        //         //adds index-id in cols with class .tbl_id
+                                        //         function setIds() {
+                                        //             var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
+                                        //             for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
+                                        //         }
 
-                                                //add row after clicked row; receives clicked button in row
-                                                me.addRow = function (btn) {
-                                                    btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
-                                                    setIds();
-                                                }
+                                        //         //add row after clicked row; receives clicked button in row
+                                        //         me.addRow = function (btn) {
+                                        //             btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
+                                        //             setIds();
+                                        //         }
 
-                                                //delete clicked row; receives clicked button in row
-                                                me.delRow = function (btn) {
-                                                    btn.parentNode.parentNode.outerHTML = '';
-                                                    setIds();
-                                                }
-                                            }
-                                        }
+                                        //         //delete clicked row; receives clicked button in row
+                                        //         me.delRow = function (btn) {
+                                        //             btn.parentNode.parentNode.outerHTML = '';
+                                        //             setIds();
+                                        //         }
+                                        //     }
+                                        // }
 
                                         //create object of adRowsTable(), pass the table id
-                                        var ob_adRows = new adRowsTable('table1');
-                                    </script>
+                                        // var ob_adRows = new adRowsTable('table1');
+                                    // </script>
 
 
                                 </div>
 
-                            </div> <!-- 1ST TAB END -->
+                            </div>  1ST TAB END -->
 
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                                 <div class="fortest" style="margin-top: 1rem;">
 
                                     <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3.5rem;"
                                         onclick="uploadafile()">Add Materials
                                     </button>
-                                    <form id="topicAddMaterials">
+                                     <form id="topicAddMaterials">
                                         <input type="file" name="openfileformaterial" id="openfileformaterial"
                                             style="display:none;">
                                     </form>
@@ -2543,33 +2539,33 @@
                                         <tbody id="materialsBody">
 
                                         </tbody>
-                                    </table>
+                                    </table> 
                                 </div>
 
-                            </div> <!-- 2ND TAB END -->
+                            </div> 2ND TAB END -->
 
                             <!-- 3RD TAB END -->
 
-                            <div class="tab-pane fade" id="qanda" role="tabpanel" aria-labelledby="qanda-tab">
+                            <!-- <div class="tab-pane fade" id="qanda" role="tabpanel" aria-labelledby="qanda-tab">
 
                                 <div class="fortest" style="margin-top: 1rem;">
 
-                                    <!-- <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;" 
+                                     <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;" 
                                             onclick="faqda()">Add New</button> -->
-                                    <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;"
+                                    <!-- <button class="btn btn-sm btn-primary addnewbtn" style="margin-left: 3rem;"
                                         id="faqAddToDB">Save
-                                    </button>
-                                    <table class="table table-bordered" id="table3">
+                                    </button> -->
+                                    <!-- <table class="table table-bordered" id="table3">
                                         <thead>
                                             <tr>
                                                 <th scope="col" style="width: 1%; text-align:center;">No.</th>
                                                 <th scope="col" style="text-align:center;">Question</th>
                                                 <th scope="col" style="text-align:center;">Answer</th>
-                                                <!-- <th scope="col" style="width: 5%; text-align:center;">Action</th> -->
-                                            </tr>
+                                                < <th scope="col" style="width: 5%; text-align:center;">Action</th> -->
+                                            <!-- </tr>
                                         </thead>
                                         <tbody id="faqaddhere">
-                                            <!-- <tr>
+                                            <<tr>
                                                   <th scope="row" style="text-align:center;" class="tbl_id">1</th>
         
                                                   <td>
@@ -2586,11 +2582,10 @@
                                                   <td style="text-align:center;">
                                                     <i class="fas fa-trash" onclick="ob_adRows3.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
                                                   </td>
-                                                </tr> -->
+                                                </tr>
                                         </tbody>
-                                    </table>
-
-                                    <div class="card-body p-0" style="display:none;">
+                                    </table> -->
+                                    <!-- <div class="card-body p-0" style="display:none;">
                                         <div class="table-responsive">
                                             <table id="table3" class="table">
                                                 <thead class="bg-light">
@@ -2615,9 +2610,9 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </div> -->
+                                    <!-- </div> -->
+                                <!-- <!</div>  -->
 
 
                             </div>
@@ -3001,6 +2996,7 @@
                             elms1[i].setAttribute("value", allData.requirements[i]);
                         }
                     }
+                    loaderTriggerAndEnder(false);
 
                     // getSections(allData.sections);
                     // getSections(allData.questions);
@@ -3100,43 +3096,46 @@
                 document.getElementById('closeLoader').click();
             }
         }
-        function crtCrtNewsec() {
-            document.getElementById('changeSecNameCont').style.display = 'none';
-            document.getElementById('showWhenSec').style.display = "block";
-            document.getElementById('changeWhenSec').innerHTML = "Add new section";
-            document.getElementById('createSorTorUpdate').value = '-Crt-Sec-';
-            document.getElementById('addnewsection').click();
+        // function crtCrtNewsec() {
+        //     document.getElementById('changeSecNameCont').style.display = 'none';
+        //     document.getElementById('showWhenSec').style.display = "block";
+        //     document.getElementById('changeWhenSec').innerHTML = "Add new section";
+        //     document.getElementById('createSorTorUpdate').value = '-Crt-Sec-';
+        //     document.getElementById('addnewsection').click();
 
-        }
+        // }
         var sec_id = '', sec_name = '';
-        function addnwbtn(i) {
-            sec_id = i.getAttribute('data-sec-id');
-            sec_name = i.getAttribute('data-sec-name');
-            var s = document.getElementById('sectionTopic');
+        // function addnwbtn(i) {
+        //     sec_id = i.getAttribute('data-sec-id');
+        //     sec_name = i.getAttribute('data-sec-name');
+        //     var s = document.getElementById('sectionTopic');
 
-            s.newsec.value = sec_name;
-            document.getElementById('changeSecNameCont').style.display = 'block';
-            document.getElementById('showWhenSec').style.display = 'none';
-            document.getElementById('changeWhenSec').innerHTML = 'Add new Topic';
-            document.getElementById('createSorTorUpdate').value = '-Crt-Top-';
-            document.getElementById('addnewsection').click();
-        }
+        //     s.newsec.value = sec_name;
+        //     document.getElementById('changeSecNameCont').style.display = 'block';
+        //     document.getElementById('showWhenSec').style.display = 'none';
+        //     document.getElementById('changeWhenSec').innerHTML = 'Add new Topic';
+        //     document.getElementById('createSorTorUpdate').value = '-Crt-Top-';
+        //     document.getElementById('addnewsection').click();
+        // }
+       
+       
         var alldataa557 = [];
-        function updateIt(j) {
-            alldataa557 = j.getAttribute('data-id').split('?***?');
+        // function updateIt(j) {
+        //     alldataa557 = j.getAttribute('data-id').split('?***?');
 
-            var s = document.getElementById('sectionTopic');
+        //     var s = document.getElementById('sectionTopic');
 
-            s.newsec.value = alldataa557[5];
-            s.newTopic.value = alldataa557[2];
-            s.newtopsdesc.value = alldataa557[3];
+        //     s.newsec.value = alldataa557[5];
+        //     s.newTopic.value = alldataa557[2];
+        //     s.newtopsdesc.value = alldataa557[3];
 
-            document.getElementById('changeSecNameCont').style.display = 'block';
-            document.getElementById('showWhenSec').style.display = 'none';
-            document.getElementById('changeWhenSec').innerHTML = 'Update Topic';
-            document.getElementById('createSorTorUpdate').value = '-Upd-Top-';
-            document.getElementById('addnewsection').click();
-        }
+        //     document.getElementById('changeSecNameCont').style.display = 'block';
+        //     document.getElementById('showWhenSec').style.display = 'none';
+        //     document.getElementById('changeWhenSec').innerHTML = 'Update Topic';
+        //     document.getElementById('createSorTorUpdate').value = '-Upd-Top-';
+        //     document.getElementById('addnewsection').click();
+        // }
+       
         function coverimageeditbutton() {
             document.getElementById('thumbImgEdit').click();
         }
@@ -3326,31 +3325,31 @@
             document.getElementById('faq').click();
         }
 
-        function adRowsTable(id) {
-            var table = document.getElementById(id);
-            var me = this;
-            if (document.getElementById(id)) {
-                var row1 = table.rows[1].outerHTML;
+        // function adRowsTable(id) {
+        //     var table = document.getElementById(id);
+        //     var me = this;
+        //     if (document.getElementById(id)) {
+        //         var row1 = table.rows[1].outerHTML;
 
-                //adds index-id in cols with class .tbl_id
-                function setIds() {
-                    var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
-                    for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
-                }
+        //         //adds index-id in cols with class .tbl_id
+        //         function setIds() {
+        //             var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
+        //             for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
+        //         }
 
-                //add row after clicked row; receives clicked button in row
-                me.addRow3 = function (btn) {
-                    btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
-                    setIds();
-                }
+        //         //add row after clicked row; receives clicked button in row
+        //         me.addRow3 = function (btn) {
+        //             btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
+        //             setIds();
+        //         }
 
-                //delete clicked row; receives clicked button in row
-                me.delRow = function (btn) {
-                    btn.parentNode.parentNode.outerHTML = '';
-                    setIds();
-                }
-            }
-        }
+        //         //delete clicked row; receives clicked button in row
+        //         me.delRow = function (btn) {
+        //             btn.parentNode.parentNode.outerHTML = '';
+        //             setIds();
+        //         }
+        //     }
+        // }
 
         //create object of adRowsTable(), pass the table id
         var ob_adRows3 = new adRowsTable('table3');
@@ -3360,69 +3359,69 @@
             document.getElementById('fortest').click();
         }
 
-        function adRowsTables(id) {
-            var tablee = document.getElementById(id);
-            var mee = this;
-            if (document.getElementById(id)) {
-                var row11 = tablee.rows[1].outerHTML;
+        // function adRowsTables(id) {
+        //     var tablee = document.getElementById(id);
+        //     var mee = this;
+        //     if (document.getElementById(id)) {
+        //         var row11 = tablee.rows[1].outerHTML;
 
-                //adds index-id in cols with class .tbl_id
-                function setIdss() {
-                    var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id1');
-                    for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
-                }
+        //         //adds index-id in cols with class .tbl_id
+        //         function setIdss() {
+        //             var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id1');
+        //             for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
+        //         }
 
-                //add row after clicked row; receives clicked button in row
-                mee.addRow1 = function (btns) {
-                    btns ? btns.parentNode.parentNode.insertAdjacentHTML('afterend', row11) : tablee.insertAdjacentHTML('beforeend', row11);
-                    setIdss();
-                }
+        //         //add row after clicked row; receives clicked button in row
+        //         mee.addRow1 = function (btns) {
+        //             btns ? btns.parentNode.parentNode.insertAdjacentHTML('afterend', row11) : tablee.insertAdjacentHTML('beforeend', row11);
+        //             setIdss();
+        //         }
 
-                //delete clicked row; receives clicked button in row
-                mee.delRow = function (btns) {
-                    btns.parentNode.parentNode.outerHTML = '';
-                    setIdss();
-                }
-            }
-        }
+        //         //delete clicked row; receives clicked button in row
+        //         mee.delRow = function (btns) {
+        //             btns.parentNode.parentNode.outerHTML = '';
+        //             setIdss();
+        //         }
+        //     }
+        // }
 
         //create object of adRowsTables(), pass the table id
-        var ob_adRows1 = new adRowsTables('table2');
+        // var ob_adRows1 = new adRowsTables('table2');
     </script>
     <script type="text/javascript">
 
-        function uploadafile() {
-            document.getElementById('openfileformaterial').click();
-        }
+        // function uploadafile() {
+        //     document.getElementById('openfileformaterial').click();
+        // }
 
-        function adRowsTable(id) {
-            var table = document.getElementById(id);
-            var me = this;
-            if (document.getElementById(id)) {
-                var row1 = table.rows[1].outerHTML;
+        // function adRowsTable(id) {
+        //     var table = document.getElementById(id);
+        //     var me = this;
+        //     if (document.getElementById(id)) {
+        //         var row1 = table.rows[1].outerHTML;
 
-                //adds index-id in cols with class .tbl_id
-                function setIds() {
-                    var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
-                    for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
-                }
+        //         //adds index-id in cols with class .tbl_id
+        //         function setIds() {
+        //             var tbl_id = document.querySelectorAll('#' + id + ' .tbl_id');
+        //             for (var i = 0; i < tbl_id.length; i++) tbl_id[i].innerHTML = i + 1;
+        //         }
 
-                //add row after clicked row; receives clicked button in row
-                me.addRow3 = function (btn) {
-                    btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
-                    setIds();
-                }
+        //         //add row after clicked row; receives clicked button in row
+        //         me.addRow3 = function (btn) {
+        //             btn ? btn.parentNode.parentNode.insertAdjacentHTML('afterend', row1) : table.insertAdjacentHTML('beforeend', row1);
+        //             setIds();
+        //         }
 
-                //delete clicked row; receives clicked button in row
-                me.delRow = function (btn) {
-                    btn.parentNode.parentNode.outerHTML = '';
-                    setIds();
-                }
-            }
-        }
+        //         //delete clicked row; receives clicked button in row
+        //         me.delRow = function (btn) {
+        //             btn.parentNode.parentNode.outerHTML = '';
+        //             setIds();
+        //         }
+        //     }
+        // }
 
         //create object of adRowsTable(), pass the table id
-        var ob_adRows4 = new adRowsTable('table4');
+        // var ob_adRows4 = new adRowsTable('table4');
 
     </script>
     <div id="facidssss" style="display: none;"></div>
@@ -4000,138 +3999,137 @@
                 })
             }
         }
-        var quizArrayFromDb = [];
-        $('#sectionsIdsss').on('change', () => {
-            loadingOfQuizSave.style.display = "block";
-            var secIdd = $('#sectionsIdsss').val();
-            $('#topicsIdsss').html('<option value="default">---select---</option>');
+        // var quizArrayFromDb = [];
+        // $('#sectionsIdsss').on('change', () => {
+        //     loadingOfQuizSave.style.display = "block";
+        //     var secIdd = $('#sectionsIdsss').val();
+        //     $('#topicsIdsss').html('<option value="default">---select---</option>');
 
-            topicsArrayId[secIdd].forEach((b1) => {
-                $('#topicsIdsss').append(b1);
-            })
-            data.collection('sections').doc(secIdd).get().then((s) => {
-                quizArrayFromDb = s.data().quiz;
-                if (quizArrayFromDb.length > 0) {
-                    updateQuiz(quizArrayFromDb);
-                }
+        //     topicsArrayId[secIdd].forEach((b1) => {
+        //         $('#topicsIdsss').append(b1);
+        //     })
+        //     data.collection('sections').doc(secIdd).get().then((s) => {
+        //         quizArrayFromDb = s.data().quiz;
+        //         if (quizArrayFromDb.length > 0) {
+        //             updateQuiz(quizArrayFromDb);
+        //         }
 
-            })
-        })
+        //     })
+        // })
 
-        $('#captionAdd').on('click', () => {
-            var secid = $('#sectionsIdsss').val();
-            var topicid = $('#topicsIdsss').val();
+        // $('#captionAdd').on('click', () => {
+        //     var secid = $('#sectionsIdsss').val();
+        //     var topicid = $('#topicsIdsss').val();
 
-            if (secid != 'default' && topicid != 'default') {
-                var minArray = getValuesByClassName('captionMinute', 'array');
-                var secArray = getValuesByClassName('captionSecond', 'array');
-                var captArray = getValuesByClassName('captionCaption', 'array');
+        //     if (secid != 'default' && topicid != 'default') {
+        //         var minArray = getValuesByClassName('captionMinute', 'array');
+        //         var secArray = getValuesByClassName('captionSecond', 'array');
+        //         var captArray = getValuesByClassName('captionCaption', 'array');
 
-                var mainArray = [];
-                var flag = 0;
+        //         var mainArray = [];
+        //         var flag = 0;
 
-                for (var i = 0; i < minArray.length; i++) {
-                    var tempArray = {};
-                    var minute = '', second = '', caption = '';
+        //         for (var i = 0; i < minArray.length; i++) {
+        //             var tempArray = {};
+        //             var minute = '', second = '', caption = '';
 
-                    if (minArray[i].length == 0 || secArray[i].length == 0 || captArray[i].length == 0) {
-                        flag = 1;
-                        break;
-                    }
+        //             if (minArray[i].length == 0 || secArray[i].length == 0 || captArray[i].length == 0) {
+        //                 flag = 1;
+        //                 break;
+        //             }
 
-                    if (minArray[i].length == 1) {
-                        minute = '0' + String(minArray[i]);
-                    } else {
-                        minute = String(minArray[i]);
-                    }
-                    if (secArray[i].length == 1) {
-                        second = '0' + String(secArray[i]);
-                    } else {
-                        second = String(secArray[i]);
-                    }
+        //             if (minArray[i].length == 1) {
+        //                 minute = '0' + String(minArray[i]);
+        //             } else {
+        //                 minute = String(minArray[i]);
+        //             }
+        //             if (secArray[i].length == 1) {
+        //                 second = '0' + String(secArray[i]);
+        //             } else {
+        //                 second = String(secArray[i]);
+        //             }
 
-                    tempArray['timing'] = minute + ':' + second;
-                    tempArray['caption'] = captArray[i];
+        //             tempArray['timing'] = minute + ':' + second;
+        //             tempArray['caption'] = captArray[i];
 
-                    mainArray.push(tempArray);
-                }
+        //             mainArray.push(tempArray);
+        //         }
 
-                if (flag == 0) {
-                    if (existingProgress == 40) {
-                        existingProgress = 50;
-                    }
-                    data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
-                        captions: mainArray
-                    }).then(() => {
-                        data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                            lastUpdated: parseInt(new Date().getTime()),
-                            progess: existingProgress
-                        }).then(() => {
-                            showToast('Captions updated !!!');
-                            location.replace('');
-                        })
-                    })
-                } else {
-                    showToast('Some fields are empty !!!');
-                }
-            } else {
-                showToast('Select Section or Topic !!!');
-            }
-        })
+        //         if (flag == 0) {
+        //             if (existingProgress == 40) {
+        //                 existingProgress = 50;
+        //             }
+        //             data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
+        //                 captions: mainArray
+        //             }).then(() => {
+        //                 data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
+        //                     lastUpdated: parseInt(new Date().getTime()),
+        //                     progess: existingProgress
+        //                 }).then(() => {
+        //                     showToast('Captions updated !!!');
+        //                     location.replace('');
+        //                 })
+        //             })
+        //         } else {
+        //             showToast('Some fields are empty !!!');
+        //         }
+        //     } else {
+        //         showToast('Select Section or Topic !!!');
+        //     }
+        // })
+        // $('#openfileformaterial').on('change', () => {
+        //     var secid = $('#sectionsIdsss').val();
+        //     var topicid = $('#topicsIdsss').val();
+        //     var fileName = document.getElementById('openfileformaterial').files[0].name;
 
-        $('#openfileformaterial').on('change', () => {
-            var secid = $('#sectionsIdsss').val();
-            var topicid = $('#topicsIdsss').val();
-            var fileName = document.getElementById('openfileformaterial').files[0].name;
+        //     if (secid != 'default' && topicid != 'default') {
+        //         loaderTriggerAndEnder(true);
+        //         var uploadName = ids[0].substring(0, 5) + '-' + ids[1].substring(0, 5) + '-' + fileName;
+        //         var fd = new FormData(document.querySelector('#topicAddMaterials'));
+        //         fd.append('uploadName', uploadName);
 
-            if (secid != 'default' && topicid != 'default') {
-                loaderTriggerAndEnder(true);
-                var uploadName = ids[0].substring(0, 5) + '-' + ids[1].substring(0, 5) + '-' + fileName;
-                var fd = new FormData(document.querySelector('#topicAddMaterials'));
-                fd.append('uploadName', uploadName);
+        //         $.ajax({
+        //             url: 'materialsUpload.php',
+        //             type: 'post',
+        //             data: fd,
+        //             processData: false,
+        //             contentType: false,
+        //             error: function () {
+        //                 alert("Upload Failed, Try Again !!!");
+        //             },
+        //             success: function (vall) {
+        //                 data.collection('sections').doc(secid).collection('topics').doc(topicid).get().then((b1) => {
+        //                     var temp = b1.data().materials;
 
-                $.ajax({
-                    url: 'materialsUpload.php',
-                    type: 'post',
-                    data: fd,
-                    processData: false,
-                    contentType: false,
-                    error: function () {
-                        alert("Upload Failed, Try Again !!!");
-                    },
-                    success: function (vall) {
-                        data.collection('sections').doc(secid).collection('topics').doc(topicid).get().then((b1) => {
-                            var temp = b1.data().materials;
+        //                     var tempObj = {
+        //                         fileName: fileName,
+        //                         materialURL: uploadName,
+        //                         uploadedTime: parseInt(new Date().getTime())
+        //                     };
 
-                            var tempObj = {
-                                fileName: fileName,
-                                materialURL: uploadName,
-                                uploadedTime: parseInt(new Date().getTime())
-                            };
+        //                     temp.push(tempObj);
 
-                            temp.push(tempObj);
-
-                            data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
-                                materials: temp
-                            }).then(() => {
-                                if (existingProgress == 50) {
-                                    existingProgress = 60;
-                                }
-                                data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                                    lastUpdated: parseInt(new Date().getTime()),
-                                    progess: existingProgress
-                                }).then(() => {
-                                    loaderTriggerAndEnder(false);
-                                    showToast('Material Uploaded !!!');
-                                })
-                            })
-                        })
-                    }
-                });
-            } else {
-                showToast('Select Section or Topic !!!');
-            }
-        });
+        //                     data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
+        //                         materials: temp
+        //                     }).then(() => {
+        //                         if (existingProgress == 50) {
+        //                             existingProgress = 60;
+        //                         }
+        //                         data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
+        //                             lastUpdated: parseInt(new Date().getTime()),
+        //                             progess: existingProgress
+        //                         }).then(() => {
+        //                             loaderTriggerAndEnder(false);
+        //                             showToast('Material Uploaded !!!');
+        //                         })
+        //                     })
+        //                 })
+        //             }
+        //         });
+        //     } else {
+        //         showToast('Select Section or Topic !!!');
+        //     }
+        // });
 
         $('#quizAdding').on('click', () => {
             var secid = $('#sectionsIdsss').val();
@@ -4234,154 +4232,157 @@
             }
         }
         var faqs = [];
-        $('#topicsIdsss').on('change', () => {
-            var sid = $('#sectionsIdsss').val();
-            var tid = $('#topicsIdsss').val();
+        // $('#topicsIdsss').on('change', () => {
+        //     var sid = $('#sectionsIdsss').val();
+        //     var tid = $('#topicsIdsss').val();
 
-            if (tid != 'default') {
-                data.collection('sections').doc(sid).collection('topics').doc(tid).get().then((b57) => {
-                    var captions = b57.data().captions;
-                    materials557 = b57.data().materials;
-                    faqs = b57.data().qa;
-                    var captionString = ``, materialsString = ``, faqString = ``, i = 1, j = 1, k = 1;
+        //     if (tid != 'default') {
+        //         data.collection('sections').doc(sid).collection('topics').doc(tid).get().then((b57) => {
+        //             var captions = b57.data().captions;
+        //             materials557 = b57.data().materials;
+        //             faqs = b57.data().qa;
+        //             var captionString = ``, materialsString = ``, faqString = ``, i = 1, j = 1, k = 1;
 
-                    captions.forEach((b5) => {
-                        var min = parseInt(b5.timing.split(':')[0]);
-                        var sec = parseInt(b5.timing.split(':')[1]);
+        //             captions.forEach((b5) => {
+        //                 var min = parseInt(b5.timing.split(':')[0]);
+        //                 var sec = parseInt(b5.timing.split(':')[1]);
 
-                        captionString += `<tr>
-                                          <th scope="row" class="tbl_id">`+ i + `</th>
-                                          <td>
+        //                 captionString += `<tr>
+        //                                   <th scope="row" class="tbl_id">`+ i + `</th>
+        //                                   <td>
                                               
-                                        <div class="forminmax">
-                                            <input type="number" min="0" max="14" class="form-control typeclass1 mincol captionMinute" placeholder="Min" value="`+ min + `">
-                                            <input type="number" min="0" max="59"  class="form-control typeclass1 maxcol captionSecond" placeholder="Sec" value="`+ sec + `">
-                                        </div>
-                                          </td>
-                                          <td>
-                                            <div class="form-group focused destest">
-                                            <textarea rows="2.5" class="form-control form-control-alternative captionCaption" placeholder="Type caption here..." style="border:none; resize: none;">`+ b5.caption + `</textarea>
-                                            </div>
-                                          </td>
+        //                                 <div class="forminmax">
+        //                                     <input type="number" min="0" max="14" class="form-control typeclass1 mincol captionMinute" placeholder="Min" value="`+ min + `">
+        //                                     <input type="number" min="0" max="59"  class="form-control typeclass1 maxcol captionSecond" placeholder="Sec" value="`+ sec + `">
+        //                                 </div>
+        //                                   </td>
+        //                                   <td>
+        //                                     <div class="form-group focused destest">
+        //                                     <textarea rows="2.5" class="form-control form-control-alternative captionCaption" placeholder="Type caption here..." style="border:none; resize: none;">`+ b5.caption + `</textarea>
+        //                                     </div>
+        //                                   </td>
 
-                                          <td>
+        //                                   <td>
 
-                                            <i class="fas fa-trash" onclick="ob_adRows.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
-                                          </td>
-                                        </tr>`;
-                        i++;
-                    })
-                    $('#captionBody').html(captionString);
+        //                                     <i class="fas fa-trash" onclick="ob_adRows.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+        //                                   </td>
+        //                                 </tr>`;
+        //                 i++;
+        //             })
+        //             $('#captionBody').html(captionString);
 
-                    materials557.forEach((b11) => {
-                        materialsString += `<tr>
-                                          <th scope="row" style="text-align: center;">`+ j + `</th>
-                                          <td style="text-align: center;">`+ b11.fileName + `</td>
-                                          <td style="text-align: center;">`+ new Date(b11.uploadedTime) + `</td>
-                                          <td style="text-align: center;">
-                                              <i class="fas fa-trash" data-del="`+ b11.fileName + `?***?` + b11.materialURL + `" onclick="deleteTopicMaterial(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
-                                          </td>
-                                        </tr>`;
-                        j++;
-                    })
-                    $('#materialsBody').html(materialsString);
+        //             materials557.forEach((b11) => {
+        //                 materialsString += `<tr>
+        //                                   <th scope="row" style="text-align: center;">`+ j + `</th>
+        //                                   <td style="text-align: center;">`+ b11.fileName + `</td>
+        //                                   <td style="text-align: center;">`+ new Date(b11.uploadedTime) + `</td>
+        //                                   <td style="text-align: center;">
+        //                                       <i class="fas fa-trash" data-del="`+ b11.fileName + `?***?` + b11.materialURL + `" onclick="deleteTopicMaterial(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+        //                                   </td>
+        //                                 </tr>`;
+        //                 j++;
+        //             })
+        //             $('#materialsBody').html(materialsString);
 
-                    if (faqs) {
-                        faqs.forEach((faqqqqqq) => {
-                            faqString += `<tr>
-                                          <th scope="row" style="text-align:center;" class="tbl_id">${k++}</th>
+        //             // if (faqs) {
+        //             //     faqs.forEach((faqqqqqq) => {
+        //             //         faqString += `<tr>
+        //             //                       <th scope="row" style="text-align:center;" class="tbl_id">${k++}</th>
 
-                                          <td>
-                                            <div class="form-group focused destest">
-                                            <textarea rows="2.5" class="form-control form-control-alternative faqQuestion5" placeholder="Questions..." style="border:none; resize: none;">${faqqqqqq.ques}</textarea>
-                                            </div>
-                                          </td>
+        //             //                       <td>
+        //             //                         <div class="form-group focused destest">
+        //             //                         <textarea rows="2.5" class="form-control form-control-alternative faqQuestion5" placeholder="Questions..." style="border:none; resize: none;">${faqqqqqq.ques}</textarea>
+        //             //                         </div>
+        //             //                       </td>
 
-                                          <td>
-                                              <div class="form-group focused destest">
-                                            <textarea rows="2.5" class="form-control form-control-alternative faqAnswer5" placeholder="Answers..." style="border:none; resize: none;">${faqqqqqq.ans}</textarea>
-                                            </div>                                              
-                                          </td>
-                                        </tr>`;
-                            // <td style="text-align:center;">
-                            //     <i class="fas fa-trash" onclick="ob_adRows3.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
-                            //   </td>
-                        })
-                        $('#faqaddhere').html(faqString);
-                    } else {
-                        $('#faqaddhere').html('');
-                    }
-                })
-            } else {
-                $('#captionBody').html('');
-                $('#materialsBody').html('');
-                $('#faqaddhere').html('');
-            }
-        })
+        //             //                       <td>
+        //             //                           <div class="form-group focused destest">
+        //             //                         <textarea rows="2.5" class="form-control form-control-alternative faqAnswer5" placeholder="Answers..." style="border:none; resize: none;">${faqqqqqq.ans}</textarea>
+        //             //                         </div>                                              
+        //             //                       </td>
+        //             //                     </tr>`;
+        //             //         // <td style="text-align:center;">
+        //             //         //     <i class="fas fa-trash" onclick="ob_adRows3.delRow(this)" style="cursor: pointer; text-align: center; width: 100%;"></i>
+        //             //         //   </td>
+        //             //     })
+        //             //     $('#faqaddhere').html(faqString);
+        //             // } else {
+        //             //     $('#faqaddhere').html('');
+        //             // }
+        //         })
+        //     } else {
+        //         $('#captionBody').html('');
+        //         $('#materialsBody').html('');
+        //         $('#faqaddhere').html('');
+        //     }
+        // })
 
-        $('#faqAddToDB').on('click', () => {
-            if (faqs) {
-                var secid = $('#sectionsIdsss').val();
-                var topicid = $('#topicsIdsss').val();
-                var faq1 = getValuesByClassName('faqQuestion5', 'array');
-                var faq2 = getValuesByClassName('faqAnswer5', 'array');
+        // $('#faqAddToDB').on('click', () => {
+        //     if (faqs) {
+        //         var secid = $('#sectionsIdsss').val();
+        //         var topicid = $('#topicsIdsss').val();
+        //         var faq1 = getValuesByClassName('faqQuestion5', 'array');
+        //         var faq2 = getValuesByClassName('faqAnswer5', 'array');
 
-                for (let i = 0; i < faqs.length; i++) {
-                    for (let j = 0; j < faq1.length; j++) {
-                        if (faqs[i].ques == faq1[j]) {
-                            faqs[i].ans = faq2[j];
-                        }
-                    }
-                }
-                data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
-                    qa: faqs
-                }).then(() => {
-                    data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                        lastUpdated: parseInt(new Date().getTime())
-                    }).then(() => {
-                        showToast('FAQ updated !!!');
-                        location.replace('');
-                    })
-                })
-            }
-        })
+        //         for (let i = 0; i < faqs.length; i++) {
+        //             for (let j = 0; j < faq1.length; j++) {
+        //                 if (faqs[i].ques == faq1[j]) {
+        //                     faqs[i].ans = faq2[j];
+        //                 }
+        //             }
+        //         }
+        //         data.collection('sections').doc(secid).collection('topics').doc(topicid).update({
+        //             qa: faqs
+        //         }).then(() => {
+        //             data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
+        //                 lastUpdated: parseInt(new Date().getTime())
+        //             }).then(() => {
+        //                 showToast('FAQ updated !!!');
+        //                 location.replace('');
+        //             })
+        //         })
+        //     }
+        // })
 
-        function deleteTopicMaterial(materialRow) {
-            var sid = $('#sectionsIdsss').val();
-            var tid = $('#topicsIdsss').val();
+        // function deleteTopicMaterial(materialRow) {
+        //     var sid = $('#sectionsIdsss').val();
+        //     var tid = $('#topicsIdsss').val();
 
-            if (confirm('Do you want to delete this material ?')) {
-                loaderTriggerAndEnder(true);
-                var ival = materialRow.getAttribute('data-del').split('?***?');
-                var updateArray = [];
+        //     if (confirm('Do you want to delete this material ?')) {
+        //         loaderTriggerAndEnder(true);
+        //         var ival = materialRow.getAttribute('data-del').split('?***?');
+        //         var updateArray = [];
 
-                materials557.forEach((arrayElement) => {
-                    if (arrayElement.fileName != ival[0] && arrayElement.materialURL != ival[1]) {
-                        updateArray.push(arrayElement);
-                    }
-                })
+        //         materials557.forEach((arrayElement) => {
+        //             if (arrayElement.fileName != ival[0] && arrayElement.materialURL != ival[1]) {
+        //                 updateArray.push(arrayElement);
+        //             }
+        //         })
 
-                data.collection('sections').doc(sid).collection('topics').doc(tid).update({
-                    materials: updateArray
-                }).then(() => {
-                    data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
-                        lastUpdated: parseInt(new Date().getTime())
-                    }).then(() => {
-                        $.ajax({
-                            url: 's3Delete.php',
-                            type: 'post',
-                            data: {
-                                fileNames: ival[1]
-                            },
-                            success: function (val) {
-                                loaderTriggerAndEnder(false);
-                                showToast('Material Deleted !!!');
-                            }
-                        });
-                    })
-                })
-            }
-        }
+        //         data.collection('sections').doc(sid).collection('topics').doc(tid).update({
+        //             materials: updateArray
+        //         }).then(() => {
+        //             data.collection('subCategories').doc(ids[0]).collection('courses').doc(ids[1]).update({
+        //                 lastUpdated: parseInt(new Date().getTime())
+        //             }).then(() => {
+        //                 $.ajax({
+        //                     url: 's3Delete.php',
+        //                     type: 'post',
+        //                     data: {
+        //                         fileNames: ival[1]
+        //                     },
+        //                     success: function (val) {
+        //                         loaderTriggerAndEnder(false);
+        //                         showToast('Material Deleted !!!');
+        //                     }
+        //                 });
+        //             })
+        //         })
+        //     }
+        // }
+      
+      
+      
         function updateQuiz(arrayOfQuiz) {
             var setQs = document.querySelectorAll('.QuizQuestion');
             var setAs = document.querySelectorAll('.chooseAnswer');
@@ -4463,6 +4464,7 @@
             }
             loadingOfQuizSave.style.display = "none";
         }
+
         function boolToStr(bool) {
             if (bool) {
                 return 'true';
@@ -4490,6 +4492,8 @@
                 })
             }
         }
+
+
         function deleteCourse() {
             if (confirm('Do you want to delete this course ?')) {
                 loaderTriggerAndEnder(true);

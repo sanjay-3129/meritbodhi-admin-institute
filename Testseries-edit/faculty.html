@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    
+    <!-- OLD -->
+    
+    <!-- OLD -->
+    
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendors/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="course-edit.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../assets/vendors/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://kit.fontawesome.com/28d953b416.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://meritbodhi.co.in/js/connect.js"></script>
+    <link rel="stylesheet" type="text/css" href="fac.css">
+    <title>INSTITUTE DASHBOARD</title>
+
+
+    <style>
+        
+        .containerrr {
+  position: relative;
+  width: 100%;
+}
+
+.imgfac {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middlee {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerrr:hover .imgfac {
+  opacity: 0.8;
+}
+
+.containerrr:hover .middle {
+  opacity: 1.5;
+}
+.textt {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html" style="font-size: 23px;">MeritBodhi</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span >5</span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Kishore</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Bharath </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sudhersun</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Sandy</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">Black</h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-white">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                                    
+                            <li class="nav-item">
+                                <a class="nav-link " href="#" ><i class="fas fa-user"></i>Profile</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"><i class="fas fa-book"></i>Course</a>
+                                
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#"><i class="fas fa-chalkboard-teacher"></i>Faculty</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ><i class="fas fa-fw fa-bell"></i>Notifications</a>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#" ><i class="fas fa-archive"></i>Archieve</a>
+                            
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#" ><i class="fas fa-star"></i>Reviews</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ><i class="fas fa-credit-card"></i>Payments</a>   
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ><i class="fas fa-hands-helping"></i>My Referal</a>
+                                
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ><i class="fas fa-lock"></i>Password</a>
+                                 </li>
+                                </ul>
+                                </div>
+                                </nav>
+                                </div>
+                                </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                
+                 <div class="rt">
+                <p style="font-size: 25px; font-weight: bold;">Faculty List</p>
+                <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Existing Faculty</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu1">Draft Faculties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Faculty Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu3">Requested List</a>
+                </li>
+               </ul>
+   <!-- Tab panes -->
+   <div class="tab-content">
+
+<!-- home -->
+    <div class="tab-pane container active" id="home">
+     <br><br>
+     <button type="button" onclick="Adding()" id="but1" class="btn btn-sm btn-primary" style="margin-left: 3.1rem;">Add New</button>
+     
+     <!-- form -->
+
+     <div class="addnew-form" id="facnewform" style="display:none;">
+                    
+                    
+      <form  method="POST">
+        <div class="mini-wrapper1">
+            
+                            <div class="containerrr">
+                                <img class="imgfac" id="proprev" src="spider.jpeg">
+
+                                <div class="middlee">
+                                    <div class="textt">
+                                        hello
+                                    </div>
+                                </div>
+                               <!--  <button type="button" class="btn btn-sm btn-primary"onclick="imguppp()" style="margin-top:1.5rem;margin-left: 35rem; width: 20%;">Upload</button>
+                                <input id="facultyImg" type="file" name="facultyImg" accept=".jpg,.jpeg,.png" style="display:none;"> -->
+                            </div>
+                        </div>
+                <h3>Enter Faculty Details</h3>
+        <div class="user-details d-flex" style="justify-content: space-between;">
+                  
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Enter Faculty Name</label>
+                      <input type="text" id="input-fname" class="form-control form-control-alternative" name="Facname" placeholder="Faculty Name" >
+                      </div>
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Enter Mobile No</label>
+                      <input type="text" id="input-numb" class="form-control form-control-alternative" name="usernme" placeholder="Mobile Number" >
+                     </div>
+                     
+                     
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Enter Mail address</label>
+                      <input type="text" id="input-email" class="form-control form-control-alternative" name="mailadd" placeholder="mailid@gmail.com" >
+                     </div>
+                   </div>
+                <div class="user-details">             
+                   <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Enter the description about faculty</label>
+                      <textarea id="input-descrip" class="form-control form-control-alternative" name="facdescrip" placeholder="Enter the description" ></textarea>
+                     </div>
+                 <br>
+                     <hr>
+                     <h3>Enter Faculty Experience</h3>
+
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Enter Designation</label>
+                      <textarea id="input-desig" class="form-control form-control-alternative" name="facdesig" placeholder="" ></textarea>
+                     </div>
+       
+                     <div class="form-group focused">
+                      <label class="form-control-label" for="input-email">Years of Experience</label>
+                      <input type="text" id="input-yearexp" class="form-control form-control-alternative" name="yearexp" placeholder="Year of " >
+                      
+                     </div>
+                    
+                    </div>
+                    <div class="mini-wrapper2" id="FacExYoQl">
+                                    <label >Qualification</label>
+                                    <input type="text"  class="form-control form-control-alternative" name="yearexp" placeholder="Qualification " >  
+                                </div>
+                            
+                        
+                        <div style="display: none;">
+                        <input type="text"  class="form-control form-control-alternative"  >
+                        <input type="text"  class="form-control form-control-alternative" >
+                    </div>
+                        
+                        <div class="mini-wrapper3 style2 sr">
+                            <button type="button" class="btn btn-sm btn-primary" onclick="myalert()">Save</button>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-sm btn-primary"style="background-color: #dc3545;">Cancel</button>
+                            <button type="submit" style="display:none;" name="facCreate" id="facCreate">submit</button>
+                        </div>
+                     
+                     
+</form>
+</div>
+
+
+
+<br><br>
+     <!--table-->
+     <div class="tab1">
+    <!--tab1content-->
+
+<div class="table-responsive" id="pager">
+  <table class="table">
+    <thead>
+      <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Profile</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Default Password</th>
+      <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+    var addnewexp = document.querySelector('.addnew-exp');
+    addnewexp.addEventListener('click',function(){
+        var temp3 = document.createElement('input');
+        temp3.setAttribute('name','FacExDest[]');
+        temp3.setAttribute('type','text');
+        var temp4 = document.createElement('input');
+        temp4.setAttribute('name','FacExYoEx[]');
+        temp4.setAttribute('type','text');
+        document.getElementById('FacExDest').appendChild(temp3);
+        document.getElementById('FacExYoEx').appendChild(temp4);
+    });
+     document.querySelector('.addnew-exp2').addEventListener('click',function(){
+        var temp3 = document.createElement('input');
+        temp3.setAttribute('name','FacExDest1[]');
+        temp3.setAttribute('type','text');
+        var temp4 = document.createElement('input');
+        temp4.setAttribute('name','FacExYoEx1[]');
+        temp4.setAttribute('type','text');
+        document.getElementById('FacExDest1').appendChild(temp3);
+        document.getElementById('FacExYoEx1').appendChild(temp4);
+    });
+    function submitFac(){
+        document.getElementById('facCreate').click();
+    }
+    function imguppp(){
+        document.getElementById('facultyImg').click();
+    }
+    function imguppp1(){
+        document.getElementById('facultyImg1').click();
+    }
+    document.getElementById('facultyImg').addEventListener("change", function(){
+       if(event.target.files.length==0){
+            return;
+        }
+        var iurl=URL.createObjectURL(event.target.files[0]);
+        document.getElementById('proprev').setAttribute("src",iurl); 
+    });
+    document.getElementById('facultyImg1').addEventListener("change", function(){
+       if(event.target.files.length==0){
+            return;
+        }
+        var iurl=URL.createObjectURL(event.target.files[0]);
+        document.getElementById('propre').setAttribute("src",iurl); 
+    });
+    function draftfactalert(){
+        if(confirm("Do you want to save ? ")){
+            document.getElementById('facCreate11').click();
+        }
+    }
+
+    $("#searchfaccccc").on("keyup", function(){
+        var schval=$("#searchfaccccc").val();
+        var iuname="<?php echo $_SESSION['Username']; ?>";
+        if(schval==''){
+            $("#adddfacuuuultiessss tr").remove();
+        }else{
+            $.ajax({
+                url: 'search-faculties.php',
+                type: 'post',
+                data: {
+                    schkw: schval,
+                    insuname: iuname 
+                },
+                success: function(htttml){
+                    $("#adddfacuuuultiessss").html(htttml);
+                }
+            });
+        }
+    });
+
+   
+</script>
+ <script type="text/javascript">
+    function Adding(){
+        document.getElementById('but1').style.display="none";
+        document.getElementById('pager').style.display="none";
+        document.getElementById('facnewform').style.display="block";
+    }
+</script>
+ </div>
+</div>
+
+<!-- home -->
+
+
+
+<!-- menu1 -->
+<div class="tab-pane container" id="menu1">
+<br>
+<div class="table-responsive">     
+<table class="table" style="margin-top: 10px;" id="draftfac">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+        <th scope="row">1</th>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td><button type="button" class="btn btn-sm btn-primary comp1">Complete</button></td>
+        
+      </tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+
+         
+
+
+<!-- menu1 -->
+
+<!-- menu2 -->
+    <div class="tab-pane container" id="menu2">
+     <br><br>
+     <!--menu2cont -->
+     <div  >
+             <form class="d-flex">
+             <div style="width:=30%"><input type="text" placeholder="Search.." class="form-control"  id="searchfaccccc"></div>
+             &nbsp;&nbsp;&nbsp;
+             <div style="margin-top: 5px;"><i class="fa fa-search newsearch" style="cursor: pointer;"></i></div>
+             </form>
+         </div>
+         <br><br>
+        <div class="table-responsive">  
+         <table class="table" id="othertable">
+        <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Profile</th>
+          <th scope="col">Name</th>
+          <th scope="col">Qualification</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+        </tr>
+          </thead>
+          <tbody>
+            <tr>
+        <th scope="row">1</th>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td>Cell</td>
+        <td><button type="button" class="btn btn-sm btn-primary comp1">Request</button></td>
+        
+      </tr>
+            
+          </tbody>
+          </table> 
+          </div>
+
+
+
+ </div>
+
+
+
+<!-- menu2 --END -->
+
+<!-- menu 3 -->
+<div class="tab-pane container" id="menu3">
+<br>
+<div class="table-responsive">    
+<table class="table" id="reqfactable">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody id="getreww">
+     <tr>
+        <th scope="row">1</th>
+        <td>Cell</td>
+        <td>Cell</td>
+       <td><button type="button" class="btn btn-sm btn-primary comp1">Request</button></td>
+        
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+</div>
+<!-- menu-3 -->
+    </div>
+
+   </div>
+            </div>
+</section>
+<!-- Modal -->
+ 
+    </div>
+  </div>
+</div>
+
+               
+                    <div>
+
+                        
+                    </div>
+
+
+
+
+                </div>
+                
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="../assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- main js -->
+    <script src="../assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="../assets/vendors/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../assets/vendors/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <!-- chart c3 js -->
+</body>
+ 
+</html>
