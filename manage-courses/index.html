@@ -1876,10 +1876,12 @@
             console.log("C0urse Blocked");
             var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
             var msg = document.getElementById("rejectTAmsg").value
-            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
-                rejectMessage: msg,
-                status: 'Blocked'
-            })
+            // data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
+            //     rejectMessage: msg,
+            //     status: 'Blocked'
+            // })
+            console.log("msg");
+
         }
     </script>
     <script src="../assets/vendors/jquery/jquery-3.3.1.min.js"></script>

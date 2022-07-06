@@ -54,20 +54,21 @@
 	background-color:white;
 	overflow-x: hidden;
 	transition: 0.5s;
-	padding-top: 60px;
+	padding-top: 80px;
 	margin-top: 40px;
 	font-size: 20px;
 	
   }
   
   .sidebar a {
-	padding: 20px 8px 8px 32px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	text-decoration: none;
 	font-size: 16px;
 	color: #808080;
 	display: block;
 	transition: 0.3s;
-	margin-left: 26px;
+	margin-left: 40px;
   }
   
   .sidebar a:hover {
@@ -76,8 +77,8 @@
   
   .sidebar .closebtn  {
 	position: absolute;
-	top: 0;
-	right: 25px;
+	top: -5px;
+	right: 15px;
 	font-size: 36px;
 	margin-left: 50px;
   }
@@ -194,13 +195,16 @@
 	transition: margin-left .5s;
 	padding: 16px;
   }
-  .closebtn:hover {
+  /* .closebtn:hover {
 	  background-color: whitesmoke;
-  }
+  } */
   .closebtn {
 	  margin-top: 24px;
 	  
   }
+  .nav-item:hover {
+	background-color: #f2f2f2;
+  } 
   .table-responsive {
     overflow-y: auto;
   height: 400px;
