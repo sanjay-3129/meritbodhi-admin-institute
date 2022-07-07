@@ -634,7 +634,7 @@
                 
                 <div class="dashboard-ecommerce">
 
-                    <div id="newdd">
+                    <div id="newdd" style="display:none ;">
                         <div class="d-flex addbottom" style="position: relative;">
 
                             <select class="btn btn-sm btn-grey selectbtn" id="types-switcher" onchange="typeSorter(this)">
@@ -1080,19 +1080,13 @@ Course Mode
                         data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
                             var ddd = data.data();
                             document.getElementById('loaderr-3').style.display = "none";
-                            if (ddd.status == 'Not Published' || ddd.status == 'Not Verified' ) {
+                            if (ddd.status == 'Blocked' || ddd.status == 'Rejected') {
                                 courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px; margin-left: 20px" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
+                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div> <div  style = "overflow: auto; background-color : #fccccc; border: 1px solid red; border-radius:2px; color: #000; margin : auto; padding :5px;"><p  style = " margin : auto;"class="card-text">' + ddd?.rejectMessage+'</p></div></div></div></div>';
 
                                 $('#coursecardall').append(courseCards);
                             }
-                            else if (ddd.status == 'Verified') {
-                                courseCards = '<div class="col-md-3"><div style="width: 20%; margin-top: 20px;" class="card nallaClass" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                    ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div></div>';
-
-
-                                $('#coursecardall').append(courseCards);
-                            }
+                         
                         }).catch((e) => {
                             showToast(e.message);
                         })

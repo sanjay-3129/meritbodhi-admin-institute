@@ -1029,7 +1029,7 @@
                         <!-- <button class="btn btn-sm btn-primary" style="background-color:red" id="blockBtnOfCourse"
                             onclick="blockCourse()">Block</button> -->
                         <!-- <button class="btn btn-sm btn-primary"  style="background-color:red" id="blockBtnOfCourse">Block</button> -->
-                        <button type="button" onclick="blockCourse()" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal" style="background-color:red" data-target="#myModal">Block</button>
+                        <button type="button" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal" style="background-color:red" data-target="#myModal">Block</button>
                     </div>
                     <div class="container">
                
@@ -1045,14 +1045,15 @@
                             position: absolute;">
                               <div class="modal-header">
                                 
-                                <h4 class="modal-title text-left">Modal Header</h4>
+                                <h4 class="modal-title text-left">Block Course</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
                               <div class="modal-body">
-                                <label for="rejectTAmsg" style="text-align: left;
+                                <label for="blockTAmsg" style="text-align: left;
                                 width: 100%;">Reasaon:</label><br>
-                                <textarea style="width:100% ; height:6rem" id="rejectTAmsg"></textarea><br>
+                                <textarea style="width:100% ; height:6rem" id="blockTAmsg"></textarea><br>
                                 <button class="btn btn-sm btn-primary"
+                                onclick="blockCourse()"
                                     style="background-color:red ; margin-left:80px; margin-top: 20px;"
                                     >Block</button>
                                     <button type="button" class="btn btn-sm btn-primary modifybtn1" data-dismiss="modal">Cancel</button>
@@ -1554,11 +1555,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Enter your complaintsabout this course...</p>
+                    <p>Enter your complaints about this course...</p>
                     <textarea style="width:100% ; height:6rem" id="rejectTAmsg"></textarea><br>
                     <button class="btn btn-sm btn-primary"
                         style="background-color:red ; margin-left:200px; margin-top: 20px;"
-                        onclick="rejectCourse()">Confirm Reject</button>
+                        onclick="rejectCourse()">Reject</button>
                 </div>
 
             </div>
@@ -1844,11 +1845,23 @@
             }
         }
         function rejectCourse() {
+            var newCrs = [];
             var msg = document.getElementById('rejectTAmsg').value;
             var id = document.getElementById('rejectBtnOfCourse').getAttribute('data-id');
             data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
                 rejectMessage: msg,
                 status: 'Rejected'
+            }).then(()=>{
+                exisCrs.forEach((course) => {
+                    if (id != course) {
+                        newCrs.push(course);
+                    }
+                })
+                data.collection('admin').doc(uid).update({
+                    newCourses: newCrs
+                }).then(() => {
+                    location.replace('');
+                })
             })
 
         }
@@ -1874,12 +1887,13 @@
         }
         function blockCourse() {
             var id = document.getElementById('blockBtnOfCourse').getAttribute('data-id');
-            var msg = document.getElementById("rejectTAmsg").value
-            // data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
-            //     rejectMessage: msg,
-            //     status: 'Blocked'
-            // })
-            console.log("msg");
+            var msg = document.getElementById("blockTAmsg").value;
+            data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
+                rejectMessage: msg,
+                status: 'Blocked'
+            }).then(()=>{
+                location.replace('');
+            })
 
         }
     </script>
