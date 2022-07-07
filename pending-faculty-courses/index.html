@@ -261,9 +261,6 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="../faculty-courses"><i
                                         class="fas fa-book"></i>Courses</a>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="../pending-faculty-courses"><i
-                                        class="fas fa-book"></i>Pending Courses</a>
 
                             <li class="nav-item ">
                                 <a class="nav-link" href="../faculty-requests"><i
@@ -780,14 +777,9 @@
                     data.collection('subCategories').doc(cidsSplit[0]).collection('courses').doc(cidsSplit[1]).get().then((data) => {
                         var ddd = data.data();
                         document.getElementById('loaderr-3').style.display = "none";
-                        if (ddd.status === 'Not Published' || ddd.status === 'Not Verified') {
+                        if (ddd.status == 'Blocked' || ddd.status == 'Rejected') {
                             courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
-
-                            $('#coursecardall').append(courseCards);
-                        } else if (ddd.status === 'Published' || ddd.status === 'Verified') {
-                            courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:green; display: none;">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div></div></div>';
+                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div><div  style = "overflow: auto; background-color : #fccccc; border: 1px solid red; border-radius:2px; color: #000; margin : auto; padding :5px;"><p  style = " margin : auto;"class="card-text">' + ddd?.rejectMessage+'</p></div></div></div>';
 
                             $('#coursecardall').append(courseCards);
                         }

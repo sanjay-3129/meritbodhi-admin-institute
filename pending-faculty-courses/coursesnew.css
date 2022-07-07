@@ -1,0 +1,349 @@
+.cardstyle{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 2rem;
+        margin: 1rem;
+        padding: 1rem;
+}
+.card{
+  cursor: pointer;
+  min-width: 230px;
+  margin-top: -10px;
+}
+
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+ @media only screen and (max-width: 1100px){
+  .cardstyle{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media only screen and (max-width: 900px){
+  .cardstyle{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media only screen and (max-width: 786px){
+  .cardstyle{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+@media only screen and (max-width: 400px){
+  .card{
+    width: 100%;
+  }
+}
+
+.ci{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+  
+
+.card1{
+    background-color: #fff;
+    height: auto;
+    padding: 1rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+
+.thmimg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 30px;
+    object-fit: cover;
+}
+.form-control:hover{
+    color: #5e72e4;
+}
+.form-control-alternative:hover{
+    color: #5e72e4;
+}
+
+.nav-user-img:hover{
+    color: #5e72e4;
+}
+
+.cont {
+    position: relative;
+    width: 100%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .cont:hover .image {
+    opacity: 0.6;
+  }
+  
+  .cont:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    border:none;
+    font-size: 28px;
+    color: #fff;
+  }
+  .cardfirst{
+    display: flex; margin-left: 30px;
+  }
+  .title{
+    display: flex; justify-content: space-between;
+  }
+  .tit{
+    margin-left: -330px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .box{
+    margin-top: 80px; margin-left: 160px; 
+  }
+  .coursei{
+    margin-top: 30px; margin-left: 30px;
+    width: 50%;
+  }
+  
+  .facu{
+    margin-left: 13.5rem; margin-top: -50px; display: flex;
+  }
+  .langu{
+    margin-left: 5rem;
+  }
+  .langus{
+    width: 14rem; cursor: pointer; 
+  }
+
+  .labtn{
+    margin-left: 1rem;
+    margin-top: .6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .labtn:hover{
+    color: #5e72e4;
+  }
+
+  .descri{
+    margin-left: 13.5rem; margin-top: 20px;
+  }
+  .facus{
+
+    width: 83%; cursor: pointer;
+  }
+
+  .titi{
+    width: 14rem;
+  }
+
+  .cour{
+    display: flex; justify-content: space-around; margin-left: -55px; margin-top: 25px;
+  }
+  .cours{
+    width: 15rem;
+  }
+  .cours11{
+    width: 15rem;
+  }
+
+  .coursddd{
+    width: 15rem;
+  }
+  .ccat{
+    margin-right: 9.5rem;
+  }
+  .ccat11{
+    margin-right: 9.5rem;
+  }
+  .cours3{
+    width: 100%; cursor: pointer;
+  }
+  .cousr{
+    display: flex; justify-content: space-between;
+    margin-top: 25px;
+  }
+  .cousr111{
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  
+  .cl{
+    margin-left: 1.5rem;
+  }
+
+  .plbtn{
+    margin-left: 1rem;
+    margin-top: .6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .plbtn:hover{
+    color: #5e72e4;
+  }
+
+  .plbtn11{
+    margin-left: 1rem;
+    margin-top: .6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .plbtn11:hover{
+    color: #5e72e4;
+  }
+
+  .vup{
+    cursor: pointer;
+  }
+  .vup:hover{
+    color: #5e72e4;
+  }
+
+  .inpuu{
+    width: 30%;
+    border: none;
+  }
+  .inpuu:hover{
+    color: #5e72e4;
+  }
+
+  .selectbtn{
+    width:10%;
+    height: 35px;
+    margin-top:31.5px;
+    margin-left: 2.1rem;
+  }
+
+  .addibtn{
+    margin-top: 2.6rem;
+    width: 10%;
+    margin-left:5.5rem;
+    height: 35.5px;
+  }
+
+
+/*MODEL CSS*/
+
+
+
+
+/*MEDIA QUERY*/
+
+  @media only screen and (max-width:1138px)
+{
+    .cardfirst{
+    flex-direction: column;
+     margin-left: 1px;
+    }
+    .title{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .box{
+
+        margin-top: 1px;
+        margin-left: 1px;
+    }
+    .tit{
+        margin-left: 1px;
+    }
+    .coursei{
+        margin-top: 10px; margin-left: 3.5rem;
+              }
+      .cons{
+        margin-top: 10px;
+        margin-left: -2rem;
+        width: 52%;
+      }
+      .thumb{
+        margin-left: 4.5rem;
+      }
+      .facu{
+        margin-left: 1px; margin-top: 10px; flex-direction: column;
+      }
+      .langu{
+        margin-top: 10px;
+        margin-left: 1px;
+    }
+    .langus{
+    width: 79%; cursor: pointer;
+    }
+    .descri{
+    margin-left: 1px; margin-top: 10px;
+    }
+    .facus{
+    width: 79%; 
+
+    cursor: pointer;
+    }
+    .inpuu{
+      width: 100%;
+    }
+    .cnal{
+      width: 20rem;
+      margin-top: 10px;
+    }
+    .cousr{
+        flex-direction: column;
+        margin-left: 1px;
+    }
+    .cour{
+    flex-direction: column; margin-left: 1px; margin-top: 10px;
+    }
+     .cours11{
+    width: 15rem; cursor: pointer;
+      }
+      .cours3{
+        width: 100%; cursor: pointer;
+      }
+      .clsa{
+        flex-direction: column;
+      }
+      .cousr111{
+        flex-direction: column;
+      }
+      .newhh{
+        width: 20rem;
+        margin-top: 10px;
+      }
+      .coursddd{
+        width: 15rem;
+      }
+      .titi{
+        width: 14rem;
+      }
+      .selectbtn{
+        width: 25%; 
+      }
+      .addibtn{
+        width: 25%;
+      }
+}
