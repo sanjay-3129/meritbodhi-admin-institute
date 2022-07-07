@@ -1578,7 +1578,6 @@
                 loaderTriggerAndEnder(true);
                 console.log('User', user.uid);
                 uid=user.uid;
-                // existingCourseSetter();
             var i =1;
             data.collection('subCategories').get().then((subCategories) => {
                 subCategories.forEach((cats)=>{
@@ -1642,34 +1641,7 @@
         var allCrsData = [];
         var indexing = 0;
         var exisCrs = [];
-        existingCourseSetter = ()=>{
-            loaderTriggerAndEnder(true);
-            var i =1;
-            data.collection('subCategories').get().then((subCategories) => {
-                subCategories.forEach((cats)=>{
-                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
-                     courses.forEach((course)=>{
-                         console.log('cour', course.data());
-                        if (course.data().status=="Verified") {
-                            
-                    $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
-                              <th scope="row">`+i+`</th>
-                              <td>`+course.data().courseName+`</td>
-                              <td>`+course.data().faculties.length+`</td>
-                              <td>`+course.data().types+`</td>
-                             
-                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + cats.id + `?***?` + course.id + `" onclick="nviewmore(this)">View</button></td>
-                            </tr>`);
-                            allCrsData[indexing] = course.data();
-                            i++;
-                            indexing++;
-                        }
-                    })
-                })
 
-            })
-            }).catch(e => console.log(e));    
-        }
         fuccccc = async () => {
             loaderTriggerAndEnder(true);
             var i = 1;
