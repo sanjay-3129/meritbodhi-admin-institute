@@ -759,20 +759,18 @@
 
                 <li class="nav-item">
                     <a class="nav-link " href="../manage-courses"><i class="fas fa-book"></i>Courses</a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../manage-content"
-                          ><i class="fas fa-image"></i>  Content</a
-                        >
-                      </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../manage-content"><i class="fas fa-image"></i> Content</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../manage-category"><i class="fas fa-sort-amount-down"></i>Category</a>
 
                 <li class="nav-item">
                     <a class="nav-link" href="../manage-payments"><i class="fas fa-credit-card"></i>Payments</a>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="../manage-order"><i class="fas fa-credit-card"></i>Orders</a>
-    
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../manage-order"><i class="fas fa-credit-card"></i>Orders</a>
+
                 <li class="nav-item">
                     <a class="nav-link" href="../manage-report"><i class="fas fa-flag"></i>Report Generation</a>
 
@@ -1029,46 +1027,46 @@
                         <!-- <button class="btn btn-sm btn-primary" style="background-color:red" id="blockBtnOfCourse"
                             onclick="blockCourse()">Block</button> -->
                         <!-- <button class="btn btn-sm btn-primary"  style="background-color:red" id="blockBtnOfCourse">Block</button> -->
-                        <button type="button" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal" style="background-color:red" data-target="#myModal">Block</button>
+                        <button type="button" class="btn btn-sm btn-primary" id="blockBtnOfCourse" data-toggle="modal"
+                            style="background-color:red" data-target="#myModal">Block</button>
                     </div>
                     <div class="container">
-               
+
                         <!-- Trigger the modal with a button -->
                         <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-                      
+
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
-                          <div class="modal-dialog">
-                          
-                            <!-- Modal content-->
-                            <div class="modal-content" style="    top: 200px;
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content" style="    top: 200px;
                             position: absolute;">
-                              <div class="modal-header">
-                                
-                                <h4 class="modal-title text-left">Block Course</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              </div>
-                              <div class="modal-body">
-                                <label for="blockTAmsg" style="text-align: left;
-                                width: 100%;">Reasaon:</label><br>
-                                <textarea style="width:100% ; height:6rem" id="blockTAmsg"></textarea><br>
-                                <button class="btn btn-sm btn-primary"
-                                onclick="blockCourse()"
-                                    style="background-color:red ; margin-left:80px; margin-top: 20px;"
-                                    >Block</button>
-                                    <button type="button" class="btn btn-sm btn-primary modifybtn1" data-dismiss="modal">Cancel</button>
-                              </div>
-                              
-                              <!-- <div class="modal-footer">
+                                    <div class="modal-header">
+
+                                        <h4 class="modal-title text-left">Block Course</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="blockTAmsg" style="text-align: left;
+                                width: 100%;">Reason:</label><br>
+                                        <textarea style="width:100% ; height:6rem" id="blockTAmsg"></textarea><br>
+                                        <button class="btn btn-sm btn-primary" onclick="blockCourse()"
+                                            style="background-color:red ; margin-left:80px; margin-top: 20px;">Block</button>
+                                        <button type="button" class="btn btn-sm btn-primary modifybtn1"
+                                            data-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                    <!-- <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                               </div> -->
+                                </div>
+
                             </div>
-                            
-                          </div>
                         </div>
-                        
-                      </div>
-                      
+
+                    </div>
+
 
                 </div>
                 <div class="backround" id="completetable1">
@@ -1130,56 +1128,39 @@
                         </table>
                     </div>
                 </div> -->
-                <div class="container">
-                    <!-- <h2>Dynamic Tabs</h2> -->
-                    <ul class="nav nav-tabs">
-                      <li class="nav-link active"><a data-toggle="tab" class="Request" data-target="#home">Requested List</a></li>
-                      <li class="nav-link"><a data-toggle="tab" class="Request" data-target="#menu1">Course List</a></li>
-                      
-                    </ul>
-                  
-                    <div class="tab-content">
-                      <div id="home" class="tab-pane fade in active">
-                        <div id="reqtable">
-                            
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                      <th scope="col">No.</th>
-                                      <th scope="col">Course Title</th>
-                                      <th scope="col">Faculty</th>
-                                      <th scope="col">Mode</th>
-                                      <th scope="col">Category</th>
-                                      <th scope="col">Sub-Category</th>
-                                      <th scope="col">Sections</th>
-                                      <th scope="col" class="styles">Action</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="reqCoursesList">
-                            
-                                </tbody>
-                            </table>
+                    <div class="container">
+                        <!-- <h2>Dynamic Tabs</h2> -->
+                        <ul class="nav nav-tabs">
+                            <li ><a class="nav-link Request active" data-toggle="tab" data-target="#home">Requested
+                                    List</a></li>
+                            <li ><a class="nav-link Request " data-toggle="tab" data-target="#menu1">Course
+                                    List</a></li>
+                            <li ><a class="nav-link Request" data-toggle="tab" data-target="#menu2">Rejected /
+                                    Blocked Courses</a></li>
 
-                        </div>
-                      </div>
-                      <div id="menu1" class="tab-pane fade">
-                          
-                        <div id="informationtable">
-                            
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                      <th scope="col">No.</th>
-                                      <th scope="col">Course Title</th>
-                                      <th scope="col">Faculty</th>
-                                      <th scope="col">Mode</th>
-                                      <th scope="col" class="styles">Action</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="existingCourseSetterTbody">
-                           
-                                </tbody>
-                            </table>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <div id="reqtable">
+
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Course Title</th>
+                                                <th scope="col">Faculty</th>
+                                                <th scope="col">Mode</th>
+                                                <th scope="col">Category</th>
+                                                <th scope="col">Sub-Category</th>
+                                                <th scope="col">Sections</th>
+                                                <th scope="col" class="styles">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="reqCoursesList">
+
+                                        </tbody>
+                                    </table>
 
                                 </div>
                             </div>
@@ -1190,20 +1171,41 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="nwidthn">No.</th>
-                                                <th scope="col" class="nawidthn">Name</th>
-                                                <th scope="col" class="ewidthn">Faculty Count</th>
-                                                <th scope="col" class="dtwidthn">Type</th>
-                                                <!-- <th scope="col" class="dtwidthn">Date & Time</th> -->
-                                                <th scope="col" class="awidthn">Actionss</th>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Course Title</th>
+                                                <th scope="col">Faculty Count</th>
+                                                <th scope="col">Mode</th>
+                                                <th scope="col" class="styles">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody id="existingCourseSetterTbody">
+
                                         </tbody>
                                     </table>
 
                                 </div>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
 
+                                <div id="informationtable">
+
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Course Title</th>
+                                                <th scope="col">Faculty Count</th>
+                                                <th scope="col">Mode</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Reasaon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rejectedCourseSetterTbody">
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
                             </div>
 
                         </div>
@@ -1461,19 +1463,20 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <video id="vidPrevShowerV" autoplay loop style="width: 100%;" controls></video>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video id="vidPrevShowerV" autoplay loop style="width: 100%;" controls></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Ok</button> &nbsp; &nbsp;
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal"
+                        style="background-color:red" onclick="stopVideo()">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1491,19 +1494,20 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary">Ok</button> &nbsp; &nbsp;
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="background-color:red" onclick="stopVideo()">Close</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Course Intro Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-primary">Ok</button> &nbsp; &nbsp;
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal"
+                        style="background-color:red" onclick="stopVideo()">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1512,7 +1516,7 @@
 
 
     <div id="snackbar"></div>
-<!-- block modal -->
+    <!-- block modal -->
 
     <!-- block modal -->
     <!-- temprory loading -->
@@ -1568,84 +1572,113 @@
     <script type="text/javascript">
         document.getElementById('iName').innerHTML = sessionStorage.getItem('name');
 
-        var uid='';
+        var uid = '';
         console.log('Userjs');
 
-        const initialLoad = ()=>{
+        const initialLoad = () => {
 
-        auth.onAuthStateChanged((user)=>{
-            if(user){
-                loaderTriggerAndEnder(true);
-                console.log('User', user.uid);
-                uid=user.uid;
-            var i =1;
-            data.collection('subCategories').get().then((subCategories) => {
-                subCategories.forEach((cats)=>{
-                 data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses)=>{
-                     courses.forEach((course)=>{
-                         if (course.data()?.status=="Verified") {                            
-                            $('#existingCourseSetterTbody').append(`<tr indexing = "`+indexing+`">
-                                    <th scope="row">`+i+`</th>
-                                    <td>`+course.data().courseName+`</td>
-                                    <td>`+course.data().faculties.length+`</td>
-                                    <td>`+course.data().types+`</td>
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    loaderTriggerAndEnder(true);
+                    console.log('User', user.uid);
+                    uid = user.uid;
+                    var i = 1;
+                    fuccccc();
+                    data.collection('subCategories').get().then((subCategories) => {
+                        subCategories.forEach((cats) => {
+                            data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses) => {
+                                courses.forEach((course) => {
+                                    if (course.data()?.status == "Verified") {
+                                        $('#existingCourseSetterTbody').append(`<tr indexing = "` + indexing + `">
+                                    <th scope="row">`+ i + `</th>
+                                    <td>`+ course.data().courseName + `</td>
+                                    <td>`+ course.data().faculties.length + `</td>
+                                    <td>`+ course.data().types + `</td>
                                     
-                                    <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+cats.id+`?***?`+course.id+`" onclick="nviewmore(this)">View</button></td>
+                                    <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + cats.id + `?***?` + course.id + `" onclick="nviewmore(this)">View</button></td>
                                     </tr>`);
-                            allCrsData[indexing]=course.data();
-                            i++;
-                            indexing++;
-                        }
-                    })     
-                })
-               
-            })
-            }).catch(e => console.log(e));    
-                
-            // fuccccc();
-            loaderTriggerAndEnder(true);
-            var i=1;
-            $('#reqCoursesList').empty();
-            data.collection('admin').doc(uid).get().then((adminData) => {
-                exisCrs = adminData.data()?.newCourses;
-            adminData.data()?.newCourses.forEach((doccc)=>{
-                var splitted=doccc.split('?***?');
-                data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course)=>{
-                    console.log('course data >>>', course.data());
-                    $('#reqCoursesList').append(`<tr indexing = "`+indexing+`">
-                              <th scope="row">`+i+`</th>
-                              <td>`+course.data().courseName+`</td>
-                              <td>`+course.data().faculties.length+`</td>
-                              <td>`+course.data().types+`</td>
-                              <td>`+course.data().category+`</td>
-                              <td>`+course.data().subcategory+`</td>
-                              <td>${course.data().sections.length} - sections</td>
-                              <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+indexing+`" data-id="`+doccc+`" onclick="viewmore(this)">View</button></td>
-                            </tr>`);
-                       allCrsData[indexing]=course.data();
-                    i++;
-                    indexing++;
-                });
-            })
+                                        allCrsData[indexing] = course.data();
+                                        i++;
+                                        indexing++;
+                                    }
+                                })
+                            })
 
-            setTimeout(()=>{
-                loaderTriggerAndEnder(false);
-            }, 2000);
-            }).catch(e => console.log(e));
-            }else{
-                location.replace('../admin-login/');
-            }
-        })
-    }
+                        })
+                    }).catch(e => console.log(e));
+
+                    // Get Rejected and blocked courses
+
+                    data.collection('subCategories').get().then((subCategories) => {
+                        subCategories.forEach((cats) => {
+                            data.collection('subCategories').doc(cats.data().id).collection('courses').get().then((courses) => {
+                                var j = 1;
+                                courses.forEach((course) => {
+                                    if (course.data()?.status == "Blocked" || course.data()?.status == "Rejected") {
+                                        $('#rejectedCourseSetterTbody').append(`<tr indexing = "` + indexingReject + `">
+                                    <th scope="row">`+ j + `</th>
+                                    <td>`+ course.data().courseName + `</td>
+                                    <td>`+ course.data().faculties.length + `</td>
+                                    <td>`+ course.data().types + `</td>
+                                    <td><p style="color:red;">`+ course.data().status + `</p></td>
+                                    <td>`+ course.data().rejectMessage + `</td>
+                                    
+                                    </tr>`);
+                                        allCrsData[indexingReject] = course.data();
+                                        j++;
+                                        indexingReject++;
+                                    }
+                                })
+                            })
+
+                        })
+                    }).catch(e => console.log(e));
+
+                    loaderTriggerAndEnder(true);
+                    var i = 1;
+                    // $('#reqCoursesList').empty();
+                    // data.collection('admin').doc(uid).get().then((adminData) => {
+                    //     exisCrs = adminData.data()?.newCourses;
+                    //     adminData.data()?.newCourses.forEach((doccc) => {
+                    //         var splitted = doccc.split('?***?');
+                    //         data.collection('subCategories').doc(splitted[0]).collection('courses').doc(splitted[1]).get().then((course) => {
+                    //             console.log('course data >>>', course.data());
+                    //             $('#reqCoursesList').append(`<tr indexing = "` + indexing + `">
+                    //           <th scope="row">`+ i + `</th>
+                    //           <td>`+ course.data().courseName + `</td>
+                    //           <td>`+ course.data().faculties.length + `</td>
+                    //           <td>`+ course.data().types + `</td>
+                    //           <td>`+ course.data().category + `</td>
+                    //           <td>`+ course.data().subcategory + `</td>
+                    //           <td>${course.data().sections.length} - sections</td>
+                    //           <td><button class="btn btn-sm btn-primary modifybtn" indexing="`+ indexing + `" data-id="` + doccc + `" onclick="viewmore(this)">View</button></td>
+                    //         </tr>`);
+                    //             allCrsData[indexing] = course.data();
+                    //             i++;
+                    //             indexing++;
+                    //         });
+                    //     })
+
+                    //     setTimeout(() => {
+                    //         loaderTriggerAndEnder(false);
+                    //     }, 2000);
+                    // }).catch(e => console.log(e));
+                } else {
+                    location.replace('../admin-login/');
+                }
+            })
+        }
 
         var allCrsData = [];
         var indexing = 0;
+        var indexingReject = 0;
         var exisCrs = [];
+        
 
-        fuccccc = async () => {
+       const fuccccc = async () => {
             loaderTriggerAndEnder(true);
             var i = 1;
-            $('#reqCoursesList').html('');
+            $('#reqCoursesList').empty();
             const adminData = await data.collection('admin').doc(uid).get();
             exisCrs = adminData.data().newCourses;
             adminData.data().newCourses.forEach((doccc) => {
@@ -1684,7 +1717,7 @@
             video.currentTime = 0;
         }
 
-        viewmore = (a) =>{
+        viewmore = (a) => {
             var index = a.getAttribute('indexing');
             document.getElementById('rejectBtnOfCourse').setAttribute('data-id', a.getAttribute('data-id'));
             document.getElementById('acceptBtnOfCourse').setAttribute('data-id', a.getAttribute('data-id'));
@@ -1823,7 +1856,7 @@
             data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
                 rejectMessage: msg,
                 status: 'Rejected'
-            }).then(()=>{
+            }).then(() => {
                 exisCrs.forEach((course) => {
                     if (id != course) {
                         newCrs.push(course);
@@ -1863,7 +1896,7 @@
             data.collection('subCategories').doc(id.split('?***?')[0]).collection('courses').doc(id.split('?***?')[1]).update({
                 rejectMessage: msg,
                 status: 'Blocked'
-            }).then(()=>{
+            }).then(() => {
                 location.replace('');
             })
 
