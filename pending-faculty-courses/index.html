@@ -259,30 +259,32 @@
                                 <a class="nav-link " href="../faculty-profile"><i class="fas fa-user"></i>Profile</a>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="../faculty-courses"><i
+                                <a class="nav-link " href="../faculty-courses"><i
                                         class="fas fa-book"></i>Courses</a>
-
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../pending-faculty-courses"><i
+                                        class="fas fa-book"></i>Pending Courses</a>
                             <li class="nav-item ">
                                 <a class="nav-link" href="../faculty-requests"><i
                                         class="fas fa-envelope"></i>Request</a>
 
-                            <!-- <li class="nav-item">
+                                <!-- <li class="nav-item">
                                 <a class="nav-link" href="../faculty-notification"><i
                                         class="fas fa-fw fa-bell"></i>Notifications</a> -->
 
-                            <li class="nav-item ">
+                            <!-- <li class="nav-item ">
                                 <a class="nav-link" href="../faculty-archive"><i class="fas fa-archive"></i>Archieve</a>
 
                             <li class="nav-item ">
-                                <a class="nav-link" href="../faculty-reviews"><i class="fas fa-star"></i>Reviews</a>
+                                <a class="nav-link" href="../faculty-reviews"><i class="fas fa-star"></i>Reviews</a> -->
 
-                            <!-- <li class="nav-item">
+                                <!-- <li class="nav-item">
                                 <a class="nav-link" href="../faculty-payments"><i
                                         class="fas fa-credit-card"></i>Payments</a> -->
 
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="../faculty-referal"><i class="fas fa-hands-helping"></i>My
-                                    Referal</a>
+                                    Referal</a> -->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="../faculty-settings"><i class="fas fa-cog"></i>Settings</a>
@@ -779,7 +781,7 @@
                         document.getElementById('loaderr-3').style.display = "none";
                         if (ddd.status == 'Blocked' || ddd.status == 'Rejected') {
                             courseCards = '<div class="card nallaClass" card-owner="' + ddd.instituteName + '" card-type="' + ddd.types + '" card-id="' + ddd.subcategoryId + '?***?' +
-                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div><div  style = "overflow: auto; background-color : #fccccc; border: 1px solid red; border-radius:2px; color: #000; margin : auto; padding :5px;"><p  style = " margin : auto;"class="card-text">' + ddd?.rejectMessage+'</p></div></div></div>';
+                                ddd.id + '" onclick="redirecterToCourseEdit(this)"><img src="' + 'https://secure--storage.s3.ap-south-1.amazonaws.com/' + ddd.thumbnail + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + ddd.courseName + '</h5><p class="card-text">' + ddd.description.substring(0, 50) + '...</p><div class="d-flex" style="justify-content: space-between;"><strong style="color:red">' + ddd.status + '</strong><strong style="color:#5e72e4;">' + String(ddd.progess) + '%</strong></div><div  style = "overflow: auto; background-color : #fccccc; border: 1px solid red; border-radius:2px; color: #000; margin : auto; padding :5px;"><p  style = " margin : auto;"class="card-text">' + ddd?.rejectMessage + '</p></div></div></div>';
 
                             $('#coursecardall').append(courseCards);
                         }
