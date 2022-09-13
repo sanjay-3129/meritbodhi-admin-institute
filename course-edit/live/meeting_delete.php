@@ -1,6 +1,6 @@
 <?php
 
-// require '/var/www/html/admin/php/Connection.php';
+// require '/var/www/html/meritbodhi-admin-institute/php/Connection.php';
 
 $bucketName = 'secure--storage';
 
@@ -11,7 +11,7 @@ ini_set('display_startup_errors',1);
 error_reporting(-1);
 
 // require '../../vendor/autoload.php';
-require '/var/www/html/admin/vendor/autoload.php';
+require '/var/www/html/meritbodhi-admin-institute/vendor/autoload.php';
 
 use Aws\DynamoDb\DynamoDbClient;
 use Aws\S3\S3Client;  

@@ -1,5 +1,5 @@
 <?php
-// require '/var/www/html/admin/php/Connection.php';
+// require '/var/www/html/meritbodhi-admin-institute/php/Connection.php';
 // require '../php/Connection.php';
 // use Aws\S3\ObjectUploader;
 
