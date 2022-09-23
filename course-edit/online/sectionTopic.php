@@ -72,10 +72,10 @@ if (strcmp($_FILES['topicVidNew']['tmp_name'], '')!=0) {
 
 	// $cmd="/usr/bin/ffmpeg -ss $cutDuration -i $filee -t 00:15:00 -c copy /var/www/html/$uploadName";
     // $compo="/usr/bin/ffmpeg -i /var/www/html/$uploadName -b:v $bitrate -bufsize $bitrate /var/www/html/$uploadName1";
-    $compo="/usr/bin/ffmpeg -i $filee -b:v $bitrate -bufsize $bitrate /var/www/html/$uploadName1";
+    // $compo="/usr/bin/ffmpeg -i $filee -b:v $bitrate -bufsize $bitrate /var/www/html/$uploadName1";
 
     // system($cmd);
-    system($compo);
+    // system($compo);
 
     function getDuration($file){
 	   $dur = shell_exec("/usr/bin/ffmpeg -i ".$file." 2>&1");
@@ -94,7 +94,8 @@ if (strcmp($_FILES['topicVidNew']['tmp_name'], '')!=0) {
 
 	$length=getDuration($filee);
 
-	$source = fopen("/var/www/html/$uploadName1", 'rb');
+	// $source = fopen("/var/www/html/$uploadName1", 'rb');
+	$source = fopen($filee, 'rb');
 
 	$uploader = new ObjectUploader(
 	    $s3client,
@@ -107,10 +108,10 @@ if (strcmp($_FILES['topicVidNew']['tmp_name'], '')!=0) {
 	$result = $uploader->upload();
 
 	// $deleteCMD="unlink /var/www/html/$uploadName";
-	$deleteCMD1="unlink /var/www/html/$uploadName1";
+	// $deleteCMD1="unlink /var/www/html/$uploadName1";
 
-	system($deleteCMD);
-	system($deleteCMD1);
+	// system($deleteCMD);
+	// system($deleteCMD1);
 
 	echo $length;
 	// echo $result;
