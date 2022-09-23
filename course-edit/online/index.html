@@ -2510,9 +2510,8 @@
                         <div class="form-group" id="changeSecNameCont">
                             <input type="checkbox" name="changeSecName" id="changeSecName" onclick="showornotSec(this)">
                             <label for="changeSecName">Change Section Name</label>
-                        </div>
+                        </div>  
                         <div class="form-group" id="showWhenSec" style="display: none;">
-
                             <label for="section-name" class="col-form-label">Section:</label>
                             <input type="text" name="newsec" class="form-control" id="section-name">
                         </div>
@@ -2525,7 +2524,6 @@
                             <textarea class="form-control" name="newtopsdesc" id="message-text"></textarea>
                         </div>
                         <div>
-
                             <input type="file" id="videouploadbuttonid" name="topicVidNew" style="display:none"></input>
                             <input type="text" id="createSorTorUpdate" name="whatToDo" style="display:none"></input>
                         </div>
@@ -3397,20 +3395,30 @@
 
                 var uploadName = ids[0].substring(0, 5) + '-' + ids[1].substring(0, 5) + '-' + newSectionName.split(' ')[1][0] + '-' + newTopicName.split('.')[0] + '.mp4';
 
+                // console.log('fdasd-: ', uploadName, cutDuration, document.getElementById('section-name').value);
+                
                 let fd = new FormData(document.querySelector('#sectionTopic'));
+                // let fd = new FormData();
+                // fd.append('section-name', document.getElementById('section-name').value);
                 fd.append('uploadName', uploadName);
                 fd.append('duration', cutDuration);
-                console.log('formData', fd);
+                // console.log('fd: ', fd, fd.entries());
+                for (var [key, value] of fd.entries()) { 
+                    console.log('k: ',key, value);
+                }
+                console.log('formData--: ', fd);
                 $.ajax({
                     url: 'sectionTopic.php',
                     type: 'post',
                     data: fd,
                     processData: false,
                     contentType: false,
-                    error: function () {
+                    error: function (e) {
+                        console.log('err: ',e);
                         alert("Upload Failed, Try Again !!!");
                     },
                     success: function (vall) {
+                        console.log('ajax success vall: ', vall);
                         data.collection('sections').add({
                             id: '',
                             noOfTopics: 1,
