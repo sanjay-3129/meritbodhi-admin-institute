@@ -70,10 +70,10 @@ if (strcmp($_FILES['topicVidNew']['tmp_name'], '')!=0) {
 	$bitrate="700k";
 	$filee=$_FILES['topicVidNew']['tmp_name'];
 
-	$cmd="/usr/bin/ffmpeg -ss $cutDuration -i $filee -t 00:15:00 -c copy /var/www/html/$uploadName";
+	// $cmd="/usr/bin/ffmpeg -ss $cutDuration -i $filee -t 00:15:00 -c copy /var/www/html/$uploadName";
     $compo="/usr/bin/ffmpeg -i /var/www/html/$uploadName -b:v $bitrate -bufsize $bitrate /var/www/html/$uploadName1";
 
-    system($cmd);
+    // system($cmd);
     system($compo);
 
     function getDuration($file){
