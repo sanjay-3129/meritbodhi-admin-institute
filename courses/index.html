@@ -996,6 +996,7 @@ Course Mode
             })
             var nationalMainC = [];
             localforage.getItem('nationalMainC').then((d) => {
+                console.log('mainCategory: ', d);
                 nationalMainC = d;
             })
             var interNationalMainC = [];
@@ -1153,23 +1154,23 @@ Course Mode
                 loaderTriggerAndEnder(false);
             }
 
-            // form.crsNationality.addEventListener('change', () => {
-            //     var type = form.crsNationality.value;
-            //     var mcats = '<option value="default" selected>---select---</option>';
-            //     form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
+            form.crsNationality.addEventListener('change', () => {
+                var type = form.crsNationality.value;
+                var mcats = '<option value="default" selected>---select---</option>';
+                form.subcat.innerHTML = '<option value="default" selected>---select---</option>';
 
-            //     if (type == 'National') {
-            //         for (var i = 0; i < nationalMainC.length; i++) {
-            //             mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
-            //         }
-            //         form.maincat.innerHTML = mcats;
-            //     } else {
-            //         for (var i = 0; i < interNationalMainC.length; i++) {
-            //             mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
-            //         }
-            //         form.maincat.innerHTML = mcats;
-            //     }
-            // })
+                if (type == 'National') {
+                    for (var i = 0; i < nationalMainC.length; i++) {
+                        mcats += '<option value="' + nationalMainC[i] + '">' + nationalMainC[i].toUpperCase() + '</option>';
+                    }
+                    form.maincat.innerHTML = mcats;
+                } else {
+                    for (var i = 0; i < interNationalMainC.length; i++) {
+                        mcats += '<option value="' + interNationalMainC[i] + '">' + interNationalMainC[i].toUpperCase() + '</option>';
+                    }
+                    form.maincat.innerHTML = mcats;
+                }
+            })
 
             form.maincat.addEventListener('change', (a) => {
                 var mainCategory = form.maincat.value;

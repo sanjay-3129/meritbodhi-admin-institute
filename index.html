@@ -235,6 +235,7 @@
          if (a) {
             console.log(a.user.uid);
          document.getElementById('loaderForDashb').style.display="block";
+         console.log('fullAuth: ', a.user.displayName+'-*de*-'+a.user.photoURL);
          localforage.setItem("fullAuth", a.user.displayName+'-*de*-'+a.user.photoURL);     
          data.collection('institute').doc(a.user.uid).get().then((snapshot)=>{
             if(snapshot.data().isVerified==true){
